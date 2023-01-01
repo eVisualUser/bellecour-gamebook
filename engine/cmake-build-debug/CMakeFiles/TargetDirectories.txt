@@ -1,0 +1,3 @@
+C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/cmake-build-debug/CMakeFiles/engine.dir
+C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,2 @@
+"C:/Program Files/LLVM/bin/llvm-ar.exe" qc engine.lib CMakeFiles/engine.dir/source/error.cpp.obj CMakeFiles/engine.dir/source/file.cpp.obj CMakeFiles/engine.dir/source/gamebook.cpp.obj
+"C:/Program Files/LLVM/bin/llvm-ranlib.exe" engine.lib
