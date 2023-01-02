@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "error.hpp"
+#include "Error.hpp"
 
 using namespace std;
 

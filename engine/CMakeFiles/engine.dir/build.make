@@ -69,66 +69,83 @@ include CMakeFiles/engine.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/engine.dir/flags.make
 
-CMakeFiles/engine.dir/source/error.cpp.obj: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/source/error.cpp.obj: CMakeFiles/engine.dir/includes_CXX.rsp
-CMakeFiles/engine.dir/source/error.cpp.obj: source/error.cpp
-CMakeFiles/engine.dir/source/error.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/engine.dir/source/error.cpp.obj"
-	"C:/Program Files/LLVM/bin/clang++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/error.cpp.obj -MF CMakeFiles/engine.dir/source/error.cpp.obj.d -o CMakeFiles/engine.dir/source/error.cpp.obj -c C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/source/error.cpp
+CMakeFiles/engine.dir/source/Error.cpp.obj: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/source/Error.cpp.obj: CMakeFiles/engine.dir/includes_CXX.rsp
+CMakeFiles/engine.dir/source/Error.cpp.obj: source/Error.cpp
+CMakeFiles/engine.dir/source/Error.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/engine.dir/source/Error.cpp.obj"
+	"C:/Program Files/LLVM/bin/clang++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/Error.cpp.obj -MF CMakeFiles/engine.dir/source/Error.cpp.obj.d -o CMakeFiles/engine.dir/source/Error.cpp.obj -c C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/source/Error.cpp
 
-CMakeFiles/engine.dir/source/error.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/source/error.cpp.i"
+CMakeFiles/engine.dir/source/Error.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/source/Error.cpp.i"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CXX_CREATE_PREPROCESSED_SOURCE
 
-CMakeFiles/engine.dir/source/error.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/source/error.cpp.s"
+CMakeFiles/engine.dir/source/Error.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/source/Error.cpp.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CXX_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/engine.dir/source/file.cpp.obj: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/source/file.cpp.obj: CMakeFiles/engine.dir/includes_CXX.rsp
-CMakeFiles/engine.dir/source/file.cpp.obj: source/file.cpp
-CMakeFiles/engine.dir/source/file.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/engine.dir/source/file.cpp.obj"
-	"C:/Program Files/LLVM/bin/clang++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/file.cpp.obj -MF CMakeFiles/engine.dir/source/file.cpp.obj.d -o CMakeFiles/engine.dir/source/file.cpp.obj -c C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/source/file.cpp
+CMakeFiles/engine.dir/source/GameBook.cpp.obj: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/source/GameBook.cpp.obj: CMakeFiles/engine.dir/includes_CXX.rsp
+CMakeFiles/engine.dir/source/GameBook.cpp.obj: source/GameBook.cpp
+CMakeFiles/engine.dir/source/GameBook.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/engine.dir/source/GameBook.cpp.obj"
+	"C:/Program Files/LLVM/bin/clang++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/GameBook.cpp.obj -MF CMakeFiles/engine.dir/source/GameBook.cpp.obj.d -o CMakeFiles/engine.dir/source/GameBook.cpp.obj -c C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/source/GameBook.cpp
 
-CMakeFiles/engine.dir/source/file.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/source/file.cpp.i"
+CMakeFiles/engine.dir/source/GameBook.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/source/GameBook.cpp.i"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CXX_CREATE_PREPROCESSED_SOURCE
 
-CMakeFiles/engine.dir/source/file.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/source/file.cpp.s"
+CMakeFiles/engine.dir/source/GameBook.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/source/GameBook.cpp.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CXX_CREATE_ASSEMBLY_SOURCE
 
-CMakeFiles/engine.dir/source/gamebook.cpp.obj: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/source/gamebook.cpp.obj: CMakeFiles/engine.dir/includes_CXX.rsp
-CMakeFiles/engine.dir/source/gamebook.cpp.obj: source/gamebook.cpp
-CMakeFiles/engine.dir/source/gamebook.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/engine.dir/source/gamebook.cpp.obj"
-	"C:/Program Files/LLVM/bin/clang++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/gamebook.cpp.obj -MF CMakeFiles/engine.dir/source/gamebook.cpp.obj.d -o CMakeFiles/engine.dir/source/gamebook.cpp.obj -c C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/source/gamebook.cpp
+CMakeFiles/engine.dir/source/Page.cpp.obj: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/source/Page.cpp.obj: CMakeFiles/engine.dir/includes_CXX.rsp
+CMakeFiles/engine.dir/source/Page.cpp.obj: source/Page.cpp
+CMakeFiles/engine.dir/source/Page.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/engine.dir/source/Page.cpp.obj"
+	"C:/Program Files/LLVM/bin/clang++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/Page.cpp.obj -MF CMakeFiles/engine.dir/source/Page.cpp.obj.d -o CMakeFiles/engine.dir/source/Page.cpp.obj -c C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/source/Page.cpp
 
-CMakeFiles/engine.dir/source/gamebook.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/source/gamebook.cpp.i"
+CMakeFiles/engine.dir/source/Page.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/source/Page.cpp.i"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CXX_CREATE_PREPROCESSED_SOURCE
 
-CMakeFiles/engine.dir/source/gamebook.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/source/gamebook.cpp.s"
+CMakeFiles/engine.dir/source/Page.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/source/Page.cpp.s"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CXX_CREATE_ASSEMBLY_SOURCE
+
+CMakeFiles/engine.dir/source/VariableManager.cpp.obj: CMakeFiles/engine.dir/flags.make
+CMakeFiles/engine.dir/source/VariableManager.cpp.obj: CMakeFiles/engine.dir/includes_CXX.rsp
+CMakeFiles/engine.dir/source/VariableManager.cpp.obj: source/VariableManager.cpp
+CMakeFiles/engine.dir/source/VariableManager.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/engine.dir/source/VariableManager.cpp.obj"
+	"C:/Program Files/LLVM/bin/clang++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/engine.dir/source/VariableManager.cpp.obj -MF CMakeFiles/engine.dir/source/VariableManager.cpp.obj.d -o CMakeFiles/engine.dir/source/VariableManager.cpp.obj -c C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/source/VariableManager.cpp
+
+CMakeFiles/engine.dir/source/VariableManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/source/VariableManager.cpp.i"
+	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CXX_CREATE_PREPROCESSED_SOURCE
+
+CMakeFiles/engine.dir/source/VariableManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/source/VariableManager.cpp.s"
 	$(CMAKE_COMMAND) -E cmake_unimplemented_variable CMAKE_CXX_CREATE_ASSEMBLY_SOURCE
 
 # Object files for target engine
 engine_OBJECTS = \
-"CMakeFiles/engine.dir/source/error.cpp.obj" \
-"CMakeFiles/engine.dir/source/file.cpp.obj" \
-"CMakeFiles/engine.dir/source/gamebook.cpp.obj"
+"CMakeFiles/engine.dir/source/Error.cpp.obj" \
+"CMakeFiles/engine.dir/source/GameBook.cpp.obj" \
+"CMakeFiles/engine.dir/source/Page.cpp.obj" \
+"CMakeFiles/engine.dir/source/VariableManager.cpp.obj"
 
 # External object files for target engine
 engine_EXTERNAL_OBJECTS =
 
-engine.lib: CMakeFiles/engine.dir/source/error.cpp.obj
-engine.lib: CMakeFiles/engine.dir/source/file.cpp.obj
-engine.lib: CMakeFiles/engine.dir/source/gamebook.cpp.obj
+engine.lib: CMakeFiles/engine.dir/source/Error.cpp.obj
+engine.lib: CMakeFiles/engine.dir/source/GameBook.cpp.obj
+engine.lib: CMakeFiles/engine.dir/source/Page.cpp.obj
+engine.lib: CMakeFiles/engine.dir/source/VariableManager.cpp.obj
 engine.lib: CMakeFiles/engine.dir/build.make
 engine.lib: CMakeFiles/engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library engine.lib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library engine.lib"
 	$(CMAKE_COMMAND) -P CMakeFiles/engine.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/engine.dir/link.txt --verbose=$(VERBOSE)
 

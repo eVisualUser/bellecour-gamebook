@@ -8,9 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/source/error.cpp" "CMakeFiles/engine.dir/source/error.cpp.obj" "gcc" "CMakeFiles/engine.dir/source/error.cpp.obj.d"
-  "C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/source/file.cpp" "CMakeFiles/engine.dir/source/file.cpp.obj" "gcc" "CMakeFiles/engine.dir/source/file.cpp.obj.d"
-  "C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/source/gamebook.cpp" "CMakeFiles/engine.dir/source/gamebook.cpp.obj" "gcc" "CMakeFiles/engine.dir/source/gamebook.cpp.obj.d"
+  "C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/source/Page.cpp" "CMakeFiles/engine.dir/source/Page.cpp.obj" "gcc" "CMakeFiles/engine.dir/source/Page.cpp.obj.d"
+  "C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/source/VariableManager.cpp" "CMakeFiles/engine.dir/source/VariableManager.cpp.obj" "gcc" "CMakeFiles/engine.dir/source/VariableManager.cpp.obj.d"
+  "C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/source/Error.cpp" "CMakeFiles/engine.dir/source/error.cpp.obj" "gcc" "CMakeFiles/engine.dir/source/error.cpp.obj.d"
+  "C:/Users/sylva/Desktop/Code/bellecour-gamebook/engine/source/GameBook.cpp" "CMakeFiles/engine.dir/source/gamebook.cpp.obj" "gcc" "CMakeFiles/engine.dir/source/gamebook.cpp.obj.d"
   )
 
 # Targets to which this target links.

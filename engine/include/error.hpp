@@ -12,12 +12,12 @@ return error;
 class Error {
 public:
 	void SetTitle(string newTitle);
-	void SetDescription(string newDescription);
+	void SetMessage(string newDescription);
 	void Show();
 	void Active();
 	void Desactivate();
 private:
 	string title = "Error title";
-	string description = "Error description";
+	string message = "Error description";
 	bool active = false;
 };

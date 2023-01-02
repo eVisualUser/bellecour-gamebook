@@ -4,7 +4,7 @@ project(engine)
 
 include("deps.cmake")
 
-set(CMAKE_CPP_VERSION 23)
+set(CMAKE_CXX_STANDARD 23)
 
 include_directories("include")
 

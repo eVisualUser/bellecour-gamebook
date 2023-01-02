@@ -174,77 +174,101 @@ engine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/build
 .PHONY : engine/fast
 
-source/error.obj: source/error.cpp.obj
-.PHONY : source/error.obj
+source/Error.obj: source/Error.cpp.obj
+.PHONY : source/Error.obj
 
 # target to build an object file
-source/error.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/error.cpp.obj
-.PHONY : source/error.cpp.obj
+source/Error.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Error.cpp.obj
+.PHONY : source/Error.cpp.obj
 
-source/error.i: source/error.cpp.i
-.PHONY : source/error.i
+source/Error.i: source/Error.cpp.i
+.PHONY : source/Error.i
 
 # target to preprocess a source file
-source/error.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/error.cpp.i
-.PHONY : source/error.cpp.i
+source/Error.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Error.cpp.i
+.PHONY : source/Error.cpp.i
 
-source/error.s: source/error.cpp.s
-.PHONY : source/error.s
+source/Error.s: source/Error.cpp.s
+.PHONY : source/Error.s
 
 # target to generate assembly for a file
-source/error.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/error.cpp.s
-.PHONY : source/error.cpp.s
+source/Error.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Error.cpp.s
+.PHONY : source/Error.cpp.s
 
-source/file.obj: source/file.cpp.obj
-.PHONY : source/file.obj
+source/GameBook.obj: source/GameBook.cpp.obj
+.PHONY : source/GameBook.obj
 
 # target to build an object file
-source/file.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/file.cpp.obj
-.PHONY : source/file.cpp.obj
+source/GameBook.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/GameBook.cpp.obj
+.PHONY : source/GameBook.cpp.obj
 
-source/file.i: source/file.cpp.i
-.PHONY : source/file.i
+source/GameBook.i: source/GameBook.cpp.i
+.PHONY : source/GameBook.i
 
 # target to preprocess a source file
-source/file.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/file.cpp.i
-.PHONY : source/file.cpp.i
+source/GameBook.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/GameBook.cpp.i
+.PHONY : source/GameBook.cpp.i
 
-source/file.s: source/file.cpp.s
-.PHONY : source/file.s
+source/GameBook.s: source/GameBook.cpp.s
+.PHONY : source/GameBook.s
 
 # target to generate assembly for a file
-source/file.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/file.cpp.s
-.PHONY : source/file.cpp.s
+source/GameBook.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/GameBook.cpp.s
+.PHONY : source/GameBook.cpp.s
 
-source/gamebook.obj: source/gamebook.cpp.obj
-.PHONY : source/gamebook.obj
+source/Page.obj: source/Page.cpp.obj
+.PHONY : source/Page.obj
 
 # target to build an object file
-source/gamebook.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/gamebook.cpp.obj
-.PHONY : source/gamebook.cpp.obj
+source/Page.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Page.cpp.obj
+.PHONY : source/Page.cpp.obj
 
-source/gamebook.i: source/gamebook.cpp.i
-.PHONY : source/gamebook.i
+source/Page.i: source/Page.cpp.i
+.PHONY : source/Page.i
 
 # target to preprocess a source file
-source/gamebook.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/gamebook.cpp.i
-.PHONY : source/gamebook.cpp.i
+source/Page.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Page.cpp.i
+.PHONY : source/Page.cpp.i
 
-source/gamebook.s: source/gamebook.cpp.s
-.PHONY : source/gamebook.s
+source/Page.s: source/Page.cpp.s
+.PHONY : source/Page.s
 
 # target to generate assembly for a file
-source/gamebook.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/gamebook.cpp.s
-.PHONY : source/gamebook.cpp.s
+source/Page.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/Page.cpp.s
+.PHONY : source/Page.cpp.s
+
+source/VariableManager.obj: source/VariableManager.cpp.obj
+.PHONY : source/VariableManager.obj
+
+# target to build an object file
+source/VariableManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/VariableManager.cpp.obj
+.PHONY : source/VariableManager.cpp.obj
+
+source/VariableManager.i: source/VariableManager.cpp.i
+.PHONY : source/VariableManager.i
+
+# target to preprocess a source file
+source/VariableManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/VariableManager.cpp.i
+.PHONY : source/VariableManager.cpp.i
+
+source/VariableManager.s: source/VariableManager.cpp.s
+.PHONY : source/VariableManager.s
+
+# target to generate assembly for a file
+source/VariableManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/source/VariableManager.cpp.s
+.PHONY : source/VariableManager.cpp.s
 
 # Help Target
 help:
@@ -259,15 +283,18 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... engine"
-	@echo "... source/error.obj"
-	@echo "... source/error.i"
-	@echo "... source/error.s"
-	@echo "... source/file.obj"
-	@echo "... source/file.i"
-	@echo "... source/file.s"
-	@echo "... source/gamebook.obj"
-	@echo "... source/gamebook.i"
-	@echo "... source/gamebook.s"
+	@echo "... source/Error.obj"
+	@echo "... source/Error.i"
+	@echo "... source/Error.s"
+	@echo "... source/GameBook.obj"
+	@echo "... source/GameBook.i"
+	@echo "... source/GameBook.s"
+	@echo "... source/Page.obj"
+	@echo "... source/Page.i"
+	@echo "... source/Page.s"
+	@echo "... source/VariableManager.obj"
+	@echo "... source/VariableManager.i"
+	@echo "... source/VariableManager.s"
 .PHONY : help
 
 

@@ -1,4 +1,4 @@
-#include "../include/gamebook.hpp"
+#include "../include/GameBook.hpp"
 
 Error GameBook::Load(string newFolderPath) {
 
