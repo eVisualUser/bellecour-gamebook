@@ -2,6 +2,10 @@
 
 Game book for bellecour school
 
+## Warning
+The program have no certificate so all anti-virus will detect the executable as a virus.
+And the os may block the file reading (run it as admin to avoid it).
+
 ## Files
 
 ### Page Render Format
@@ -9,12 +13,10 @@ Game book for bellecour school
 ```toml
 [config]
 title = "Page Title"
-author = "Jean-Michel"
 type = "classic"
 
 [content]
-line1 = "Some Text"
-line2 = "More Text"
+line1 = "demo_local" # Use localization (see below)
 
 [choices]
 choice_a = ["choice_name", "default_cond", "default_act"]
@@ -25,7 +27,8 @@ choice_a = ["choice_name", "default_cond", "default_act"]
 
 ```toml
 
-life = "100" # Default value
+[variables]
+life = 100 # Default value
 
 ```
 
@@ -33,8 +36,9 @@ life = "100" # Default value
 
 ```toml
 
+[conditions]
 # True if the variable life is greater than 0
-default_cond = "life > 0"
+default_cond = ["life > 0", "life < 100"]
 
 ```
 
@@ -42,7 +46,23 @@ default_cond = "life > 0"
 
 ```toml
 
+[actions]
 # True if the variable life is greater than 0
-default_act = "life + 1 $other.toml"
+default_act = ["life + 1", "$other.toml"]
 
+```
+
+### Localization
+
+```toml
+
+[english]
+demo_local = "Some Text"
+
+```
+
+### CMake Compilation Command
+
+```bat
+cmake -S . -G "Unix Makefiles" -B cmake
 ```
