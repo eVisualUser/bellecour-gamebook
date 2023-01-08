@@ -3,6 +3,7 @@
 Game book for bellecour school
 
 ## Warning
+
 The program have no certificate so all anti-virus will detect the executable as a virus.
 And the os may block the file reading (run it as admin to avoid it).
 
@@ -61,21 +62,35 @@ demo_local = "Some Text"
 
 ```
 
-### Compilation
-The project use CMake, CLang and Ninja to compile.
+## Compilation
+
+The project use CMake, EmScriptem, CLang and Ninja to compile.
 All of them are installed from chocolatey.
 
-#### Install Tools
+### Install Tools
+
 ```bat
 choco install llvm
 choco install cmake
 choco install ninja
+choco install emscriptem
 ```
 
-#### Compilation Commands
+### Compilation Commands
 
 ```bat
 cmake -S . -G "Ninja" -B cmake
 cd cmake
 ninja
+```
+
+## Editor
+
+### Compilation
+
+You need to have Rust installed.
+And execute the following command.
+
+```bat
+cargo run
 ```

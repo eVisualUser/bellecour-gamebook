@@ -1,19 +1,26 @@
-#include "filesystem/reader.h"
-#include "filesystem/ini.h"
-#include "filesystem/toml.h"
-
-#include "logicstr/nodechain.h"
-#include "logicstr/executor.h"
-#include "logicstr/variablemanager.h"
-
+#include <cstdio>
 #include <iostream>
 
-using namespace std;
-using namespace client_filesystem;
+#include "filesystem/ini.h"
 
+#include <string.h>
+#include <stdio.h>
+
+#ifdef __EMSCRIPTEN__
+	#include "console/input.h"
+#endif
+
+using namespace std;
 int main() {
 
 	cout << "Hello, World!" << endl;
+
+	auto ini = client_filesystem::Ini();
+	cout << ini.ParseVar("hello = 34").GetValue() << endl;
+
+	#ifdef __EMSCRIPTEN__
+		cout << get_input();
+	#endif
 
 	return 0;
 }

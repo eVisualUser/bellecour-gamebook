@@ -37,6 +37,7 @@ impl eframe::App for App {
             if !std::path::Path::new(&self.current_project).exists() {
                 if ui.button("Generate Project").clicked() {
                     self.project_dir = Some(projectdir::ProjectDir::default());
+
                     match &mut self.project_dir {
                         Some(dir) => {
                             dir.path = self.current_project.clone();
@@ -44,6 +45,13 @@ impl eframe::App for App {
                         }
                         None => (),
                     }
+                }
+            } else if ui.button("Load Project").clicked() {
+                match &mut self.project_dir {
+                    Some(dir) => {
+                        dir.path = self.current_project.clone();
+                    }
+                    None => (),
                 }
             }
         });

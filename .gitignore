@@ -47,7 +47,8 @@ Makefile
 
 # Rust
 Cargo.lock
-/target/
+*/target/
+*/rm-1
 
 # Sublime Text
 *.sublime-project
