@@ -11,13 +11,17 @@ void NodeChain::ParseString(string input) {
 			Node node;
 			node.content = buffer;
 			node.type = this->GetOperator(buffer);
+			this->chain.push_back(node);
+			buffer = "";
 		}
-
 	}
+	Node node;
+	node.content = buffer;
+	node.type = this->GetOperator(buffer);
+	this->chain.push_back(node);
 }
 
-
-enum Operator NodeChain::GetOperator(string input) {
+Operator NodeChain::GetOperator(string input) {
 
 	if (input == OPERATOR_SIGN_ADD)
 		return Operator::Add;
@@ -33,7 +37,7 @@ enum Operator NodeChain::GetOperator(string input) {
 		return Operator::Mod;
 	else if (input == OPERATOR_SIGN_GREATER)
 		return Operator::Greater;
-	else if (input == OPERATOR_SIGN_FILE)
+	else if (input[0] == OPERATOR_SIGN_FILE)
 		return Operator::File;
 	else if (input == OPERATOR_SIGN_LOWER)
 		return Operator::Lower;

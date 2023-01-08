@@ -1,4 +1,12 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")] // hide console window on Windows in release
+#![allow(unused)]
+
+mod array;
+mod choice;
+mod page;
+mod project;
+mod projectdir;
+mod variable;
 
 use eframe::egui;
 
@@ -15,22 +23,29 @@ fn main() {
     );
 }
 
+#[derive(Default)]
 struct App {
-    project_folder: String,
-}
-
-impl Default for App {
-    fn default() -> Self {
-        Self {
-            project_folder: "./".to_owned(),
-        }
-    }
+    project_dir: Option<projectdir::ProjectDir>,
+    current_project: String,
 }
 
 impl eframe::App for App {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
-        egui::Window::new("Project").show(ctx, |ui| {
-            ui.text_edit_singleline(&mut self.project_folder);
+        egui::Window::new("Project Management").show(ctx, |ui| {
+            ui.text_edit_singleline(&mut self.current_project);
+
+            if !std::path::Path::new(&self.current_project).exists() {
+                if ui.button("Generate Project").clicked() {
+                    self.project_dir = Some(projectdir::ProjectDir::default());
+                    match &mut self.project_dir {
+                        Some(dir) => {
+                            dir.path = self.current_project.clone();
+                            dir.generate();
+                        }
+                        None => (),
+                    }
+                }
+            }
         });
     }
 }

@@ -8,4 +8,5 @@ public:
 	/// Execute the command and update the variables.
 	/// In the case of a goto file it will return the file.
 	string ExecuteActionComand(VariableManager* variableManager, NodeChain* nodeChain);
+	bool ExecuteConditionComand(VariableManager* variableManager, NodeChain* nodeChain);
 };

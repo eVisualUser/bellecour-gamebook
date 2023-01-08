@@ -1,0 +1,14 @@
+# ninja log v5
+44	2250	6948328827700000	CMakeFiles/client.dir/source/filesystem/var.cpp.o	db6427868801dbb9
+28	2704	6948328827400000	CMakeFiles/client.dir/source/filesystem/table.cpp.o	bf7f14f4e3060108
+35	2475	6948328827600000	CMakeFiles/client.dir/source/filesystem/toml.cpp.o	d6f44ec2c0e72a0c
+54	2598	6948328827600000	CMakeFiles/client.dir/source/logicstr/executor.cpp.o	64f37c3cc02b26bd
+13	2977	6948328827100000	CMakeFiles/client.dir/source/filesystem/ini.cpp.o	ef986e72075dd780
+65	2682	6948328828800000	CMakeFiles/client.dir/source/logicstr/nodechain.cpp.o	feb6ad2904afdd89
+77	2721	6948328828400000	CMakeFiles/client.dir/source/logicstr/variablemanager.cpp.o	9b8a6730945f329b
+2	1428	6948359100000000	build.ninja	4d73778673e09bb6
+21	2891	6948328827100000	CMakeFiles/client.dir/source/filesystem/reader.cpp.o	666fef38381bd5b
+10	1128	6948358465400000	CMakeFiles/client.dir/source/main.cpp.o	f988351268c94575
+1129	1441	6948358480000000	client.js	d5f47318047711b7
+2	663	6948358960000000	index.html	908c7abfafacc642
+2	663	6948358960000000	D:/Code/bellecour-gamebook/gamebook/index.html	908c7abfafacc642

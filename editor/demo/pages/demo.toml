@@ -1,0 +1,11 @@
+[config]
+title = "demo_title"
+type = "default"
+
+[content]
+line_a = "line_a"
+line_b = "line_b"
+
+[choices]
+choice_a = ["choice_a_name", "default_cond", "default_act"]
+choice_b = ["choice_b_name", "default_cond", "default_act"]

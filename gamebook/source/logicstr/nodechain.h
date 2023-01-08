@@ -13,7 +13,7 @@ using namespace std;
 #define OPERATOR_SIGN_DIV "/"
 #define OPERATOR_SIGN_MOD "%"
 #define OPERATOR_SIGN_MULT "*"
-#define OPERATOR_SIGN_FILE "$"
+#define OPERATOR_SIGN_FILE '$'
 
 enum class Operator {
 	Lower,

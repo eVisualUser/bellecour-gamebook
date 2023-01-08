@@ -1,0 +1,11 @@
+[english]
+demo_title = "Demo"
+line_a = "Some text"
+line_b = "More text"
+
+[french]
+demo_title = "Demonstration"
+line_a = "Du texte"
+line_b = "Encore du texte"
+choice_a_name = "Choix A"
+choice_b_name = "Choix B"

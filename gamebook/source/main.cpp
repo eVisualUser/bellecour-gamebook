@@ -2,6 +2,10 @@
 #include "filesystem/ini.h"
 #include "filesystem/toml.h"
 
+#include "logicstr/nodechain.h"
+#include "logicstr/executor.h"
+#include "logicstr/variablemanager.h"
+
 #include <iostream>
 
 using namespace std;
@@ -9,16 +13,7 @@ using namespace client_filesystem;
 
 int main() {
 
-	auto reader = Reader();
-	reader.SetPath("demo.toml");
-	reader.ReadFile();
-
-	auto ini = Ini();
-	ini.SetBuffer(reader.GetBuffer());
-
-	for(auto & i: TomlParseArray(ini.ParseTable("choices").GetVar("choice_a").GetValue())) {
-		cout << "- " << TomlParseString(i) << endl;
-	}
+	cout << "Hello, World!" << endl;
 
 	return 0;
 }

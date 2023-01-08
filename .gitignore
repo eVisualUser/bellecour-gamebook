@@ -43,3 +43,13 @@ CMakeCache.txt
 
 # Make
 Makefile
+
+# Rust
+Cargo.lock
+/target/
+
+# Sublime Text
+*.sublime-project
+
+# Other
+README.html
