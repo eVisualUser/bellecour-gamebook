@@ -61,8 +61,21 @@ demo_local = "Some Text"
 
 ```
 
-### CMake Compilation Command
+### Compilation
+The project use CMake, CLang and Ninja to compile.
+All of them are installed from chocolatey.
+
+#### Install Tools
+```bat
+choco install llvm
+choco install cmake
+choco install ninja
+```
+
+#### Compilation Commands
 
 ```bat
-cmake -S . -G "Unix Makefiles" -B cmake
+cmake -S . -G "Ninja" -B cmake
+cd cmake
+ninja
 ```

@@ -51,6 +51,7 @@ Cargo.lock
 
 # Sublime Text
 *.sublime-project
+*.sublime-workspace
 
 # Other
 README.html
