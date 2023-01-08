@@ -63,7 +63,5 @@ build.ninja
 .ninja_log
 
 # Emscriptem
-client.js
 index.js
 index.wasm
-index.html
