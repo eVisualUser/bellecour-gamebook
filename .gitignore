@@ -40,6 +40,7 @@
 CMakeFiles
 cmake_install.cmake
 CMakeCache.txt
+/cmake/
 
 # Make
 Makefile
@@ -53,3 +54,14 @@ Cargo.lock
 
 # Other
 README.html
+
+# Ninja
+build.ninja
+.ninja_deps
+.ninja_log
+
+# Emscriptem
+client.js
+index.js
+index.wasm
+index.html
