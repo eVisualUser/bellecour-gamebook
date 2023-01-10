@@ -1,6 +1,9 @@
 #include "executor.h"
 #include "nodechain.h"
+
 #include <iostream>
+#include <stdexcept>
+
 string Executor::ExecuteActionComand(VariableManager* variableManager, NodeChain* nodeChain) {
 	string file;
 
@@ -12,7 +15,6 @@ string Executor::ExecuteActionComand(VariableManager* variableManager, NodeChain
 		if (currentOp != Operator::None) {
 			if (currentOp == Operator::File) {
 				for(auto & i: node.content) {
-					cout << i << endl;
 					if (i != '$') file.push_back(i);
 					return file;
 				}
@@ -42,6 +44,8 @@ string Executor::ExecuteActionComand(VariableManager* variableManager, NodeChain
 			case Operator::Mult:
 				buffer *= value;
 				break;
+			case Operator::Equal:
+				buffer = value;
 			default: case Operator::None:
 				buffer += value;
 				break;
@@ -60,33 +64,42 @@ string Executor::ExecuteActionComand(VariableManager* variableManager, NodeChain
 	return file;
 }
 
-bool Executor::ExecuteConditionComand(VariableManager* variableManager, NodeChain* nodeChain) {
+bool Executor::ExecuteConditionComand(VariableManager* variableManager, NodeChain* nodeChain) { 
+	if (nodeChain->chain.size() == CONDITION_CHAIN_LEN) {
 
-	auto op = Operator::None;
-
-	int buffer = 0; 
-	bool firstArg = true;;
-
-	auto last_operator = Operator::None;
-	for(auto & node: nodeChain->chain) {
-		auto currentOp = nodeChain->GetOperator(node.content);
-
-		switch(currentOp) {
-
-		default: case Operator::None:
-			if (firstArg) {
-				if (variableManager->IsExist(node.content))
-					buffer = variableManager->GetVariableValue(node.content);
-				else
-					buffer = stoi(node.content);
-
-				firstArg = false;
-			}	
-			break;
+		int value_a = 0;
+		auto first_node = nodeChain->chain[0].content;
+		if (variableManager->IsExist(first_node)) {
+			value_a = variableManager->GetVariableValue(first_node);
+		} else {
+			value_a = stoi(first_node);
 		}
 
-		last_operator = currentOp;
+		int value_b = 0;
+		auto last_node = nodeChain->chain[2].content;
+		if (variableManager->IsExist(first_node)) {
+			value_b = variableManager->GetVariableValue(last_node);
+		} else {
+			value_b = stoi(last_node);
+		}
 
+		auto nodeOpContent = nodeChain->chain[1].content;
+		auto condOperator = nodeChain->GetOperator(nodeOpContent);
+		switch(condOperator) {
+			case Operator::Equal:
+				return value_a == value_b;
+			case Operator::Lower:
+				return value_a < value_b;
+			case Operator::Greater:
+				return value_a > value_b;
+			default:
+				cerr << ERROR_MSG_UNKNOW_OPERATOR << ": " << nodeOpContent << endl;
+				throw std::runtime_error(ERROR_MSG_UNKNOW_OPERATOR);  
+		}
+
+	} else {
+		cerr << ERROR_MSG_INVALID_CHAIN_SIZE << endl;
+		throw std::runtime_error(ERROR_MSG_INVALID_CHAIN_SIZE);
 	}
 
 	return false;

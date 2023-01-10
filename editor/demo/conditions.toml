@@ -1,3 +1,0 @@
-[conditions]
-# True if the variable life is greater than 0
-default_cond = ["life > 0", "life < 100"]

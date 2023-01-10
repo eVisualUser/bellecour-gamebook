@@ -4,13 +4,24 @@ set(PROJECT_VERSION 0.1.0)
 
 project(client VERSION ${PROJECT_VERSION})
 
-set(WORKING_DIRECTORY "cmake")
-
 option(client -G)
 
+set(CMAKE_C_STANDARD 17)
+set(CMAKE_CXX_STANDARD 17)
+
 file(GLOB sources "source/*.cpp" "source/filesystem/*.cpp" "source/logicstr/*.cpp")
-message("Sources fetched successfully")
+
+message("\nCode sources found: ${sources}\n")
 
 add_executable(client ${sources})
 
-message("Executable copied to build directory")
+if (EMSCRIPTEN)
+    file(GLOB assets RELATIVE "${CMAKE_CURRENT_LIST_DIR}/web" "web/assets/*.toml")
+
+    message("Preloaded files list: [${assets}]\n")
+    string(REPLACE ";" " --preload-file " assets "${assets}")
+
+    set(emcc_flags "-s ALLOW_MEMORY_GROWTH=1 --preload-file ${assets}")
+
+    set_target_properties(client PROPERTIES LINK_FLAGS ${emcc_flags})
+endif ()

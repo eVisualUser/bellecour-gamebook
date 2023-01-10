@@ -6,22 +6,20 @@
 
 using namespace std;
 
-namespace client_filesystem {
-	class Reader {
-	public:
-		void ReadFile();
+class Reader {
+public:
+	void ReadFile();
 
-		void ConcatBuffer(vector<string> other);
-		vector<string> GetBuffer();
+	void ConcatBuffer(vector<string> other);
+	vector<string> GetBuffer();
 
-		void SetPath(string newPath);
+	void SetPath(string newPath);
 
-		string GetLine(size_t index);
-		size_t GetLineCount();
-	private:
-		bool IsFileExist();
-	private:
-		string path;
-		vector<string> buffer;
-	};
-}
+	string GetLine(size_t index);
+	size_t GetLineCount();
+private:
+	bool IsFileExist();
+private:
+	string path;
+	vector<string> buffer;
+};

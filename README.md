@@ -13,14 +13,14 @@ And the os may block the file reading (run it as admin to avoid it).
 
 ```toml
 [config]
-title = "Page Title"
+name = "Page Name"
 type = "classic"
 
 [content]
 line1 = "demo_local" # Use localization (see below)
 
 [choices]
-choice_a = ["choice_name", "default_cond", "default_act"]
+choice_a = ["choice text", "default_cond", "default_act"]
 
 ```
 
@@ -28,7 +28,7 @@ choice_a = ["choice_name", "default_cond", "default_act"]
 
 ```toml
 
-[variables]
+[data]
 life = 100 # Default value
 
 ```
@@ -50,15 +50,6 @@ default_cond = ["life > 0", "life < 100"]
 [actions]
 # True if the variable life is greater than 0
 default_act = ["life + 1", "$other.toml"]
-
-```
-
-### Localization
-
-```toml
-
-[english]
-demo_local = "Some Text"
 
 ```
 
@@ -93,4 +84,19 @@ And execute the following command.
 
 ```bat
 cargo run
+```
+
+## Web Assembly
+
+### Dependencies
+
+- CMake
+- Emscriptem
+- Ninja
+
+```bat
+choco install llvm
+choco install cmake
+choco install emscriptem
+choco install ninja
 ```

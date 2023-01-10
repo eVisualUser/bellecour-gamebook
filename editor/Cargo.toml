@@ -7,4 +7,4 @@ edition = "2021"
 
 [dependencies]
 eframe = "0.20.1"
-tsu = "1.0.1"
+toml_edit = "0.17.1"

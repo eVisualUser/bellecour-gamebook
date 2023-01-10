@@ -1,21 +1,201 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Izydor</title>
-    <meta charset="utf-8">
-  </head>
-  <body>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="description" content="GameBook made in c++ for Bellecour Ecole student project.">
+        <meta name="keywords" content="C++, Gamebook, Bellecour Ecole">
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset=utf-8>
 
-    <h1>Work in progress</h1>
+        <link rel="shortcut icon" href="/favicon-1.ico">
 
-    <script src="client.js"></script>
-    <script>
-      // Load the .wasm file
-      WebAssembly.instantiateStreaming(fetch('client.wasm'))
-        .then(obj => {
-          // Call the main function from the .wasm module
-          obj.instance.exports.main();
-        });
-    </script>
-  </body>
+        <title>Izydor</title>
+
+        <style>
+            body {
+                margin: 0;
+                background-color: rgba(219, 223, 220, 0.514);
+            }
+
+            #gh-bar {
+                background-color: black;
+                text-align: center;
+                font-family: verdana;
+                font-size: 20px;
+                padding-top: 18px;
+                width: 100%;
+                height: 40px;
+                margin-bottom: 60px;
+                -webkit-box-shadow: 0px 3px 5px rgba(77, 75, 75, 0.719);
+                -moz-box-shadow:    0px 3px 5px rgba(77, 75, 75, 0.719);
+                box-shadow:         0px 3px 5px rgba(77, 75, 75, 0.719);
+            }
+
+            #gh-link {
+                text-decoration: none;
+                color: white;
+            }
+
+            #gh-bar:hover {
+                cursor: pointer;
+                color: rgb(44, 35, 35);
+                opacity: 0.8;
+                -webkit-transition: 0.5s;
+                -moz-transition: 0.5s;
+                -o-transition: 0.5s;
+                transition: 0.5s;
+            }
+
+            .emscripten {
+                display: block;
+                padding-right: 0;
+                margin-left: auto;
+                margin-right: auto; 
+            }
+
+            textarea.emscripten { 
+                resize: none;
+                border-style: solid solid none solid;
+                border-color: darkgray;
+                border-width: 2px;
+                border-radius: 4.5px 4.5px 0 0;
+                margin: 50px auto 0px auto;
+                font-size: 17px;
+                padding: 20px 20px 0px 30px;
+                width: 800px;
+                height: 600px;
+                background-color: black;
+                font-family: monospace;
+                color:chartreuse;
+                -webkit-text-size-adjust: none;
+                -moz-text-size-adjust: none;
+                -ms-text-size-adjust: none;
+            }
+
+            #inputForm {
+                border: none;
+                position: relative;
+                width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            #inputField { 
+                position: absolute;
+                border-style: none solid solid solid;
+                border-color: darkgray;
+                border-width: 2px;
+                resize: none;
+                border-radius: 0 0 4px 4px;
+                padding: 0px 0px 15px 50px;
+                margin-top: -5px;
+                margin-left: -27px;
+                width: 800px;
+                height: 30px;
+                font-size: 17px;
+                display: block; 
+                background-color: black;
+                font-family: monospace;
+                color: chartreuse;
+            }
+
+            *,*:focus,*:hover{
+                outline:none;
+            }
+
+            #angleBracket {
+                position: absolute;
+                width: 15px;
+                bottom: 2px;
+                left: -2px;
+                margin: -40px 0px 0px 0px;
+                display: block; 
+                font-size: 17px; 
+                font-family: monospace;
+                color: chartreuse;
+            }
+
+            div.emscripten { text-align: center; }
+            div.emscripten_border { border: 1px solid black; }
+            
+        </style>
+    </head>
+
+    <body>
+        <!-- GitHub source code link -->
+        <div id='gh-bar'>
+            <a
+                id='gh-link'
+                href='https://github.com/eVisualUser/izydor'
+                target='_blank'
+                rel='noopener noreferrer'
+            >
+                <div>Open GitHub repo in a new tab</div>
+            </a>
+        </div>
+
+        <!-- The game's output is displayed in this text area -->
+        <textarea class="emscripten" id="output" rows="8" readonly></textarea>
+
+        <!-- The game's input comes from this form and is submitted with the enter key -->
+        <form id="inputForm" name="inputForm" autocomplete="off">
+            <input type="text" id="inputField" maxlength="77" name="inputField" autofocus></input>
+            <div id="angleBracket">></div>
+            <input type="submit" value="Submit" style="visibility: hidden;">
+        </form>
+
+        <script type='text/javascript'>
+            // Get the user's input / initialize input with a grarbage value --
+            let input = 42;
+            const log = document.getElementById('output');
+
+            function logSubmit(event) {
+                event.preventDefault();
+                input = document.getElementById('inputField').value;
+                console.log(input);
+                document.getElementById("inputForm").reset();
+            }
+
+            var Module = {
+                preRun: [],
+                postRun: [],
+                print: (function() {
+                    var element = document.getElementById('output');
+                    if (element) element.value = ''; // clear browser cache
+                    return function(text) {
+                        if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+                        // console.log(text);
+                        if (element) {
+                            element.value += text + "\n";
+                            element.scrollTop = element.scrollHeight; // focus on bottom
+                        }
+                    };
+                })(),
+                printErr: function(text) {
+                    if (arguments.length > 1) text = Array.prototype.slice.call(arguments).join(' ');
+                    if (0) { // XXX disabled for safety typeof dump == 'function') {
+                        dump(text + '\n'); // fast, straight to the real console
+                    } else {
+                        console.error(text);
+                    }
+                }
+            };
+
+            // Gather the user's input to the text box ------------------------
+            let form = document.getElementById('inputForm');
+            form.addEventListener('submit', logSubmit);
+
+        </script>
+
+        <script src="client.js"></script>
+        <script>
+          // Load the .wasm file
+          WebAssembly.instantiateStreaming(fetch('client.wasm'))
+            .then(obj => {
+              // Call the main function from the .wasm module
+              obj.instance.exports.main();
+            });
+        </script>
+
+    </body>
 </html>

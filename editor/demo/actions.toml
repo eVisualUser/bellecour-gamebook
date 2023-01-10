@@ -1,3 +1,0 @@
-[actions]
-# True if the variable life is greater than 0
-default_act = ["life + 1", "$other.toml"]

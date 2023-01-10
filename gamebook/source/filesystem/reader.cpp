@@ -6,8 +6,6 @@
 
 #define ERROR_FILE_NOT_FOUND() throw std::runtime_error("File not found");
 
-using namespace client_filesystem;
-
 bool Reader::IsFileExist() {
 	ifstream file;
 	file.open(this->path);
@@ -41,7 +39,10 @@ void Reader::ReadFile() {
 	string line;
 	ifstream file;
 
-	this->IsFileExist();
+	if (!this->IsFileExist()) {
+		cerr << "File not found" << endl;
+		throw std::logic_error("File not found");
+	}
 
 	file.open(this->path);
 

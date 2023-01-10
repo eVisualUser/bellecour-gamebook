@@ -1,5 +1,9 @@
 #pragma once
 
+#define CONDITION_CHAIN_LEN 3
+#define ERROR_MSG_INVALID_CHAIN_SIZE "Any condition must be composed of 3 node: node_1 > node_2"
+#define ERROR_MSG_UNKNOW_OPERATOR "Unknow operator"
+
 #include "variablemanager.h"
 #include "nodechain.h"
 

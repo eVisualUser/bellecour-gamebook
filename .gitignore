@@ -65,3 +65,8 @@ build.ninja
 # Emscriptem
 index.js
 index.wasm
+client.js
+client.wasm
+
+# Editor
+*/demo/
