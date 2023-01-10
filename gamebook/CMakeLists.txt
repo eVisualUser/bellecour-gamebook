@@ -9,7 +9,7 @@ option(client -G)
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_CXX_STANDARD 17)
 
-file(GLOB sources "source/*.cpp" "source/filesystem/*.cpp" "source/logicstr/*.cpp")
+file(GLOB sources "source/*.cpp" "source/filesystem/*.cpp" "source/logicstr/*.cpp" "source/web/*.cpp")
 
 message("\nCode sources found: ${sources}\n")
 

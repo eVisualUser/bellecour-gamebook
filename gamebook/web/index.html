@@ -197,5 +197,47 @@
             });
         </script>
 
+        <di id="buttons">
+            <script>
+
+                var buttons = []
+
+                function createButton(id) {
+                  var button = document.createElement("button");
+                  button.setAttribute("id", id);
+                  button.innerHTML = id;
+                  button.className = "gameInput";
+                  button.addEventListener("click", function() {
+                    buttonPressed(id);
+                  });
+                  document.body.appendChild(button);
+                  buttons.push(button);
+                }
+
+                // Create a variable to store the id of the button that was pressed
+                var lastPressed = "none";
+
+                // Create a function to handle button presses
+                function buttonPressed(id) {
+                  lastPressed = id;
+                  console.log(`Button ${id} pressed`);
+                }
+
+                function resetButtons() {
+                    lastPressed = "none";
+                    buttons = [];
+                    var game_buttons = document.getElementsByClassName("gameInput");
+                    removeElementsByClass("gameInput");
+                }
+
+                function removeElementsByClass(className){
+                    const elements = document.getElementsByClassName(className);
+                    while(elements.length > 0){
+                        elements[0].parentNode.removeChild(elements[0]);
+                    }
+                }
+            </script>
+       </div>
+
     </body>
 </html>
