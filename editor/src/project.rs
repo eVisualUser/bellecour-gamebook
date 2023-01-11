@@ -89,36 +89,33 @@ impl crate::editor::Editor for Project {
                     let mut item = file.get_mut_item_of("config", "tags");
                     editor::edit_toml_string_array(ui, item, None);
 
-                    eframe::egui::SidePanel::new(eframe::egui::panel::Side::Right, "Data").show(
-                        ctx,
-                        |ui| {
-                            ui.heading("Data");
-                            ui.heading("Configure");
+                    eframe::egui::Window::new("Data").show(ctx, |ui| {
+                        ui.heading("Data");
+                        ui.heading("Configure");
 
-                            ui.label("Name");
-                            ui.text_edit_singleline(&mut self.var_name_buffer);
-                            ui.label("Value (Must be an int)");
-                            ui.text_edit_singleline(&mut self.var_value_buffer);
+                        ui.label("Name");
+                        ui.text_edit_singleline(&mut self.var_name_buffer);
+                        ui.label("Value (Must be an int)");
+                        ui.text_edit_singleline(&mut self.var_value_buffer);
 
-                            if ui.button("Add").clicked() {
-                                let value = match self.var_value_buffer.parse::<i64>() {
-                                    Ok(number) => number,
-                                    Err(_) => 0_i64,
-                                };
+                        if ui.button("Add").clicked() {
+                            let value = match self.var_value_buffer.parse::<i64>() {
+                                Ok(number) => number,
+                                Err(_) => 0_i64,
+                            };
 
-                                file.add_toml("data", &self.var_name_buffer, value);
-                            } else if ui.button("Remove").clicked() {
-                                file.remove_toml("data", &self.var_name_buffer);
-                            }
+                            file.add_toml("data", &self.var_name_buffer, value);
+                        } else if ui.button("Remove").clicked() {
+                            file.remove_toml("data", &self.var_name_buffer);
+                        }
 
-                            ui.heading("List");
-                            for var in file.get_all_keys_of("data") {
-                                let mut item = file.get_mut_item_of("data", &var);
-                                ui.label(&var);
-                                editor::edit_toml_int(ui, item);
-                            }
-                        },
-                    );
+                        ui.heading("List");
+                        for var in file.get_all_keys_of("data") {
+                            let mut item = file.get_mut_item_of("data", &var);
+                            ui.label(&var);
+                            editor::edit_toml_int(ui, item);
+                        }
+                    });
 
                     eframe::egui::Window::new("Conditions").show(&ctx, |ui| {
                         ui.heading("Configure");
