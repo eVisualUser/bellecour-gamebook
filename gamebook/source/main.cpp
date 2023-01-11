@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "web/buttonmanager.h"
+#include "io/buttonmanager.h"
 #include <string>
 
 #ifdef __EMSCRIPTEN__
@@ -11,13 +11,11 @@ using namespace std;
 
 void game() {
 	auto buttonManager = ButtonManager();
-	if (buttonManager.GetButtonCount() == 0)
+	if (buttonManager.GetButtonCount() < 5)
 		buttonManager.CreateButton("myButton");
 	cout << buttonManager.GetButtonCount() << endl;
 	if (buttonManager.GetLastPressed() != "none") {
 		cout << buttonManager.GetLastPressed() << endl;
-	if (buttonManager.GetButtonCount() != 0)
-		buttonManager.ResetButtons();
 	}
 }
 

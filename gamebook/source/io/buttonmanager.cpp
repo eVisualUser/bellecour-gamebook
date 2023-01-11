@@ -21,17 +21,13 @@ void ButtonManager::CreateButton(string button) {
 
 void ButtonManager::ResetButtons() {
     #ifdef __EMSCRIPTEN__
-        EM_ASM({
-            resetButtons();
-        });
+    	emscripten_run_script("resetButtons();");
     #endif
 }
 
 int ButtonManager::GetButtonCount() {
 	#ifdef __EMSCRIPTEN__
-		return EM_ASM_INT({
-			return document.getElementsByClassName("gameInput").lenght;
-		});
+		return emscripten_run_script_int("buttons.length");
 	#endif
 		return 0;
 }

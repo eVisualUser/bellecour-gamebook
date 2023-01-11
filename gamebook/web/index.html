@@ -197,7 +197,7 @@
             });
         </script>
 
-        <di id="buttons">
+        <div id="buttons">
             <script>
 
                 var buttons = []
@@ -206,7 +206,7 @@
                   var button = document.createElement("button");
                   button.setAttribute("id", id);
                   button.innerHTML = id;
-                  button.className = "gameInput";
+                  button.className = "gameButton";
                   button.addEventListener("click", function() {
                     buttonPressed(id);
                   });
@@ -225,15 +225,12 @@
 
                 function resetButtons() {
                     lastPressed = "none";
-                    buttons = [];
-                    var game_buttons = document.getElementsByClassName("gameInput");
-                    removeElementsByClass("gameInput");
-                }
+                    if (buttons.length) {
+                        for (var i = 0; i < buttons.length; i++) {
+                            buttons[i].parentNode.removeChild(buttons[i]);
+                          }
 
-                function removeElementsByClass(className){
-                    const elements = document.getElementsByClassName(className);
-                    while(elements.length > 0){
-                        elements[0].parentNode.removeChild(elements[0]);
+                        buttons = []
                     }
                 }
             </script>
