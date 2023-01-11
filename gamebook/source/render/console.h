@@ -1,16 +1,17 @@
 #pragma once
 
 #include <string>
+#include <iostream>
 
-using namespace std;
+#define COLOR_FOREGROUND_GREEN "\033[32m"
+#define COLOR_BACKGROUND_BLACK "\033[40m"
+#define COLOR_DEFAULT "\033[0m"
 
 class Console {
 public:
-	void PrintText(string input);
-	void PrintLine();
-	void MoveCursor();
+	Console();
+	~Console();
+	void SetWindow(int x, int y);
+	void WaitAny();
 	void Clear();
-private:
-	float printSpeed = 1;
-	bool proceduralTextPrint = false;
 };
