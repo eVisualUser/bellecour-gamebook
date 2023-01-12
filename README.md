@@ -64,7 +64,7 @@ All of them are installed from chocolatey.
 choco install llvm
 choco install cmake
 choco install ninja
-choco install emscriptem
+choco install emscripten
 ```
 
 ### Compilation Commands
@@ -97,6 +97,6 @@ cargo run
 ```bat
 choco install llvm
 choco install cmake
-choco install emscriptem
+choco install emscripten
 choco install ninja
 ```

@@ -16,11 +16,6 @@ Run (double-click) the client executable.
 
 - Better running as adminstrator (can be necessary).
 
-## Editor
+## Todo
 
-Run (double-click) the editor executable.
-Read "editor_guide.html" before starting editing.
-
-## ⚠️ Warnings ⚠️
-
-- Better running as adminstrator (can be necessary).
+- [ ] Remake all errors to not printing the message directly.
