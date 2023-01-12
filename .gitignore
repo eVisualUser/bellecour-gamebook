@@ -70,3 +70,8 @@ client.wasm
 
 # Editor
 */demo/
+gamebook/web/clientV0.3.data
+*/*.data
+
+# Debug
+*.pdb

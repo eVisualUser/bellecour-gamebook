@@ -9,6 +9,8 @@
 
 #ifdef __EMSCRIPTEN__
 	#include <emscripten.h>
+#else
+	#include <conio.h>
 #endif
 
 Console::Console() {
@@ -27,6 +29,8 @@ Console::~Console() {
 		GetConsoleScreenBufferInfo(hwnd, &consoleInfo);
 		WORD defaultAttribute = consoleInfo.wAttributes;
 		SetConsoleTextAttribute(hwnd, defaultAttribute);
+
+		std::cout << COLOR_DEFAULT << std::endl;
 	#elif __EMSCRIPTEN__
 	#else
 		std::cout << COLOR_DEFAULT << std::endl;
@@ -44,6 +48,8 @@ void Console::SetWindow(int x, int y) {
 
 		WORD colorAttribute = FOREGROUND_GREEN;
 		SetConsoleTextAttribute(hwnd, colorAttribute);
+
+		std::cout << COLOR_FOREGROUND_GREEN << COLOR_BACKGROUND_BLACK << std::endl;
 	#elif __EMSCRIPTEN__
 	#else
 		std::cout << COLOR_FOREGROUND_GREEN << COLOR_BACKGROUND_BLACK << std::endl;
@@ -56,7 +62,10 @@ void Console::SetWindow(int x, int y) {
 }
 
 void Console::WaitAny() {
-	std::cin.get();
+	#ifdef __EMSCRIPTEN__
+	#else
+	_getch();
+	#endif
 }
 
 void Console::Clear() {
@@ -74,4 +83,13 @@ void Console::Clear() {
 		    SetConsoleCursorPosition(hStdOut, coord);
 		}
 	#endif
+}
+
+void Console::PrintFrame(std::vector<std::string> *frame) {
+	std::string buffer;
+	for (auto & line: *frame) {
+		buffer.append(line);
+		buffer.push_back('\n');
+	}
+	std::cout << buffer << std::endl;
 }

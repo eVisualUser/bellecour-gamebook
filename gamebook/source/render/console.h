@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 #include <iostream>
 
 #define COLOR_FOREGROUND_GREEN "\033[32m"
@@ -14,4 +15,5 @@ public:
 	void SetWindow(int x, int y);
 	void WaitAny();
 	void Clear();
+	void PrintFrame(std::vector<std::string> *frame);
 };
