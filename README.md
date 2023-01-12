@@ -1,6 +1,6 @@
 # Bellecour GameBook
 
-Game book for bellecour school
+Game book for Bellecour Ecole school
 
 ## Warning
 
@@ -55,7 +55,7 @@ default_act = ["life + 1", "$other.toml"]
 
 ## Compilation
 
-The project use CMake, EmScriptem, CLang and Ninja to compile.
+The project use CMake, EmScripten, CLang and Ninja to compile.
 All of them are installed from chocolatey.
 
 ### Install Tools
@@ -91,7 +91,7 @@ cargo run
 ### Dependencies
 
 - CMake
-- Emscriptem
+- Emscripten
 - Ninja
 
 ```bat
