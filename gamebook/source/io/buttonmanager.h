@@ -19,6 +19,7 @@ public:
 	void CreateButton(string button);
 	string GetLastPressed();
 	void ResetButtons();
+	vector<string> GetButtons(); 
 #ifdef __EMSCRIPTEN__
 #else
 private:

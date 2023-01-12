@@ -17,6 +17,8 @@ auto buttonManager = ButtonManager();
 auto console = Console();
 
 void GameLoop() {
+	buttonManager.Update();
+
 	if (buttonManager.GetLastPressed() != "none") {
 		cout << "You: " << buttonManager.GetLastPressed() << endl;
 		buttonManager.ResetButtons();

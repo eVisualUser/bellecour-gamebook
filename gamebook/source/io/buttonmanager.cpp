@@ -1,10 +1,11 @@
 #include "buttonmanager.h"
 #include "iomath.h"
+#include <vector>
 
 #ifdef __EMSCRIPTEN__
 	#include <emscripten.h>
 #else
-	#include <conio.h>
+	#include <conio.h> // Maybe not work with linux
 #endif
 
 string ButtonManager::GetLastPressed() {
@@ -56,9 +57,17 @@ void ButtonManager::Update() {
 			else if (input == KEY_DOWN)
 				this->index--;
 
-		} else if (input == KEY_ENTER && !this->buffer.empty()) {
+		} else if (input == KEY_ENTER && !this->buffer.empty())
 			this->lastPressed = this->buffer[this->index];
-		}
+
 		clamp_int(&this->index, 0, this->GetButtonCount());
+	#endif
+}
+
+vector<string> ButtonManager::GetButtons() {
+	#ifdef __EMSCRIPTEN__
+	return vector<string>();
+	#else
+	return this->buffer;
 	#endif
 }

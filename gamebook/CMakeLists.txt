@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-set(PROJECT_VERSION 0.1.0)
-
-project(client VERSION ${PROJECT_VERSION})
+project(client)
 
 option(client -G)
 
@@ -14,6 +12,26 @@ file(GLOB sources "source/*.cpp" "source/filesystem/*.cpp" "source/logicstr/*.cp
 message("\nCode sources found: ${sources}\n")
 
 add_executable(client ${sources})
+
+set(MINOR_CACHE_FILE "version_minor.txt")
+set(MAJOR_CACHE_FILE "version_major.txt")
+
+set(MAJOR_VERSION "0")
+
+IF(EXISTS ${MAJOR_CACHE_FILE})
+    file(READ ${MAJOR_CACHE_FILE} MAJOR_VERSION)
+ENDIF()
+
+IF(EXISTS ${MINOR_CACHE_FILE})
+    file(READ ${MINOR_CACHE_FILE} MINOR_INCREMENTED_VALUE)
+    math(EXPR MINOR_INCREMENTED_VALUE "${MINOR_INCREMENTED_VALUE}+1")
+ELSE()
+    set(MINOR_INCREMENTED_VALUE "1")
+ENDIF()
+
+file(WRITE ${MINOR_CACHE_FILE} "${MINOR_INCREMENTED_VALUE}")
+
+set_target_properties(client PROPERTIES OUTPUT_NAME "clientV${MAJOR_VERSION}.${MINOR_INCREMENTED_VALUE}")
 
 if (EMSCRIPTEN)
     file(GLOB assets RELATIVE "${CMAKE_CURRENT_LIST_DIR}/web" "web/assets/*.toml")
