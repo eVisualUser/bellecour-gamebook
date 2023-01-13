@@ -2,8 +2,14 @@
 
 string TomlParseString(string input) {
 	string result;
-	for (int i = 1; i < input.size()-2; i++)
-		result.push_back(input[i]);
+	int j = 0;
+	for (auto & i: input) {
+		if (j == 0 && i == ' ')
+			continue;
+		if (i != '\"') 
+			result.push_back(i);
+		j++;
+	}
 	return result;
 }
 

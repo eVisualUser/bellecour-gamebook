@@ -12,6 +12,7 @@ struct Variable {
 
 class VariableManager {
 public:
+	void Load(string path);
 	void CreateVariable(string name, int value);
 	void AddVariable(Variable variable);
 	int GetVariableValue(string name);

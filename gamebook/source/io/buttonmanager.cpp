@@ -1,6 +1,7 @@
 #include "buttonmanager.h"
 #include "iomath.h"
 #include <vector>
+#include <iostream>
 
 #ifdef __EMSCRIPTEN__
 	#include <emscripten.h>
@@ -40,7 +41,7 @@ int ButtonManager::GetButtonCount() {
 	#ifdef __EMSCRIPTEN__
 		return emscripten_run_script_int("buttons.length");
 	#else
-		return this->buffer.size() - 1;
+		return this->buffer.size();
 	#endif
 }
 
@@ -52,15 +53,17 @@ void ButtonManager::Update() {
 		if (input==0 || input==0xE0) {
 			input = _getch();
 
-			if (input == KEY_UP)
-				this->index++;
-			else if (input == KEY_DOWN)
+			if (input == KEY_UP) {
 				this->index--;
+			}
+			else if (input == KEY_DOWN) {
+				this->index++;
+			}
 
 		} else if (input == KEY_ENTER && !this->buffer.empty())
 			this->lastPressed = this->buffer[this->index];
 
-		clamp_int(&this->index, 0, this->GetButtonCount());
+		clamp_int(&this->index, 0, this->GetButtonCount()-1);
 	#endif
 }
 
@@ -69,5 +72,27 @@ vector<string> ButtonManager::GetButtons() {
 	return vector<string>();
 	#else
 	return this->buffer;
+	#endif
+}
+
+#ifdef __EMSCRIPTEN__
+#else
+int ButtonManager::GetIndex() {
+	return this->index;
+}
+#endif
+
+bool ButtonManager::Exists(string content) {
+	#ifdef __EMSCRIPTEN__
+		return false;
+	#else
+		bool result = false;
+
+		for (auto & button: this->buffer) {
+			if (content == button)
+				result = false;
+		}
+
+		return result;
 	#endif
 }

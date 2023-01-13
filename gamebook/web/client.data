@@ -1,13 +1,34 @@
 [config]
-title = "demo_title"
-type = "demo_type"
-
-[content]
-line_a = "demo_line_a"
-line_b = "demo_line_b"
-
-[choices]
-# Name / Condition / Action
-choice_a = ["choice_a", "is_player_alive", "kill_player"]
+name = "projectName"
+author = "unknow"
+tags = ["edited"]
+[data]
+karma = 0
+[conditions]
+true = ["1 = 1"]
+[actions]
+play = ["$game.toml"]
+restart = ["$index.toml"]
+explore = ["$unknow.toml"]
 [config]
-title = "Great Title"
+name = "Great Page"
+type = "default"
+[content]
+line_a = "Wow !"
+[choices]
+restart = ["Restart", "true", "restart"]
+[config]
+name = "Milestone 2 Build"
+type = "default"
+[content]
+line_a = "Let's play an incredible game !"
+[choices]
+Play = ["Play", "true", "play"]
+Explore = ["Let's explore", "true", "explore"]
+[config]
+name = "Great Page"
+type = "default"
+[content]
+line_a = "Great you found a new incredible page !"
+[choices]
+restart = ["Restart", "true", "restart"]

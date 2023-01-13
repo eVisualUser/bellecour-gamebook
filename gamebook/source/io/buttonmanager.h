@@ -20,8 +20,10 @@ public:
 	string GetLastPressed();
 	void ResetButtons();
 	vector<string> GetButtons(); 
+	bool Exists(string button);
 #ifdef __EMSCRIPTEN__
 #else
+	int GetIndex();
 private:
 	string lastPressed = "none";
 	int index = 0;

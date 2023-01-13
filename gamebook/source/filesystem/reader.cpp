@@ -32,7 +32,6 @@ void Reader::ReadFile() {
 
 	if (this->path.empty()) {
 		auto message = "Must set the path before reading";
-		cerr << message << endl;
 		throw std::logic_error(message);
 	}
 
@@ -40,14 +39,12 @@ void Reader::ReadFile() {
 	ifstream file;
 
 	if (!this->IsFileExist()) {
-		cerr << "File not found" << endl;
 		throw std::logic_error("File not found");
 	}
 
 	file.open(this->path);
 
     if(!file.is_open()) {
-       cerr << "Error open" << endl;
        throw std::runtime_error("Failed to open file");
     }
 
@@ -61,7 +58,6 @@ void Reader::ReadFile() {
 string Reader::GetLine(size_t index) {
 	if (index >= this->buffer.size()) {
 		auto message = "GetLine(index) Out of range";
-		cerr << message << endl;
 		throw std::range_error(message);
 	}
 	return this->buffer.at(index);
@@ -70,7 +66,6 @@ string Reader::GetLine(size_t index) {
 size_t Reader::GetLineCount() {
 	if (this->buffer.empty()) {
 		auto message = "Empty reader line buffer";
-		cerr << message << endl;
 		throw std::logic_error(message);
 	}
 

@@ -71,17 +71,10 @@ void Console::WaitAny() {
 void Console::Clear() {
 	#ifdef __EMSCRIPTEN__
 		emscripten_run_script("document.getElementById(\"output\").value = \"\";");
+	#elif _WIN32
+		system("cls");
 	#else
-		HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-		CONSOLE_SCREEN_BUFFER_INFO csbi;
-		DWORD count;
-		COORD coord = { 0, 0 };
-
-		if (GetConsoleScreenBufferInfo(hStdOut, &csbi))
-		{
-		    FillConsoleOutputCharacter(hStdOut, ' ', csbi.dwSize.X * csbi.dwSize.Y, coord, &count);
-		    SetConsoleCursorPosition(hStdOut, coord);
-		}
+		system("clear");
 	#endif
 }
 

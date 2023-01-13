@@ -16,8 +16,8 @@ string Executor::ExecuteActionComand(VariableManager* variableManager, NodeChain
 			if (currentOp == Operator::File) {
 				for(auto & i: node.content) {
 					if (i != '$') file.push_back(i);
-					return file;
 				}
+				return file;
 			}
 			last_operator = currentOp;
 		} else {

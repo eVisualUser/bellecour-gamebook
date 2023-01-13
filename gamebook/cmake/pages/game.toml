@@ -1,0 +1,7 @@
+[config]
+name = "Great Page"
+type = "default"
+[content]
+line_a = "Wow !"
+[choices]
+restart = ["Restart", "true", "restart"]

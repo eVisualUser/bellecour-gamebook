@@ -2,6 +2,12 @@
 
 #include <iostream>
 
+#include "../filesystem/ini.h"
+#include "../filesystem/reader.h"
+#include "../filesystem/toml.h"
+
+using namespace client_filesystem;
+
 void VariableManager::CreateVariable(string name, int value) {
 	Variable variable = {
 		.name = name,
@@ -38,5 +44,23 @@ void VariableManager::SetVariableValue(string name, int value) {
 			this->buffer[i].value = value;
 			break;
 		}
+	}
+}
+
+void VariableManager::Load(string path) {
+	auto reader = Reader();
+	reader.SetPath(path);
+	reader.ReadFile();
+
+	auto ini = Ini();
+	ini.SetBuffer(reader.GetBuffer());
+	auto table = ini.ParseTable("vars");
+
+	for(auto & var: table.GetAllVars()) {
+		Variable newVar;
+		newVar.name = var.GetKey();
+		newVar.value = TomlParseInt(var.GetKey());
+
+		this->AddVariable(newVar);
 	}
 }

@@ -64,9 +64,14 @@ Rect::Rect() {
 }
 
 Rect::Rect(Point min, Point max) {
-
+	this->min = min;
+	this->max = max;
 }
 
 Rect::Rect(int minX, int minY, int width, int height) {
+	this->min.x = minX;
+	this->min.y = minY;
 
+	this->max.x = width;
+	this->max.y = height;
 }

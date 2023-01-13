@@ -1,0 +1,12 @@
+[config]
+name = "projectName"
+author = "unknow"
+tags = ["edited"]
+[data]
+karma = 0
+[conditions]
+true = ["1 = 1"]
+[actions]
+play = ["$game.toml"]
+restart = ["$index.toml"]
+explore = ["$unknow.toml"]

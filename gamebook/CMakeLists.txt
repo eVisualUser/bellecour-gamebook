@@ -4,20 +4,17 @@ set(PROJECT_VERSION 0.1.0)
 
 project(client VERSION ${PROJECT_VERSION})
 
-option(client -G)
-
 set(CMAKE_C_STANDARD 23)
 set(CMAKE_CXX_STANDARD 23)
 
-file(GLOB sources "source/*.cpp" "source/filesystem/*.cpp" "source/logicstr/*.cpp" "source/io/*.cpp" "source/render/*.cpp")
+file(GLOB sources "source/*.cpp" "source/filesystem/*.cpp" "source/logicstr/*.cpp" "source/io/*.cpp" "source/render/*.cpp" "source/pages/*.cpp")
 
 message("\nCode sources found: ${sources}\n")
 
 add_executable(client ${sources})
 
 if (EMSCRIPTEN)
-    file(GLOB assets RELATIVE "${CMAKE_CURRENT_LIST_DIR}/web" "web/assets/*.toml")
-    file(GLOB assets RELATIVE "${CMAKE_CURRENT_LIST_DIR}/web" "web/assets/pages/*.toml")
+    file(GLOB assets RELATIVE "${CMAKE_CURRENT_LIST_DIR}/web" "web/pages/*.toml" "web/*.toml")
 
     message("Preloaded files list: [${assets}]\n")
     string(REPLACE ";" " --preload-file " assets "${assets}")
