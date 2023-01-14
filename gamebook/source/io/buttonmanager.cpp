@@ -62,6 +62,8 @@ void ButtonManager::Update() {
 
 		} else if (input == KEY_ENTER && !this->buffer.empty())
 			this->lastPressed = this->buffer[this->index];
+		else if (input == KEY_EXIT)
+			exit(0);
 
 		clamp_int(&this->index, 0, this->GetButtonCount()-1);
 	#endif

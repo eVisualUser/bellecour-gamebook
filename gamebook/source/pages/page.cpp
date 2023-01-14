@@ -3,7 +3,7 @@
 #include "../filesystem/reader.h"
 #include "../filesystem/ini.h"
 #include "../filesystem/toml.h"
-#include "actionmanager.h"
+#include "../logicstr/actionmanager.h"
 #include "../logicstr/nodechain.h"
 
 #include <iostream>
@@ -57,7 +57,6 @@ void Page::CreateButtons(ButtonManager *buttonManager) {
 
 string Page::GetButtonPressed(string content, Executor *executor, ActionManager *actionManager, VariableManager *variableManager) {
 	string nextPage;
-	try {
 	for (auto & button: this->buttons) {
 		if (content == button.text) {
 			auto nodeChain = NodeChain();
@@ -72,9 +71,6 @@ string Page::GetButtonPressed(string content, Executor *executor, ActionManager 
 				}
 			}
 		}
-	}
-	} catch(const string message) {
-		cout << message << endl;
 	}
 	return nextPage;
 }

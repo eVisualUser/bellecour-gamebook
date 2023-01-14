@@ -8,7 +8,7 @@
 #include "../io/buttonmanager.h"
 #include "../logicstr/variablemanager.h"
 #include "../logicstr/executor.h"
-#include "actionmanager.h"
+#include "../logicstr/actionmanager.h"
 
 using namespace std;
 

@@ -10,6 +10,7 @@ using namespace std;
 
 class UI {
 public:
+	UI() {}
 	UI(Point newSize);
 public:
 	void DrawRawLine(Point position, int lenght, char character);
