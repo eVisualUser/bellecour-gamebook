@@ -5,6 +5,7 @@
 
 #include "rendermath.h"
 #include "../io/inputmanager.h"
+#include "../pages/page.h"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ public:
 	void InitializeBuffer();
 	void ResetBuffer();
 	vector<string> GetFrame();
-	void DrawButtons(Point position, InputManager *buttonManager);
+	void DrawButtons(Point position, InputManager *buttonManager, char selectedChar);
 	Point size;
 private:
 	vector<string> buffer;

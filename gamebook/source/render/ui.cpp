@@ -89,7 +89,7 @@ int UI::DrawText(Point start, string text) {
 	return textBack;
 }
 
-void UI::DrawButtons(Point position, InputManager *inputManager) {
+void UI::DrawButtons(Point position, InputManager *inputManager, char selectedChar) {
 	#ifdef __EMSCRIPTEN__
 	#else
 	auto buttons = inputManager->GetButtons();
@@ -101,7 +101,7 @@ void UI::DrawButtons(Point position, InputManager *inputManager) {
 			this->DrawText(position, buttons[i]);
 		} else {
 			stringstream ss;
-			ss << "> " << buttons[i];
+			ss << selectedChar << ' ' << buttons[i];
 			this->DrawText(position, ss.str());
 		}
 	}

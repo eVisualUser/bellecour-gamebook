@@ -4,6 +4,8 @@
 #include <string>
 
 #include "iomath.h"
+#include "../logicstr/variablemanager.h"
+#include "../logicstr/conditionmanager.h"
 
 using namespace std;
 

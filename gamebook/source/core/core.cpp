@@ -21,7 +21,20 @@ void Core::ClearScreen() {
 }
 
 void Core::Draw() {
-	this->_ui.DrawButtons(Point(this->_ui.size.x / 2, this->_ui.size.y), &this->_inputManager);
+	#ifdef __EMSCRIPTEN__
+	#else
+		char selectChar = '>';
+
+		for(int i = 0; i < this->_inputManager.GetButtonCount(); i++) {
+			if (!this->_page.IsButtonActive(this->_inputManager.GetButtons()[i], &this->_executor, &this->_variableManager, &this->_conditionManager)) {
+				if (this->_inputManager.GetIndex() == i) {
+					selectChar = 'X';
+				}
+			}
+		}
+
+		this->_ui.DrawButtons(Point(this->_ui.size.x / 2, this->_ui.size.y), &this->_inputManager, selectChar);
+	#endif
 	this->_ui.DrawText(Point(this->_ui.size.x / 2, 0), this->_page.name);
 
 	int lineYOffset = 0;
@@ -82,7 +95,11 @@ void Core::LoadConfig(string path) {
 
 void Core::Initialize() {
 	this->_console = Console();
-	this->_ui = UI(this->_frameSize);
+	#ifdef __EMSCRIPTEN__
+		this->_ui = UI(Point(50, 15));
+	#else
+		this->_ui = UI(this->_frameSize);
+	#endif
 
 	this->_variableManager = VariableManager();
 	this->_actionManager = ActionManager();

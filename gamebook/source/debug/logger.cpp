@@ -1,7 +1,10 @@
 #include "logger.h"
-#include <ctime>
-#include <fstream>
-#include <sstream>
+#ifdef __EMSCRIPTEN__
+#else
+	#include <ctime>
+	#include <fstream>
+	#include <sstream>
+#endif
 
 void Logger::AppendLine(string content) {
 	#ifdef __EMSCRIPTEN__
@@ -45,6 +48,7 @@ void Logger::LogWarning(string message) {
 
 string Logger::GetStrTime() {
 	#ifdef __EMSCRIPTEN__
+	return "UnCompatible";
 	#else
 	time_t now = time(0);
     tm localTime;

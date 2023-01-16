@@ -18,6 +18,7 @@ public:
 	void Load(string path);
 	void CreateButtons(InputManager *inputManager);
 	string GetButtonPressed(string content, Executor *executor, ActionManager *actionManager, VariableManager *variableManager, ConditionManager *conditionManager);
+	bool IsButtonActive(string content, Executor *executor, VariableManager *variableManager, ConditionManager *conditionManager);
 public:
 	string name;
 	string type;

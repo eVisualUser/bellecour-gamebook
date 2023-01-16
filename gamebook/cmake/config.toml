@@ -6,6 +6,7 @@ tags = ["edited"]
 karma = 2
 [conditions]
 true = ["1 = 1"]
+false = ["1 > 1"]
 [actions]
 play = ["$game.toml"]
 restart = ["$index.toml"]

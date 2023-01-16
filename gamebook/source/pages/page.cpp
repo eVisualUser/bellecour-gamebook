@@ -72,26 +72,9 @@ string Page::GetButtonPressed(string content, Executor *executor, ActionManager 
 	string nextPage;
 	for (auto & button: this->buttons) {
 		if (content == button.text) {
-			bool conditionPassed = false;
-			stringstream logMessage;
-
-			auto conditions = conditionManager->GetCondition(button.condition);
-			for (auto & condition: conditions.list) {
-				auto condNodeChain = NodeChain();
-				condNodeChain.ParseString(condition);
-				logMessage = stringstream();
-				logMessage << "Try Condition: " << condition;
-				Logger::Log(logMessage.str());
-				if (executor->ExecuteConditionComand(variableManager, &condNodeChain)) {
-					conditionPassed = true;
-				}
-			}
-
-			logMessage = stringstream();
-			logMessage << "Condition Result: " << (conditionPassed ? "SUCCESS" : "FAIL");
-			Logger::Log(logMessage.str());
-
-			if (conditionPassed) {
+			
+			if (this->IsButtonActive(content, executor, variableManager, conditionManager)) {
+				stringstream logMessage;
 				logMessage = stringstream();
 				logMessage << "Button pressed: " << button.text;
 				Logger::Log(logMessage.str());
@@ -113,4 +96,33 @@ string Page::GetButtonPressed(string content, Executor *executor, ActionManager 
 		}
 	}
 	return nextPage;
+}
+
+bool Page::IsButtonActive(string content, Executor *executor, VariableManager *variableManager, ConditionManager *conditionManager) {
+	for (auto & button: this->buttons) {
+		if (content == button.text) {
+			bool conditionPassed = false;
+			stringstream logMessage;
+
+			auto conditions = conditionManager->GetCondition(button.condition);
+			for (auto & condition: conditions.list) {
+				auto condNodeChain = NodeChain();
+				condNodeChain.ParseString(condition);
+				logMessage = stringstream();
+				logMessage << "Try Condition: " << condition;
+				Logger::Log(logMessage.str());
+				if (executor->ExecuteConditionComand(variableManager, &condNodeChain)) {
+					conditionPassed = true;
+				}
+			}
+
+			logMessage = stringstream();
+			logMessage << "Condition Result: " << (conditionPassed ? "SUCCESS" : "FAIL");
+			Logger::Log(logMessage.str());
+
+			return conditionPassed;
+		}
+	}
+
+	return false;
 }
