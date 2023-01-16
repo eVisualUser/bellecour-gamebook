@@ -2,7 +2,8 @@
 name = "Milestone 2 Build"
 type = "default"
 [content]
-line_a = "Let's play an incredible game !"
+line_a = "Let's play an incredible game ! ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+line_a = "Let's play an incredible game ! ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
 [choices]
 Play = ["Play", "true", "play"]
 Explore = ["Let's explore", "true", "explore"]

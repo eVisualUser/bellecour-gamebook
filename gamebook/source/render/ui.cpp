@@ -1,5 +1,6 @@
 #include "ui.h"
 #include <ios>
+#include <limits.h>
 #include <stdexcept>
 #include <sstream>
 #include <iostream>
@@ -10,9 +11,6 @@ void UI::ResetBuffer() {
 }
 
 vector<string> UI::GetFrame() {
-	if (this->buffer.empty())
-		throw std::logic_error("Frame buffer empty");
-
 	return this->buffer;
 }
 
@@ -72,22 +70,32 @@ void UI::InitializeBuffer() {
 	}
 }
 
-void UI::DrawText(Point start, string text) {
-	int lenght = std::strlen(text.c_str());
-	for (int x = 0; x < lenght; x++) {
-		this->buffer[start.y][start.x + x] = text[x];
+int UI::DrawText(Point start, string text) {
+	int textBack = 0;
+	if (start.x < this->size.x && start.y < this->size.y) {
+		int lenght = std::strlen(text.c_str());
+		for (int x = 0; x < lenght; x++) {
+			if ((start.x + x) < this->size.x)
+				this->buffer[start.y][start.x + x] = text[x];
+			else if (start.y + 1 < this->size.y) {
+				textBack++;
+				start.y += 1;
+				start.x -= x;
+			}
+		}
 	}
+	return textBack;
 }
 
-void UI::DrawButtons(Point position, ButtonManager *buttonManager) {
+void UI::DrawButtons(Point position, InputManager *inputManager) {
 	#ifdef __EMSCRIPTEN__
 	#else
-	auto buttons = buttonManager->GetButtons();
-	auto buttonPressed = buttonManager->GetLastPressed();
+	auto buttons = inputManager->GetButtons();
+	auto buttonPressed = inputManager->GetLastPressed();
 
-	for (int i = 0; i < buttonManager->GetButtonCount(); i++) {
-		position.y += 2;
-		if (i != buttonManager->GetIndex()) {
+	for (int i = inputManager->GetButtonCount() - 1; i >= 0; i--) {
+		position.y -= 2;
+		if (i != inputManager->GetIndex()) {
 			this->DrawText(position, buttons[i]);
 		} else {
 			stringstream ss;
@@ -96,4 +104,18 @@ void UI::DrawButtons(Point position, ButtonManager *buttonManager) {
 		}
 	}
 	#endif
+}
+
+void UI::Zoom() {
+	if ((this->size.x + 1) < INT_MAX && (this->size.y + 1) < INT_MAX) {
+		this->size.x += 1;
+		this->size.y += 1;
+	}
+}
+
+void UI::UnZoom() {
+	if ((this->size.x - 1) > 5 && (this->size.y - 1) > 5) {
+		this->size.x -= 1;
+		this->size.y -= 1;
+	}
 }

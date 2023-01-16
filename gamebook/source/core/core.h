@@ -10,7 +10,7 @@
 #include "../render/rendermath.h"
 
 // IO
-#include "../io/buttonmanager.h"
+#include "../io/inputmanager.h"
 
 // Logic Str
 #include "../logicstr/executor.h"
@@ -28,7 +28,7 @@
 
 using namespace std;
 
-#define CORE_DEFAULT_CONFIG_FILE "config.ini"
+#define CORE_DEFAULT_CONFIG_FILE "client.ini"
 
 class Core {
 public:
@@ -52,7 +52,7 @@ private:
 	Executor _executor;
 
 	Page _page;
-	ButtonManager _buttonManager;
+	InputManager _inputManager;
 
 	Console _console;
 	UI _ui;

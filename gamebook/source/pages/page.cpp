@@ -42,15 +42,15 @@ void Page::Load(string path) {
 	}
 }
 
-void Page::CreateButtons(ButtonManager *buttonManager) {
-	buttonManager->ResetButtons();
+void Page::CreateButtons(InputManager *inputManager) {
+	inputManager->ResetButtons();
 
 	for(auto & button: this->buttons) {
 		#ifdef __EMSCRIPTEN__
 			buttonManager->CreateButton(button.text);
 		#else
-			if (!buttonManager->Exists(button.text))
-				buttonManager->CreateButton(button.text);
+			if (!inputManager->Exists(button.text))
+				inputManager->CreateButton(button.text);
 		#endif
 	}
 }
@@ -66,7 +66,7 @@ string Page::GetButtonPressed(string content, Executor *executor, ActionManager 
 				chain.ParseString(unit);
 
 				auto nextPageBuffer = executor->ExecuteActionComand(variableManager, &chain);
-				if (!nextPageBuffer.empty()) {
+				if (!nextPageBuffer.empty() && nextPage != "") {
 					nextPage = nextPageBuffer;
 				}
 			}

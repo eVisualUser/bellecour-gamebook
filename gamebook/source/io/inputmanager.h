@@ -13,8 +13,11 @@ using namespace std;
 
 #define KEY_EXIT 27
 
+#define KEY_ZOOM 61
+#define KEY_UNZOOM 45
+
 /// Work only on the web
-class ButtonManager {
+class InputManager {
 public:
 	void Update();
 	int GetButtonCount();
@@ -23,6 +26,8 @@ public:
 	void ResetButtons();
 	vector<string> GetButtons(); 
 	bool Exists(string button);
+	bool MustZoom();
+	bool MustUnZoom();
 #ifdef __EMSCRIPTEN__
 #else
 	int GetIndex();
@@ -30,5 +35,7 @@ private:
 	string lastPressed = "none";
 	int index = 0;
 	vector<string> buffer;
+	bool zoom = false;
+	bool unzoom = false;
 #endif
 };

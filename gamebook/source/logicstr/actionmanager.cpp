@@ -17,7 +17,9 @@ void ActionManager::Load(string path) {
 	ini.SetBuffer(reader.GetBuffer());
 	auto table = ini.ParseTable("actions");
 
+	cout << "List Table" << endl;
 	for(auto & var: table.GetAllVars()) {
+		cout << "Parsing: " << var.GetKey() << endl;
 		Action newAction;
 		newAction.list = TomlParseArray(var.GetValue());
 		for (auto & action: newAction.list) {

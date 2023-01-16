@@ -21,11 +21,13 @@ void Core::ClearScreen() {
 }
 
 void Core::Draw() {
-	this->_ui.DrawButtons(Point(15, 10), &this->_buttonManager);
-	this->_ui.DrawText(Point(5, 0), this->_page.name);
+	this->_ui.DrawButtons(Point(this->_ui.size.x / 3, this->_ui.size.y), &this->_inputManager);
+	this->_ui.DrawText(Point(this->_ui.size.x / 2, 0), this->_page.name);
 
-	for (auto & line: this->_page.textContent)
-			this->_ui.DrawText(Point(0, 5), line);
+	int lineYOffset = 0;
+	for (auto & line: this->_page.textContent) {
+			lineYOffset += 1 + this->_ui.DrawText(Point(this->_ui.size.x / 4, (this->_ui.size.y / 4) + lineYOffset), line);
+	}
 }
 
 void Core::Render() {
@@ -34,10 +36,15 @@ void Core::Render() {
 }
 
 void Core::UpdateInputs() {
-	this->_buttonManager.Update();
+	this->_inputManager.Update();
+
+	if (this->_inputManager.MustZoom())
+		this->_ui.Zoom();
+	else if (this->_inputManager.MustUnZoom())
+		this->_ui.UnZoom();
 
 	string nextPage = this->_page.GetButtonPressed(
-			this->_buttonManager.GetLastPressed(),
+			this->_inputManager.GetLastPressed(),
 			 &this->_executor,
 			  &this->_actionManager,
 			   &this->_variableManager);
@@ -50,8 +57,8 @@ void Core::UpdateInputs() {
 
 		this->_page.Load(stream.str());
 		
-		this->_buttonManager.ResetButtons();
-		this->_page.CreateButtons(&this->_buttonManager);
+		this->_inputManager.ResetButtons();
+		this->_page.CreateButtons(&this->_inputManager);
 	}
 }
 
@@ -93,5 +100,5 @@ void Core::Initialize() {
 	this->_conditionManager.Load(this->_defaultConfigPath);
 	
 	this->_page.Load(this->_defaultPagePath);
-	this->_page.CreateButtons(&this->_buttonManager);
+	this->_page.CreateButtons(&this->_inputManager);
 }

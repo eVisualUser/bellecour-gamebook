@@ -1,4 +1,4 @@
-#include "buttonmanager.h"
+#include "inputmanager.h"
 #include "iomath.h"
 #include <vector>
 #include <iostream>
@@ -9,7 +9,7 @@
 	#include <conio.h> // Maybe not work with linux
 #endif
 
-string ButtonManager::GetLastPressed() {
+string InputManager::GetLastPressed() {
 	#ifdef __EMSCRIPTEN__
 		return emscripten_run_script_string("lastPressed");
   	#else
@@ -17,7 +17,7 @@ string ButtonManager::GetLastPressed() {
   	#endif
 }
 
-void ButtonManager::CreateButton(string button) {
+void InputManager::CreateButton(string button) {
 	#ifdef __EMSCRIPTEN__
 		EM_ASM({
 			createButton(UTF8ToString($0));
@@ -27,7 +27,7 @@ void ButtonManager::CreateButton(string button) {
 	#endif
 }
 
-void ButtonManager::ResetButtons() {
+void InputManager::ResetButtons() {
     #ifdef __EMSCRIPTEN__
     	emscripten_run_script("resetButtons();");
     #else
@@ -37,7 +37,7 @@ void ButtonManager::ResetButtons() {
 	#endif
 }
 
-int ButtonManager::GetButtonCount() {
+int InputManager::GetButtonCount() {
 	#ifdef __EMSCRIPTEN__
 		return emscripten_run_script_int("buttons.length");
 	#else
@@ -45,7 +45,7 @@ int ButtonManager::GetButtonCount() {
 	#endif
 }
 
-void ButtonManager::Update() {
+void InputManager::Update() {
 	#ifdef __EMSCRIPTEN__
 	#else
 		auto input = _getch();
@@ -59,8 +59,11 @@ void ButtonManager::Update() {
 			else if (input == KEY_DOWN) {
 				this->index++;
 			}
-
-		} else if (input == KEY_ENTER && !this->buffer.empty())
+		} else if (input == KEY_UNZOOM) // DOWN
+			this->unzoom = true;
+		else if (input == KEY_ZOOM)
+			this->zoom = true;
+		else if (input == KEY_ENTER && !this->buffer.empty())
 			this->lastPressed = this->buffer[this->index];
 		else if (input == KEY_EXIT)
 			exit(0);
@@ -69,7 +72,7 @@ void ButtonManager::Update() {
 	#endif
 }
 
-vector<string> ButtonManager::GetButtons() {
+vector<string> InputManager::GetButtons() {
 	#ifdef __EMSCRIPTEN__
 	return vector<string>();
 	#else
@@ -79,12 +82,12 @@ vector<string> ButtonManager::GetButtons() {
 
 #ifdef __EMSCRIPTEN__
 #else
-int ButtonManager::GetIndex() {
+int InputManager::GetIndex() {
 	return this->index;
 }
 #endif
 
-bool ButtonManager::Exists(string content) {
+bool InputManager::Exists(string content) {
 	#ifdef __EMSCRIPTEN__
 		return false;
 	#else
@@ -97,4 +100,16 @@ bool ButtonManager::Exists(string content) {
 
 		return result;
 	#endif
+}
+
+bool InputManager::MustZoom() {
+	bool result = this->zoom;
+	this->zoom = false;
+	return result;
+}
+
+bool InputManager::MustUnZoom() {
+	bool result = this->unzoom;
+	this->unzoom = false;
+	return result;
 }
