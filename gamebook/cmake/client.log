@@ -1,0 +1,10 @@
+2023-01-16 11:59:40;LOG;Game Started;
+2023-01-16 11:59:40;LOG;Open page: pages/index.toml;
+2023-01-16 11:59:40;LOG;Text line loaded: line_a;
+2023-01-16 11:59:40;LOG;Text line loaded: line_b;
+2023-01-16 11:59:40;LOG;Choice loaded: Play;
+2023-01-16 11:59:40;LOG;Choice loaded: Explore;
+2023-01-16 11:59:48;LOG;Button pressed: Play;
+2023-01-16 11:59:49;LOG;Button pressed: Play;
+2023-01-16 11:59:49;LOG;Button pressed: Let's explore;
+2023-01-16 11:59:50;LOG;Game Quit;

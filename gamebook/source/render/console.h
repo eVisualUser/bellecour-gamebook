@@ -17,3 +17,5 @@ public:
 	void Clear();
 	void PrintFrame(std::vector<std::string> *frame);
 };
+
+void PrintError(std::string error);

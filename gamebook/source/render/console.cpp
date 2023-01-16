@@ -13,6 +13,8 @@
 	#include <conio.h>
 #endif
 
+#include "../debug/logger.h"
+
 Console::Console() {
 	// Optimize the console
 	#ifdef _WIN32
@@ -40,11 +42,6 @@ Console::~Console() {
 void Console::SetWindow(int x, int y) {
 	#ifdef _WIN32
 		HWND hwnd = GetConsoleWindow();
-		RECT rect = {100, 100, x, y};
-		MoveWindow(hwnd, rect.left, rect.top, rect.right-rect.left, rect.bottom-rect.top,TRUE);
-		LONG dwStyle = GetWindowLong(hwnd, GWL_STYLE);
-		dwStyle &= ~(WS_MAXIMIZEBOX | WS_SIZEBOX);
-		SetWindowLong(hwnd, GWL_STYLE, dwStyle);
 
 		WORD colorAttribute = FOREGROUND_GREEN;
 		SetConsoleTextAttribute(hwnd, colorAttribute);
@@ -85,4 +82,13 @@ void Console::PrintFrame(std::vector<std::string> *frame) {
 		buffer.push_back('\n');
 	}
 	std::cout << buffer << std::endl;
+}
+
+void PrintError(std::string error) {
+	Logger::LogError(error);
+	#ifdef _WIN32
+		MessageBox(NULL, LPCSTR(error.c_str()), LPCSTR("ERROR"), MB_ICONERROR | MB_OK);
+	#else
+		std::cerr << "[ERROR] " << error << std::endl;
+	#endif
 }

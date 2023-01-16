@@ -1,5 +1,7 @@
 #include "inputmanager.h"
 #include "iomath.h"
+#include "../debug/logger.h"
+
 #include <vector>
 #include <iostream>
 
@@ -59,14 +61,16 @@ void InputManager::Update() {
 			else if (input == KEY_DOWN) {
 				this->index++;
 			}
-		} else if (input == KEY_UNZOOM) // DOWN
+		} else if (input == KEY_UNZOOM)
 			this->unzoom = true;
 		else if (input == KEY_ZOOM)
 			this->zoom = true;
 		else if (input == KEY_ENTER && !this->buffer.empty())
 			this->lastPressed = this->buffer[this->index];
-		else if (input == KEY_EXIT)
+		else if (input == KEY_EXIT) {
+			Logger::Log("Game Quit");
 			exit(0);
+		}
 
 		clamp_int(&this->index, 0, this->GetButtonCount()-1);
 	#endif

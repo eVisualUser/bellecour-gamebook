@@ -4,8 +4,6 @@
 #include <stdexcept>
 #include <system_error>
 
-#define ERROR_FILE_NOT_FOUND() throw std::runtime_error("File not found");
-
 bool Reader::IsFileExist() {
 	ifstream file;
 	file.open(this->path);
@@ -22,10 +20,7 @@ bool Reader::IsFileExist() {
 void Reader::SetPath(string newPath) {
 	this->path = newPath;
 	if (!this->IsFileExist())
-	{
-		cerr << "File not found: " << "\"" << this->path << "\"" << endl;
-		ERROR_FILE_NOT_FOUND();
-	}
+		throw std::runtime_error("File not found");
 }
 
 void Reader::ReadFile() {

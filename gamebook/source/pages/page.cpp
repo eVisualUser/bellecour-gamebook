@@ -5,16 +5,29 @@
 #include "../filesystem/toml.h"
 #include "../logicstr/actionmanager.h"
 #include "../logicstr/nodechain.h"
+#include "../debug/logger.h"
+#include "../render/console.h"
 
 #include <iostream>
 #include <iterator>
+#include <sstream>
 
 using namespace client_filesystem;
 
 void Page::Load(string path) {
 	auto reader = Reader();
-	reader.SetPath(path);
-	reader.ReadFile();
+	try {
+		reader.SetPath(path);
+		reader.ReadFile();
+	} catch (string message) {
+		Logger::LogError(message);
+		PrintError(message);
+		exit(-1);
+	}
+
+	stringstream logMessage;
+	logMessage << "Open page: " << path;
+	Logger::Log(logMessage.str());
 
 	auto ini = Ini();
 	ini.SetBuffer(reader.GetBuffer());
@@ -27,10 +40,17 @@ void Page::Load(string path) {
 	this->type = TomlParseString(config.GetVar("type").GetValue());
 
 	for (auto & var: content.GetAllVars()) {
+		logMessage = stringstream();
+		logMessage << "Text line loaded: " << var.GetKey();
+		Logger::Log(logMessage.str());
 		this->textContent.push_back(TomlParseString(var.GetValue()));
 	}
 
 	for (auto & var: choices.GetAllVars()) {
+			logMessage = stringstream();
+		logMessage << "Choice loaded: " << var.GetKey();
+		Logger::Log(logMessage.str());
+
 		auto button = Button();
 		auto array = TomlParseArray(var.GetValue());
 
@@ -59,6 +79,10 @@ string Page::GetButtonPressed(string content, Executor *executor, ActionManager 
 	string nextPage;
 	for (auto & button: this->buttons) {
 		if (content == button.text) {
+			stringstream logMessage;
+			logMessage << "Button pressed: " << button.text;
+			Logger::Log(logMessage.str());
+
 			auto nodeChain = NodeChain();
 			auto actions = actionManager->GetAction(button.action);
 			for (auto & unit: actions.list) {
