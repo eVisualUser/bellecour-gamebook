@@ -75,23 +75,49 @@ void Page::CreateButtons(InputManager *inputManager) {
 	}
 }
 
-string Page::GetButtonPressed(string content, Executor *executor, ActionManager *actionManager, VariableManager *variableManager) {
+string Page::GetButtonPressed(string content, Executor *executor, ActionManager *actionManager, VariableManager *variableManager, ConditionManager *conditionManager) {
 	string nextPage;
 	for (auto & button: this->buttons) {
 		if (content == button.text) {
+			bool conditionPassed = false;
 			stringstream logMessage;
-			logMessage << "Button pressed: " << button.text;
+
+			logMessage << "Condition Test: " << button.condition;
 			Logger::Log(logMessage.str());
 
-			auto nodeChain = NodeChain();
-			auto actions = actionManager->GetAction(button.action);
-			for (auto & unit: actions.list) {
-				NodeChain chain = NodeChain();
-				chain.ParseString(unit);
+			auto conditions = conditionManager->GetCondition(button.condition);
+			for (auto & condition: conditions.list) {
+				auto condNodeChain = NodeChain();
+				condNodeChain.ParseString(condition);
+				logMessage = stringstream();
+				logMessage << "Try: " << condition;
+				Logger::Log(logMessage.str());
+				if (executor->ExecuteConditionComand(variableManager, &condNodeChain)) {
+					conditionPassed = true;
+				}
+			}
 
-				auto nextPageBuffer = executor->ExecuteActionComand(variableManager, &chain);
-				if (!nextPageBuffer.empty() && nextPage != "") {
-					nextPage = nextPageBuffer;
+			logMessage = stringstream();
+			logMessage << "Condition: " << (conditionPassed ? "SUCCESS" : "FAIL");
+			Logger::Log(logMessage.str());
+
+			if (conditionPassed) {
+				logMessage = stringstream();
+				logMessage << "Button pressed: " << button.text;
+				Logger::Log(logMessage.str());
+
+				auto nodeChain = NodeChain();
+				auto actions = actionManager->GetAction(button.action);
+				for (auto & action: actions.list) {
+					NodeChain chain = NodeChain();
+					chain.ParseString(action);
+					logMessage = stringstream();
+					logMessage << "Action: " << action;
+					Logger::Log(logMessage.str());
+
+					auto nextPageBuffer = executor->ExecuteActionComand(variableManager, &chain);
+					if (!nextPageBuffer.empty())
+						nextPage = nextPageBuffer;
 				}
 			}
 		}

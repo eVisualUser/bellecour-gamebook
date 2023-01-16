@@ -14,7 +14,14 @@ string TomlParseString(string input) {
 }
 
 int TomlParseInt(string input) {
-	return stoi(input);
+	string result;
+
+	for(auto & i: input) {
+		if (i != ' ' && i != '\n')
+			result.push_back(i);
+	}
+	
+	return stoi(result);
 }
 
 vector<string> TomlParseArray(string input) {

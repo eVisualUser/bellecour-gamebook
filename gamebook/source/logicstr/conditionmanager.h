@@ -15,5 +15,5 @@ class ConditionManager {
 public:
 	void Load(string path);
 	Condition GetCondition(string name);
-	vector<Condition> actions;
+	vector<Condition> conditions;
 };

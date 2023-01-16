@@ -1,5 +1,6 @@
 #include "executor.h"
 #include "nodechain.h"
+#include "../debug/logger.h"
 
 #include <iostream>
 #include <stdexcept>
@@ -64,7 +65,7 @@ string Executor::ExecuteActionComand(VariableManager* variableManager, NodeChain
 	return file;
 }
 
-bool Executor::ExecuteConditionComand(VariableManager* variableManager, NodeChain* nodeChain) { 
+bool Executor::ExecuteConditionComand(VariableManager* variableManager, NodeChain* nodeChain) {
 	if (nodeChain->chain.size() == CONDITION_CHAIN_LEN) {
 
 		int value_a = 0;
@@ -77,7 +78,7 @@ bool Executor::ExecuteConditionComand(VariableManager* variableManager, NodeChai
 
 		int value_b = 0;
 		auto last_node = nodeChain->chain[2].content;
-		if (variableManager->IsExist(first_node)) {
+		if (variableManager->IsExist(last_node)) {
 			value_b = variableManager->GetVariableValue(last_node);
 		} else {
 			value_b = stoi(last_node);
@@ -86,21 +87,14 @@ bool Executor::ExecuteConditionComand(VariableManager* variableManager, NodeChai
 		auto nodeOpContent = nodeChain->chain[1].content;
 		auto condOperator = nodeChain->GetOperator(nodeOpContent);
 		switch(condOperator) {
-			case Operator::Equal:
-				return value_a == value_b;
 			case Operator::Lower:
 				return value_a < value_b;
 			case Operator::Greater:
 				return value_a > value_b;
-			default:
-				cerr << ERROR_MSG_UNKNOW_OPERATOR << ": " << nodeOpContent << endl;
-				throw std::runtime_error(ERROR_MSG_UNKNOW_OPERATOR);  
+			default: case Operator::Equal:
+				return value_a == value_b;
 		}
-
 	} else {
-		cerr << ERROR_MSG_INVALID_CHAIN_SIZE << endl;
 		throw std::runtime_error(ERROR_MSG_INVALID_CHAIN_SIZE);
 	}
-
-	return false;
 }

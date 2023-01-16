@@ -14,7 +14,7 @@ message("\nCode sources found: ${sources}\n")
 add_executable(client ${sources})
 
 if (EMSCRIPTEN)
-    file(GLOB assets RELATIVE "${CMAKE_CURRENT_LIST_DIR}/web" "web/pages/*.toml" "web/*.toml" "web/*ini")
+    file(GLOB assets RELATIVE "${CMAKE_CURRENT_LIST_DIR}/web" "web/pages/*.toml" "web/*.toml" "web/*.ini")
 
     message("Preloaded files list: [${assets}]\n")
     string(REPLACE ";" " --preload-file " assets "${assets}")

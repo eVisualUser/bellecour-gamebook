@@ -1,10 +1,13 @@
 #include "variablemanager.h"
 
 #include <iostream>
+#include <sstream>
 
 #include "../filesystem/ini.h"
 #include "../filesystem/reader.h"
 #include "../filesystem/toml.h"
+#include "../debug/logger.h"
+#include "../render/console.h"
 
 using namespace client_filesystem;
 
@@ -45,21 +48,34 @@ void VariableManager::SetVariableValue(string name, int value) {
 			break;
 		}
 	}
+	stringstream logMessage;
+	logMessage << "Set " << name << " with " << value;
+	Logger::Log(logMessage.str());
 }
 
 void VariableManager::Load(string path) {
 	auto reader = Reader();
-	reader.SetPath(path);
-	reader.ReadFile();
+	try {
+		reader.SetPath(path);
+		reader.ReadFile();
+	} catch (string message) {
+		Logger::LogError(message);
+		PrintError(message);
+		exit(-1);
+	}
 
 	auto ini = Ini();
 	ini.SetBuffer(reader.GetBuffer());
-	auto table = ini.ParseTable("vars");
+	auto table = ini.ParseTable("data");
 
 	for(auto & var: table.GetAllVars()) {
+		stringstream logMessage;
+		logMessage << "Loaded Var: " << var.GetKey() << " = " << var.GetValue();
+		Logger::Log(logMessage.str());
+
 		Variable newVar;
 		newVar.name = var.GetKey();
-		newVar.value = TomlParseInt(var.GetKey());
+		newVar.value = TomlParseInt(var.GetValue());
 
 		this->AddVariable(newVar);
 	}

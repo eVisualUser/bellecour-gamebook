@@ -59,8 +59,6 @@ private:
 
 private:
 	Point _frameSize;
-	Point _textPosition;
-	Point _buttonPosition;
 
 	string _defaultPagePath; 
 	string _defaultConfigPath;

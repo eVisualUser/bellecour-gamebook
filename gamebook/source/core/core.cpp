@@ -47,7 +47,8 @@ void Core::UpdateInputs() {
 			this->_inputManager.GetLastPressed(),
 			 &this->_executor,
 			  &this->_actionManager,
-			   &this->_variableManager);
+			   &this->_variableManager,
+			   &this->_conditionManager);
 
 	if (!nextPage.empty()) {
 		this->_page = Page();
@@ -77,10 +78,6 @@ void Core::LoadConfig(string path) {
 	auto renderTable = ini.ParseTable("render");
 	this->_frameSize.x = stoi(renderTable.GetVar("frameSize_x").GetValue());
 	this->_frameSize.y = stoi(renderTable.GetVar("frameSize_y").GetValue());
-	this->_textPosition.x = stoi(renderTable.GetVar("textPosition_x").GetValue());
-	this->_textPosition.y = stoi(renderTable.GetVar("textPosition_y").GetValue());
-	this->_buttonPosition.x = stoi(renderTable.GetVar("buttonPosition_x").GetValue());
-	this->_buttonPosition.y = stoi(renderTable.GetVar("buttonPosition_y").GetValue());
 }
 
 void Core::Initialize() {
@@ -98,7 +95,7 @@ void Core::Initialize() {
 	this->_variableManager.Load(this->_defaultConfigPath);
 	this->_actionManager.Load(this->_defaultConfigPath);
 	this->_conditionManager.Load(this->_defaultConfigPath);
-	
+
 	this->_page.Load(this->_defaultPagePath);
 	this->_page.CreateButtons(&this->_inputManager);
 }

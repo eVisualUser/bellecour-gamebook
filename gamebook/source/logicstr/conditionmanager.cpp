@@ -3,19 +3,24 @@
 #include "../filesystem/ini.h"
 #include "../filesystem/reader.h"
 #include "../filesystem/toml.h"
-
-#include <iostream>
+#include "../render/console.h"
+#include "../debug/logger.h"
 
 using namespace client_filesystem;
 
 void ConditionManager::Load(string path) {
 	auto reader = Reader();
-	reader.SetPath(path);
-	reader.ReadFile();
+	try {
+		reader.SetPath(path);
+		reader.ReadFile();
+	} catch (string message) {
+		Logger::LogError(message);
+		PrintError(message);
+	}
 
 	auto ini = Ini();
 	ini.SetBuffer(reader.GetBuffer());
-	auto table = ini.ParseTable("actions");
+	auto table = ini.ParseTable("conditions");
 
 	for(auto & var: table.GetAllVars()) {
 		Condition condition;
@@ -24,12 +29,12 @@ void ConditionManager::Load(string path) {
 			condition = TomlParseString(condition);
 		}
 		condition.name = var.GetKey();
-		this->actions.push_back(condition);
+		this->conditions.push_back(condition);
 	}
 }
 
 Condition ConditionManager::GetCondition(string name) {
-	for (auto & condition: this->actions) {
+	for (auto & condition: this->conditions) {
 		if (condition.name == name)
 			return condition;
 	}

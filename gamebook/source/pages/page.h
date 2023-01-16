@@ -9,6 +9,7 @@
 #include "../logicstr/variablemanager.h"
 #include "../logicstr/executor.h"
 #include "../logicstr/actionmanager.h"
+#include "../logicstr/conditionmanager.h"
 
 using namespace std;
 
@@ -16,7 +17,7 @@ class Page {
 public:
 	void Load(string path);
 	void CreateButtons(InputManager *inputManager);
-	string GetButtonPressed(string content, Executor *executor, ActionManager *actionManager, VariableManager *variableManager);
+	string GetButtonPressed(string content, Executor *executor, ActionManager *actionManager, VariableManager *variableManager, ConditionManager *conditionManager);
 public:
 	string name;
 	string type;
