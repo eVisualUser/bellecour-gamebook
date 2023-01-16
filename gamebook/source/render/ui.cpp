@@ -78,9 +78,11 @@ int UI::DrawText(Point start, string text) {
 			if ((start.x + x) < this->size.x)
 				this->buffer[start.y][start.x + x] = text[x];
 			else if (start.y + 1 < this->size.y) {
+				x -= 1;
 				textBack++;
 				start.y += 1;
 				start.x -= x;
+				start.x -= 1;
 			}
 		}
 	}
@@ -107,15 +109,21 @@ void UI::DrawButtons(Point position, InputManager *inputManager) {
 }
 
 void UI::Zoom() {
-	if ((this->size.x + 1) < INT_MAX && (this->size.y + 1) < INT_MAX) {
-		this->size.x += 1;
-		this->size.y += 1;
-	}
+	#ifdef __EMSCRIPTEN__
+	#else
+		if ((this->size.x + 1) < INT_MAX && (this->size.y + 1) < INT_MAX) {
+			this->size.x += 1;
+			this->size.y += 1;
+		}
+	#endif
 }
 
 void UI::UnZoom() {
-	if ((this->size.x - 1) > 5 && (this->size.y - 1) > 5) {
-		this->size.x -= 1;
-		this->size.y -= 1;
-	}
+	#ifdef __EMSCRIPTEN__
+	#else
+		if ((this->size.x - 1) > 5 && (this->size.y - 1) > 5) {
+			this->size.x -= 1;
+			this->size.y -= 1;
+		}
+	#endif
 }

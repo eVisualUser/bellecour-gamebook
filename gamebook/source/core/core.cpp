@@ -21,7 +21,7 @@ void Core::ClearScreen() {
 }
 
 void Core::Draw() {
-	this->_ui.DrawButtons(Point(this->_ui.size.x / 3, this->_ui.size.y), &this->_inputManager);
+	this->_ui.DrawButtons(Point(this->_ui.size.x / 2, this->_ui.size.y), &this->_inputManager);
 	this->_ui.DrawText(Point(this->_ui.size.x / 2, 0), this->_page.name);
 
 	int lineYOffset = 0;

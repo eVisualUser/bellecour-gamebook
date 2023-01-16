@@ -107,13 +107,21 @@ bool InputManager::Exists(string content) {
 }
 
 bool InputManager::MustZoom() {
-	bool result = this->zoom;
-	this->zoom = false;
-	return result;
+	#ifdef __EMSCRIPTEN__
+		return false;
+	#else
+		bool result = this->zoom;
+		this->zoom = false;
+		return result;
+	#endif
 }
 
 bool InputManager::MustUnZoom() {
-	bool result = this->unzoom;
-	this->unzoom = false;
-	return result;
+	#ifdef __EMSCRIPTEN__
+		return false;
+	#else
+		bool result = this->unzoom;
+		this->unzoom = false;
+		return result;
+	#endif
 }

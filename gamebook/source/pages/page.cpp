@@ -40,17 +40,10 @@ void Page::Load(string path) {
 	this->type = TomlParseString(config.GetVar("type").GetValue());
 
 	for (auto & var: content.GetAllVars()) {
-		logMessage = stringstream();
-		logMessage << "Text line loaded: " << var.GetKey();
-		Logger::Log(logMessage.str());
 		this->textContent.push_back(TomlParseString(var.GetValue()));
 	}
 
 	for (auto & var: choices.GetAllVars()) {
-			logMessage = stringstream();
-		logMessage << "Choice loaded: " << var.GetKey();
-		Logger::Log(logMessage.str());
-
 		auto button = Button();
 		auto array = TomlParseArray(var.GetValue());
 
@@ -67,7 +60,7 @@ void Page::CreateButtons(InputManager *inputManager) {
 
 	for(auto & button: this->buttons) {
 		#ifdef __EMSCRIPTEN__
-			buttonManager->CreateButton(button.text);
+			inputManager->CreateButton(button.text);
 		#else
 			if (!inputManager->Exists(button.text))
 				inputManager->CreateButton(button.text);
@@ -82,15 +75,12 @@ string Page::GetButtonPressed(string content, Executor *executor, ActionManager 
 			bool conditionPassed = false;
 			stringstream logMessage;
 
-			logMessage << "Condition Test: " << button.condition;
-			Logger::Log(logMessage.str());
-
 			auto conditions = conditionManager->GetCondition(button.condition);
 			for (auto & condition: conditions.list) {
 				auto condNodeChain = NodeChain();
 				condNodeChain.ParseString(condition);
 				logMessage = stringstream();
-				logMessage << "Try: " << condition;
+				logMessage << "Try Condition: " << condition;
 				Logger::Log(logMessage.str());
 				if (executor->ExecuteConditionComand(variableManager, &condNodeChain)) {
 					conditionPassed = true;
@@ -98,7 +88,7 @@ string Page::GetButtonPressed(string content, Executor *executor, ActionManager 
 			}
 
 			logMessage = stringstream();
-			logMessage << "Condition: " << (conditionPassed ? "SUCCESS" : "FAIL");
+			logMessage << "Condition Result: " << (conditionPassed ? "SUCCESS" : "FAIL");
 			Logger::Log(logMessage.str());
 
 			if (conditionPassed) {
