@@ -2,6 +2,7 @@
 #include "../filesystem/toml.h"
 #include "../debug/logger.h"
 #include "../render/console.h"
+#include <sstream>
 
 #ifdef __EMSCRIPTEN__
 #include <emscripten.h>

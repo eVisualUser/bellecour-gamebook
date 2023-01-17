@@ -61,7 +61,7 @@ void InputManager::Update() {
     } else if (input == this->_keyDown) {
       this->index++;
     }
-  } else if (input == this->unzoom)
+  } else if (input == this->_keyUnZoom)
     this->unzoom = true;
   else if (input == this->_keyZoom)
     this->zoom = true;
