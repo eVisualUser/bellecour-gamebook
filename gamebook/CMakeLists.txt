@@ -7,6 +7,8 @@ project(client VERSION ${PROJECT_VERSION})
 set(CMAKE_C_STANDARD 23)
 set(CMAKE_CXX_STANDARD 23)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 file(GLOB sources "source/*.cpp" "source/filesystem/*.cpp" "source/logicstr/*.cpp" "source/io/*.cpp" "source/render/*.cpp" "source/pages/*.cpp" "source/core/*.cpp" "source/debug/*.cpp")
 
 message("\nCode sources found: ${sources}\n")

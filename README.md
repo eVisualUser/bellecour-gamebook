@@ -6,12 +6,14 @@ Game book for Bellecour Ecole school
 
 The program have no certificate so all anti-virus will detect the executable as a virus.
 And the os may block the file reading (run it as admin to avoid it).
+You can look at the logs to see what happend when the game crash.
 
 ## Files
 
 ### Page Render Format
 
 ```toml
+
 [config]
 name = "Page Name"
 type = "classic"
