@@ -84,9 +84,6 @@ string Page::GetButtonPressed(string content, Executor *executor, ActionManager 
 				for (auto & action: actions.list) {
 					NodeChain chain = NodeChain();
 					chain.ParseString(action);
-					logMessage = stringstream();
-					logMessage << "Action: " << action;
-					Logger::Log(logMessage.str());
 
 					auto nextPageBuffer = executor->ExecuteActionComand(variableManager, &chain);
 					if (!nextPageBuffer.empty())
@@ -102,23 +99,15 @@ bool Page::IsButtonActive(string content, Executor *executor, VariableManager *v
 	for (auto & button: this->buttons) {
 		if (content == button.text) {
 			bool conditionPassed = false;
-			stringstream logMessage;
 
 			auto conditions = conditionManager->GetCondition(button.condition);
 			for (auto & condition: conditions.list) {
 				auto condNodeChain = NodeChain();
 				condNodeChain.ParseString(condition);
-				logMessage = stringstream();
-				logMessage << "Try Condition: " << condition;
-				Logger::Log(logMessage.str());
 				if (executor->ExecuteConditionComand(variableManager, &condNodeChain)) {
 					conditionPassed = true;
 				}
 			}
-
-			logMessage = stringstream();
-			logMessage << "Condition Result: " << (conditionPassed ? "SUCCESS" : "FAIL");
-			Logger::Log(logMessage.str());
 
 			return conditionPassed;
 		}

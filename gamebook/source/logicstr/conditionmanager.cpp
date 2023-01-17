@@ -5,6 +5,7 @@
 #include "../filesystem/toml.h"
 #include "../render/console.h"
 #include "../debug/logger.h"
+#include <sstream>
 
 using namespace client_filesystem;
 
@@ -38,5 +39,8 @@ Condition ConditionManager::GetCondition(string name) {
 		if (condition.name == name)
 			return condition;
 	}
-	throw std::runtime_error("Action missing");
+	stringstream message;
+	message << "Condition Missing: " << name; 
+	Logger::LogError(message.str());
+	throw std::runtime_error(message.str());
 }
