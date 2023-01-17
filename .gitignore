@@ -76,3 +76,6 @@ gamebook/web/clientV0.3.data
 # Debug
 *.pdb
 gamebook/cmake/compile_commands.json
+
+# Clang
+**/.cache/clangd/index
