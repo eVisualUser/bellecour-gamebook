@@ -1,65 +1,68 @@
 #pragma once
 
 // File System
-#include "../filesystem/reader.h"
 #include "../filesystem/ini.h"
+#include "../filesystem/reader.h"
 
 // Render
 #include "../render/console.h"
-#include "../render/ui.h"
 #include "../render/rendermath.h"
+#include "../render/ui.h"
 
 // IO
 #include "../io/inputmanager.h"
 
 // Logic Str
+#include "../logicstr/actionmanager.h"
+#include "../logicstr/conditionmanager.h"
 #include "../logicstr/executor.h"
 #include "../logicstr/nodechain.h"
 #include "../logicstr/variablemanager.h"
-#include "../logicstr/actionmanager.h"
-#include "../logicstr/conditionmanager.h"
 
 // Page
 #include "../pages/page.h"
 
 // STD
-#include <string>
 #include <sstream>
+#include <string>
+
+#define DEFAULT_CONFIG_PATH "config.toml"
 
 using namespace std;
 
-#define CORE_DEFAULT_CONFIG_FILE "client.ini"
-
 class Core {
 public:
-	Core() { this->LoadConfig(CORE_DEFAULT_CONFIG_FILE); this->Initialize(); }
+  Core() {
+    this->LoadConfig();
+    this->Initialize();
+  }
 
-	void RunGameLoop();
-	void LoadConfig(string path);
-	
-	void Initialize();
+  void RunGameLoop();
+  void LoadConfig();
 
-	void Update();
-	void ClearScreen();
-	void Draw();
-	void UpdateInputs();
-	void Render();
-private:
-	VariableManager _variableManager;
-	ActionManager _actionManager;
-	ConditionManager _conditionManager;
+  void Initialize();
 
-	Executor _executor;
-
-	Page _page;
-	InputManager _inputManager;
-
-	Console _console;
-	UI _ui;
+  void Update();
+  void ClearScreen();
+  void Draw();
+  void UpdateInputs();
+  void Render();
 
 private:
-	Point _frameSize;
+  VariableManager _variableManager;
+  ActionManager _actionManager;
+  ConditionManager _conditionManager;
 
-	string _defaultPagePath; 
-	string _defaultConfigPath;
+  Executor _executor;
+
+  Page _page;
+  InputManager _inputManager;
+
+  Console _console;
+  UI _ui;
+
+private:
+  Point _frameSize;
+
+  string _defaultPagePath;
 };

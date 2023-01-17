@@ -1,4 +1,4 @@
-#![allow(unused)]
+#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 mod app;
 mod directory;
@@ -17,5 +17,5 @@ fn main() {
     let mut app = app::App::default();
     app.add_editor(Box::new(project::Project::default()));
 
-    eframe::run_native("Isydor Editor", options, Box::new(|_cc| Box::new(app)));
+    eframe::run_native("Client Editor", options, Box::new(|_cc| Box::new(app)));
 }

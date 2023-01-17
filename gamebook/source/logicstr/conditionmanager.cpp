@@ -40,7 +40,6 @@ Condition ConditionManager::GetCondition(string name) {
 			return condition;
 	}
 	stringstream message;
-	message << "Condition Missing: " << name; 
-	Logger::LogError(message.str());
+	message << "Condition Missing: " << name;
 	throw std::runtime_error(message.str());
 }

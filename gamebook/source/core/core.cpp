@@ -1,118 +1,132 @@
 #include "core.h"
+#include "../filesystem/toml.h"
+#include "../debug/logger.h"
+#include "../render/console.h"
 
 #ifdef __EMSCRIPTEN__
-	#include <emscripten.h>
+#include <emscripten.h>
 #endif
 
 void Core::RunGameLoop() {
-	while(true) {this->Update();}
+  while (true) {
+    this->Update();
+  }
 }
 
 void Core::Update() {
-	this->ClearScreen();
-	this->Draw();
-	this->Render();
-	this->UpdateInputs();
+  this->ClearScreen();
+  this->Draw();
+  this->Render();
+  this->UpdateInputs();
 }
 
 void Core::ClearScreen() {
-	this->_ui.ResetBuffer();
-	this->_console.Clear();
+  this->_ui.ResetBuffer();
+  this->_console.Clear();
 }
 
 void Core::Draw() {
-	#ifdef __EMSCRIPTEN__
-	#else
-		char selectChar = '>';
+#ifdef __EMSCRIPTEN__
+#else
+  char selectChar = '>';
+  for (int i = 0; i < this->_inputManager.GetButtonCount(); i++) {
+    if (!this->_page.IsButtonActive(this->_inputManager.GetButtons()[i],
+                                    &this->_executor, &this->_variableManager,
+                                    &this->_conditionManager)) {
+      if (this->_inputManager.GetIndex() == i) {
+        selectChar = 'X';
+      }
+    }
+  }
+  this->_ui.DrawButtons(Point(this->_ui.size.x / 2, this->_ui.size.y),
+                        &this->_inputManager, selectChar);
+#endif
+  this->_ui.DrawText(Point(this->_ui.size.x / 2, 0), this->_page.name);
 
-		for(int i = 0; i < this->_inputManager.GetButtonCount(); i++) {
-			if (!this->_page.IsButtonActive(this->_inputManager.GetButtons()[i], &this->_executor, &this->_variableManager, &this->_conditionManager)) {
-				if (this->_inputManager.GetIndex() == i) {
-					selectChar = 'X';
-				}
-			}
-		}
-
-		this->_ui.DrawButtons(Point(this->_ui.size.x / 2, this->_ui.size.y), &this->_inputManager, selectChar);
-	#endif
-	this->_ui.DrawText(Point(this->_ui.size.x / 2, 0), this->_page.name);
-
-	int lineYOffset = 0;
-	for (auto & line: this->_page.textContent) {
-			lineYOffset += 1 + this->_ui.DrawText(Point(this->_ui.size.x / 4, (this->_ui.size.y / 4) + lineYOffset), line);
-	}
+  int lineYOffset = 0;
+  for (auto &line : this->_page.textContent) {
+    lineYOffset +=
+        1 + this->_ui.DrawText(Point(this->_ui.size.x / 4,
+                                     (this->_ui.size.y / 4) + lineYOffset),
+                               line);
+  }
 }
 
 void Core::Render() {
-	auto frame = this->_ui.GetFrame();
-	this->_console.PrintFrame(&frame);
+  auto frame = this->_ui.GetFrame();
+  this->_console.PrintFrame(&frame);
 }
 
 void Core::UpdateInputs() {
-	this->_inputManager.Update();
+  this->_inputManager.Update();
 
-	if (this->_inputManager.MustZoom())
-		this->_ui.Zoom();
-	else if (this->_inputManager.MustUnZoom())
-		this->_ui.UnZoom();
+  if (this->_inputManager.MustZoom())
+    this->_ui.Zoom();
+  else if (this->_inputManager.MustUnZoom())
+    this->_ui.UnZoom();
 
-	string nextPage = this->_page.GetButtonPressed(
-			this->_inputManager.GetLastPressed(),
-			 &this->_executor,
-			  &this->_actionManager,
-			   &this->_variableManager,
-			   &this->_conditionManager);
+  string nextPage = this->_page.GetButtonPressed(
+      this->_inputManager.GetLastPressed(), &this->_executor,
+      &this->_actionManager, &this->_variableManager, &this->_conditionManager);
 
-	if (!nextPage.empty()) {
-		this->_page = Page();
+  if (!nextPage.empty()) {
+    this->_page = Page();
 
-		stringstream stream;
-		stream << "pages/" << nextPage;
+    stringstream stream;
+    stream << "pages/" << nextPage;
 
-		this->_page.Load(stream.str());
-		
-		this->_inputManager.ResetButtons();
-		this->_page.CreateButtons(&this->_inputManager);
-	}
+    this->_page.Load(stream.str());
+
+    this->_inputManager.ResetButtons();
+    this->_page.CreateButtons(&this->_inputManager);
+  }
 }
 
-void Core::LoadConfig(string path) {
-	auto reader = Reader();
-	reader.SetPath(path);
-	reader.ReadFile();
+void Core::LoadConfig() {
+  auto reader = Reader();
+  try {
+    reader.SetPath(DEFAULT_CONFIG_PATH);
+    reader.ReadFile();
+  } catch(string message) {
+    Logger::LogError(message);
+    PrintError(message);
+  }
 
-	auto ini = client_filesystem::Ini();
-	ini.SetBuffer(reader.GetBuffer());
+  auto ini = client_filesystem::Ini();
+  ini.SetBuffer(reader.GetBuffer());
 
-	auto tableTable = ini.ParseTable("default_path");
-	this->_defaultConfigPath = tableTable.GetVar("config").GetValue();
-	this->_defaultPagePath = tableTable.GetVar("page").GetValue();
-
-	auto renderTable = ini.ParseTable("render");
-	this->_frameSize.x = stoi(renderTable.GetVar("frameSize_x").GetValue());
-	this->_frameSize.y = stoi(renderTable.GetVar("frameSize_y").GetValue());
+  auto table = ini.ParseTable("client");
+  this->_defaultPagePath = TomlParseString(table.GetVar("page").GetValue());
+  this->_frameSize.x = TomlParseInt(table.GetVar("frameSize_x").GetValue());
+  this->_frameSize.y = TomlParseInt(table.GetVar("frameSize_y").GetValue());
+  this->_inputManager._keyOk = TomlParseInt(table.GetVar("ok").GetValue());
+  this->_inputManager._keyExit = TomlParseInt(table.GetVar("exit").GetValue());
+  this->_inputManager._keyUnZoom = TomlParseInt(table.GetVar("unzoom").GetValue());
+  this->_inputManager._keyZoom = TomlParseInt(table.GetVar("zoom").GetValue());
+  this->_inputManager._keyUp = TomlParseInt(table.GetVar("up").GetValue());
+  this->_inputManager._keyDown = TomlParseInt(table.GetVar("down").GetValue());
 }
 
 void Core::Initialize() {
-	this->_console = Console();
-	#ifdef __EMSCRIPTEN__
-		this->_ui = UI(Point(75, 25));
-	#else
-		this->_ui = UI(this->_frameSize);
-	#endif
+  this->_console = Console();
+#ifdef __EMSCRIPTEN__
+  this->_ui = UI(Point(75, 25));
+#else
+  this->_ui = UI(this->_frameSize);
+#endif
 
-	this->_variableManager = VariableManager();
-	this->_actionManager = ActionManager();
-	this->_conditionManager = ConditionManager();
+  this->_variableManager = VariableManager();
+  this->_actionManager = ActionManager();
+  this->_conditionManager = ConditionManager();
 
-	this->_page = Page();
+  this->_page = Page();
 
-	this->_console.SetWindow(600, 600);
+  this->_console.SetWindow();
 
-	this->_variableManager.Load(this->_defaultConfigPath);
-	this->_actionManager.Load(this->_defaultConfigPath);
-	this->_conditionManager.Load(this->_defaultConfigPath);
+  this->_variableManager.Load(DEFAULT_CONFIG_PATH);
+  this->_actionManager.Load(DEFAULT_CONFIG_PATH);
+  this->_conditionManager.Load(DEFAULT_CONFIG_PATH);
 
-	this->_page.Load(this->_defaultPagePath);
-	this->_page.CreateButtons(&this->_inputManager);
+  this->_page.Load(this->_defaultPagePath);
+  this->_page.CreateButtons(&this->_inputManager);
 }

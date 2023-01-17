@@ -8,11 +8,11 @@
 using namespace std;
 
 namespace client_filesystem {
-	class Table {
-	public:
-		void AddVar(Var var);
-		vector<Var> GetAllVars();
-		Var GetVar(string name);
-		vector<Var> content;
-	};
-}
+class Table {
+public:
+  void AddVar(Var var);
+  vector<Var> GetAllVars();
+  Var GetVar(string name);
+  vector<Var> content;
+};
+} // namespace client_filesystem

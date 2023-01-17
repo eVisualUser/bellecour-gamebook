@@ -39,7 +39,7 @@ Console::~Console() {
 	#endif
 }
 
-void Console::SetWindow(int x, int y) {
+void Console::SetWindow() {
 	#ifdef _WIN32
 		HWND hwnd = GetConsoleWindow();
 

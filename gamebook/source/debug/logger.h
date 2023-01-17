@@ -1,8 +1,8 @@
 #pragma once
 
-#include <string>
-#include <fstream>
 #include <ctime>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -10,10 +10,11 @@ using namespace std;
 
 class Logger {
 public:
-	static void AppendLine(string content);
-	static void Log(string message);
-	static void LogError(string message);
-	static void LogWarning(string message);
+  static void AppendLine(string content);
+  static void Log(string message);
+  static void LogError(string message);
+  static void LogWarning(string message);
+
 private:
-	static string GetStrTime();
+  static string GetStrTime();
 };

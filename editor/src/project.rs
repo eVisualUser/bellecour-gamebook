@@ -71,6 +71,16 @@ impl crate::editor::Editor for Project {
                             "[data]",
                             "[conditions]",
                             "[actions]",
+                            "[client]",
+                            "page = \"pages/index.toml\"",
+                            "frameSize_x = 100",
+                            "frameSize_y = 15",
+                            "up = 72",
+                            "down = 80",
+                            "ok = 13",
+                            "zoom = 61",
+                            "unzoom = 45",
+                            "exit = 27",
                         ]);
                     }
                     file.load();

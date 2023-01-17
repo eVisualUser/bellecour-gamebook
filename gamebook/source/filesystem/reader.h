@@ -8,18 +8,20 @@ using namespace std;
 
 class Reader {
 public:
-	void ReadFile();
+  void ReadFile();
 
-	void ConcatBuffer(vector<string> other);
-	vector<string> GetBuffer();
+  void ConcatBuffer(vector<string> other);
+  vector<string> GetBuffer();
 
-	void SetPath(string newPath);
+  void SetPath(string newPath);
 
-	string GetLine(size_t index);
-	size_t GetLineCount();
+  string GetLine(size_t index);
+  size_t GetLineCount();
+
 private:
-	bool IsFileExist();
+  bool IsFileExist();
+
 private:
-	string path;
-	vector<string> buffer;
+  string path;
+  vector<string> buffer;
 };

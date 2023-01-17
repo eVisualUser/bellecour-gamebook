@@ -4,8 +4,8 @@
 #include "table.h"
 #include "var.h"
 
-#include <vector>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -15,15 +15,16 @@ using namespace std;
 #define INI_COMMENT_SIGN '#'
 
 namespace client_filesystem {
-	class Ini {
-	public:
-		void SetBuffer(vector<string> newBuffer);
-		void AddLine(string newLine);
-		void GetTable(string name);
-		Table ParseTable(string name);
-		Var ParseVar(string line);
-	private:
-		bool IsEmptyLine(string line); // Consider comment line as empty
-		vector<string> buffer;
-	};
-}
+class Ini {
+public:
+  void SetBuffer(vector<string> newBuffer);
+  void AddLine(string newLine);
+  void GetTable(string name);
+  Table ParseTable(string name);
+  Var ParseVar(string line);
+
+private:
+  bool IsEmptyLine(string line); // Consider comment line as empty
+  vector<string> buffer;
+};
+} // namespace client_filesystem

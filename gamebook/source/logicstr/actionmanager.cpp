@@ -1,39 +1,48 @@
 #include "actionmanager.h"
 
+#include "../debug/logger.h"
 #include "../filesystem/ini.h"
 #include "../filesystem/reader.h"
 #include "../filesystem/toml.h"
+#include "../render/console.h"
 
 #include <iostream>
+#include <sstream>
 
 using namespace client_filesystem;
 
 void ActionManager::Load(string path) {
-	auto reader = Reader();
-	reader.SetPath(path);
-	reader.ReadFile();
+  auto reader = Reader();
+  try {
+    reader.SetPath(path);
+    reader.ReadFile();
+  } catch (string message) {
+    Logger::LogError(message);
+    PrintError(message);
+    exit(-1);
+  }
 
-	auto ini = Ini();
-	ini.SetBuffer(reader.GetBuffer());
-	auto table = ini.ParseTable("actions");
+  auto ini = Ini();
+  ini.SetBuffer(reader.GetBuffer());
+  auto table = ini.ParseTable("actions");
 
-	cout << "List Table" << endl;
-	for(auto & var: table.GetAllVars()) {
-		cout << "Parsing: " << var.GetKey() << endl;
-		Action newAction;
-		newAction.list = TomlParseArray(var.GetValue());
-		for (auto & action: newAction.list) {
-			action = TomlParseString(action);
-		}
-		newAction.name = var.GetKey();
-		this->actions.push_back(newAction);
-	}
+  for (auto &var : table.GetAllVars()) {
+    Action newAction;
+    newAction.list = TomlParseArray(var.GetValue());
+    for (auto &action : newAction.list) {
+      action = TomlParseString(action);
+    }
+    newAction.name = var.GetKey();
+    this->actions.push_back(newAction);
+  }
 }
 
 Action ActionManager::GetAction(string name) {
-	for (auto & action: this->actions) {
-		if (action.name == name)
-			return action;
-	}
-	throw std::runtime_error("Action missing");
+  for (auto &action : this->actions) {
+    if (action.name == name)
+      return action;
+  }
+  stringstream message;
+  message << "Action missing: " << name;
+  throw std::runtime_error(message.str());
 }

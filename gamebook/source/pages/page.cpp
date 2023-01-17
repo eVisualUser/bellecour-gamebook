@@ -7,6 +7,7 @@
 #include "../logicstr/nodechain.h"
 #include "../debug/logger.h"
 #include "../render/console.h"
+#include "../logicstr/conditionmanager.h"
 
 #include <iostream>
 #include <iterator>
@@ -80,11 +81,18 @@ string Page::GetButtonPressed(string content, Executor *executor, ActionManager 
 				Logger::Log(logMessage.str());
 
 				auto nodeChain = NodeChain();
-				auto actions = actionManager->GetAction(button.action);
+                Action actions;
+                try {
+                    actions = actionManager->GetAction(button.action);
+                } catch(string message) {
+                    Logger::LogError(message);
+                    PrintError(message);
+                    exit(-1);
+                }
+
 				for (auto & action: actions.list) {
 					NodeChain chain = NodeChain();
 					chain.ParseString(action);
-
 					auto nextPageBuffer = executor->ExecuteActionComand(variableManager, &chain);
 					if (!nextPageBuffer.empty())
 						nextPage = nextPageBuffer;
@@ -100,7 +108,15 @@ bool Page::IsButtonActive(string content, Executor *executor, VariableManager *v
 		if (content == button.text) {
 			bool conditionPassed = false;
 
-			auto conditions = conditionManager->GetCondition(button.condition);
+            Condition conditions;
+            try {
+              conditions = conditionManager->GetCondition(button.condition);
+            } catch(string message) {
+              Logger::LogError(message);
+              PrintError(message);
+              exit(-1);
+            }
+
 			for (auto & condition: conditions.list) {
 				auto condNodeChain = NodeChain();
 				condNodeChain.ParseString(condition);
@@ -108,7 +124,6 @@ bool Page::IsButtonActive(string content, Executor *executor, VariableManager *v
 					conditionPassed = true;
 				}
 			}
-
 			return conditionPassed;
 		}
 	}

@@ -14,3 +14,13 @@ data = ["$data.toml"]
 done_data = ["done_data_page + 1", "$cond.toml"]
 final = ["$final.toml"]
 restart = ["$index.toml", "done_data_page = 0"]
+[client]
+page = "pages/index.toml"
+frameSize_x = 100
+frameSize_y = 15
+up = 72
+down = 80
+ok = 13
+zoom = 61
+unzoom = 45
+exit = 27

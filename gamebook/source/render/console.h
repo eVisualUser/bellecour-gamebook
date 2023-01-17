@@ -12,7 +12,7 @@ class Console {
 public:
 	Console();
 	~Console();
-	void SetWindow(int x, int y);
+	void SetWindow();
 	void WaitAny();
 	void Clear();
 	void PrintFrame(std::vector<std::string> *frame);
