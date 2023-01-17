@@ -1,13 +1,16 @@
 [config]
-name = "projectName"
+name = "Example"
 author = "unknow"
-tags = ["edited"]
+tags = ["edited", "client-0.3.0"]
 [data]
-karma = 2
+done_data_page = 0
 [conditions]
 true = ["1 = 1"]
+have_done_data_page = ["done_data_page > 0"]
 false = ["1 > 1"]
 [actions]
-play = ["$game.toml"]
-restart = ["$index.toml"]
-explore = ["$unknow.toml"]
+start = ["$cond.toml"]
+data = ["$data.toml"]
+done_data = ["done_data_page + 1", "$cond.toml"]
+final = ["$final.toml"]
+restart = ["$index.toml", "done_data_page = 0"]

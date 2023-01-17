@@ -6,38 +6,49 @@ page = pages/index.toml
 frameSize_x = 100
 frameSize_y = 15
 [config]
-name = "projectName"
+name = "Example"
 author = "unknow"
-tags = ["edited"]
+tags = ["edited", "client-0.3.0"]
 [data]
-karma = 2
+done_data_page = 0
 [conditions]
 true = ["1 = 1"]
+have_done_data_page = ["done_data_page > 0"]
 false = ["1 > 1"]
 [actions]
-play = ["$game.toml"]
-restart = ["$index.toml"]
-explore = ["$unknow.toml"]
+start = ["$cond.toml"]
+data = ["$data.toml"]
+done_data = ["done_data_page + 1", "$cond.toml"]
+final = ["$final.toml"]
+restart = ["$index.toml", "done_data_page = 0"]
 [config]
-name = "Great Page"
+name = "Condition Example"
 type = "default"
 [content]
-line_a = "Wow !"
+explanation_a = "In this page 3 choice are available but only one can work due to the condition."
 [choices]
-restart = ["Restart", "true", "restart"]
+choice_a = ["Choice A", "false", "start"]
+choice_b = ["Choice B", "have_done_data_page", "final"]
+choice_c = ["Choice C", "true", "data"]
 [config]
-name = "Milestone 2 Build"
+name = "The DATA"
 type = "default"
 [content]
-line_a = "Let's play an incredible game ! Let's play an incredible game ! Let's play an incredible game !"
-line_b = "Let's play an incredible game ! Let's play an incredible game ! Let's play an incredible game !"
+explanation_a = "You can create variables and adapt the conditions with it !"
 [choices]
-Play = ["Play", "true", "play"]
-Explore = ["Let's explore", "false", "explore"]
+done = ["Set (done_data_page) to 1", "true", "done_data"]
 [config]
-name = "Great Page"
+name = "Final"
 type = "default"
 [content]
-line_a = "Great you found a new incredible page !"
+line_a = "You have done the example, goodbye !"
 [choices]
-restart = ["Restart", "true", "restart"]
+final = ["Restart", "true", "restart"]
+[config]
+name = "Milestone 3 Build"
+type = "default"
+[content]
+greatings = "Happy to see you !"
+explanation_a = "Welcome to the example of the game !  We will explain you everything about the game."
+[choices]
+start = ["Start", "true", "start"]

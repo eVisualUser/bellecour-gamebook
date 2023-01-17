@@ -45,11 +45,11 @@ string Executor::ExecuteActionComand(VariableManager* variableManager, NodeChain
 			case Operator::Mult:
 				buffer *= value;
 				break;
-			case Operator::Equal:
-				buffer = value;
-			default: case Operator::None:
+			case Operator::None:
 				buffer += value;
 				break;
+			default: case Operator::Equal:
+				buffer = value;
 			}
 
 			last_operator = Operator::None;

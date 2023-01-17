@@ -1,9 +1,8 @@
 [config]
-name = "Milestone 2 Build"
+name = "Milestone 3 Build"
 type = "default"
 [content]
-line_a = "Let's play an incredible game ! Let's play an incredible game ! Let's play an incredible game !"
-line_b = "Let's play an incredible game ! Let's play an incredible game ! Let's play an incredible game !"
+greatings = "Happy to see you !"
+explanation_a = "Welcome to the example of the game !  We will explain you everything about the game."
 [choices]
-Play = ["Play", "true", "play"]
-Explore = ["Let's explore", "false", "explore"]
+start = ["Start", "true", "start"]

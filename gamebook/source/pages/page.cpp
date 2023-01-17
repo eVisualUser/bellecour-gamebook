@@ -87,7 +87,7 @@ string Page::GetButtonPressed(string content, Executor *executor, ActionManager 
 					logMessage = stringstream();
 					logMessage << "Action: " << action;
 					Logger::Log(logMessage.str());
-					
+
 					auto nextPageBuffer = executor->ExecuteActionComand(variableManager, &chain);
 					if (!nextPageBuffer.empty())
 						nextPage = nextPageBuffer;
@@ -123,6 +123,5 @@ bool Page::IsButtonActive(string content, Executor *executor, VariableManager *v
 			return conditionPassed;
 		}
 	}
-
 	return false;
 }

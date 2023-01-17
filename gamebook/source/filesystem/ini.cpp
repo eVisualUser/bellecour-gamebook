@@ -70,6 +70,7 @@ Var Ini::ParseVar(string line) {
 	auto var = Var();
 
 	bool isKey = true;
+	bool varEqualRemoved = false;
 
 	string key;
 	string value;
@@ -85,8 +86,11 @@ Var Ini::ParseVar(string line) {
 
 			if (isKey)
 				key.push_back(i);
-			else if (i != INI_FMT_DEFINE_SIGN)
+			else if (!varEqualRemoved && i == INI_FMT_DEFINE_SIGN)
+				varEqualRemoved = true;
+			else
 				value.push_back(i);
+
 		} else {
 			value.push_back(i);
 		}
