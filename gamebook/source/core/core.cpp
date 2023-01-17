@@ -96,7 +96,7 @@ void Core::LoadConfig(string path) {
 void Core::Initialize() {
 	this->_console = Console();
 	#ifdef __EMSCRIPTEN__
-		this->_ui = UI(Point(50, 15));
+		this->_ui = UI(Point(75, 25));
 	#else
 		this->_ui = UI(this->_frameSize);
 	#endif

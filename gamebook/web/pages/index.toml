@@ -1,9 +1,9 @@
 [config]
-name = "Milestone 3 Demo Pre-Build"
+name = "Milestone 2 Build"
 type = "default"
 [content]
-line_a = "Let's play an incredible game ! ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
-line_b = "Let's play an incredible game ! ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+line_a = "Let's play an incredible game ! Let's play an incredible game ! Let's play an incredible game !"
+line_b = "Let's play an incredible game ! Let's play an incredible game ! Let's play an incredible game !"
 [choices]
 Play = ["Play", "true", "play"]
-Explore = ["Let's explore", "true", "explore"]
+Explore = ["Let's explore", "false", "explore"]
