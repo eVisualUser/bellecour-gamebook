@@ -1,7 +1,0 @@
-[config]
-name = "The DATA"
-type = "default"
-[content]
-explanation_a = "You can create variables and adapt the conditions with it !"
-[choices]
-done = ["Set (done_data_page) to 1", "true", "done_data"]

@@ -1,7 +1,0 @@
-[config]
-name = "Final"
-type = "default"
-[content]
-line_a = "You have done the example, goodbye !"
-[choices]
-final = ["Restart", "true", "restart"]
