@@ -30,6 +30,7 @@ impl PageEditor {
         let mut button_text = "Open";
         if !std::path::Path::new(&format!("{}/{}", path, self.current_file)).exists() {
             button_text = "Create & Open";
+            self.file_open = false;
         }
 
         if self.file_open || ui.button(button_text).clicked() {

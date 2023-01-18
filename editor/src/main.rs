@@ -6,6 +6,8 @@ mod editor;
 mod file;
 mod page_editor;
 mod project;
+mod debugger;
+mod searcher;
 
 fn main() {
     let options = eframe::NativeOptions {

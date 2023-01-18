@@ -44,4 +44,23 @@ impl Directory {
     pub fn get_file_list(&self) -> Vec<String> {
         self.file_list.clone()
     }
+
+    pub fn get_dir_list(&self) -> Vec<String> {
+        let mut result = Vec::<String>::new();
+        if self.exist() {
+
+            for entry in std::fs::read_dir(&self.get_path()).unwrap() {
+                result.push(
+                        entry
+                        .unwrap()
+                        .path()
+                        .as_path()
+                        .to_str()
+                        .unwrap()
+                        .to_string(),
+                );
+            }
+        }
+        result
+    }
 }

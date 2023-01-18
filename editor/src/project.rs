@@ -1,4 +1,3 @@
-use crate::directory::Directory;
 use crate::editor;
 use crate::file::TomlFile;
 
@@ -11,6 +10,8 @@ pub struct Project {
     pub action_name_buffer: String,
     pub page_editor: crate::page_editor::PageEditor,
     pub pages_dir: crate::directory::Directory,
+    pub debugger: crate::debugger::Debugger,
+    pub searcher: crate::searcher::Searcher,
 }
 
 impl Project {
@@ -31,13 +32,6 @@ impl Project {
         let path = std::path::Path::new(path);
         if !std::path::Path::new(path).exists() {
             std::fs::create_dir(path).unwrap();
-        }
-    }
-
-    pub fn create_if_missing_file(&self, path: &str) {
-        let path = std::path::Path::new(path);
-        if !std::path::Path::new(path).exists() {
-            std::fs::File::create(path).unwrap();
         }
     }
 }
@@ -84,6 +78,9 @@ impl crate::editor::Editor for Project {
                         ]);
                     }
                     file.load();
+
+                    self.debugger.update(&mut file, ctx, self.get_dir_pages());
+                    self.searcher.update(ctx, self.get_dir_pages());
 
                     ui.heading("Config");
 
