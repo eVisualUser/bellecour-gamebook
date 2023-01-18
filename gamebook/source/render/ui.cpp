@@ -1,4 +1,6 @@
 #include "ui.h"
+#include "../debug/logger.h"
+
 #include <ios>
 #include <limits.h>
 #include <stdexcept>
@@ -42,12 +44,11 @@ void UI::DrawRawRect(Rect rect, char character) {
 			// Bottom Line
 			this->DrawRawLine(rect.min + rect.max, -(rect.max.x), character);
 
-			auto rightStart = rect.min;
-			auto leftStart = rect.min;
-			leftStart.x = rect.max.x;
+            auto leftStart = rect.min;
+			auto rightStart = rect.min + rect.max;
 
-			for (int y = 0; y < rect.max.y; y++) {
-				this->buffer[rightStart.x][rightStart.y + y] = character;
+            for (int y = 0; y < rect.max.y && rect.max.y + y < this->size.y - 1; y++) {
+				this->buffer[rightStart.x][rightStart.y - y] = character;
 				this->buffer[leftStart.x][leftStart.y + y] = character;
 			}
 		}
