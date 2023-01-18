@@ -46,7 +46,7 @@ Table Ini::ParseTable(string name) {
   return table;
 }
 
-void trimmed(std::string &str) {
+void trimmed(std::string &str) { // From stack-overflow
   int begI = 0, endI = str.length();
   if (endI == begI)
     return;

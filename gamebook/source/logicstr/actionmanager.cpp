@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <stdexcept>
 
 using namespace client_filesystem;
 
@@ -16,9 +17,9 @@ void ActionManager::Load(string path) {
   try {
     reader.SetPath(path);
     reader.ReadFile();
-  } catch (string message) {
-    Logger::LogError(message);
-    PrintError(message);
+  } catch (runtime_error message) {
+    Logger::LogError(message.what());
+    PrintError(message.what());
     exit(-1);
   }
 
@@ -44,5 +45,5 @@ Action ActionManager::GetAction(string name) {
   }
   stringstream message;
   message << "Action missing: " << name;
-  throw std::runtime_error(message.str());
+  throw runtime_error(message.str());
 }

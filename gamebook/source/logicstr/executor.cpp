@@ -30,9 +30,9 @@ string Executor::ExecuteActionComand(VariableManager *variableManager,
       if (variableManager->IsExist(node.content)) {
         try {
           value = variableManager->GetVariableValue(node.content);
-        } catch (string message) {
-          Logger::LogError(message);
-          PrintError(message);
+        } catch (runtime_error message) {
+          Logger::LogError(message.what());
+          PrintError(message.what());
         }
       } else
         value = stoi(node.content);
@@ -95,9 +95,9 @@ bool Executor::ExecuteConditionComand(VariableManager *variableManager,
     if (variableManager->IsExist(last_node)) {
       try {
         value_b = variableManager->GetVariableValue(last_node);
-      } catch (string message) {
-        Logger::LogError(message);
-        PrintError(message);
+      } catch (runtime_error message) {
+        Logger::LogError(message.what());
+        PrintError(message.what());
       }
     } else {
       value_b = stoi(last_node);
@@ -117,6 +117,6 @@ bool Executor::ExecuteConditionComand(VariableManager *variableManager,
   } else {
     Logger::LogError(ERROR_MSG_INVALID_CHAIN_SIZE);
     PrintError(ERROR_MSG_INVALID_CHAIN_SIZE);
-    throw std::runtime_error(ERROR_MSG_INVALID_CHAIN_SIZE);
+    throw runtime_error(ERROR_MSG_INVALID_CHAIN_SIZE);
   }
 }

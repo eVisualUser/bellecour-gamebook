@@ -12,6 +12,7 @@
 #include <iostream>
 #include <iterator>
 #include <sstream>
+#include <stdexcept>
 
 using namespace client_filesystem;
 
@@ -20,9 +21,9 @@ void Page::Load(string path) {
 	try {
 		reader.SetPath(path);
 		reader.ReadFile();
-	} catch (string message) {
-		Logger::LogError(message);
-		PrintError(message);
+        } catch (runtime_error error) {
+		Logger::LogError(error.what());
+		PrintError(error.what());
 		exit(-1);
 	}
 
@@ -84,9 +85,9 @@ string Page::GetButtonPressed(string content, Executor *executor, ActionManager 
                 Action actions;
                 try {
                     actions = actionManager->GetAction(button.action);
-                } catch(string message) {
-                    Logger::LogError(message);
-                    PrintError(message);
+                } catch(runtime_error error) {
+                    Logger::LogError(error.what());
+                    PrintError(error.what());
                     exit(-1);
                 }
 
@@ -111,9 +112,9 @@ bool Page::IsButtonActive(string content, Executor *executor, VariableManager *v
             Condition conditions;
             try {
               conditions = conditionManager->GetCondition(button.condition);
-            } catch(string message) {
-              Logger::LogError(message);
-              PrintError(message);
+            } catch(runtime_error message) {
+              Logger::LogError(message.what());
+              PrintError(message.what());
               exit(-1);
             }
 

@@ -31,7 +31,7 @@ int VariableManager::GetVariableValue(string name) {
 
   stringstream message;
   message << "Unknow variable: " << name;
-  throw std::runtime_error(message.str());
+  throw runtime_error(message.str());
 }
 
 bool VariableManager::IsExist(string name) {
@@ -59,9 +59,9 @@ void VariableManager::Load(string path) {
   try {
     reader.SetPath(path);
     reader.ReadFile();
-  } catch (string message) {
-    Logger::LogError(message);
-    PrintError(message);
+  } catch (runtime_error error) {
+    Logger::LogError(error.what());
+    PrintError(error.what());
     exit(-1);
   }
 

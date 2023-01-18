@@ -41,5 +41,5 @@ Condition ConditionManager::GetCondition(string name) {
 	}
 	stringstream message;
 	message << "Condition Missing: " << name;
-	throw std::runtime_error(message.str());
+        throw runtime_error(message.str());
 }

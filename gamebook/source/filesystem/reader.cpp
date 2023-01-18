@@ -20,27 +20,26 @@ bool Reader::IsFileExist() {
 void Reader::SetPath(string newPath) {
   this->path = newPath;
   if (!this->IsFileExist())
-    throw std::runtime_error("File not found");
+    throw runtime_error("File not found");
 }
 
 void Reader::ReadFile() {
 
   if (this->path.empty()) {
-    auto message = "Must set the path before reading";
-    throw std::logic_error(message);
+    throw runtime_error("Must set the path before reading");
   }
 
   string line;
   ifstream file;
 
   if (!this->IsFileExist()) {
-    throw std::logic_error("File not found");
+    throw "File not found";
   }
 
   file.open(this->path);
 
   if (!file.is_open()) {
-    throw std::runtime_error("Failed to open file");
+    throw runtime_error("Failed to open file");
   }
 
   while (getline(file, line)) {
@@ -53,15 +52,14 @@ void Reader::ReadFile() {
 string Reader::GetLine(size_t index) {
   if (index >= this->buffer.size()) {
     auto message = "GetLine(index) Out of range";
-    throw std::range_error(message);
+    throw runtime_error(message);
   }
   return this->buffer.at(index);
 }
 
 size_t Reader::GetLineCount() {
   if (this->buffer.empty()) {
-    auto message = "Empty reader line buffer";
-    throw std::logic_error(message);
+    throw runtime_error("Empty reader line buffer");
   }
 
   return this->buffer.size() - 1;

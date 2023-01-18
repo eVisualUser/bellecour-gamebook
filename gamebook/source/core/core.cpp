@@ -88,9 +88,9 @@ void Core::LoadConfig() {
   try {
     reader.SetPath(DEFAULT_CONFIG_PATH);
     reader.ReadFile();
-  } catch(string message) {
-    Logger::LogError(message);
-    PrintError(message);
+  } catch(runtime_error message) {
+    Logger::LogError(message.what());
+    PrintError(message.what());
   }
 
   auto ini = client_filesystem::Ini();
@@ -115,6 +115,7 @@ void Core::Initialize() {
 #else
   this->_ui = UI(this->_frameSize);
 #endif
+  this->_ui.Zoom();
 
   this->_variableManager = VariableManager();
   this->_actionManager = ActionManager();

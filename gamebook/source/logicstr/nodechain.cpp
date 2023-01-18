@@ -17,9 +17,9 @@ void NodeChain::ParseString(string input) {
       try {
         node.type = this->GetOperator(buffer);
         this->chain.push_back(node);
-      } catch (string message) {
-        Logger::LogError(message);
-        PrintError(message);
+      } catch (runtime_error message) {
+        Logger::LogError(message.what());
+        PrintError(message.what());
         exit(-1);
       }
       buffer = "";
@@ -30,9 +30,9 @@ void NodeChain::ParseString(string input) {
   try {
     node.type = this->GetOperator(buffer);
     this->chain.push_back(node);
-  } catch (string message) {
-    Logger::LogError(message);
-    PrintError(message);
+  } catch (runtime_error message) {
+    Logger::LogError(message.what());
+    PrintError(message.what());
     exit(-1);
   }
 }
@@ -62,7 +62,7 @@ Operator NodeChain::GetOperator(string input) {
 
   stringstream message;
   message << "Unknow operator: " << input;
-  throw std::runtime_error(message.str());
+  throw runtime_error(message.str());
 }
 
 Node NodeChain::GetFirst() { return this->chain[0]; }
