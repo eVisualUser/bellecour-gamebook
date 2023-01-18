@@ -1,26 +1,22 @@
-[default_path]
-config = config.toml
-page = pages/index.toml
-
-[render]
-frameSize_x = 100
-frameSize_y = 15
 [config]
-name = "Example"
+name = "projectName"
 author = "unknow"
-tags = ["edited", "client-0.3.0"]
+tags = ["edited", "v0.3.0"]
 [data]
-done_data_page = 0
 [conditions]
 true = ["1 = 1"]
-have_done_data_page = ["done_data_page > 0"]
-false = ["1 > 1"]
 [actions]
-start = ["$cond.toml"]
-data = ["$data.toml"]
-done_data = ["done_data_page + 1", "$cond.toml"]
-final = ["$final.toml"]
-restart = ["$index.toml", "done_data_page = 0"]
+nothing = ["$index.toml"]
+[client]
+page = "pages/index.toml"
+frameSize_x = 100
+frameSize_y = 15
+up = 72
+down = 80
+ok = 13
+zoom = 61
+unzoom = 45
+exit = 27
 [config]
 name = "Condition Example"
 type = "default"
@@ -45,10 +41,12 @@ line_a = "You have done the example, goodbye !"
 [choices]
 final = ["Restart", "true", "restart"]
 [config]
-name = "Milestone 3 Build"
+name = "Great Page"
 type = "default"
 [content]
-greatings = "Happy to see you !"
-explanation_a = "Welcome to the example of the game !  We will explain you everything about the game."
+my_line = "The air inside the clinic is oppressive, plinks of water drops reverberate on the decrepit walls and the sun's ray enlight the floating dust particles."
+line_2 = "After a second of hesitation, you explore the long corridor in front of you opening each door in the hope of finding someone behind one of them."
+line_3 = "Suddenly you hear footsteps on the floor above and decide to check what's going on."
+line_4 = "It seems you weren't alone here, inside the room of the noise's origin, you make out two silhouettes: A massive one on the left and a feminine one on the right."
 [choices]
-start = ["Start", "true", "start"]
+nothing = ["nothing", "true", "nothing"]

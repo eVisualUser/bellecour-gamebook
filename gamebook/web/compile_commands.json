@@ -1,0 +1,97 @@
+[
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\core\\core.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\core\\core.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\core\\core.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\debug\\logger.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\debug\\logger.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\debug\\logger.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\filesystem\\ini.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\filesystem\\ini.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\filesystem\\ini.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\filesystem\\reader.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\filesystem\\reader.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\filesystem\\reader.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\filesystem\\table.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\filesystem\\table.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\filesystem\\table.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\filesystem\\toml.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\filesystem\\toml.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\filesystem\\toml.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\filesystem\\var.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\filesystem\\var.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\filesystem\\var.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\io\\inputmanager.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\io\\inputmanager.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\io\\inputmanager.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\io\\iomath.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\io\\iomath.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\io\\iomath.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\logicstr\\actionmanager.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\logicstr\\actionmanager.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\logicstr\\actionmanager.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\logicstr\\conditionmanager.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\logicstr\\conditionmanager.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\logicstr\\conditionmanager.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\logicstr\\executor.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\logicstr\\executor.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\logicstr\\executor.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\logicstr\\nodechain.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\logicstr\\nodechain.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\logicstr\\nodechain.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\logicstr\\variablemanager.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\logicstr\\variablemanager.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\logicstr\\variablemanager.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\main.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\main.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\main.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\pages\\page.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\pages\\page.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\pages\\page.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\render\\console.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\render\\console.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\render\\console.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\render\\rendermath.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\render\\rendermath.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\render\\rendermath.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\render\\ui.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\render\\ui.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\render\\ui.cpp"
+}
+]

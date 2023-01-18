@@ -71,21 +71,28 @@ void UI::InitializeBuffer() {
 }
 
 int UI::DrawText(Point start, string text) {
-	int textBack = 0;
+	int textBack = 1;
+        int startBack = 0;
+        while(this->size.x < start.x + std::strlen(text.c_str()) && start.x > 0) {
+          start.x--;
+          startBack++;
+        }
         if (start.x < this->size.x && start.y < this->size.y && start.x >= 0 && start.y >= 0) {
 		int lenght = std::strlen(text.c_str());
 		for (int x = 0; x < lenght; x++) {
 			if ((start.x + x) < this->size.x)
 				this->buffer[start.y][start.x + x] = text[x];
-			else if (start.y + 1 < this->size.y) {
-				x -= 1;
-				textBack++;
-				start.y += 1;
-				start.x -= x;
-				start.x -= 1;
-			}
-		}
-	}
+                        else if (start.y + 1 < this->size.y) {
+                          int restLen = lenght - x;
+                          x -= 1;
+                          textBack++;
+                          start.y += 1;
+                          start.x -= x;
+                          start.x -= 1;
+                        }
+                }
+        }
+
 	return textBack;
 }
 

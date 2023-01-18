@@ -47,7 +47,7 @@ void Core::Draw() {
   int lineYOffset = 0;
   for (auto &line : this->_page.textContent) {
     lineYOffset +=
-        1 + this->_ui.DrawText(Point(this->_ui.size.x / 4,
+        1 + this->_ui.DrawText(Point(0,
                                      (this->_ui.size.y / 4) + lineYOffset),
                                line);
   }
@@ -111,7 +111,7 @@ void Core::LoadConfig() {
 void Core::Initialize() {
   this->_console = Console();
 #ifdef __EMSCRIPTEN__
-  this->_ui = UI(Point(75, 25));
+  this->_ui = UI(Point(80, 25));
 #else
   this->_ui = UI(this->_frameSize);
 #endif
