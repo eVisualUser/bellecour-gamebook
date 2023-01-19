@@ -7,6 +7,7 @@
 #include "../debug/logger.h"
 #include "../logicstr/variablemanager.h"
 
+#include <fstream>
 #include <sstream>
 #include <stdexcept>
 
@@ -18,8 +19,9 @@ void LoadSave(VariableManager* variableManager, Page *page, string path, string 
         reader.SetPath(path);
         reader.ReadFile();
     } catch (runtime_error error) {
-        Logger::LogError(error.what());
-        PrintError(error.what());
+        std::ofstream file(path,std::ios::app);
+        file.close();
+        LoadSave(variableManager, page, path, save);
     }
 
     stringstream message;

@@ -21,6 +21,7 @@ public:
   bool Exists(string button);
   bool MustZoom();
   bool MustUnZoom();
+  void Remove(string button);
 public:
     int _keyOk = 13;
     int _keyUp = 72;

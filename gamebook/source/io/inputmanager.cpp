@@ -126,3 +126,14 @@ bool InputManager::MustUnZoom() {
   return result;
 #endif
 }
+
+void InputManager::Remove(string button) {
+#ifdef __EMSCRIPTEN__
+#else
+    for (int i = 0; i < this->buffer.size()-1; i++) {
+      if (this->buffer[i] == button) {
+        this->buffer.erase(this->buffer.cbegin() + i);
+      }
+    }
+#endif
+}

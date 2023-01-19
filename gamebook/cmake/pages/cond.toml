@@ -1,0 +1,9 @@
+[config]
+name = "Condition Example"
+type = "default"
+[content]
+explanation_a = "In this page 3 choice are available but only one can work due to the condition."
+[choices]
+choice_a = ["Choice A", "false", "start"]
+choice_b = ["Choice B", "have_done_data_page", "final"]
+choice_c = ["Choice C", "have_not_done_data_page", "data"]

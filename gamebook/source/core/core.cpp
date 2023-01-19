@@ -8,6 +8,7 @@
 #include "../logicstr/variablemanager.h"
 #include "../save/save.h"
 
+#include <fstream>
 #include <sstream>
 #include <stdexcept>
 
@@ -33,8 +34,12 @@ void Core::SpecialPages() {
     #else
         string buttonName = "[SAVE] Save";
         bool exist = false;
+        int i = 0;
         for (auto & button: this->_inputManager.GetButtons()) {
             if (button == buttonName) exist = true;
+            else if (button.contains("[SAVE]"))
+                this->_inputManager.Remove(button);
+            i++;
         }
 
         if (!exist) this->_inputManager.CreateButton(buttonName);
@@ -51,6 +56,7 @@ void Core::SpecialPages() {
         } catch (runtime_error error) {
             Logger::LogError(error.what());
             PrintError(error.what());
+            exit(-1);
         }
 
         auto savesFile = client_filesystem::Ini();
@@ -65,9 +71,8 @@ void Core::SpecialPages() {
           if (!exist) this->_inputManager.CreateButton(buttonName.str());
           if (this->_inputManager.GetLastPressed() == buttonName.str()) {
             LoadSave(&this->_variableManager, &this->_page, "saves.toml", saveName);
-            stringstream value;
-            value << this->_variableManager.GetVariableValue("m_var");
-            Logger::Log(value.str());
+            this->_inputManager.ResetButtons();
+            this->_page.CreateButtons(&this->_inputManager);
           }
         }
     #endif
@@ -202,6 +207,12 @@ void Core::Initialize() {
   this->_page = Page();
 
   this->_console.SetWindow();
+
+#ifdef __EMSCRIPTEN__
+#else
+  ofstream savesFile("saves.toml");
+  savesFile.close();
+#endif
 
   this->_variableManager.Load(this->_defaultConfigPath);
   this->_actionManager.Load(this->_defaultConfigPath);

@@ -1,17 +1,25 @@
 [config]
-name = "projectName"
+name = "Example"
 author = "unknow"
-tags = ["edited", "v0.3.0"]
+tags = ["edited", "client-0.3.0"]
 [data]
-m_var = 0
+done_data_page = 0
+page_count = 0
 [conditions]
-true = ["m_var = 0"]
+true = ["1 = 1"]
+have_done_data_page = ["done_data_page > page_count"]
+false = ["1 > 1"]
+have_not_done_data_page = ["done_data_page < 1"]
 [actions]
-nothing = ["$index.toml"]
+start = ["$cond.toml"]
+data = ["$data.toml"]
+done_data = ["done_data_page + 1", "$cond.toml "]
+final = ["$final.toml"]
+restart = ["$index.toml"]
 [client]
 page = "pages/index.toml"
 frameSize_x = 100
-frameSize_y = 10
+frameSize_y = 15
 up = 72
 down = 80
 ok = 13

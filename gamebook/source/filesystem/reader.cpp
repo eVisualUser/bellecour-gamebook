@@ -1,7 +1,9 @@
 #include "reader.h"
 #include <fstream>
 #include <iostream>
+#include <sstream>
 #include <stdexcept>
+#include <string>
 #include <system_error>
 
 bool Reader::IsFileExist() {
@@ -19,8 +21,11 @@ bool Reader::IsFileExist() {
 
 void Reader::SetPath(string newPath) {
   this->path = newPath;
-  if (!this->IsFileExist())
-    throw runtime_error("File not found");
+  if (!this->IsFileExist()) {
+    stringstream message;
+    message << "File not found: " << newPath;
+    throw runtime_error(message.str());
+  }
 }
 
 void Reader::ReadFile() {
