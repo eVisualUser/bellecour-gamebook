@@ -3,6 +3,7 @@ name = "projectName"
 author = "unknow"
 tags = ["edited", "v0.3.0"]
 [data]
+text_noise_level = 10
 [conditions]
 true = ["1 = 1"]
 [actions]

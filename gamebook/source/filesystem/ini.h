@@ -22,7 +22,6 @@ public:
   void GetTable(string name);
   Table ParseTable(string name);
   Var ParseVar(string line);
-
 private:
   bool IsEmptyLine(string line); // Consider comment line as empty
   vector<string> buffer;

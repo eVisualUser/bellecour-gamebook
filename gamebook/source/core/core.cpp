@@ -2,6 +2,8 @@
 #include "../filesystem/toml.h"
 #include "../debug/logger.h"
 #include "../render/console.h"
+#include "../noise/noise.h"
+
 #include <sstream>
 
 #ifdef __EMSCRIPTEN__
@@ -55,6 +57,16 @@ void Core::Draw() {
 
 void Core::Render() {
   auto frame = this->_ui.GetFrame();
+
+  if (this->_variableManager.IsExist("text_noise_level")) {
+    vector<char> chars;
+    chars.push_back('a');
+    chars.push_back('b');
+    chars.push_back('d');
+    chars.push_back('e');
+    ApplyTextNoise(&frame, chars, this->_variableManager.GetVariableValue("text_noise_level") / 10);
+  }
+
   this->_console.PrintFrame(&frame);
 }
 
