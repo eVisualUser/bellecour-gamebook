@@ -53,24 +53,27 @@ void InputManager::Update() {
 #else
   auto input = _getch();
 
-  if (input == 0 || input == 0xE0) {
-    input = _getch();
-
-    if (input == this->_keyUp) {
-      this->index--;
-    } else if (input == this->_keyDown) {
-      this->index++;
+    if (input == 0 || input == 0xE0) {
+      input = _getch();
+      if (input == this->_keyUp) {
+        this->index--;
+      } else if (input == this->_keyDown) {
+        this->index++;
+      } else {
+        this->Update();
+      }
+    } else if (input == this->_keyUnZoom)
+      this->unzoom = true;
+    else if (input == this->_keyZoom)
+      this->zoom = true;
+    else if (input == this->_keyOk && !this->buffer.empty())
+      this->lastPressed = this->buffer[this->index];
+    else if (input == this->_keyExit) {
+      Logger::Log("Game Quit");
+      exit(0);
+    } else {
+        this->Update();
     }
-  } else if (input == this->_keyUnZoom)
-    this->unzoom = true;
-  else if (input == this->_keyZoom)
-    this->zoom = true;
-  else if (input == this->_keyOk && !this->buffer.empty())
-    this->lastPressed = this->buffer[this->index];
-  else if (input == this->_keyExit) {
-    Logger::Log("Game Quit");
-    exit(0);
-  }
 
   clamp_int(&this->index, 0, this->GetButtonCount() - 1);
 #endif

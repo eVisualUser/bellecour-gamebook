@@ -76,6 +76,11 @@
 },
 {
   "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\noise\\noise.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\noise\\noise.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\noise\\noise.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
   "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\pages\\page.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\pages\\page.cpp",
   "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\pages\\page.cpp"
 },
@@ -93,5 +98,10 @@
   "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
   "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\render\\ui.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\render\\ui.cpp",
   "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\render\\ui.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\save\\save.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\save\\save.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\save\\save.cpp"
 }
 ]
