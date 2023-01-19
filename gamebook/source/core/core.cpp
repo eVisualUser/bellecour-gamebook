@@ -67,6 +67,13 @@ void Core::Render() {
     ApplyTextNoise(&frame, chars, this->_variableManager.GetVariableValue("text_noise_level") / 10);
   }
 
+  if (this->_variableManager.IsExist("console_color_foreground")) {
+    stringstream message;
+    message << "Set Console Color To: " << this->_variableManager.GetVariableValue("console_color_foreground");
+    Logger::Log(message.str());
+    this->_console.SetConsoleColor(this->_variableManager.GetVariableValue("console_color_foreground"));
+  }
+
   this->_console.PrintFrame(&frame);
 }
 

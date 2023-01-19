@@ -24,37 +24,16 @@ Console::Console() {
 }
 
 Console::~Console() {
-	#ifdef _WIN32
-		HWND hwnd = GetConsoleWindow();
-		
-		CONSOLE_SCREEN_BUFFER_INFO consoleInfo;
-		GetConsoleScreenBufferInfo(hwnd, &consoleInfo);
-		WORD defaultAttribute = consoleInfo.wAttributes;
-		SetConsoleTextAttribute(hwnd, defaultAttribute);
-
-		std::cout << COLOR_DEFAULT << std::endl;
-	#elif __EMSCRIPTEN__
+	#ifdef __EMSCRIPTEN__
 	#else
-		std::cout << COLOR_DEFAULT << std::endl;
+		this->SetConsoleColor(COLOR_DEFAULT);
 	#endif
 }
 
 void Console::SetWindow() {
-	#ifdef _WIN32
-		HWND hwnd = GetConsoleWindow();
-
-		WORD colorAttribute = FOREGROUND_GREEN;
-		SetConsoleTextAttribute(hwnd, colorAttribute);
-
-		std::cout << COLOR_FOREGROUND_GREEN << COLOR_BACKGROUND_BLACK << std::endl;
-	#elif __EMSCRIPTEN__
+	#ifdef __EMSCRIPTEN__
 	#else
-		std::cout << COLOR_FOREGROUND_GREEN << COLOR_BACKGROUND_BLACK << std::endl;
-
-		struct winsize w;
-		w.ws_row = x;
-		w.ws_col = y;
-		ioctl(STDOUT_FILENO, TIOCSWINSZ, &w);
+  this->SetConsoleColor(COLOR_FOREGROUND_GREEN);
 	#endif
 }
 
@@ -91,4 +70,29 @@ void PrintError(std::string error) {
 	#else
 		std::cerr << "[ERROR] " << error << std::endl;
 	#endif
+}
+
+void Console::SetConsoleColor(int colorForeground) {
+    #ifdef __EMSCRIPTEN__
+    #elif _WIN32
+      HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+      SetConsoleTextAttribute(hConsole, this->ConvertColor(colorForeground));
+    #else
+    std::cout << "\033[" << colorForeground << 'm';
+    std::cout << "\033[" << colorBackground << 'm';
+    #endif
+}
+
+int Console::ConvertColor(int ansiColor) {
+  switch (ansiColor) {
+  case 30: return 0; // Black
+  case 31: return FOREGROUND_RED; // Red
+  case 32: return FOREGROUND_GREEN; // Green
+  case 33: return FOREGROUND_RED | FOREGROUND_GREEN; // Yellow
+  case 34: return FOREGROUND_BLUE; // Blue
+  case 35: return FOREGROUND_RED | FOREGROUND_BLUE; // Magenta
+  case 36: return FOREGROUND_GREEN | FOREGROUND_BLUE; // Cyan
+  case 37: return FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE; // White
+  default: return FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE; // White
+  }
 }
