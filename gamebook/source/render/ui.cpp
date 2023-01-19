@@ -36,25 +36,6 @@ void UI::DrawRawLine(Point position, int length, char character) {
 	}
 }
 
-void UI::DrawRawRect(Rect rect, char character) {
-	if (rect.min.x >= 0 && rect.min.y >= 0) {
-		if (rect.max.x < this->size.x && rect.max.y < this->size.y) {
-			// Top Line
-			this->DrawRawLine(rect.min, rect.max.x, character);
-			// Bottom Line
-			this->DrawRawLine(rect.min + rect.max, -(rect.max.x), character);
-
-            auto leftStart = rect.min;
-			auto rightStart = rect.min + rect.max;
-
-            for (int y = 0; y < rect.max.y && rect.max.y + y < this->size.y - 1; y++) {
-				this->buffer[rightStart.x][rightStart.y - y] = character;
-				this->buffer[leftStart.x][leftStart.y + y] = character;
-			}
-		}
-	}
-}
-
 UI::UI(Point newSize) {
 	this->size = newSize;
 	this->InitializeBuffer();
@@ -88,8 +69,7 @@ int UI::DrawText(Point start, string text) {
                           x -= 1;
                           textBack++;
                           start.y += 1;
-                          start.x -= x;
-                          start.x -= 1;
+                          start.x -= this->size.x;
                         }
                 }
         }

@@ -15,7 +15,6 @@ public:
 	UI(Point newSize);
 public:
 	void DrawRawLine(Point position, int lenght, char character);
-	void DrawRawRect(Rect rect, char character);
 	int DrawText(Point start, string text);
 	void Zoom();
 	void UnZoom();
