@@ -18,6 +18,7 @@ public:
 	int GetVariableValue(string name);
 	bool IsExist(string name);
 	void SetVariableValue(string name, int value);
+    vector<Variable>  GetAllVariables();
 private:
 	vector<Variable> buffer;
 };

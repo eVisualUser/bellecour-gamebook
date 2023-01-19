@@ -21,6 +21,7 @@ void Page::Load(string path) {
 	try {
 		reader.SetPath(path);
 		reader.ReadFile();
+        this->fileName = path;
         } catch (runtime_error error) {
 		Logger::LogError(error.what());
 		PrintError(error.what());
@@ -48,12 +49,18 @@ void Page::Load(string path) {
 	for (auto & var: choices.GetAllVars()) {
 		auto button = Button();
 		auto array = TomlParseArray(var.GetValue());
+        if (array.size() >= 3) {
+          button.text = TomlParseString(array[0]);
+          button.condition = TomlParseString(array[1]);
+          button.action = TomlParseString(array[2]);
 
-		button.text = TomlParseString(array[0]);
-		button.condition = TomlParseString(array[1]);
-		button.action = TomlParseString(array[2]);
-
-		this->buttons.push_back(button);
+          this->buttons.push_back(button);
+        } else {
+          stringstream message;
+          message << "Missing parameters in choice: " << var.GetKey();
+          message << " In " << path;
+          Logger::LogWarning(message.str());
+        }
 	}
 }
 
@@ -73,7 +80,7 @@ void Page::CreateButtons(InputManager *inputManager) {
 string Page::GetButtonPressed(string content, Executor *executor, ActionManager *actionManager, VariableManager *variableManager, ConditionManager *conditionManager) {
 	string nextPage;
 	for (auto & button: this->buttons) {
-		if (content == button.text) {
+		if (content == button.text && !content.contains("[SAVE]")) {
 			
 			if (this->IsButtonActive(content, executor, variableManager, conditionManager)) {
 				stringstream logMessage;

@@ -26,8 +26,6 @@
 #include <sstream>
 #include <string>
 
-#define DEFAULT_CONFIG_PATH "config.toml"
-
 using namespace std;
 
 class Core {
@@ -47,6 +45,7 @@ public:
   void Draw();
   void UpdateInputs();
   void Render();
+  void SpecialPages();
 
 private:
   VariableManager _variableManager;
@@ -64,5 +63,6 @@ private:
 private:
   Point _frameSize;
 
+  string _defaultConfigPath = "config.toml";
   string _defaultPagePath;
 };

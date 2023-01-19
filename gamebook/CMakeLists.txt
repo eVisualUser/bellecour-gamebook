@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 23)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-file(GLOB sources "source/*.cpp" "source/filesystem/*.cpp" "source/logicstr/*.cpp" "source/io/*.cpp" "source/render/*.cpp" "source/pages/*.cpp" "source/core/*.cpp" "source/debug/*.cpp" "source/noise/*.cpp")
+file(GLOB sources "source/*.cpp" "source/filesystem/*.cpp" "source/logicstr/*.cpp" "source/io/*.cpp" "source/render/*.cpp" "source/pages/*.cpp" "source/core/*.cpp" "source/debug/*.cpp" "source/noise/*.cpp" "source/save/*.cpp")
 
 message("\nCode sources found: ${sources}\n")
 

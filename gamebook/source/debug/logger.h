@@ -14,7 +14,5 @@ public:
   static void Log(string message);
   static void LogError(string message);
   static void LogWarning(string message);
-
-private:
   static string GetStrTime();
 };

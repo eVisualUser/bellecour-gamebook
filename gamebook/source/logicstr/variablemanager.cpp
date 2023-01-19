@@ -81,3 +81,7 @@ void VariableManager::Load(string path) {
     this->AddVariable(newVar);
   }
 }
+
+vector<Variable>  VariableManager::GetAllVariables() {
+  return this->buffer;
+}

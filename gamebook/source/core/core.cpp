@@ -1,10 +1,15 @@
 #include "core.h"
 #include "../filesystem/toml.h"
+#include "../filesystem/reader.h"
+#include "../filesystem/ini.h"
 #include "../debug/logger.h"
 #include "../render/console.h"
 #include "../noise/noise.h"
+#include "../logicstr/variablemanager.h"
+#include "../save/save.h"
 
 #include <sstream>
+#include <stdexcept>
 
 #ifdef __EMSCRIPTEN__
 #include <emscripten.h>
@@ -16,7 +21,61 @@ void Core::RunGameLoop() {
   }
 }
 
+void Core::SpecialPages() {
+  if (this->_page.type == "Quit") {
+    Logger::Log("Game Quit");
+    exit(0);
+  } else if (this->_page.type == "Reset") {
+    this->_variableManager = VariableManager();
+    this->_variableManager.Load("config.toml");
+  } else if (this->_page.type == "Save") {
+    #ifdef __EMSCRIPTEN__
+    #else
+        string buttonName = "[SAVE] Save";
+        bool exist = false;
+        for (auto & button: this->_inputManager.GetButtons()) {
+            if (button == buttonName) exist = true;
+        }
+
+        if (!exist) this->_inputManager.CreateButton(buttonName);
+
+        if (this->_inputManager.GetLastPressed() == buttonName) Save(&this->_variableManager, &this->_page, "saves.toml");
+    #endif
+  } else if (this->_page.type == "LoadSave") {
+    #ifdef __EMSCRIPTEN__
+    #else
+        auto reader = Reader();
+        try {
+            reader.SetPath("saves.toml");
+            reader.ReadFile();
+        } catch (runtime_error error) {
+            Logger::LogError(error.what());
+            PrintError(error.what());
+        }
+
+        auto savesFile = client_filesystem::Ini();
+        savesFile.SetBuffer(reader.GetBuffer());
+        for (auto & saveName: savesFile.GetAllTables()) {
+          bool exist = false;
+          stringstream buttonName;
+          buttonName << "[SAVE]" << saveName;
+          for (auto & button: this->_inputManager.GetButtons()) {
+            if (button == buttonName.str()) exist = true;
+          }
+          if (!exist) this->_inputManager.CreateButton(buttonName.str());
+          if (this->_inputManager.GetLastPressed() == buttonName.str()) {
+            LoadSave(&this->_variableManager, &this->_page, "saves.toml", saveName);
+            stringstream value;
+            value << this->_variableManager.GetVariableValue("m_var");
+            Logger::Log(value.str());
+          }
+        }
+    #endif
+  }
+}
+
 void Core::Update() {
+  this->SpecialPages();
   this->ClearScreen();
   this->Draw();
   this->Render();
@@ -36,7 +95,7 @@ void Core::Draw() {
     if (!this->_page.IsButtonActive(this->_inputManager.GetButtons()[i],
                                     &this->_executor, &this->_variableManager,
                                     &this->_conditionManager)) {
-      if (this->_inputManager.GetIndex() == i) {
+      if (this->_inputManager.GetIndex() == i && !(this->_inputManager.GetButtons()[this->_inputManager.GetIndex()].contains("[SAVE]"))) {
         selectChar = 'X';
       }
     }
@@ -105,7 +164,7 @@ void Core::UpdateInputs() {
 void Core::LoadConfig() {
   auto reader = Reader();
   try {
-    reader.SetPath(DEFAULT_CONFIG_PATH);
+    reader.SetPath(this->_defaultConfigPath);
     reader.ReadFile();
   } catch(runtime_error message) {
     Logger::LogError(message.what());
@@ -144,9 +203,9 @@ void Core::Initialize() {
 
   this->_console.SetWindow();
 
-  this->_variableManager.Load(DEFAULT_CONFIG_PATH);
-  this->_actionManager.Load(DEFAULT_CONFIG_PATH);
-  this->_conditionManager.Load(DEFAULT_CONFIG_PATH);
+  this->_variableManager.Load(this->_defaultConfigPath);
+  this->_actionManager.Load(this->_defaultConfigPath);
+  this->_conditionManager.Load(this->_defaultConfigPath);
 
   this->_page.Load(this->_defaultPagePath);
   this->_page.CreateButtons(&this->_inputManager);

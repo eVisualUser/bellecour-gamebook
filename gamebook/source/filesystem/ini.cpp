@@ -101,3 +101,23 @@ Var Ini::ParseVar(string line) {
 
   return var;
 }
+
+vector<string> Ini::GetAllTables() {
+
+  vector<string> result;
+
+  for (auto &line : this->buffer) {
+    if (line[0] == INI_FMT_OPEN_TABLE) {
+        string buffer;
+        for (auto & i: line) {
+          if (i == INI_FMT_CLOSE_TABLE)
+            break;
+          else if (i != INI_FMT_OPEN_TABLE)
+            buffer.push_back(i);
+        }
+        result.push_back(buffer);
+    }
+  }
+
+  return result;
+}

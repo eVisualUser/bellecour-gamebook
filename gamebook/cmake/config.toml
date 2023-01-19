@@ -3,9 +3,9 @@ name = "projectName"
 author = "unknow"
 tags = ["edited", "v0.3.0"]
 [data]
-text_noise_level = 10
+m_var = 0
 [conditions]
-true = ["1 = 1"]
+true = ["m_var = 0"]
 [actions]
 nothing = ["$index.toml"]
 [client]

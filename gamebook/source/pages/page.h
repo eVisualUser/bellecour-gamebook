@@ -24,4 +24,5 @@ public:
 	string type;
 	vector<string> textContent;
 	vector<Button> buttons;
+    string fileName;
 };
