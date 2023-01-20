@@ -5,6 +5,7 @@ tags = ["edited", "client-0.3.0"]
 [data]
 done_data_page = 0
 page_count = 0
+console_color_background = 45
 [conditions]
 true = ["1 = 1"]
 have_done_data_page = ["done_data_page > page_count"]

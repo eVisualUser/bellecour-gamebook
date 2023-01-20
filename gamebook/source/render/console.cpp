@@ -104,8 +104,22 @@ int Console::ConvertColor(int ansiColor) {
     return FOREGROUND_GREEN | FOREGROUND_BLUE; // Cyan
   case 37:
     return FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE; // White
+  case 41:
+    return BACKGROUND_RED; // Background Red
+  case 42:
+    return BACKGROUND_GREEN; // Background Green
+  case 43:
+    return BACKGROUND_RED | BACKGROUND_GREEN; // Background Yellow
+  case 44:
+    return BACKGROUND_BLUE; // Background Blue
+  case 45:
+    return BACKGROUND_RED | BACKGROUND_BLUE; // Background Magenta
+  case 46:
+    return BACKGROUND_GREEN | BACKGROUND_BLUE; // Background Cyan
+  case 47:
+    return BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE; // Background White
   default:
-    return FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE; // White
+    return BACKGROUND_GREEN; // White
   }
 #endif
   return 0;

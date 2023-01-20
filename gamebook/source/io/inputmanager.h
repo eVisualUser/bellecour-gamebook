@@ -12,7 +12,8 @@ using namespace std;
 /// Work only on the web
 class InputManager {
 public:
-  void Update();
+  /// Return if it need to refrash the current page
+  bool Update();
   int GetButtonCount();
   void CreateButton(string button);
   string GetLastPressed();
@@ -29,6 +30,7 @@ public:
     int _keyExit = 27;
     int _keyZoom = 61;
     int _keyUnZoom = 45;
+    int _keyRefresh = 63;
 #ifdef __EMSCRIPTEN__
 #else
   int GetIndex();

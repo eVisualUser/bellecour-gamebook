@@ -48,7 +48,7 @@ int InputManager::GetButtonCount() {
 #endif
 }
 
-void InputManager::Update() {
+bool InputManager::Update() {
 #ifdef __EMSCRIPTEN__
 #else
   auto input = _getch();
@@ -59,6 +59,8 @@ void InputManager::Update() {
         this->index--;
       } else if (input == this->_keyDown) {
         this->index++;
+      } else if (input == this->_keyRefresh) {
+        return true;
       } else {
         this->Update();
       }
@@ -77,6 +79,7 @@ void InputManager::Update() {
 
   clamp_int(&this->index, 0, this->GetButtonCount() - 1);
 #endif
+  return false;
 }
 
 vector<string> InputManager::GetButtons() {

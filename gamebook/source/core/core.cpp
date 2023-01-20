@@ -24,8 +24,11 @@ void Core::RunGameLoop() {
 
 void Core::SpecialPages() {
   if (this->_page.type == "Quit") {
+#ifdef __EMSCRIPTEN__
+#else
     Logger::Log("Game Quit");
     exit(0);
+#endif
   } else if (this->_page.type == "Reset") {
     this->_variableManager = VariableManager();
     this->_variableManager.Load("config.toml");
@@ -33,13 +36,12 @@ void Core::SpecialPages() {
     #ifdef __EMSCRIPTEN__
     #else
         string buttonName = "[SAVE] Save";
+
         bool exist = false;
-        int i = 0;
         for (auto & button: this->_inputManager.GetButtons()) {
             if (button == buttonName) exist = true;
             else if (button.contains("[SAVE]"))
                 this->_inputManager.Remove(button);
-            i++;
         }
 
         if (!exist) this->_inputManager.CreateButton(buttonName);
@@ -59,12 +61,18 @@ void Core::SpecialPages() {
             exit(-1);
         }
 
+        for (auto & button: this->_inputManager.GetButtons()) {
+          if (button.contains("[SAVE]")) this->_inputManager.Remove(button);
+        }
+
         auto savesFile = client_filesystem::Ini();
         savesFile.SetBuffer(reader.GetBuffer());
         for (auto & saveName: savesFile.GetAllTables()) {
           bool exist = false;
+
           stringstream buttonName;
-          buttonName << "[SAVE]" << saveName;
+          buttonName << "[SAVE] " << saveName;
+
           for (auto & button: this->_inputManager.GetButtons()) {
             if (button == buttonName.str()) exist = true;
           }
@@ -137,12 +145,46 @@ void Core::Render() {
     Logger::Log(message.str());
     this->_console.SetConsoleColor(this->_variableManager.GetVariableValue("console_color_foreground"));
   }
+  if (this->_variableManager.IsExist("console_color_background")) {
+    stringstream message;
+    message << "Set Console Color To: " << this->_variableManager.GetVariableValue("console_color_background");
+    Logger::Log(message.str());
+    this->_console.SetConsoleColor(this->_variableManager.GetVariableValue("console_color_background"));
+  }
+  if (this->_variableManager.IsExist("console_color_foreground_karma_up") && this->_variableManager.IsExist("karma") && this->_variableManager.GetVariableValue("karma") > 0) {
+    stringstream message;
+    message << "Set Console Color To: " << this->_variableManager.GetVariableValue("console_color_foreground_karma_up");
+    Logger::Log(message.str());
+    this->_console.SetConsoleColor(this->_variableManager.GetVariableValue("console_color_foreground_karma_up"));
+  }
+  if (this->_variableManager.IsExist("console_color_foreground_karma_down") && this->_variableManager.IsExist("karma") && this->_variableManager.GetVariableValue("karma") < 0) {
+    stringstream message;
+    message << "Set Console Color To: " << this->_variableManager.GetVariableValue("console_color_foreground_karma_down");
+    Logger::Log(message.str());
+    this->_console.SetConsoleColor(this->_variableManager.GetVariableValue("console_color_foreground_karma_down"));
+  }
+  if (this->_variableManager.IsExist("console_color_background_karma_down") && this->_variableManager.IsExist("karma") && this->_variableManager.GetVariableValue("karma") < 0) {
+    stringstream message;
+    message << "Set Console Color To: " << this->_variableManager.GetVariableValue("console_color_background_karma_down");
+    Logger::Log(message.str());
+    this->_console.SetConsoleColor(this->_variableManager.GetVariableValue("console_color_background_karma_down"));
+  }
+  if (this->_variableManager.IsExist("console_color_background_karma_up") && this->_variableManager.IsExist("karma") && this->_variableManager.GetVariableValue("karma") > 0) {
+    stringstream message;
+    message << "Set Console Color To: " << this->_variableManager.GetVariableValue("console_color_background_karma_up");
+    Logger::Log(message.str());
+    this->_console.SetConsoleColor(this->_variableManager.GetVariableValue("console_color_background_karma_up"));
+  }
 
   this->_console.PrintFrame(&frame);
 }
 
 void Core::UpdateInputs() {
-  this->_inputManager.Update();
+  if (this->_inputManager.Update()) {
+    auto filePathBuffer = this->_page.fileName;
+    this->_page = Page();
+    this->_page.Load(filePathBuffer);
+  }
 
   if (this->_inputManager.MustZoom())
     this->_ui.Zoom();
@@ -210,7 +252,7 @@ void Core::Initialize() {
 
 #ifdef __EMSCRIPTEN__
 #else
-  ofstream savesFile("saves.toml");
+  ofstream savesFile("saves.toml", ios::app);
   savesFile.close();
 #endif
 
