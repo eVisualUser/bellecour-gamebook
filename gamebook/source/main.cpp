@@ -1,5 +1,8 @@
 #include "core/core.h"
 #include "debug/logger.h"
+#include "splashframe/splashframe.h"
+
+#include <conio.h>
 
 #ifdef __EMSCRIPTEN__
 
@@ -11,6 +14,11 @@ void AsyncGameLoop() { core.Update(); }
 
 int main() {
   Logger::Log("Game Started");
+
+  auto splashFrame = SplashFrame();
+  splashFrame.Load("splash.txt");
+  if (splashFrame.Render())
+    _getch();
 
 #ifdef __EMSCRIPTEN__
   emscripten_set_main_loop(AsyncGameLoop, 0, 1);
