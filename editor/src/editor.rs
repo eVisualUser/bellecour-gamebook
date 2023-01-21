@@ -9,6 +9,7 @@ pub trait Editor {
 pub fn edit_toml_string(ui: &mut Ui, item: &mut Item) {
     let mut content_buffer = item.as_str().unwrap().to_string().clone();
     ui.text_edit_singleline(&mut content_buffer);
+    content_buffer = filter_string(content_buffer);
     *item = toml_edit::value(content_buffer);
 }
 
@@ -30,6 +31,7 @@ pub fn edit_toml_string_array(ui: &mut Ui, item: &mut Item, limit: Option<usize>
     for value in array.iter_mut() {
         let mut content_buffer = value.as_str().unwrap().to_string();
         ui.text_edit_singleline(&mut content_buffer);
+        content_buffer = filter_string(content_buffer);
         *value = toml_edit::value(content_buffer).as_value().unwrap().clone();
     }
 
@@ -54,4 +56,19 @@ pub fn edit_toml_string_array(ui: &mut Ui, item: &mut Item, limit: Option<usize>
     }
 
     *item = toml_edit::value(array);
+}
+
+pub fn filter_string(input: String) -> String {
+    let mut result = String::new();
+
+    for i in input.chars() {
+        match i {
+            '\n' => {}
+            '\"' => { result.push_str("''"); }
+            '’' => { result.push('\''); }
+            '\r' => {}
+            _ => { result.push(i); }
+        }
+    }
+    return result;
 }

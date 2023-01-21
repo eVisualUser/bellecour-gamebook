@@ -1,0 +1,8 @@
+[config]
+name = "C_0_s_4"
+type = "default"
+[content]
+Line_1 = "''How dare you insult me like this, when all you do is fucking nothing except lay around at home, you better get out of here before I punch you in the face! I drink as much as I want, it's my alcohol I do what I want with it!''"
+Line_2 = "Izydor gets closer to his wife while being very menacing and hits his wife making her fall on the ground."
+[choices]
+Choice_1 = ["Next", "true", "C_0_s_5"]

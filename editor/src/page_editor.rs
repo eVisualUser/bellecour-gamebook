@@ -53,10 +53,10 @@ impl PageEditor {
 
             ui.heading("Config");
             ui.label("Name");
-            let mut item = file.get_mut_item_of("config", "name");
+            let item = file.get_mut_item_of("config", "name");
             crate::editor::edit_toml_string(ui, item);
             ui.label("Type");
-            let mut item = file.get_mut_item_of("config", "type");
+            let item = file.get_mut_item_of("config", "type");
             crate::editor::edit_toml_string(ui, item);
 
             // Text Input
@@ -77,7 +77,7 @@ impl PageEditor {
 
             ui.heading("List");
             for var in file.get_all_keys_of("content") {
-                let mut item = file.get_mut_item_of("content", &var);
+                let item = file.get_mut_item_of("content", &var);
                 ui.label(&var);
                 crate::editor::edit_toml_string(ui, item);
             }
@@ -98,7 +98,7 @@ impl PageEditor {
             ui.heading("List");
             for var in file.get_all_keys_of("choices") {
                 ui.label(&var);
-                let mut item = file.get_mut_item_of("choices", &var);
+                let item = file.get_mut_item_of("choices", &var);
                 crate::editor::edit_toml_string_array(ui, item, Some(3));
             }
 

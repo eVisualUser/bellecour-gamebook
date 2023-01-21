@@ -1,10 +1,6 @@
 [config]
 name = "Great Page"
-type = "default"
+type = "Reset"
 [content]
-my_line = "The air inside the clinic is oppressive, plinks of water drops reverberate on the decrepit walls and the sun's ray enlight the floating dust particles."
-line_2 = "After a second of hesitation, you explore the long corridor in front of you opening each door in the hope of finding someone behind one of them."
-line_3 = "Suddenly you hear footsteps on the floor above and decide to check what's going on."
-line_4 = "It seems you weren't alone here, inside the room of the noise's origin, you make out two silhouettes: A massive one on the left and a feminine one on the right."
 [choices]
-nothing = ["nothing", "true", "nothing"]
+Choice_1 = ["Start", "true", "C_0_s_1"]

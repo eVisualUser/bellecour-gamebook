@@ -33,7 +33,7 @@ impl Debugger {
         result
     }
 
-    pub fn variables_not_found(&self, file: &mut TomlFile, pages_path: String) -> Vec<(String, String)> {
+    pub fn variables_not_found(&self, file: &mut TomlFile) -> Vec<(String, String)> {
         let mut result = Vec::<(String, String)>::new();
 
         let variables = file.get_all_keys_of("data");
@@ -224,7 +224,7 @@ impl Debugger {
                 ui.colored_label(egui::ecolor::Color32::RED, format!("ACTION [{}] -> \"{}\"", action, file));
             }
             ui.heading("Variables Not Found");
-            for (key, file) in self.variables_not_found(file, pages_path.clone()) {
+            for (key, file) in self.variables_not_found(file) {
                 ui.colored_label(egui::ecolor::Color32::RED, format!("VARIABLE [{}] -> \"{}\"", key, file));
             }
             ui.heading("Choice Conditions Not Found");

@@ -1,7 +1,6 @@
 use std::io::{Read, Write};
-use std::str::FromStr;
-use toml_edit::{value, Document};
-use toml_edit::{Item, TableLike};
+use toml_edit::{Document};
+use toml_edit::{Item};
 
 #[derive(Debug)]
 pub struct TomlFile {
@@ -106,7 +105,7 @@ impl TomlFile {
             Some(doc) => {
                 match doc.get_mut(table).unwrap().as_table_mut() {
                     Some(toml_table) => {
-                        let mut array = "[\"1\"]".parse::<toml_edit::Item>().unwrap();
+                        let array = "[\"1\"]".parse::<toml_edit::Item>().unwrap();
                         toml_table.insert(key, array);
                     }
                     None => {}

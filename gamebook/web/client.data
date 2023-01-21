@@ -1,12 +1,17 @@
 [config]
 name = "projectName"
 author = "unknow"
-tags = ["edited", "v0.3.0"]
+tags = ["edited"]
 [data]
 [conditions]
 true = ["1 = 1"]
 [actions]
-nothing = ["$index.toml"]
+C_0_s_2 = ["$C_0_s_2.toml"]
+C_0_s_3 = ["$C_0_s_3.toml"]
+C_0_s_4 = ["$C_0_s_4.toml"]
+C_0_s_5 = ["$C_0_s_5.toml"]
+restart = ["$index.toml"]
+C_0_s_1 = ["$C_0_s_1.toml"]
 [client]
 page = "pages/index.toml"
 frameSize_x = 100
@@ -17,6 +22,46 @@ ok = 13
 zoom = 61
 unzoom = 45
 exit = 27
+[config]
+name = "C_0_s_1"
+type = "default"
+[content]
+Line_1 = "On a bright and sunny day, Izydor can be found laboriously tending to his fields. At the ripe age of mid-60, his tall and stoic figure exudes strength and determination, honed by decades of tireless work on the farm.  "
+Line_2 = "The years have etched their mark on him, leaving dark stains of sun-kissed skin on his arms and legs as proof of a lifetime spent under the sun. As he methodically goes about his work, his mind is focused on the task at hand, pondering which tool would be most effective for clearing the weeds from the ground... "
+[choices]
+Choice_1 = ["Use the rake", "true", "C_0_s_2"]
+Choice_2 = ["Use the shovel", "true", "C_0_s_2"]
+[config]
+name = "C_0_s_2"
+type = "default"
+[content]
+Line_1 = "Suddenly, Izydor can sense a stange and oppressive feeling, as if someone or something were starring at him. Clouds start to hide the sun's light and surround the field with shadows."
+Line_2 = "Izydor turn around, trying to understand what's happening and see with an immense incomprehension his wife's angry face : ''You drank a part of the production again, druken old geezer !I'm sick of you !''"
+Line_3 = "Izydor calmly stand up, face his wife and..."
+[choices]
+Choice_1 = ["Apologize", "true", "C_0_s_3"]
+Choice_2 = ["Beat her", "true", "C_0_s_4"]
+[config]
+name = "C_0_s_3"
+type = "default"
+[content]
+Line_1 = "''I'm sorry I shouldn't have done that I know how short on money we are but I have a problem with alcohol. I'll try to drink less from now on...''"
+[choices]
+Choice_1 = ["Next", "true", "C_0_s_5"]
+[config]
+name = "C_0_s_4"
+type = "default"
+[content]
+Line_1 = "''How dare you insult me like this, when all you do is fucking nothing except lay around at home, you better get out of here before I punch you in the face! I drink as much as I want, it's my alcohol I do what I want with it!''"
+Line_2 = "Izydor gets closer to his wife while being very menacing and hits his wife making her fall on the ground."
+[choices]
+Choice_1 = ["Next", "true", "C_0_s_5"]
+[config]
+name = "C_0_s_5"
+type = "default"
+[content]
+[choices]
+Choice_1 = ["Restart", "true", "restart"]
 [config]
 name = "Condition Example"
 type = "default"
@@ -42,11 +87,7 @@ line_a = "You have done the example, goodbye !"
 final = ["Restart", "true", "restart"]
 [config]
 name = "Great Page"
-type = "default"
+type = "Reset"
 [content]
-my_line = "The air inside the clinic is oppressive, plinks of water drops reverberate on the decrepit walls and the sun's ray enlight the floating dust particles."
-line_2 = "After a second of hesitation, you explore the long corridor in front of you opening each door in the hope of finding someone behind one of them."
-line_3 = "Suddenly you hear footsteps on the floor above and decide to check what's going on."
-line_4 = "It seems you weren't alone here, inside the room of the noise's origin, you make out two silhouettes: A massive one on the left and a feminine one on the right."
 [choices]
-nothing = ["nothing", "true", "nothing"]
+Choice_1 = ["Start", "true", "C_0_s_1"]

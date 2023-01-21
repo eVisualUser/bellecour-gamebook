@@ -1,0 +1,6 @@
+[config]
+name = "C_0_s_5"
+type = "default"
+[content]
+[choices]
+Choice_1 = ["Restart", "true", "restart"]

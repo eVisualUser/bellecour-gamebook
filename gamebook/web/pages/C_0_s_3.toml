@@ -1,0 +1,7 @@
+[config]
+name = "C_0_s_3"
+type = "default"
+[content]
+Line_1 = "''I'm sorry I shouldn't have done that I know how short on money we are but I have a problem with alcohol. I'll try to drink less from now on...''"
+[choices]
+Choice_1 = ["Next", "true", "C_0_s_5"]

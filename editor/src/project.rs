@@ -85,15 +85,15 @@ impl crate::editor::Editor for Project {
                     ui.heading("Config");
 
                     ui.label("Name");
-                    let mut item = file.get_mut_item_of("config", "name");
+                    let item = file.get_mut_item_of("config", "name");
                     editor::edit_toml_string(ui, item);
 
                     ui.label("Author");
-                    let mut item = file.get_mut_item_of("config", "author");
+                    let item = file.get_mut_item_of("config", "author");
                     editor::edit_toml_string(ui, item);
 
                     ui.label("Tags");
-                    let mut item = file.get_mut_item_of("config", "tags");
+                    let item = file.get_mut_item_of("config", "tags");
                     editor::edit_toml_string_array(ui, item, None);
 
                     eframe::egui::Window::new("Data").show(ctx, |ui| {
@@ -118,7 +118,7 @@ impl crate::editor::Editor for Project {
 
                         ui.heading("List");
                         for var in file.get_all_keys_of("data") {
-                            let mut item = file.get_mut_item_of("data", &var);
+                            let item = file.get_mut_item_of("data", &var);
                             ui.label(&var);
                             editor::edit_toml_int(ui, item);
                         }
@@ -139,7 +139,7 @@ impl crate::editor::Editor for Project {
                         ui.heading("List");
                         for var in file.get_all_keys_of("conditions") {
                             ui.label(&var);
-                            let mut item = file.get_mut_item_of("conditions", &var);
+                            let item = file.get_mut_item_of("conditions", &var);
                             editor::edit_toml_string_array(ui, item, None);
                         }
                     });
@@ -159,7 +159,7 @@ impl crate::editor::Editor for Project {
                         ui.heading("List");
                         for var in file.get_all_keys_of("actions") {
                             ui.label(&var);
-                            let mut item = file.get_mut_item_of("actions", &var);
+                            let item = file.get_mut_item_of("actions", &var);
                             editor::edit_toml_string_array(ui, item, None);
                         }
                     });

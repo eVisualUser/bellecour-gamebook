@@ -1,12 +1,17 @@
 [config]
 name = "projectName"
 author = "unknow"
-tags = ["edited", "v0.3.0"]
+tags = ["edited"]
 [data]
 [conditions]
 true = ["1 = 1"]
 [actions]
-nothing = ["$index.toml"]
+C_0_s_2 = ["$C_0_s_2.toml"]
+C_0_s_3 = ["$C_0_s_3.toml"]
+C_0_s_4 = ["$C_0_s_4.toml"]
+C_0_s_5 = ["$C_0_s_5.toml"]
+restart = ["$index.toml"]
+C_0_s_1 = ["$C_0_s_1.toml"]
 [client]
 page = "pages/index.toml"
 frameSize_x = 100

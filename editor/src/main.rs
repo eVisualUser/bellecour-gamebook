@@ -8,7 +8,6 @@ mod page_editor;
 mod project;
 mod debugger;
 mod searcher;
-mod nodeview;
 
 fn main() {
     let options = eframe::NativeOptions {
