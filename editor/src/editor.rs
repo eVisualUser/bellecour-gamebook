@@ -67,7 +67,31 @@ pub fn filter_string(input: String) -> String {
             '\"' => { result.push_str("''"); }
             '’' => { result.push('\''); }
             '\r' => {}
-            _ => { result.push(i); }
+            'é' => {result.push('e');}
+            'É' => {result.push('E');}
+            'È' => {result.push('E');}
+            'Ë' => {result.push('E');}
+            'Ê' => {result.push('E');}
+            'è' => {result.push('e');}
+            'ë' => {result.push('e');}
+            'ê' => {result.push('e');}
+            'Ė' => {result.push('E');}
+            'ė' => {result.push('e');}
+            'ę' => {result.push('e');}
+            'Ę' => {result.push('E');}
+            'ĕ' => {result.push('e');}
+            'Ě' => {result.push('E');}
+            'ē' => {result.push('e');}
+            'Ē' => {result.push('E');}
+            'ĉ' => {result.push('c');}
+            'ç' => {result.push('c');}
+            'Ç' => {result.push('C');}
+            'Ĉ' => {result.push('C');}
+            'Á' => {result.push('A');}
+            'À' => {result.push('A');}
+            'Ã' => {result.push('A');}
+            'Â' => {result.push('A');}
+            _ => {result.push(i); }
         }
     }
     return result;
