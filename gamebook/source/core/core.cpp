@@ -113,6 +113,16 @@ void Core::Draw() {
       }
     }
   }
+
+  if (this->_page.type == "Save") {
+    string buttonName = "[SAVE] Save";
+    for (auto & button: this->_inputManager.GetButtons()) {
+      if (button == buttonName) { /* Do nothing */ }
+      else if (button.contains("[SAVE]"))
+        this->_inputManager.Remove(button);
+    }
+  }
+
   this->_ui.DrawButtons(Point(this->_ui.size.x / 2, this->_ui.size.y),
                         &this->_inputManager, selectChar);
 #endif

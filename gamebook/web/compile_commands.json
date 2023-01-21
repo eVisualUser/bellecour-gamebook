@@ -103,5 +103,10 @@
   "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
   "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\save\\save.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\save\\save.cpp",
   "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\save\\save.cpp"
+},
+{
+  "directory": "C:/Users/sylva/Desktop/Code/gamebook/gamebook/web",
+  "command": "C:\\Users\\sylva\\AppData\\Local\\emsdk\\upstream\\emscripten\\em++.bat -std=gnu++2b -o CMakeFiles\\client.dir\\source\\splashframe\\splashframe.cpp.o -c C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\splashframe\\splashframe.cpp",
+  "file": "C:\\Users\\sylva\\Desktop\\Code\\gamebook\\gamebook\\source\\splashframe\\splashframe.cpp"
 }
 ]
