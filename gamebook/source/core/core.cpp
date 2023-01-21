@@ -1,11 +1,11 @@
 #include "core.h"
-#include "../filesystem/toml.h"
-#include "../filesystem/reader.h"
-#include "../filesystem/ini.h"
 #include "../debug/logger.h"
-#include "../render/console.h"
-#include "../noise/noise.h"
+#include "../filesystem/ini.h"
+#include "../filesystem/reader.h"
+#include "../filesystem/toml.h"
 #include "../logicstr/variablemanager.h"
+#include "../noise/noise.h"
+#include "../render/console.h"
 #include "../save/save.h"
 
 #include <fstream>
@@ -33,57 +33,63 @@ void Core::SpecialPages() {
     this->_variableManager = VariableManager();
     this->_variableManager.Load("config.toml");
   } else if (this->_page.type == "Save") {
-    #ifdef __EMSCRIPTEN__
-    #else
-        string buttonName = "[SAVE] Save";
+#ifdef __EMSCRIPTEN__
+#else
+    string buttonName = "[SAVE] Save";
 
-        bool exist = false;
-        for (auto & button: this->_inputManager.GetButtons()) {
-            if (button == buttonName) exist = true;
-            else if (button.contains("[SAVE]"))
-                this->_inputManager.Remove(button);
-        }
+    bool exist = false;
+    for (auto &button : this->_inputManager.GetButtons()) {
+      if (button == buttonName)
+        exist = true;
+      else if (button.contains("[SAVE]"))
+        this->_inputManager.Remove(button);
+    }
 
-        if (!exist) this->_inputManager.CreateButton(buttonName);
+    if (!exist)
+      this->_inputManager.CreateButton(buttonName);
 
-        if (this->_inputManager.GetLastPressed() == buttonName) Save(&this->_variableManager, &this->_page, "saves.toml");
-    #endif
+    if (this->_inputManager.GetLastPressed() == buttonName)
+      Save(&this->_variableManager, &this->_page, "saves.toml");
+#endif
   } else if (this->_page.type == "LoadSave") {
-    #ifdef __EMSCRIPTEN__
-    #else
-        auto reader = Reader();
-        try {
-            reader.SetPath("saves.toml");
-            reader.ReadFile();
-        } catch (runtime_error error) {
-            Logger::LogError(error.what());
-            PrintError(error.what());
-            exit(-1);
-        }
+#ifdef __EMSCRIPTEN__
+#else
+    auto reader = Reader();
+    try {
+      reader.SetPath("saves.toml");
+      reader.ReadFile();
+    } catch (runtime_error error) {
+      Logger::LogError(error.what());
+      PrintError(error.what());
+      exit(-1);
+    }
 
-        for (auto & button: this->_inputManager.GetButtons()) {
-          if (button.contains("[SAVE]")) this->_inputManager.Remove(button);
-        }
+    for (auto &button : this->_inputManager.GetButtons()) {
+      if (button.contains("[SAVE]"))
+        this->_inputManager.Remove(button);
+    }
 
-        auto savesFile = client_filesystem::Ini();
-        savesFile.SetBuffer(reader.GetBuffer());
-        for (auto & saveName: savesFile.GetAllTables()) {
-          bool exist = false;
+    auto savesFile = client_filesystem::Ini();
+    savesFile.SetBuffer(reader.GetBuffer());
+    for (auto &saveName : savesFile.GetAllTables()) {
+      bool exist = false;
 
-          stringstream buttonName;
-          buttonName << "[SAVE] " << saveName;
+      stringstream buttonName;
+      buttonName << "[SAVE] " << saveName;
 
-          for (auto & button: this->_inputManager.GetButtons()) {
-            if (button == buttonName.str()) exist = true;
-          }
-          if (!exist) this->_inputManager.CreateButton(buttonName.str());
-          if (this->_inputManager.GetLastPressed() == buttonName.str()) {
-            LoadSave(&this->_variableManager, &this->_page, "saves.toml", saveName);
-            this->_inputManager.ResetButtons();
-            this->_page.CreateButtons(&this->_inputManager);
-          }
-        }
-    #endif
+      for (auto &button : this->_inputManager.GetButtons()) {
+        if (button == buttonName.str())
+          exist = true;
+      }
+      if (!exist)
+        this->_inputManager.CreateButton(buttonName.str());
+      if (this->_inputManager.GetLastPressed() == buttonName.str()) {
+        LoadSave(&this->_variableManager, &this->_page, "saves.toml", saveName);
+        this->_inputManager.ResetButtons();
+        this->_page.CreateButtons(&this->_inputManager);
+      }
+    }
+#endif
   }
 }
 
@@ -108,7 +114,9 @@ void Core::Draw() {
     if (!this->_page.IsButtonActive(this->_inputManager.GetButtons()[i],
                                     &this->_executor, &this->_variableManager,
                                     &this->_conditionManager)) {
-      if (this->_inputManager.GetIndex() == i && !(this->_inputManager.GetButtons()[this->_inputManager.GetIndex()].contains("[SAVE]"))) {
+      if (this->_inputManager.GetIndex() == i &&
+          !(this->_inputManager.GetButtons()[this->_inputManager.GetIndex()]
+                .contains("[SAVE]"))) {
         selectChar = 'X';
       }
     }
@@ -116,9 +124,9 @@ void Core::Draw() {
 
   if (this->_page.type == "Save") {
     string buttonName = "[SAVE] Save";
-    for (auto & button: this->_inputManager.GetButtons()) {
-      if (button == buttonName) { /* Do nothing */ }
-      else if (button.contains("[SAVE]"))
+    for (auto &button : this->_inputManager.GetButtons()) {
+      if (button == buttonName) { /* Do nothing */
+      } else if (button.contains("[SAVE]"))
         this->_inputManager.Remove(button);
     }
   }
@@ -131,8 +139,7 @@ void Core::Draw() {
   int lineYOffset = 0;
   for (auto &line : this->_page.textContent) {
     lineYOffset +=
-        1 + this->_ui.DrawText(Point(0,
-                                     (this->_ui.size.y / 4) + lineYOffset),
+        1 + this->_ui.DrawText(Point(0, (this->_ui.size.y / 4) + lineYOffset),
                                line);
   }
 }
@@ -146,44 +153,72 @@ void Core::Render() {
     chars.push_back('b');
     chars.push_back('d');
     chars.push_back('e');
-    ApplyTextNoise(&frame, chars, this->_variableManager.GetVariableValue("text_noise_level") / 10);
+    ApplyTextNoise(&frame, chars,
+                   this->_variableManager.GetVariableValue("text_noise_level") /
+                       10);
   }
 
   if (this->_variableManager.IsExist("console_color_foreground")) {
     stringstream message;
-    message << "Set Console Color To: " << this->_variableManager.GetVariableValue("console_color_foreground");
+    message << "Set Console Color To: "
+            << this->_variableManager.GetVariableValue(
+                   "console_color_foreground");
     Logger::Log(message.str());
-    this->_console.SetConsoleColor(this->_variableManager.GetVariableValue("console_color_foreground"));
+    this->_console.SetConsoleColor(
+        this->_variableManager.GetVariableValue("console_color_foreground"));
   }
   if (this->_variableManager.IsExist("console_color_background")) {
     stringstream message;
-    message << "Set Console Color To: " << this->_variableManager.GetVariableValue("console_color_background");
+    message << "Set Console Color To: "
+            << this->_variableManager.GetVariableValue(
+                   "console_color_background");
     Logger::Log(message.str());
-    this->_console.SetConsoleColor(this->_variableManager.GetVariableValue("console_color_background"));
+    this->_console.SetConsoleColor(
+        this->_variableManager.GetVariableValue("console_color_background"));
   }
-  if (this->_variableManager.IsExist("console_color_foreground_karma_up") && this->_variableManager.IsExist("karma") && this->_variableManager.GetVariableValue("karma") > 0) {
+  if (this->_variableManager.IsExist("console_color_foreground_karma_up") &&
+      this->_variableManager.IsExist("karma") &&
+      this->_variableManager.GetVariableValue("karma") > 0) {
     stringstream message;
-    message << "Set Console Color To: " << this->_variableManager.GetVariableValue("console_color_foreground_karma_up");
+    message << "Set Console Color To: "
+            << this->_variableManager.GetVariableValue(
+                   "console_color_foreground_karma_up");
     Logger::Log(message.str());
-    this->_console.SetConsoleColor(this->_variableManager.GetVariableValue("console_color_foreground_karma_up"));
+    this->_console.SetConsoleColor(this->_variableManager.GetVariableValue(
+        "console_color_foreground_karma_up"));
   }
-  if (this->_variableManager.IsExist("console_color_foreground_karma_down") && this->_variableManager.IsExist("karma") && this->_variableManager.GetVariableValue("karma") < 0) {
+  if (this->_variableManager.IsExist("console_color_foreground_karma_down") &&
+      this->_variableManager.IsExist("karma") &&
+      this->_variableManager.GetVariableValue("karma") < 0) {
     stringstream message;
-    message << "Set Console Color To: " << this->_variableManager.GetVariableValue("console_color_foreground_karma_down");
+    message << "Set Console Color To: "
+            << this->_variableManager.GetVariableValue(
+                   "console_color_foreground_karma_down");
     Logger::Log(message.str());
-    this->_console.SetConsoleColor(this->_variableManager.GetVariableValue("console_color_foreground_karma_down"));
+    this->_console.SetConsoleColor(this->_variableManager.GetVariableValue(
+        "console_color_foreground_karma_down"));
   }
-  if (this->_variableManager.IsExist("console_color_background_karma_down") && this->_variableManager.IsExist("karma") && this->_variableManager.GetVariableValue("karma") < 0) {
+  if (this->_variableManager.IsExist("console_color_background_karma_down") &&
+      this->_variableManager.IsExist("karma") &&
+      this->_variableManager.GetVariableValue("karma") < 0) {
     stringstream message;
-    message << "Set Console Color To: " << this->_variableManager.GetVariableValue("console_color_background_karma_down");
+    message << "Set Console Color To: "
+            << this->_variableManager.GetVariableValue(
+                   "console_color_background_karma_down");
     Logger::Log(message.str());
-    this->_console.SetConsoleColor(this->_variableManager.GetVariableValue("console_color_background_karma_down"));
+    this->_console.SetConsoleColor(this->_variableManager.GetVariableValue(
+        "console_color_background_karma_down"));
   }
-  if (this->_variableManager.IsExist("console_color_background_karma_up") && this->_variableManager.IsExist("karma") && this->_variableManager.GetVariableValue("karma") > 0) {
+  if (this->_variableManager.IsExist("console_color_background_karma_up") &&
+      this->_variableManager.IsExist("karma") &&
+      this->_variableManager.GetVariableValue("karma") > 0) {
     stringstream message;
-    message << "Set Console Color To: " << this->_variableManager.GetVariableValue("console_color_background_karma_up");
+    message << "Set Console Color To: "
+            << this->_variableManager.GetVariableValue(
+                   "console_color_background_karma_up");
     Logger::Log(message.str());
-    this->_console.SetConsoleColor(this->_variableManager.GetVariableValue("console_color_background_karma_up"));
+    this->_console.SetConsoleColor(this->_variableManager.GetVariableValue(
+        "console_color_background_karma_up"));
   }
 
   this->_console.PrintFrame(&frame);
@@ -223,7 +258,7 @@ void Core::LoadConfig() {
   try {
     reader.SetPath(this->_defaultConfigPath);
     reader.ReadFile();
-  } catch(runtime_error message) {
+  } catch (runtime_error message) {
     Logger::LogError(message.what());
     PrintError(message.what());
   }
@@ -237,7 +272,8 @@ void Core::LoadConfig() {
   this->_frameSize.y = TomlParseInt(table.GetVar("frameSize_y").GetValue());
   this->_inputManager._keyOk = TomlParseInt(table.GetVar("ok").GetValue());
   this->_inputManager._keyExit = TomlParseInt(table.GetVar("exit").GetValue());
-  this->_inputManager._keyUnZoom = TomlParseInt(table.GetVar("unzoom").GetValue());
+  this->_inputManager._keyUnZoom =
+      TomlParseInt(table.GetVar("unzoom").GetValue());
   this->_inputManager._keyZoom = TomlParseInt(table.GetVar("zoom").GetValue());
   this->_inputManager._keyUp = TomlParseInt(table.GetVar("up").GetValue());
   this->_inputManager._keyDown = TomlParseInt(table.GetVar("down").GetValue());
