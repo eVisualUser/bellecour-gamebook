@@ -134,15 +134,15 @@ void Core::Draw() {
   }
 
   this->_ui.DrawButtons(Point(this->_ui.size.x / 2, this->_ui.size.y),
-                        &this->_inputManager, selectChar, &this->_variableManager);
+                        &this->_inputManager, selectChar, &this->_variableManager, &this->_executor);
 #endif
-  this->_ui.DrawText(Point(this->_ui.size.x / 2, 0), this->_page.name, &this->_variableManager);
+  this->_ui.DrawText(Point(this->_ui.size.x / 2, 0), this->_page.name, &this->_variableManager, &this->_executor);
 
   int lineYOffset = 0;
   for (auto &line : this->_page.textContent) {
     lineYOffset +=
         1 + this->_ui.DrawText(Point(0, (this->_ui.size.y / 4) + lineYOffset),
-                               line, &this->_variableManager);
+                               line, &this->_variableManager, &this->_executor);
   }
 
   if (this->_page.type == "Recap") {
@@ -161,7 +161,7 @@ void Core::Draw() {
         else
           text << "False";
 
-        this->_ui.DrawText(Point(0, (this->_ui.size.y / 4) + ++lineYOffset), text.str(), &this->_variableManager);
+        this->_ui.DrawText(Point(0, (this->_ui.size.y / 4) + ++lineYOffset), text.str(), &this->_variableManager, &this->_executor);
       }
       if (var.name.contains("recap_")) {
         string buffer;
@@ -173,7 +173,7 @@ void Core::Draw() {
         text << ": ";
         text << var.value;
 
-        this->_ui.DrawText(Point(0, (this->_ui.size.y / 4) + ++lineYOffset), text.str(), &this->_variableManager);
+        this->_ui.DrawText(Point(0, (this->_ui.size.y / 4) + ++lineYOffset), text.str(), &this->_variableManager, &this->_executor);
       }
     }
   }

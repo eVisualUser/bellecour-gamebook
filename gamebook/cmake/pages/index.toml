@@ -3,6 +3,6 @@ name = "Milestone 3 Build"
 type = "Save"
 [content]
 greatings = "Happy to see you !"
-explanation_a = "Welcome 35$ to the example ${included_variable} => $b{included_variable} of the game !  We will explain you everything about the game. Other great Text !"
+explanation_a = "Welcome 35?35 35$ to the example $(included_variable = 0; included_variable < 0) {-10 => true} $(included_variable = 0; included_variable < 0){-10 => true} of the game !  We will explain you everything about the game. Other great Text !"
 [choices]
 start = ["Start", "true", "start"]

@@ -52,8 +52,8 @@ void UI::InitializeBuffer() {
 	}
 }
 
-int UI::DrawText(Point start, string text, VariableManager* variableManager) {
-    text = ReplaceVariables(text, variableManager);
+int UI::DrawText(Point start, string text, VariableManager* variableManager, Executor *executor) {
+    text = ReplaceVariables(text, variableManager, executor);
 	int textBack = 1;
         int startBack = 0;
         while(this->size.x < start.x + std::strlen(text.c_str()) && start.x > 0) {
@@ -78,7 +78,7 @@ int UI::DrawText(Point start, string text, VariableManager* variableManager) {
 	return textBack;
 }
 
-void UI::DrawButtons(Point position, InputManager *inputManager, char selectedChar, VariableManager* variableManager) {
+void UI::DrawButtons(Point position, InputManager *inputManager, char selectedChar, VariableManager* variableManager, Executor *executor) {
 	#ifdef __EMSCRIPTEN__
 	#else
 	auto buttons = inputManager->GetButtons();
@@ -87,11 +87,11 @@ void UI::DrawButtons(Point position, InputManager *inputManager, char selectedCh
 	for (int i = inputManager->GetButtonCount() - 1; i >= 0; i--) {
 		position.y -= 2;
 		if (i != inputManager->GetIndex()) {
-			this->DrawText(position, buttons[i], variableManager);
+                  this->DrawText(position, buttons[i], variableManager, executor);
 		} else {
 			stringstream ss;
 			ss << selectedChar << ' ' << buttons[i];
-			this->DrawText(position, ss.str(), variableManager);
+                        this->DrawText(position, ss.str(), variableManager, executor);
 		}
 	}
 	#endif

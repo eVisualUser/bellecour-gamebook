@@ -8,6 +8,7 @@
 #include "../pages/page.h"
 #include "../logicstr/stringformater.h"
 #include "../logicstr/variablemanager.h"
+#include "../logicstr/executor.h"
 
 using namespace std;
 
@@ -17,14 +18,14 @@ public:
 	UI(Point newSize);
 public:
 	void DrawRawLine(Point position, int lenght, char character);
-	int DrawText(Point start, string text, VariableManager* variableManager);
+        int DrawText(Point start, string text, VariableManager* variableManager, Executor *executor);
 	void Zoom();
 	void UnZoom();
 public:
 	void InitializeBuffer();
 	void ResetBuffer();
 	vector<string> GetFrame();
-        void DrawButtons(Point position, InputManager *buttonManager, char selectedChar, VariableManager* variableManager);
+        void DrawButtons(Point position, InputManager *buttonManager, char selectedChar, VariableManager* variableManager, Executor *executor);
 	Point size;
 private:
 	vector<string> buffer;

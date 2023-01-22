@@ -1,6 +1,9 @@
 #include "stringformater.h"
 #include "../debug/logger.h"
+#include "../logicstr/nodechain.h"
+
 #include <sstream>
+#include <string>
 
 string StringSnakeToText(string source) {
   string result;
@@ -15,8 +18,9 @@ string StringSnakeToText(string source) {
   return result;
 }
 
-string ReplaceVariables(string source, VariableManager *variableManager) {
+string ReplaceVariables(string source, VariableManager *variableManager, Executor *executor) {
   stringstream result;
+
   bool isDollar = false;
   bool inVar = false;
   bool isBool = false;
@@ -70,5 +74,87 @@ string ReplaceVariables(string source, VariableManager *variableManager) {
       result << i;
     }
   }
-  return result.str();
+
+  string injectedSource = result.str();
+
+  stringstream output;
+  bool findStarter = false;
+  bool inText = false;
+  bool inCond = false;
+  string condBuffer;
+  string textBuffer;
+  bool meetFirstChar = false;
+  for (auto & i: injectedSource) {
+    if (findStarter && !meetFirstChar && (i != '(')) {
+      findStarter = false;
+      output << '$';
+      output << i;
+    }
+
+    if (findStarter && !meetFirstChar)
+      meetFirstChar = true;
+
+    if (i == '$') {
+      findStarter = true;
+    } else if (findStarter && i == '(' && !inText && !inCond) {
+      inCond = true;
+      inText = false;
+    } else if (inCond && i == ')') {
+      inCond = false;
+    } else if (findStarter && inCond && i != ')') {
+      condBuffer.push_back(i);
+    } else if (findStarter && i == '{') {
+      inText = true;
+    } else if (inText && i == '}') {
+      findStarter = false;
+      inText = false;
+    } else if (inText && i != '{' && i != '}') {
+        textBuffer.push_back(i);
+    } else if (!inText && !inCond) {
+        if (!textBuffer.empty()) {
+          if (TestInTextCondition(condBuffer, variableManager, executor)) {
+            output << textBuffer;
+          }
+          textBuffer = "";
+          condBuffer = "";
+          findStarter = false;
+          meetFirstChar = false;
+        } else {
+          output << i;
+        }
+    }
+  }
+
+  return output.str();
+}
+
+bool TestInTextCondition(string list, VariableManager *variableManager, Executor *executor) {
+  vector<string> conditionList;
+  string unitCondBuffer;
+  bool reachFirstChar = false;
+  for (auto & i: list) {
+    if (i != ';') {
+      if (i != ' ') {
+        reachFirstChar = true;
+      }
+      if (reachFirstChar) {
+        unitCondBuffer.push_back(i);
+      }
+    } else {
+      conditionList.push_back(unitCondBuffer);
+      unitCondBuffer = "";
+      reachFirstChar = false;
+    }
+  }
+  conditionList.push_back(unitCondBuffer);
+  bool conditionPassed = false;
+
+  for (auto & condition: conditionList) {
+    auto condNodeChain = NodeChain();
+    condNodeChain.ParseString(condition);
+    if (executor->ExecuteConditionComand(variableManager, &condNodeChain)) {
+      conditionPassed = true;
+    }
+  }
+  return conditionPassed;
 }
