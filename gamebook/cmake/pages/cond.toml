@@ -1,6 +1,6 @@
 [config]
 name = "Condition Example"
-type = "default"
+type = "Recap"
 [content]
 explanation_a = "In this page 3 choice are available but only one can work due to the condition."
 [choices]

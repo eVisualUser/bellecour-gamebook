@@ -6,6 +6,9 @@ tags = ["edited", "client-0.3.0"]
 done_data_page = 0
 page_count = 0
 console_color_background = 45
+recap_Number_Of_People_Killed = 10
+recap_Player_LIfe = -55
+included_variable = 10
 [conditions]
 true = ["1 = 1"]
 have_done_data_page = ["done_data_page > page_count"]

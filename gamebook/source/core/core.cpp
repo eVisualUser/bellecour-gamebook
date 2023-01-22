@@ -7,6 +7,7 @@
 #include "../noise/noise.h"
 #include "../render/console.h"
 #include "../save/save.h"
+#include "../logicstr/stringformater.h"
 
 #include <fstream>
 #include <sstream>
@@ -97,6 +98,7 @@ void Core::Update() {
   this->SpecialPages();
   this->ClearScreen();
   this->Draw();
+  this->UpdateSpecialVariables();
   this->Render();
   this->UpdateInputs();
 }
@@ -132,32 +134,52 @@ void Core::Draw() {
   }
 
   this->_ui.DrawButtons(Point(this->_ui.size.x / 2, this->_ui.size.y),
-                        &this->_inputManager, selectChar);
+                        &this->_inputManager, selectChar, &this->_variableManager);
 #endif
-  this->_ui.DrawText(Point(this->_ui.size.x / 2, 0), this->_page.name);
+  this->_ui.DrawText(Point(this->_ui.size.x / 2, 0), this->_page.name, &this->_variableManager);
 
   int lineYOffset = 0;
   for (auto &line : this->_page.textContent) {
     lineYOffset +=
         1 + this->_ui.DrawText(Point(0, (this->_ui.size.y / 4) + lineYOffset),
-                               line);
+                               line, &this->_variableManager);
+  }
+
+  if (this->_page.type == "Recap") {
+    for (auto & var: this->_variableManager.GetAllVariables()) {
+      if (var.name.contains("recap_bool_")) {
+        string buffer;
+        for (int i = strlen("recap_bool_"); i < var.name.length(); i++)
+          buffer.push_back(var.name[i]);
+
+        stringstream text;
+        text << StringSnakeToText(buffer);
+        text << ": ";
+
+        if (var.value == 0)
+          text << "True";
+        else
+          text << "False";
+
+        this->_ui.DrawText(Point(0, (this->_ui.size.y / 4) + ++lineYOffset), text.str(), &this->_variableManager);
+      }
+      if (var.name.contains("recap_")) {
+        string buffer;
+        for (int i = strlen("recap_"); i < var.name.length(); i++)
+          buffer.push_back(var.name[i]);
+
+        stringstream text;
+        text << StringSnakeToText(buffer);
+        text << ": ";
+        text << var.value;
+
+        this->_ui.DrawText(Point(0, (this->_ui.size.y / 4) + ++lineYOffset), text.str(), &this->_variableManager);
+      }
+    }
   }
 }
 
-void Core::Render() {
-  auto frame = this->_ui.GetFrame();
-
-  if (this->_variableManager.IsExist("text_noise_level")) {
-    vector<char> chars;
-    chars.push_back('a');
-    chars.push_back('b');
-    chars.push_back('d');
-    chars.push_back('e');
-    ApplyTextNoise(&frame, chars,
-                   this->_variableManager.GetVariableValue("text_noise_level") /
-                       10);
-  }
-
+void Core::UpdateSpecialVariables() {
   if (this->_variableManager.IsExist("console_color_foreground")) {
     stringstream message;
     message << "Set Console Color To: "
@@ -219,6 +241,21 @@ void Core::Render() {
     Logger::Log(message.str());
     this->_console.SetConsoleColor(this->_variableManager.GetVariableValue(
         "console_color_background_karma_up"));
+  }
+}
+
+void Core::Render() {
+  auto frame = this->_ui.GetFrame();
+
+  if (this->_variableManager.IsExist("text_noise_level")) {
+    vector<char> chars;
+    chars.push_back('a');
+    chars.push_back('b');
+    chars.push_back('d');
+    chars.push_back('e');
+    ApplyTextNoise(&frame, chars,
+                   this->_variableManager.GetVariableValue("text_noise_level") /
+                       10);
   }
 
   this->_console.PrintFrame(&frame);

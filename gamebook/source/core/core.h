@@ -46,6 +46,7 @@ public:
   void UpdateInputs();
   void Render();
   void SpecialPages();
+  void UpdateSpecialVariables();
 
 private:
   VariableManager _variableManager;
