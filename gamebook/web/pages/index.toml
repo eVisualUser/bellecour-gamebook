@@ -3,4 +3,4 @@ name = "Great Page"
 type = "Reset"
 [content]
 [choices]
-Choice_1 = ["Start", "true", "C_0_s_1"]
+Choice_1 = ["Start ${console_color_background}", "true", "C_0_s_1"]

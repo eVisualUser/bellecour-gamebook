@@ -9,6 +9,7 @@
 
 #ifdef __EMSCRIPTEN__
 #include <emscripten.h>
+#include <sstream>
 #else
 #include <conio.h>
 #endif
@@ -75,18 +76,24 @@ void PrintError(std::string error) {
 
 void Console::SetConsoleColor(int colorForeground) {
 #ifdef __EMSCRIPTEN__
+  std::stringstream script;
+  if (colorForeground >= 40) {
+    script << "changeTextAreaColorBackground(" << colorForeground << ");"; // Background
+  } else {
+    script << "changeTextAreaColor(" << colorForeground << ");"; // Foreground
+  }
+  emscripten_run_script(script.str().c_str());
 #elif _WIN32
   HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
   SetConsoleTextAttribute(hConsole, this->ConvertColor(colorForeground));
 #else
   std::cout << "\033[" << colorForeground << 'm';
-  std::cout << "\033[" << colorBackground << 'm';
 #endif
 }
-
+// changeTextAreaColorBackground
 int Console::ConvertColor(int ansiColor) {
 #ifdef __EMSCRIPTEN__
-#else
+#elif _WIN32
   switch (ansiColor) {
   case 30:
     return 0; // Black

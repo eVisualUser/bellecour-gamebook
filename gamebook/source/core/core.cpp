@@ -47,7 +47,7 @@ void Core::SpecialPages() {
     }
 
     if (!exist)
-      this->_inputManager.CreateButton(buttonName);
+      this->_inputManager.CreateButton(buttonName, &this->_variableManager, &this->_executor);
 
     if (this->_inputManager.GetLastPressed() == buttonName)
       Save(&this->_variableManager, &this->_page, "saves.toml");
@@ -83,11 +83,11 @@ void Core::SpecialPages() {
           exist = true;
       }
       if (!exist)
-        this->_inputManager.CreateButton(buttonName.str());
+        this->_inputManager.CreateButton(buttonName.str(), &this->_variableManager, &this->_executor);
       if (this->_inputManager.GetLastPressed() == buttonName.str()) {
         LoadSave(&this->_variableManager, &this->_page, "saves.toml", saveName);
         this->_inputManager.ResetButtons();
-        this->_page.CreateButtons(&this->_inputManager);
+        this->_page.CreateButtons(&this->_inputManager, &this->_variableManager, &this->_executor);
       }
     }
 #endif
@@ -250,13 +250,29 @@ void Core::Render() {
   if (this->_variableManager.IsExist("text_noise_level")) {
     vector<char> chars;
     chars.push_back('a');
-    chars.push_back('b');
-    chars.push_back('d');
+    chars.push_back('i');
+    chars.push_back('o');
     chars.push_back('e');
+    chars.push_back('u');
     ApplyTextNoise(&frame, chars,
                    this->_variableManager.GetVariableValue("text_noise_level") /
                        10);
   }
+
+#ifdef __EMSCRIPTEN__
+  for (auto &button : this->_page.GetButtons()) {
+    auto text = ReplaceVariables(button.text, &this->_variableManager, &this->_executor);
+    if (!this->_page.IsButtonActive(text, &this->_executor,
+                                    &this->_variableManager,
+                                    &this->_conditionManager)) {
+      stringstream jsCommand;
+      jsCommand << "desactivateButton(";
+      jsCommand << '\"' << text << '\"';
+      jsCommand << ");";
+      emscripten_run_script(jsCommand.str().c_str());
+    }
+  }
+#endif
 
   this->_console.PrintFrame(&frame);
 }
@@ -286,7 +302,7 @@ void Core::UpdateInputs() {
     this->_page.Load(stream.str());
 
     this->_inputManager.ResetButtons();
-    this->_page.CreateButtons(&this->_inputManager);
+    this->_page.CreateButtons(&this->_inputManager, &this->_variableManager, &this->_executor);
   }
 }
 
@@ -344,5 +360,5 @@ void Core::Initialize() {
   this->_conditionManager.Load(this->_defaultConfigPath);
 
   this->_page.Load(this->_defaultPagePath);
-  this->_page.CreateButtons(&this->_inputManager);
+  this->_page.CreateButtons(&this->_inputManager, &this->_variableManager, &this->_executor);
 }

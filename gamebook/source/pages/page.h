@@ -16,9 +16,11 @@ using namespace std;
 class Page {
 public:
 	void Load(string path);
-	void CreateButtons(InputManager *inputManager);
+    void CreateButtons(InputManager *inputManager, VariableManager *variableManager, Executor *executor);
 	string GetButtonPressed(string content, Executor *executor, ActionManager *actionManager, VariableManager *variableManager, ConditionManager *conditionManager);
 	bool IsButtonActive(string content, Executor *executor, VariableManager *variableManager, ConditionManager *conditionManager);
+    vector<Button> GetButtons();
+
 public:
 	string name;
 	string type;

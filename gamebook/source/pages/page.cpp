@@ -8,6 +8,7 @@
 #include "../debug/logger.h"
 #include "../render/console.h"
 #include "../logicstr/conditionmanager.h"
+#include "../logicstr/stringformater.h"
 
 #include <iostream>
 #include <iterator>
@@ -64,22 +65,23 @@ void Page::Load(string path) {
 	}
 }
 
-void Page::CreateButtons(InputManager *inputManager) {
-	inputManager->ResetButtons();
+void Page::CreateButtons(InputManager *inputManager, VariableManager *variableManager, Executor *executor) {
+        inputManager->ResetButtons();
 
-	for(auto & button: this->buttons) {
-		#ifdef __EMSCRIPTEN__
-			inputManager->CreateButton(button.text);
-		#else
-			if (!inputManager->Exists(button.text))
-				inputManager->CreateButton(button.text);
-		#endif
-	}
+        for (auto &button : this->buttons) {
+#ifdef __EMSCRIPTEN__
+        inputManager->CreateButton(button.text, variableManager, executor);
+#else
+        if (!inputManager->Exists(button.text))
+          inputManager->CreateButton(button.text, variableManager, executor);
+#endif
+        }
 }
 
 string Page::GetButtonPressed(string content, Executor *executor, ActionManager *actionManager, VariableManager *variableManager, ConditionManager *conditionManager) {
 	string nextPage;
 	for (auto & button: this->buttons) {
+          button.text = ReplaceVariables(button.text, variableManager, executor);
 		if (content == button.text && !content.contains("[SAVE]")) {
 			
 			if (this->IsButtonActive(content, executor, variableManager, conditionManager)) {
@@ -113,6 +115,7 @@ string Page::GetButtonPressed(string content, Executor *executor, ActionManager 
 
 bool Page::IsButtonActive(string content, Executor *executor, VariableManager *variableManager, ConditionManager *conditionManager) {
 	for (auto & button: this->buttons) {
+          button.text = ReplaceVariables(button.text, variableManager, executor);
 		if (content == button.text) {
 			bool conditionPassed = false;
 
@@ -136,4 +139,8 @@ bool Page::IsButtonActive(string content, Executor *executor, VariableManager *v
 		}
 	}
 	return false;
+}
+
+vector<Button> Page::GetButtons() {
+    return this->buttons;
 }

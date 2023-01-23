@@ -14,7 +14,7 @@ impl PageEditor {
     pub fn update(
         &mut self,
         ui: &mut eframe::egui::Ui,
-        config: &mut TomlFile,
+        _config: &mut TomlFile,
         directory: &mut Directory,
     ) {
         let path = directory.get_path();

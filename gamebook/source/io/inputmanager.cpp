@@ -4,6 +4,7 @@
 #include "iomath.h"
 #include "../filesystem/reader.h"
 #include "../filesystem/ini.h"
+#include "../logicstr/stringformater.h"
 
 #include <iostream>
 #include <vector>
@@ -22,8 +23,9 @@ string InputManager::GetLastPressed() {
 #endif
 }
 
-void InputManager::CreateButton(string button) {
+void InputManager::CreateButton(string button, VariableManager *variableManager, Executor *executor) {
 #ifdef __EMSCRIPTEN__
+  button = ReplaceVariables(button, variableManager, executor);
   EM_ASM({ createButton(UTF8ToString($0)); }, button.c_str());
 #else
   this->buffer.push_back(button);

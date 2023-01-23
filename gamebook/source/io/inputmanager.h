@@ -6,6 +6,7 @@
 #include "../logicstr/conditionmanager.h"
 #include "../logicstr/variablemanager.h"
 #include "iomath.h"
+#include "../logicstr/executor.h"
 
 using namespace std;
 
@@ -15,7 +16,7 @@ public:
   /// Return if it need to refrash the current page
   bool Update();
   int GetButtonCount();
-  void CreateButton(string button);
+  void CreateButton(string button, VariableManager *variableManager, Executor *executor);
   string GetLastPressed();
   void ResetButtons();
   vector<string> GetButtons();

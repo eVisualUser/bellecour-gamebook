@@ -6,6 +6,7 @@ pub struct Debugger {
 }
 
 impl Debugger {
+
     pub fn find_missing_page(&self, file: &mut TomlFile, pages_path: String) -> Vec<(String, String)> {
         let mut result = Vec::<(String, String)>::new();
 

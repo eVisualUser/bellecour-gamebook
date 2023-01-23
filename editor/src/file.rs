@@ -23,7 +23,7 @@ impl TomlFile {
             .unwrap();
 
         let mut file_content = String::new();
-        file.read_to_string(&mut file_content);
+        file.read_to_string(&mut file_content).unwrap();
 
         self.doc = Some(file_content.parse::<Document>().unwrap());
     }
@@ -56,8 +56,8 @@ impl TomlFile {
 
     pub fn save(&self) {
         match &self.doc {
-            Some(doc) => std::fs::write(&self.path, doc.to_string()),
-            None => Ok(()),
+            Some(doc) => {std::fs::write(&self.path, doc.to_string()).unwrap();}
+            None => {}
         };
     }
 
@@ -79,7 +79,7 @@ impl TomlFile {
             .open(&self.path)
             .unwrap();
         for line in template {
-            writeln!(&mut file, "{}", line);
+            writeln!(&mut file, "{}", line).unwrap();
         }
     }
 
