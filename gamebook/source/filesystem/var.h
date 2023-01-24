@@ -4,7 +4,6 @@
 
 using namespace std;
 
-namespace client_filesystem {
 class Var {
 public:
   string GetKey();
@@ -15,4 +14,3 @@ private:
   string key;
   string value;
 };
-} // namespace client_filesystem

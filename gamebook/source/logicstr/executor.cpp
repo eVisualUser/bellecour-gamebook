@@ -110,6 +110,10 @@ bool Executor::ExecuteConditionComand(VariableManager *variableManager,
       return value_a < value_b;
     case Operator::Greater:
       return value_a > value_b;
+    case Operator::GreaterEqual:
+        return value_a >= value_b;
+    case Operator::LowerEqual:
+        return value_a <= value_b;
     default:
     case Operator::Equal:
       return value_a == value_b;

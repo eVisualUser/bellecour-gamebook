@@ -4,9 +4,9 @@
 #include <vector>
 
 #include "../logicstr/conditionmanager.h"
+#include "../logicstr/executor.h"
 #include "../logicstr/variablemanager.h"
 #include "iomath.h"
-#include "../logicstr/executor.h"
 
 using namespace std;
 
@@ -16,7 +16,8 @@ public:
   /// Return if it need to refrash the current page
   bool Update();
   int GetButtonCount();
-  void CreateButton(string button, VariableManager *variableManager, Executor *executor);
+  void CreateButton(string button, VariableManager *variableManager,
+                    Executor *executor);
   string GetLastPressed();
   void ResetButtons();
   vector<string> GetButtons();
@@ -24,14 +25,15 @@ public:
   bool MustZoom();
   bool MustUnZoom();
   void Remove(string button);
+
 public:
-    int _keyOk = 13;
-    int _keyUp = 72;
-    int _keyDown = 80;
-    int _keyExit = 27;
-    int _keyZoom = 61;
-    int _keyUnZoom = 45;
-    int _keyRefresh = 63;
+  int _keyOk = 13;
+  int _keyUp = 72;
+  int _keyDown = 80;
+  int _keyExit = 27;
+  int _keyZoom = 61;
+  int _keyUnZoom = 45;
+  int _keyRefresh = 63;
 #ifdef __EMSCRIPTEN__
 #else
   int GetIndex();

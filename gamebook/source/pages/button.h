@@ -4,9 +4,9 @@
 
 using namespace std;
 
-class Button {
+struct Button {
 public:
-	string text;
-	string condition;
-	string action;
+  string text;
+  string condition;
+  string action;
 };

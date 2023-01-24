@@ -9,8 +9,6 @@
 #include "../filesystem/toml.h"
 #include "../render/console.h"
 
-using namespace client_filesystem;
-
 void VariableManager::CreateVariable(string name, int value) {
   Variable variable = {
       .name = name,
@@ -82,6 +80,4 @@ void VariableManager::Load(string path) {
   }
 }
 
-vector<Variable>  VariableManager::GetAllVariables() {
-  return this->buffer;
-}
+vector<Variable> VariableManager::GetAllVariables() { return this->buffer; }

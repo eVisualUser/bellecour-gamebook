@@ -2,8 +2,6 @@
 
 #include <iostream>
 
-using namespace client_filesystem;
-
 void Ini::SetBuffer(vector<string> newBuffer) { this->buffer = newBuffer; }
 
 void Ini::AddLine(string newLine) { this->buffer.push_back(newLine); }
@@ -108,14 +106,14 @@ vector<string> Ini::GetAllTables() {
 
   for (auto &line : this->buffer) {
     if (line[0] == INI_FMT_OPEN_TABLE) {
-        string buffer;
-        for (auto & i: line) {
-          if (i == INI_FMT_CLOSE_TABLE)
-            break;
-          else if (i != INI_FMT_OPEN_TABLE)
-            buffer.push_back(i);
-        }
-        result.push_back(buffer);
+      string buffer;
+      for (auto &i : line) {
+        if (i == INI_FMT_CLOSE_TABLE)
+          break;
+        else if (i != INI_FMT_OPEN_TABLE)
+          buffer.push_back(i);
+      }
+      result.push_back(buffer);
     }
   }
 

@@ -1,10 +1,10 @@
 #include "inputmanager.h"
 #include "../debug/logger.h"
+#include "../filesystem/ini.h"
+#include "../filesystem/reader.h"
+#include "../logicstr/stringformater.h"
 #include "../render/console.h"
 #include "iomath.h"
-#include "../filesystem/reader.h"
-#include "../filesystem/ini.h"
-#include "../logicstr/stringformater.h"
 
 #include <iostream>
 #include <vector>
@@ -23,7 +23,8 @@ string InputManager::GetLastPressed() {
 #endif
 }
 
-void InputManager::CreateButton(string button, VariableManager *variableManager, Executor *executor) {
+void InputManager::CreateButton(string button, VariableManager *variableManager,
+                                Executor *executor) {
 #ifdef __EMSCRIPTEN__
   button = ReplaceVariables(button, variableManager, executor);
   EM_ASM({ createButton(UTF8ToString($0)); }, button.c_str());
@@ -55,29 +56,29 @@ bool InputManager::Update() {
 #else
   auto input = _getch();
 
-    if (input == 0 || input == 0xE0) {
-      input = _getch();
-      if (input == this->_keyUp) {
-        this->index--;
-      } else if (input == this->_keyDown) {
-        this->index++;
-      } else if (input == this->_keyRefresh) {
-        return true;
-      } else {
-        this->Update();
-      }
-    } else if (input == this->_keyUnZoom)
-      this->unzoom = true;
-    else if (input == this->_keyZoom)
-      this->zoom = true;
-    else if (input == this->_keyOk && !this->buffer.empty())
-      this->lastPressed = this->buffer[this->index];
-    else if (input == this->_keyExit) {
-      Logger::Log("Game Quit");
-      exit(0);
+  if (input == 0 || input == 0xE0) {
+    input = _getch();
+    if (input == this->_keyUp) {
+      this->index--;
+    } else if (input == this->_keyDown) {
+      this->index++;
+    } else if (input == this->_keyRefresh) {
+      return true;
     } else {
-        this->Update();
+      this->Update();
     }
+  } else if (input == this->_keyUnZoom)
+    this->unzoom = true;
+  else if (input == this->_keyZoom)
+    this->zoom = true;
+  else if (input == this->_keyOk && !this->buffer.empty())
+    this->lastPressed = this->buffer[this->index];
+  else if (input == this->_keyExit) {
+    Logger::Log("Game Quit");
+    exit(0);
+  } else {
+    this->Update();
+  }
 
   clamp_int(&this->index, 0, this->GetButtonCount() - 1);
 #endif
@@ -135,10 +136,10 @@ bool InputManager::MustUnZoom() {
 void InputManager::Remove(string button) {
 #ifdef __EMSCRIPTEN__
 #else
-    for (int i = 0; i < this->buffer.size()-1; i++) {
-      if (this->buffer[i] == button) {
-        this->buffer.erase(this->buffer.cbegin() + i);
-      }
+  for (int i = 0; i < this->buffer.size() - 1; i++) {
+    if (this->buffer[i] == button) {
+      this->buffer.erase(this->buffer.cbegin() + i);
     }
+  }
 #endif
 }

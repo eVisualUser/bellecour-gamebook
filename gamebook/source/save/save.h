@@ -7,5 +7,5 @@
 
 using namespace std;
 
-void LoadSave(VariableManager* variableManager, Page *page, string path, string save);
-void Save(VariableManager* variableManager, Page *page, string path);
+void LoadSave(VariableManager* variableManager, Page *page, string filePath, string save);
+void Save(VariableManager* variableManager, Page *page, string filePath);

@@ -2,8 +2,6 @@
 
 #include <iostream>
 
-using namespace client_filesystem;
-
 void Table::AddVar(Var var) { this->content.push_back(var); }
 
 Var Table::GetVar(string name) {

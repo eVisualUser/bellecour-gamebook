@@ -2,26 +2,18 @@
 
 class Point {
 public:
-	Point();
-	Point(int newX, int newY);
-public:
-	float Distance(Point *other);
-	
-	Point operator*(float other);
-	Point operator/(float other);
-	Point operator+(Point other);
-	Point operator-(Point other);
-public:
-	int x;
-	int y;
-};
+  Point();
+  Point(int newX, int newY);
 
-class Rect {
 public:
-	Rect();
-	Rect(Point min, Point max);
-	Rect(int minX, int minY, int width, int height);
+  float Distance(Point *other);
+
+  Point operator*(float other);
+  Point operator/(float other);
+  Point operator+(Point other);
+  Point operator-(Point other);
+
 public:
-	Point min;
-	Point max;
+  int x;
+  int y;
 };

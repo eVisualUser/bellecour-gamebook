@@ -14,7 +14,6 @@ using namespace std;
 #define INI_FMT_DEFINE_SIGN '='
 #define INI_COMMENT_SIGN '#'
 
-namespace client_filesystem {
 class Ini {
 public:
   void SetBuffer(vector<string> newBuffer);
@@ -23,8 +22,8 @@ public:
   Table ParseTable(string name);
   Var ParseVar(string line);
   vector<string> GetAllTables();
+
 private:
   bool IsEmptyLine(string line); // Consider comment line as empty
   vector<string> buffer;
 };
-} // namespace client_filesystem

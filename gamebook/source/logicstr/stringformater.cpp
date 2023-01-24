@@ -8,7 +8,7 @@
 string StringSnakeToText(string source) {
   string result;
 
-  for (auto & i: source) {
+  for (auto &i : source) {
     if (i == '_')
       result.push_back(' ');
     else
@@ -18,7 +18,8 @@ string StringSnakeToText(string source) {
   return result;
 }
 
-string ReplaceVariables(string source, VariableManager *variableManager, Executor *executor) {
+string ReplaceVariables(string source, VariableManager *variableManager,
+                        Executor *executor) {
   stringstream result;
 
   bool isDollar = false;
@@ -26,24 +27,22 @@ string ReplaceVariables(string source, VariableManager *variableManager, Executo
   bool isBool = false;
   string buffer;
   string varCallBuffer;
-  for (auto & i: source) {
+  for (auto &i : source) {
     if (i == '$') {
       isDollar = true;
       varCallBuffer.push_back(i);
-    }
-    else if (i == 'b' && isDollar && !inVar) {
+    } else if (i == 'b' && isDollar && !inVar) {
       isBool = true;
       varCallBuffer.push_back(i);
     } else if (isDollar && i == '{') {
       varCallBuffer.push_back(i);
       isDollar = false;
       inVar = true;
-    }
-    else if ((i != 'b' || i != '{') && isDollar && !inVar) {
-        result << '$';
-        result << i;
-        isDollar = false;
-        isBool = false;
+    } else if ((i != 'b' || i != '{') && isDollar && !inVar) {
+      result << '$';
+      result << i;
+      isDollar = false;
+      isBool = false;
     } else if (inVar && i == '}') {
       varCallBuffer.push_back(i);
       inVar = false;
@@ -51,13 +50,11 @@ string ReplaceVariables(string source, VariableManager *variableManager, Executo
         if (isBool) {
           if (variableManager->GetVariableValue(buffer) != 0) {
             result << "true";
-          }
-          else {
+          } else {
             result << "false";
           }
-        }
-        else
-            result << variableManager->GetVariableValue(buffer);
+        } else
+          result << variableManager->GetVariableValue(buffer);
       } else {
         stringstream warnMessage;
         warnMessage << "Variable not found: " << buffer;
@@ -69,7 +66,7 @@ string ReplaceVariables(string source, VariableManager *variableManager, Executo
       buffer = string();
       isBool = false;
     } else if (inVar) {
-        buffer.push_back(i);
+      buffer.push_back(i);
     } else {
       result << i;
     }
@@ -84,7 +81,7 @@ string ReplaceVariables(string source, VariableManager *variableManager, Executo
   string condBuffer;
   string textBuffer;
   bool meetFirstChar = false;
-  for (auto & i: injectedSource) {
+  for (auto &i : injectedSource) {
     if (findStarter && !meetFirstChar && (i != '(')) {
       findStarter = false;
       output << '$';
@@ -109,30 +106,31 @@ string ReplaceVariables(string source, VariableManager *variableManager, Executo
       findStarter = false;
       inText = false;
     } else if (inText && i != '{' && i != '}') {
-        textBuffer.push_back(i);
+      textBuffer.push_back(i);
     } else if (!inText && !inCond) {
-        if (!textBuffer.empty()) {
-          if (TestInTextCondition(condBuffer, variableManager, executor)) {
-            output << textBuffer;
-          }
-          textBuffer = "";
-          condBuffer = "";
-          findStarter = false;
-          meetFirstChar = false;
-        } else {
-          output << i;
+      if (!textBuffer.empty()) {
+        if (TestInTextCondition(condBuffer, variableManager, executor)) {
+          output << textBuffer;
         }
+        textBuffer = "";
+        condBuffer = "";
+        findStarter = false;
+        meetFirstChar = false;
+      } else {
+        output << i;
+      }
     }
   }
 
   return output.str();
 }
 
-bool TestInTextCondition(string list, VariableManager *variableManager, Executor *executor) {
+bool TestInTextCondition(string list, VariableManager *variableManager,
+                         Executor *executor) {
   vector<string> conditionList;
   string unitCondBuffer;
   bool reachFirstChar = false;
-  for (auto & i: list) {
+  for (auto &i : list) {
     if (i != ';') {
       if (i != ' ') {
         reachFirstChar = true;
@@ -149,7 +147,7 @@ bool TestInTextCondition(string list, VariableManager *variableManager, Executor
   conditionList.push_back(unitCondBuffer);
   bool conditionPassed = false;
 
-  for (auto & condition: conditionList) {
+  for (auto &condition : conditionList) {
     auto condNodeChain = NodeChain();
     condNodeChain.ParseString(condition);
     if (executor->ExecuteConditionComand(variableManager, &condNodeChain)) {

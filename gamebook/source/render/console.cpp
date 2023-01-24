@@ -78,7 +78,8 @@ void Console::SetConsoleColor(int colorForeground) {
 #ifdef __EMSCRIPTEN__
   std::stringstream script;
   if (colorForeground >= 40) {
-    script << "changeTextAreaColorBackground(" << colorForeground << ");"; // Background
+    script << "changeTextAreaColorBackground(" << colorForeground
+           << ");"; // Background
   } else {
     script << "changeTextAreaColor(" << colorForeground << ");"; // Foreground
   }
@@ -124,7 +125,8 @@ int Console::ConvertColor(int ansiColor) {
   case 46:
     return BACKGROUND_GREEN | BACKGROUND_BLUE; // Background Cyan
   case 47:
-    return BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE; // Background White
+    return BACKGROUND_RED | BACKGROUND_GREEN |
+           BACKGROUND_BLUE; // Background White
   default:
     return BACKGROUND_GREEN; // White
   }

@@ -7,7 +7,6 @@
 
 using namespace std;
 
-namespace client_filesystem {
 class Table {
 public:
   void AddVar(Var var);
@@ -15,4 +14,3 @@ public:
   Var GetVar(string name);
   vector<Var> content;
 };
-} // namespace client_filesystem

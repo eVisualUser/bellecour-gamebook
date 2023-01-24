@@ -7,8 +7,6 @@
 #include "../debug/logger.h"
 #include <sstream>
 
-using namespace client_filesystem;
-
 void ConditionManager::Load(string path) {
 	auto reader = Reader();
 	try {

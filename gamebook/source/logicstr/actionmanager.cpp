@@ -10,7 +10,6 @@
 #include <sstream>
 #include <stdexcept>
 
-using namespace client_filesystem;
 
 void ActionManager::Load(string path) {
   auto reader = Reader();
