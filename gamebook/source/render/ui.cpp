@@ -66,6 +66,7 @@ int UI::DrawText(Point start, string text, VariableManager *variableManager,
       for (int x = 0; x < lenght; x++) {
         if ((start.x + x) < this->size.x) {
           this->buffer[start.y][start.x + x] = text[x];
+
         } else if (start.y + 1 < this->size.y) {
           int restLen = lenght - x;
           x -= 1;

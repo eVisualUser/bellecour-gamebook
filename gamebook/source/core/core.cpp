@@ -292,8 +292,7 @@ void Core::LoadConfig() {
   this->_frameSize.y = TomlParseInt(table.GetVar("frameSize_y").GetValue());
   this->_inputManager._keyOk = TomlParseInt(table.GetVar("ok").GetValue());
   this->_inputManager._keyExit = TomlParseInt(table.GetVar("exit").GetValue());
-  this->_inputManager._keyUnZoom =
-      TomlParseInt(table.GetVar("unzoom").GetValue());
+  this->_inputManager._keyUnZoom = TomlParseInt(table.GetVar("unzoom").GetValue());
   this->_inputManager._keyZoom = TomlParseInt(table.GetVar("zoom").GetValue());
   this->_inputManager._keyUp = TomlParseInt(table.GetVar("up").GetValue());
   this->_inputManager._keyDown = TomlParseInt(table.GetVar("down").GetValue());
@@ -306,7 +305,6 @@ void Core::Initialize() {
 #else
   this->_ui = UI(this->_frameSize);
 #endif
-  this->_ui.Zoom();
 
   this->_variableManager = VariableManager();
   this->_actionManager = ActionManager();

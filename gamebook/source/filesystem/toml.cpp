@@ -6,6 +6,7 @@ string TomlParseString(string input) {
   for (auto &i : input) {
     if (j == 0 && i == ' ')
       continue;
+
     if (i != '\"')
       result.push_back(i);
     j++;
