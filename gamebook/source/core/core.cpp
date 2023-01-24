@@ -200,7 +200,7 @@ void Core::UpdateSpecialVariables() {
   }
   if (this->_variableManager.IsExist("console_color_foreground_karma_up") &&
       this->_variableManager.IsExist("karma") &&
-      this->_variableManager.GetVariableValue("karma") > 0) {
+      this->_variableManager.GetVariableValue("karma") >= 0) {
     stringstream message;
     message << "Set Console Color To: "
             << this->_variableManager.GetVariableValue(
@@ -233,7 +233,7 @@ void Core::UpdateSpecialVariables() {
   }
   if (this->_variableManager.IsExist("console_color_background_karma_up") &&
       this->_variableManager.IsExist("karma") &&
-      this->_variableManager.GetVariableValue("karma") > 0) {
+      this->_variableManager.GetVariableValue("karma") >= 0) {
     stringstream message;
     message << "Set Console Color To: "
             << this->_variableManager.GetVariableValue(

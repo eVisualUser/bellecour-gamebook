@@ -91,6 +91,9 @@ pub fn filter_string(input: String) -> String {
             'À' => {result.push('A');}
             'Ã' => {result.push('A');}
             'Â' => {result.push('A');}
+            '…' => {result.push_str("...")}
+            '»' => {result.push('\"')}
+            '«' => {result.push('\"')}
             _ => {result.push(i); }
         }
     }

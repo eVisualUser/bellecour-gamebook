@@ -5,7 +5,7 @@ tags = ["edited", "client-0.3.0"]
 [data]
 done_data_page = 0
 page_count = 0
-console_color_background = 45
+console_color_background = 47
 recap_Number_Of_People_Killed = 10
 recap_Player_LIfe = -55
 included_variable = -10
@@ -23,7 +23,7 @@ restart = ["$index.toml"]
 [client]
 page = "pages/index.toml"
 frameSize_x = 100
-frameSize_y = 15
+frameSize_y = 25
 up = 72
 down = 80
 ok = 13

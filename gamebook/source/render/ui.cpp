@@ -100,17 +100,17 @@ void UI::DrawButtons(Point position, InputManager *inputManager, char selectedCh
 void UI::Zoom() {
 	#ifdef __EMSCRIPTEN__
 	#else
-		if ((this->size.x + 1) < INT_MAX && (this->size.y + 1) < INT_MAX) {
-			this->size.x += 1;
-			this->size.y += 1;
-		}
-	#endif
+  if ((this->size.x + 1) < INT_MAX && (this->size.y + 1) < INT_MAX) {
+    this->size.x += 1;
+    this->size.y += 1;
+  }
+#endif
 }
 
 void UI::UnZoom() {
-	#ifdef __EMSCRIPTEN__
-	#else
-		if ((this->size.x - 1) > 5 && (this->size.y - 1) > 5) {
+#ifdef __EMSCRIPTEN__
+#else
+  if ((this->size.x - 1) > 25 && (this->size.y - 1) > 25) {
 			this->size.x -= 1;
 			this->size.y -= 1;
 		}

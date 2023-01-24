@@ -1,36 +1,32 @@
-[2023-01-20 12:54:48]
+[2023-01-24 09:15:25]
 SAVE_PAGE = "pages/index.toml"
-done_data_page = 1
+done_data_page = 0
 page_count = 0
-[2023-01-20 14:35:13]
+console_color_background = 45
+recap_Number_Of_People_Killed = 10
+recap_Player_LIfe = -55
+included_variable = -10
+[2023-01-24 09:15:26]
 SAVE_PAGE = "pages/index.toml"
-done_data_page = 1
+done_data_page = 0
 page_count = 0
-[2023-01-20 14:35:13]
+console_color_background = 45
+recap_Number_Of_People_Killed = 10
+recap_Player_LIfe = -55
+included_variable = -10
+[2023-01-24 12:45:05]
 SAVE_PAGE = "pages/index.toml"
-done_data_page = 1
+done_data_page = 0
 page_count = 0
-[2023-01-20 14:35:13]
+console_color_background = 47
+recap_Number_Of_People_Killed = 10
+recap_Player_LIfe = -55
+included_variable = -10
+[2023-01-24 12:45:06]
 SAVE_PAGE = "pages/index.toml"
-done_data_page = 1
+done_data_page = 0
 page_count = 0
-[2023-01-20 14:35:55]
-SAVE_PAGE = "pages/index.toml"
-done_data_page = 1
-page_count = 0
-[2023-01-20 14:35:55]
-SAVE_PAGE = "pages/index.toml"
-done_data_page = 1
-page_count = 0
-[2023-01-20 14:35:56]
-SAVE_PAGE = "pages/index.toml"
-done_data_page = 1
-page_count = 0
-[2023-01-20 14:38:01]
-SAVE_PAGE = "pages/index.toml"
-done_data_page = 1
-page_count = 0
-[2023-01-20 14:38:01]
-SAVE_PAGE = "pages/index.toml"
-done_data_page = 1
-page_count = 0
+console_color_background = 47
+recap_Number_Of_People_Killed = 10
+recap_Player_LIfe = -55
+included_variable = -10
