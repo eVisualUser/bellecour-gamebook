@@ -68,9 +68,12 @@ void VariableManager::Load(string path) {
   auto table = ini.ParseTable("data");
 
   for (auto &var : table.GetAllVars()) {
+    #ifdef __EMSCRIPTEN__
+    #else
     stringstream logMessage;
     logMessage << "Loaded Var: " << var.GetKey() << " = " << var.GetValue();
     Logger::Log(logMessage.str());
+    #endif
 
     Variable newVar;
     newVar.name = var.GetKey();

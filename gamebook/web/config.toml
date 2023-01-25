@@ -6,7 +6,7 @@ tags = ["edited"]
 console_color_foreground = 31
 console_color_background = 47
 [conditions]
-true = ["1 > 1"]
+true = ["1 = 1"]
 [actions]
 C_0_s_2 = ["$C_0_s_2.toml"]
 C_0_s_3 = ["$C_0_s_3.toml"]

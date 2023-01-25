@@ -91,10 +91,53 @@ void UI::DrawButtons(Point position, InputManager *inputManager,
   for (int i = inputManager->GetButtonCount() - 1; i >= 0; i--) {
     position.y -= 2;
     if (i != inputManager->GetIndex()) {
-      this->DrawText(position, buttons[i], variableManager, executor);
+      stringstream text;
+
+      if (variableManager->IsExist("console_color_button_background"))
+        text << "\033[" << variableManager->GetVariableValue("console_color_button_background") << "m";
+      if (variableManager->IsExist("console_color_button_foreground"))
+        text << "\033[" << variableManager->GetVariableValue("console_color_button_foreground") << "m";
+
+      text << buttons[i];
+
+      if (variableManager->IsExist("console_color_foreground"))
+        text << " \033[" << variableManager->GetVariableValue("console_color_foreground") << "m";
+      else
+        text << " \033[" << 32 << "m";
+
+      if (variableManager->IsExist("console_color_background"))
+        text << " \033[" << variableManager->GetVariableValue("console_color_background") << "m";
+      else
+        text << " \033[" << 40 << "m";
+
+      this->DrawText(position, text.str(), variableManager, executor);
     } else {
       stringstream ss;
-      ss << selectedChar << ' ' << buttons[i];
+
+      stringstream text;
+
+      if (selectedChar == '>' && variableManager->IsExist("console_color_selected_button_foreground"))
+        ss << "\033[" << variableManager->GetVariableValue("console_color_selected_button_foreground") << "m";
+      else if (selectedChar == 'X' && variableManager->IsExist("console_color_selected_button_locked_foreground"))
+        ss << "\033[" << variableManager->GetVariableValue("console_color_selected_button_locked_foreground") << "m";
+
+      if (selectedChar == '>' && variableManager->IsExist("console_color_selected_button_background"))
+        ss << "\033[" << variableManager->GetVariableValue("console_color_selected_button_background") << "m";
+      else if (selectedChar == 'X' && variableManager->IsExist("console_color_selected_button_locked_background"))
+        ss << "\033[" << variableManager->GetVariableValue("console_color_selected_button_locked_background") << "m";
+
+      ss << selectedChar << ' ' << buttons[i] ;
+
+      if (variableManager->IsExist("console_color_foreground"))
+        ss << " \033[" << variableManager->GetVariableValue("console_color_foreground") << "m";
+      else
+        ss << " \033[" << 32 << "m";
+
+      if (variableManager->IsExist("console_color_background"))
+        ss << " \033[" << variableManager->GetVariableValue("console_color_background") << "m";
+      else
+        ss << " \033[" << 40 << "m";
+
       this->DrawText(position, ss.str(), variableManager, executor);
     }
   }

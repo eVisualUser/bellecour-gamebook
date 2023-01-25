@@ -95,8 +95,8 @@ void Core::SpecialPages() {
 void Core::Update() {
   this->SpecialPages();
   this->ClearScreen();
-  this->Draw();
   this->UpdateSpecialVariables();
+  this->Draw();
   this->Render();
   this->UpdateInputs();
 }

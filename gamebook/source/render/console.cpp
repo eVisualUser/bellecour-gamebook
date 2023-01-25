@@ -1,4 +1,5 @@
 #include "console.h"
+#include <string>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -9,10 +10,11 @@
 
 #ifdef __EMSCRIPTEN__
 #include <emscripten.h>
-#include <sstream>
 #else
 #include <conio.h>
 #endif
+
+#include <sstream>
 
 #include "../debug/logger.h"
 
@@ -56,6 +58,7 @@ void Console::Clear() {
 }
 
 void Console::PrintFrame(std::vector<std::string> *frame) {
+
   std::string buffer;
   for (auto &line : *frame) {
     buffer.append(line);
@@ -84,9 +87,6 @@ void Console::SetConsoleColor(int colorForeground) {
     script << "changeTextAreaColor(" << colorForeground << ");"; // Foreground
   }
   emscripten_run_script(script.str().c_str());
-#elif _WIN32
-  HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-  SetConsoleTextAttribute(hConsole, this->ConvertColor(colorForeground));
 #else
   std::cout << "\033[" << colorForeground << 'm';
 #endif
@@ -132,4 +132,20 @@ int Console::ConvertColor(int ansiColor) {
   }
 #endif
   return 0;
+}
+
+void gotoxy(short  x, short y) {
+  COORD pos = {x, y};
+  HANDLE output = GetStdHandle(STD_OUTPUT_HANDLE);
+  SetConsoleCursorPosition(output, pos);
+}
+
+void Console::SetColorAt(Point position, int color) {
+#ifdef __EMSCRIPTEN__
+#elif _WIN32
+    gotoxy(position.x, position.y);
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, this->ConvertColor(color));
+    gotoxy(0, 0);
+#endif
 }

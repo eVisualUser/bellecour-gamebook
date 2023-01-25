@@ -1,10 +1,12 @@
 #include "logger.h"
 #ifdef __EMSCRIPTEN__
+    #include <emscripten.h>
 #else
 #include <ctime>
 #include <fstream>
-#include <sstream>
 #endif
+
+#include <sstream>
 
 void Logger::AppendLine(string content) {
 #ifdef __EMSCRIPTEN__
@@ -18,6 +20,9 @@ void Logger::AppendLine(string content) {
 
 void Logger::Log(string message) {
 #ifdef __EMSCRIPTEN__
+  stringstream command;
+  command << " writeToNotion(" << "\"Unknow\", \"" << message << "\"); ";
+  emscripten_run_script(command.str().c_str());
 #else
   stringstream ss;
   ss << Logger::GetStrTime() << ';' << "INFO" << ';' << message << ';' << endl;

@@ -4,7 +4,6 @@
 #include <sstream>
 #include <stdexcept>
 #include <string>
-#include <system_error>
 
 bool Reader::IsFileExist() {
   ifstream file;

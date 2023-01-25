@@ -5,10 +5,15 @@ tags = ["edited", "client-0.3.0"]
 [data]
 done_data_page = 0
 page_count = 0
-console_color_background = 47
 recap_Number_Of_People_Killed = 10
 recap_Player_LIfe = -55
 included_variable = -10
+console_color_selected_button_locked_background = 41
+console_color_selected_button_locked_foreground = 37
+console_color_selected_button_background = 47
+console_color_selected_button_foreground = 33
+console_color_button_background = 46
+console_color_button_foreground = 30
 [conditions]
 true = ["1 = 1"]
 have_done_data_page = ["done_data_page > page_count"]
