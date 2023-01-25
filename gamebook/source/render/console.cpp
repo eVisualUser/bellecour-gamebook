@@ -135,9 +135,12 @@ int Console::ConvertColor(int ansiColor) {
 }
 
 void gotoxy(short  x, short y) {
+#ifdef __EMSCRIPTEN__
+#else
   COORD pos = {x, y};
   HANDLE output = GetStdHandle(STD_OUTPUT_HANDLE);
   SetConsoleCursorPosition(output, pos);
+#endif
 }
 
 void Console::SetColorAt(Point position, int color) {

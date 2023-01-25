@@ -1,6 +1,5 @@
 #include "core/core.h"
 #include "debug/logger.h"
-#include "splashframe/splashframe.h"
 
 #ifdef __EMSCRIPTEN__
 
@@ -11,6 +10,7 @@ void AsyncGameLoop() { core.Update(); }
 #else
 
 #include <conio.h>
+#include "splashframe/splashframe.h"
 
 #endif
 

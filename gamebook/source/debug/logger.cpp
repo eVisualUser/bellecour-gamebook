@@ -20,9 +20,6 @@ void Logger::AppendLine(string content) {
 
 void Logger::Log(string message) {
 #ifdef __EMSCRIPTEN__
-  stringstream command;
-  command << " writeToNotion(" << "\"Unknow\", \"" << message << "\"); ";
-  emscripten_run_script(command.str().c_str());
 #else
   stringstream ss;
   ss << Logger::GetStrTime() << ';' << "INFO" << ';' << message << ';' << endl;

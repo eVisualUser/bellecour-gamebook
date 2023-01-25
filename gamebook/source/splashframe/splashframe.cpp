@@ -1,10 +1,13 @@
 #include "splashframe.h"
 
+#ifdef __EMSCRIPTEN__
+#else
 #include "../debug/logger.h"
 #include "../filesystem/reader.h"
 
 #include <iostream>
 #include <stdexcept>
+#endif
 
 void SplashFrame::Load(string file) {
 #ifdef __EMSCRIPTEN__
