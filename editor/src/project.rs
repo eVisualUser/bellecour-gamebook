@@ -187,11 +187,15 @@ impl crate::editor::Editor for Project {
                         ui.heading("List");
                         let keys = file.get_all_keys_of("actions");
                         let mut index = keys.len()-1;
-                        while index > 0 {
+                        while index >= 0 {
                             ui.label(&keys[index]);
                             let item = file.get_mut_item_of("actions", &keys[index]);
                             editor::edit_toml_string_array(ui, item, None);
-                            index -= 1;
+                            if index > 0 {
+                                index -= 1;
+                            } else {
+                                break;
+                            }
                         }
                     });
 
