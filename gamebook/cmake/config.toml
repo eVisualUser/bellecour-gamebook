@@ -34,3 +34,5 @@ ok = 13
 zoom = 61
 unzoom = 45
 exit = 27
+frame_size_min_x = 100
+frame_size_min_y = 100

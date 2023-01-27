@@ -253,7 +253,7 @@ void Core::UpdateInputs() {
   if (this->_inputManager.MustZoom())
     this->_ui.Zoom();
   else if (this->_inputManager.MustUnZoom())
-    this->_ui.UnZoom(this->_minUnZoom);
+    this->_ui.UnZoom(this->_minUnZoomX, this->_minUnZoomY);
 
   string nextPage = this->_page.GetButtonPressed(
       this->_inputManager.GetLastPressed(), &this->_executor,
@@ -296,6 +296,14 @@ void Core::LoadConfig() {
   this->_inputManager._keyZoom = TomlParseInt(table.GetVar("zoom").GetValue());
   this->_inputManager._keyUp = TomlParseInt(table.GetVar("up").GetValue());
   this->_inputManager._keyDown = TomlParseInt(table.GetVar("down").GetValue());
+  auto var_frame_size_min_x = table.GetVar("frame_size_min_x");
+  if (!var_frame_size_min_x.GetKey().empty()) {
+    this->_minUnZoomX = TomlParseInt(var_frame_size_min_x.GetValue());
+  }
+  auto var_frame_size_min_y = table.GetVar("frame_size_min_y");
+  if (!var_frame_size_min_y.GetKey().empty()) {
+    this->_minUnZoomY = TomlParseInt(var_frame_size_min_y.GetValue());
+  }
 }
 
 void Core::Initialize() {

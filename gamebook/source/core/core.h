@@ -67,5 +67,6 @@ private:
   string _defaultConfigPath = "config.toml";
   string _defaultPagePath;
 
-  int _minUnZoom = 25;
+  int _minUnZoomX = 25;
+  int _minUnZoomY = 25;
 };

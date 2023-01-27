@@ -154,10 +154,10 @@ void UI::Zoom() {
 #endif
 }
 
-void UI::UnZoom(int min) {
+void UI::UnZoom(int minX, int minY) {
 #ifdef __EMSCRIPTEN__
 #else
-  if ((this->size.x - 1) > 25 && (this->size.y - 1) > 25) {
+  if ((this->size.x - 1) > minX && (this->size.y - 1) > minY) {
     this->size.x -= 1;
     this->size.y -= 1;
   }

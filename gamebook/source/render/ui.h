@@ -22,7 +22,7 @@ public:
   int DrawText(Point start, string text, VariableManager *variableManager,
                Executor *executor);
   void Zoom();
-  void UnZoom(int min);
+  void UnZoom(int minX, int minY);
 
 public:
   void InitializeBuffer();

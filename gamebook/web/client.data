@@ -3,8 +3,6 @@ name = "projectName"
 author = "unknow"
 tags = ["edited"]
 [data]
-console_color_foreground = 31
-console_color_background = 47
 [conditions]
 true = ["1 = 1"]
 [actions]
@@ -31,7 +29,7 @@ type = "default"
 Line_1 = "On a bright and sunny day, Izydor can be found laboriously tending to his fields. At the ripe age of mid-60, his tall and stoic figure exudes strength and determination, honed by decades of tireless work on the farm.  "
 Line_2 = "The years have etched their mark on him, leaving dark stains of sun-kissed skin on his arms and legs as proof of a lifetime spent under the sun. As he methodically goes about his work, his mind is focused on the task at hand, pondering which tool would be most effective for clearing the weeds from the ground... "
 [choices]
-Choice_1 = ["Use the rake ${console_color_foreground}", "true", "C_0_s_2"]
+Choice_1 = ["Use the rake", "true", "C_0_s_2"]
 Choice_2 = ["Use the shovel", "true", "C_0_s_2"]
 [config]
 name = "C_0_s_2"
@@ -92,4 +90,4 @@ name = "Great Page"
 type = "Reset"
 [content]
 [choices]
-Choice_1 = ["Start ${console_color_background}", "true", "C_0_s_1"]
+Choice_1 = ["Start", "true", "C_0_s_1"]

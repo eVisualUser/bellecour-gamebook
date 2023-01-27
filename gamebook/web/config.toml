@@ -3,8 +3,6 @@ name = "projectName"
 author = "unknow"
 tags = ["edited"]
 [data]
-console_color_foreground = 31
-console_color_background = 47
 [conditions]
 true = ["1 = 1"]
 [actions]
