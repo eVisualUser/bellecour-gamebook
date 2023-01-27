@@ -27,6 +27,9 @@ void Core::SpecialPages() {
   if (this->_page.type == "Quit") {
 #ifdef __EMSCRIPTEN__
 #else
+    stringstream lastFileMessage;
+    lastFileMessage << "Last page: " << this->_lastPage;
+    Logger::Log(lastFileMessage.str());
     Logger::Log("Game Quit");
     exit(0);
 #endif
@@ -61,6 +64,9 @@ void Core::SpecialPages() {
       reader.SetPath("saves.toml");
       reader.ReadFile();
     } catch (runtime_error error) {
+      stringstream lastFileMessage;
+      lastFileMessage << "Last page: " << this->_lastPage;
+      Logger::LogError(lastFileMessage.str());
       Logger::LogError(error.what());
       PrintError(error.what());
       exit(-1);
@@ -260,6 +266,10 @@ void Core::UpdateInputs() {
       &this->_actionManager, &this->_variableManager, &this->_conditionManager);
 
   if (!nextPage.empty()) {
+    stringstream lastFileMessage;
+    lastFileMessage << "Last page: " << this->_lastPage;
+    Logger::Log(lastFileMessage.str());
+    this->_lastPage = this->_page.fileName;
     this->_page = Page();
 
     stringstream stream;
@@ -279,6 +289,9 @@ void Core::LoadConfig() {
     reader.SetPath(this->_defaultConfigPath);
     reader.ReadFile();
   } catch (runtime_error message) {
+    stringstream lastFileMessage;
+    lastFileMessage << "Last page: " << this->_lastPage;
+    Logger::LogError(lastFileMessage.str());
     Logger::LogError(message.what());
     PrintError(message.what());
   }

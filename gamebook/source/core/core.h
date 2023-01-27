@@ -66,6 +66,7 @@ private:
 
   string _defaultConfigPath = "config.toml";
   string _defaultPagePath;
+  string _lastPage = "none";
 
   int _minUnZoomX = 25;
   int _minUnZoomY = 25;
