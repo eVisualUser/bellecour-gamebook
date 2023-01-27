@@ -96,6 +96,34 @@ impl crate::editor::Editor for Project {
                     let item = file.get_mut_item_of("config", "tags");
                     editor::edit_toml_string_array(ui, item, None);
 
+                    ui.label("Default Frame Size (X;Y)");
+                    let item = file.get_mut_item_of("client", "frameSize_x");
+                    editor::edit_toml_int(ui, item);
+                    let item = file.get_mut_item_of("client", "frameSize_y");
+                    editor::edit_toml_int(ui, item);
+
+                    let client_keys = file.get_all_keys_of("client");
+                    let mut have_min_frame_size_x = false;
+                    let mut have_min_frame_size_y = false;
+                    for key in client_keys {
+                        if key == "frame_size_min_x" {
+                            have_min_frame_size_x = true;
+                        } else if key == "frame_size_min_y" {
+                            have_min_frame_size_y = true;
+                        }
+                    }
+
+                    if have_min_frame_size_x && have_min_frame_size_y {
+                        ui.label("Minimum Frame Size (X;Y)");
+                        let item = file.get_mut_item_of("client", "frame_size_min_x");
+                        editor::edit_toml_int(ui, item);
+                        let item = file.get_mut_item_of("client", "frame_size_min_y");
+                        editor::edit_toml_int(ui, item);
+                    } else {
+                        file.add_toml("client", "frame_size_min_x", 25);
+                        file.add_toml("client", "frame_size_min_y", 25);
+                    }
+
                     eframe::egui::Window::new("Data").show(ctx, |ui| {
                         ui.heading("Data");
                         ui.heading("Configure");
@@ -157,10 +185,13 @@ impl crate::editor::Editor for Project {
                         }
 
                         ui.heading("List");
-                        for var in file.get_all_keys_of("actions") {
-                            ui.label(&var);
-                            let item = file.get_mut_item_of("actions", &var);
+                        let keys = file.get_all_keys_of("actions");
+                        let mut index = keys.len()-1;
+                        while index > 0 {
+                            ui.label(&keys[index]);
+                            let item = file.get_mut_item_of("actions", &keys[index]);
                             editor::edit_toml_string_array(ui, item, None);
+                            index -= 1;
                         }
                     });
 
