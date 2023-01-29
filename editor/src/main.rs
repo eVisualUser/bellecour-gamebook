@@ -1,12 +1,13 @@
+#![allow(unused)]
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 mod app;
+mod debugger;
 mod directory;
 mod editor;
 mod file;
 mod page_editor;
 mod project;
-mod debugger;
 mod searcher;
 
 fn main() {

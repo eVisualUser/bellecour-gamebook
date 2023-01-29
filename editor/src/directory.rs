@@ -1,5 +1,3 @@
-use eframe::egui::Id;
-
 #[derive(Default)]
 pub struct Directory {
     path: String,
@@ -48,10 +46,9 @@ impl Directory {
     pub fn get_dir_list(&self) -> Vec<String> {
         let mut result = Vec::<String>::new();
         if self.exist() {
-
             for entry in std::fs::read_dir(&self.get_path()).unwrap() {
                 result.push(
-                        entry
+                    entry
                         .unwrap()
                         .path()
                         .as_path()

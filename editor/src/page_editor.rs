@@ -3,7 +3,7 @@ use crate::file::TomlFile;
 
 #[derive(Default)]
 pub struct PageEditor {
-    current_file: String,
+    pub current_file: String,
     text_input_buffer: String,
     text_name_buffer: String,
     choices_input_buffer: String,
@@ -21,6 +21,9 @@ impl PageEditor {
 
         ui.label("Current File");
 
+        if ui.input().key_down(eframe::egui::Key::F1) {
+            self.current_file = String::from("index.toml");
+        }
         ui.text_edit_singleline(&mut self.current_file);
 
         if !std::path::Path::new(&format!("{}/{}", path, "index.toml")).exists() {
@@ -28,12 +31,14 @@ impl PageEditor {
         }
 
         let mut button_text = "Open";
-        if !std::path::Path::new(&format!("{}/{}", path, self.current_file)).exists() {
+        if !std::path::Path::new(&format!("{}/{}", path, self.current_file)).exists()
+            && !self.current_file.is_empty()
+        {
             button_text = "Create & Open";
             self.file_open = false;
         }
 
-        if self.file_open || ui.button(button_text).clicked() {
+        if (self.file_open || ui.button(button_text).clicked()) && !self.current_file.is_empty() {
             self.file_open = true;
             if ui.button("Close").clicked() {
                 self.file_open = false;

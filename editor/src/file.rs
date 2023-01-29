@@ -1,8 +1,8 @@
 use std::io::{Read, Write};
-use toml_edit::{Document};
-use toml_edit::{Item};
+use toml_edit::Document;
+use toml_edit::Item;
 
-#[derive(Debug)]
+#[derive(Debug, Default, Clone)]
 pub struct TomlFile {
     path: String,
     doc: Option<Document>,
@@ -56,7 +56,9 @@ impl TomlFile {
 
     pub fn save(&self) {
         match &self.doc {
-            Some(doc) => {std::fs::write(&self.path, doc.to_string()).unwrap();}
+            Some(doc) => {
+                std::fs::write(&self.path, doc.to_string()).unwrap();
+            }
             None => {}
         };
     }

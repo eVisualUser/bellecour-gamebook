@@ -79,3 +79,6 @@ gamebook/cmake/compile_commands.json
 
 # Clang
 **/.cache/clangd/index
+
+# Siging
+*.cer

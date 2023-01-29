@@ -1,13 +1,15 @@
+use crate::{directory::Directory, file::TomlFile};
 use eframe::egui;
-use crate::{file::TomlFile, directory::Directory};
 
 #[derive(Default)]
-pub struct Debugger {
-}
+pub struct Debugger {}
 
 impl Debugger {
-
-    pub fn find_missing_page(&self, file: &mut TomlFile, pages_path: String) -> Vec<(String, String)> {
+    pub fn find_missing_page(
+        &self,
+        file: &mut TomlFile,
+        pages_path: String,
+    ) -> Vec<(String, String)> {
         let mut result = Vec::<(String, String)>::new();
 
         let keys = file.get_all_keys_of("actions");
@@ -42,13 +44,19 @@ impl Debugger {
         let mut operations = Vec::<(String, String)>::new();
         for key in file.get_all_keys_of("actions") {
             for element in file.get_mut_item_of("actions", &key).as_array().unwrap() {
-                operations.push((format!("ACTION {}", key.clone()), element.as_str().unwrap().to_string()));
+                operations.push((
+                    format!("ACTION {}", key.clone()),
+                    element.as_str().unwrap().to_string(),
+                ));
             }
         }
 
         for key in file.get_all_keys_of("conditions") {
             for element in file.get_mut_item_of("conditions", &key).as_array().unwrap() {
-                operations.push((format!("CONDITION {}", key.clone()), element.as_str().unwrap().to_string()));
+                operations.push((
+                    format!("CONDITION {}", key.clone()),
+                    element.as_str().unwrap().to_string(),
+                ));
             }
         }
 
@@ -70,15 +78,15 @@ impl Debugger {
             }
 
             for node in nodes {
-                if
-                node != ">" &&
-                node != "<" &&
-                node != "+" &&
-                node != "-" &&
-                node != "/" &&
-                node != "*" &&
-                node != "=" &&
-                node != "%" {
+                if node != ">"
+                    && node != "<"
+                    && node != "+"
+                    && node != "-"
+                    && node != "/"
+                    && node != "*"
+                    && node != "="
+                    && node != "%"
+                {
                     match node.parse::<i32>() {
                         Ok(_) => {}
                         Err(_) => {
@@ -100,7 +108,11 @@ impl Debugger {
         return result;
     }
 
-    pub fn choice_conditions_not_found(&self, file: &mut TomlFile, pages_path: String) -> Vec<String> {
+    pub fn choice_conditions_not_found(
+        &self,
+        file: &mut TomlFile,
+        pages_path: String,
+    ) -> Vec<String> {
         let mut result = Vec::<String>::new();
 
         let conditions = file.get_all_keys_of("conditions");
@@ -115,7 +127,10 @@ impl Debugger {
                 }
             }
             if !exist {
-                result.push(format!("In \"{}\" choice [{}] condition \"{}\" not found", in_file_condition.0, in_file_condition.1, in_file_condition.2));
+                result.push(format!(
+                    "In \"{}\" choice [{}] condition \"{}\" not found",
+                    in_file_condition.0, in_file_condition.1, in_file_condition.2
+                ));
             }
         }
 
@@ -147,10 +162,17 @@ impl Debugger {
         let mut toml_file = TomlFile::new(file);
         toml_file.load();
         for key in toml_file.get_all_keys_of("choices").iter() {
-            let content = toml_file.get_mut_item_of("choices", &key).as_array().unwrap();
+            let content = toml_file
+                .get_mut_item_of("choices", &key)
+                .as_array()
+                .unwrap();
             match content.get(1) {
                 Some(value) => {
-                    result.push((file.to_string(), key.to_string(), value.as_str().unwrap().to_string()));
+                    result.push((
+                        file.to_string(),
+                        key.to_string(),
+                        value.as_str().unwrap().to_string(),
+                    ));
                 }
                 None => {}
             }
@@ -173,7 +195,10 @@ impl Debugger {
                 }
             }
             if !exist {
-                result.push(format!("In \"{}\" choice [{}] action \"{}\" not found", in_file_condition.0, in_file_condition.1, in_file_condition.2));
+                result.push(format!(
+                    "In \"{}\" choice [{}] action \"{}\" not found",
+                    in_file_condition.0, in_file_condition.1, in_file_condition.2
+                ));
             }
         }
 
@@ -205,10 +230,17 @@ impl Debugger {
         let mut toml_file = TomlFile::new(file);
         toml_file.load();
         for key in toml_file.get_all_keys_of("choices").iter() {
-            let content = toml_file.get_mut_item_of("choices", &key).as_array().unwrap();
+            let content = toml_file
+                .get_mut_item_of("choices", &key)
+                .as_array()
+                .unwrap();
             match content.get(2) {
                 Some(value) => {
-                    result.push((file.to_string(), key.to_string(), value.as_str().unwrap().to_string()));
+                    result.push((
+                        file.to_string(),
+                        key.to_string(),
+                        value.as_str().unwrap().to_string(),
+                    ));
                 }
                 None => {}
             }
@@ -222,18 +254,30 @@ impl Debugger {
         egui::Window::new("Debugger").show(ctx, |ui| {
             ui.heading("Files Not Found");
             for (action, file) in self.find_missing_page(file, pages_path.clone()) {
-                ui.colored_label(egui::ecolor::Color32::RED, format!("ACTION [{}] -> \"{}\"", action, file));
+                ui.colored_label(
+                    egui::ecolor::Color32::RED,
+                    format!("ACTION [{}] -> \"{}\"", action, file),
+                );
             }
             ui.heading("Variables Not Found");
             for (key, file) in self.variables_not_found(file) {
-                ui.colored_label(egui::ecolor::Color32::RED, format!("VARIABLE [{}] -> \"{}\"", key, file));
+                ui.colored_label(
+                    egui::ecolor::Color32::RED,
+                    format!("VARIABLE [{}] -> \"{}\"", key, file),
+                );
             }
             ui.heading("Choice Conditions Not Found");
-            for error in self.choice_conditions_not_found(file, pages_path.clone()).iter() {
+            for error in self
+                .choice_conditions_not_found(file, pages_path.clone())
+                .iter()
+            {
                 ui.colored_label(egui::ecolor::Color32::RED, error);
             }
             ui.heading("Choice Actions Not Found");
-            for error in self.choice_actions_not_found(file, pages_path.clone()).iter() {
+            for error in self
+                .choice_actions_not_found(file, pages_path.clone())
+                .iter()
+            {
                 ui.colored_label(egui::ecolor::Color32::RED, error);
             }
         });
