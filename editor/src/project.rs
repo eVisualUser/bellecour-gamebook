@@ -12,10 +12,13 @@ pub struct Project {
     pub pages_dir: crate::directory::Directory,
     pub debugger: crate::debugger::Debugger,
     pub searcher: crate::searcher::Searcher,
-    pub actions_min_range: usize,
-    pub actions_max_range: usize,
-    pub conditions_min_range: usize,
-    pub conditions_max_range: usize,
+    actions_min_range: usize,
+    actions_max_range: usize,
+    conditions_min_range: usize,
+    conditions_max_range: usize,
+    actions_filter_buffer: String,
+    conditions_filter_buffer: String,
+    data_filter_buffer: String,
     instant_save: bool,
     file: Option<TomlFile>,
     debug_activated: bool,
@@ -164,10 +167,15 @@ impl crate::editor::Editor for Project {
                                 }
 
                                 ui.heading("List");
+                                ui.label("Filter");
+                                ui.text_edit_singleline(&mut self.data_filter_buffer);
+
                                 for var in file.get_all_keys_of("data") {
-                                    let item = file.get_mut_item_of("data", &var);
-                                    ui.label(&var);
-                                    editor::edit_toml_int(ui, item);
+                                    if self.data_filter_buffer.is_empty() | var.contains(&self.data_filter_buffer) {
+                                        let item = file.get_mut_item_of("data", &var);
+                                        ui.label(&var);
+                                        editor::edit_toml_int(ui, item);
+                                    }
                                 }
                             });
 
@@ -207,13 +215,18 @@ impl crate::editor::Editor for Project {
                                     self.conditions_max_range = keys.len() - 1;
                                 }
 
+                                ui.label("Filter");
+                                ui.text_edit_singleline(&mut self.conditions_filter_buffer);
+
                                 if self.conditions_max_range != 0 {
                                     let mut index = self.conditions_max_range;
                                     #[allow(unused_comparisons)]
                                     while index >= self.conditions_min_range {
-                                        ui.label(&keys[index]);
-                                        let item = file.get_mut_item_of("conditions", &keys[index]);
-                                        editor::edit_toml_string_array(ui, item, None);
+                                        if self.conditions_filter_buffer.is_empty() | keys[index].contains(&self.conditions_filter_buffer) {
+                                            ui.label(&keys[index]);
+                                            let item = file.get_mut_item_of("conditions", &keys[index]);
+                                            editor::edit_toml_string_array(ui, item, None);
+                                        }
                                         if index > 0 {
                                             index -= 1;
                                         } else {
@@ -237,6 +250,7 @@ impl crate::editor::Editor for Project {
 
                                 ui.heading("List");
                                 let keys = file.get_all_keys_of("actions");
+
                                 ui.label("Range Min/Max");
 
                                 let mut buffer = self.actions_min_range.to_string();
@@ -259,13 +273,18 @@ impl crate::editor::Editor for Project {
                                     self.actions_max_range = keys.len() - 1;
                                 }
 
+                                ui.label("Filter");
+                                ui.text_edit_singleline(&mut self.actions_filter_buffer);
+
                                 if self.actions_max_range != 0 {
                                     let mut index = self.actions_max_range;
                                     #[allow(unused_comparisons)]
                                     while index >= self.actions_min_range {
-                                        ui.label(&keys[index]);
-                                        let item = file.get_mut_item_of("actions", &keys[index]);
-                                        editor::edit_toml_string_array(ui, item, None);
+                                        if self.actions_filter_buffer.is_empty() | keys[index].contains(&self.actions_filter_buffer) {
+                                            ui.label(&keys[index]);
+                                            let item = file.get_mut_item_of("actions", &keys[index]);
+                                            editor::edit_toml_string_array(ui, item, None);
+                                        }
                                         if index > 0 {
                                             index -= 1;
                                         } else {
