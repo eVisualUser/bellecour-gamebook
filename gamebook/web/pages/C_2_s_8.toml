@@ -1,0 +1,12 @@
+[config]
+name = "C_2_s_8"
+type = "default"
+[content]
+1 = "Izydor decides to learn more about him, he asks him how his life was before the disaster."
+2 = ""
+3 = "Norbert replied, ''My life before? I wasn't much before the disaster, small jobs is all I did. I just know that now I have to lead this expedition to find things useful for the survival of the group and you should do the same.''"
+4 = ""
+5 = "---"
+[choices]
+1 = [" Go in to find some supplies", "true", "C_2_s_3"]
+2 = [" Talk with Dagmara", "true", "C_2_s_5"]

@@ -1,0 +1,11 @@
+[config]
+name = "C_2_s_20"
+type = "default"
+[content]
+1 = "Izydor presents himself nicely, explains that he comes from far away from a farm, that he knows how to cultivate a lot of thing and that he will be useful to the group in all circumstances."
+2 = ""
+3 = "The group applauded and Norbert came to shake his hand, ''Bravo to you Izydor you are now part of our group will help us as much as we can then you also help us, now come I will show you around."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Visite the camp with Norbert", "true", "C_2_s_24"]

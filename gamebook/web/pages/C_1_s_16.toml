@@ -1,0 +1,9 @@
+[config]
+name = "C_1_s_16"
+type = "default"
+[content]
+1 = "Izydor clenches his fists hard and advances towards the person, taking momentum he hits with all his might, knocking the person directly out. Proud of his feat he turned to look around and suddenly he saw...."
+2 = ""
+3 = "---"
+[choices]
+1 = [" Next", "true", "C_2_s_26"]

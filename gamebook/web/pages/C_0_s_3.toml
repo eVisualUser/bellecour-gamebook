@@ -2,6 +2,8 @@
 name = "C_0_s_3"
 type = "default"
 [content]
-Line_1 = "''I'm sorry I shouldn't have done that I know how short on money we are but I have a problem with alcohol. I'll try to drink less from now on...''"
+1 = "I'm sorry I shouldn't have done that I know how short on money we are but I have a problem with alcohol. I'll try to drink less from now on..."
+2 = ""
+3 = "---"
 [choices]
-Choice_1 = ["Next", "true", "C_0_s_5"]
+1 = [" Next", "true", "C_1_s_1"]

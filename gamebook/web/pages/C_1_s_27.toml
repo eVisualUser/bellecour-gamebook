@@ -1,0 +1,14 @@
+[config]
+name = "C_1_s_27"
+type = "default"
+[content]
+1 = "One of them says ''Okay fine, we are losing time, so what is your name?''"
+2 = ""
+3 = "Izydor looks them and talks ''I'm Izydor''"
+4 = ""
+5 = "The one who looks like the leader says ''Okay Izydor we are gonna go to find suppliers, you will go with one group you will choose, you have the shop group and the pharmacy group, with which one you want to go?''"
+6 = ""
+7 = "---"
+[choices]
+1 = [" Go with the shop group", "true", "C_2_s_1"]
+2 = [" Go with the pharmacy group", "true", "C_2_s_2"]

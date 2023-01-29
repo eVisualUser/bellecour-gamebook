@@ -1,0 +1,12 @@
+[config]
+name = "C_3_s_34"
+type = "default"
+[content]
+1 = "While being threatened by the Rosyjski, they start to talk together and keep starring at Dagmara."
+2 = ""
+3 = "They scream at him, search her and after seeing their wound, the rest of the group suddenly hears a loud blast followed by a thud, they executed her without a warning..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Hold Norbert from doing a mistake", "true", "C_3_s_37_hold"]
+2 = [" Use Norbert as a diversion to run away", "true", "C_3_s_40"]

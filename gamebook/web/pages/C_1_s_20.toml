@@ -1,0 +1,10 @@
+[config]
+name = "C_1_s_20"
+type = "default"
+[content]
+1 = "The strangers laughed and quickly talked to Izydor ''Wow man where do you come from, are you a foreigner? How is it possible to ignore what happened here? if it's true you live in the middle of nowhere dude!''"
+2 = ""
+3 = "---"
+[choices]
+1 = ["Where I'm from? My farm... It is far from here and everything", "true", "C_1_s_14"]
+2 = ["I'm just looking for a doctor. Idiot. Stop laughing at me!", "true", "C_1_s_15"]

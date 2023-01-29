@@ -1,0 +1,10 @@
+[config]
+name = "C_4_s_13"
+type = "default"
+[content]
+1 = "The group decide to stay inside the bus, while the quantity of monster around it keep growing and growing..."
+2 = ""
+3 = "---"
+[choices]
+1 = [" Sacrifice someone of the group", "true", "C_4_s_14"]
+2 = [" Shot of morphia and go fight", "c_morphia", "C_4_s_15"]

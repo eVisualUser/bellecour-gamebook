@@ -1,0 +1,14 @@
+[config]
+name = "C_1_s_3"
+type = "default"
+[content]
+1 = "Looking around him, Izydor find cars and trash cans, the cars are full of dust and moss, after some seconds of hesitation he search in the nauseating bins, but unfortunately their is nothing inside."
+2 = ""
+3 = "After another look Izydor find a door on the side of the building. This one seems to be the emergency exit, the door is metal but looks fragile, it must be rusty and nobody thought about fixing it. "
+4 = ""
+5 = "After a last look Izydor decide what the best option is."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Force the exit door", "true", "C_1_s_4"]
+2 = [" Enter inside the building", "true", "C_1_s_2"]

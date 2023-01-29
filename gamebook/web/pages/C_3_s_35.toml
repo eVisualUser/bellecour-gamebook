@@ -1,0 +1,13 @@
+[config]
+name = "C_3_s_35"
+type = "default"
+[content]
+1 = "The russians are looking at the group and Izydor push Dagmara back to cover her to hide her wound from them."
+2 = ""
+3 = "The group tries to negotiate with the troops a free pass..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Give all the morphia shot", "c_morphia", "C_3_s_39_giveall"]
+2 = [" Give potato vodka bottle", "c_vodka", "C_3_s_39_vodka"]
+3 = [" Do nothing", "true", "C_3_s_38"]

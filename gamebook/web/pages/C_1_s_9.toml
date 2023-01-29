@@ -1,0 +1,12 @@
+[config]
+name = "C_1_s_9"
+type = "default"
+[content]
+1 = "Izydor opens the bathroom door and sees someone in the back peeing, closing the door behind him, he walks towards the person."
+2 = ""
+3 = "The moment the door slams behind him, the person turns around and jumps when he sees Izydor, he quickly pulls up his pants and shouts at him, ''Who are you, where do you come from fucker ! Don't come near me if you don't want to get hurt.'' The person holds his hands on a baseball bat and holds it, ready to hit anyone in his way and threatens Izydor."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Where I'm from ? My farm... It's far from here", "true", "C_1_s_14"]
+2 = ["I'm looking for a doctor idiot. Stop insulting me", "true", "C_1_s_15"]

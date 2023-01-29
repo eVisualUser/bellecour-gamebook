@@ -1,0 +1,12 @@
+[config]
+name = "C_2_s_13"
+type = "default"
+[content]
+1 = "Izydor decides to learn more about him, he asks him how his life was before the disaster."
+2 = ""
+3 = "Zenon replied ''my life before? I was a professional boxer in this city, I was going to be able to get to the national tournament, but unfortunately when the disaster happened, I saw all my colleagues die in front of me in my club, Since then I've been trying to protect the people in the band so it doesn't happen again.''"
+4 = ""
+5 = "---"
+[choices]
+1 = [" Go in to find some supplies", "true", "C_2_s_9"]
+2 = [" Talk with Stefan", "true", "C_2_s_11"]

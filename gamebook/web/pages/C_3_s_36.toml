@@ -1,0 +1,11 @@
+[config]
+name = "C_3_s_36"
+type = "default"
+[content]
+1 = "Izydor turn back and run toward Norbert."
+2 = "He reach him/her and..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Give him a morphia shot and help", "c_morphia", "C_3_s_37_morphia"]
+2 = [" Decide to leave him", "true", "C_3_s_40"]

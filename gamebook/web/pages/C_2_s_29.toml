@@ -1,0 +1,11 @@
+[config]
+name = "C_2_s_29"
+type = "default"
+[content]
+1 = "Izydor enters a small room where part of the ceiling is collapsed, Izydor observes the sky that asombri, the day passes quickly when we run, he said to himself."
+2 = ""
+3 = "After searching, he finds nothing interesting, he leaves the room."
+4 = ""
+5 = "---"
+[choices]
+1 = ["Go in the left room", "true", "C_2_s_4"]

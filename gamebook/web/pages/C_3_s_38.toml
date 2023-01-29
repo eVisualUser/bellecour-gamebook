@@ -1,0 +1,12 @@
+[config]
+name = "C_3_s_38"
+type = "default"
+[content]
+1 = "The group waits infront of the hostile Russians that something unexpected happens but nothing happens."
+2 = ""
+3 = "Izydor decides to..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Make a bad joke", "true", "C_3_s_39"]
+2 = [" Ask help for Dagmara's wound", "true", "C_3_s_37"]

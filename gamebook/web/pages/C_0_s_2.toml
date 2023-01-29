@@ -2,9 +2,13 @@
 name = "C_0_s_2"
 type = "default"
 [content]
-Line_1 = "Suddenly, Izydor can sense a stange and oppressive feeling, as if someone or something were starring at him. Clouds start to hide the sun's light and surround the field with shadows."
-Line_2 = "Izydor turn around, trying to understand what's happening and see with an immense incomprehension his wife's angry face : ''You drank a part of the production again, druken old geezer !I'm sick of you !''"
-Line_3 = "Izydor calmly stand up, face his wife and..."
+1 = "Suddenly, Izydor can sense a stange and oppressive feeling, as if someone or something were starring at him. Clouds start to hide the sun's light and surround the field with shadows."
+2 = ""
+3 = "Izydor turn around, trying to understand what's happening and see with an immense incomprehension his wife's angry face :''You drank a part of the production again, druken old geezer !I'm sick of you !''"
+4 = ""
+5 = "Izydor calmly stand up, face his wife and..."
+6 = ""
+7 = "---"
 [choices]
-Choice_1 = ["Apologize", "true", "C_0_s_3"]
-Choice_2 = ["Beat her", "true", "C_0_s_4"]
+1 = ["Apologize", "true", "goodstart"]
+2 = ["Beat Het", "true", "badstart"]

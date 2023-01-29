@@ -1,0 +1,10 @@
+[config]
+name = "C_3_s_25"
+type = "default"
+[content]
+1 = "Izydor decides to share his potato vodka with everybody."
+2 = "They take a little break at the north of the train station, chit-chatting about their lifes."
+3 = ""
+4 = "---"
+[choices]
+1 = [" A troop of the Rosyjski spotted you!", "true", "C_3_s_28"]

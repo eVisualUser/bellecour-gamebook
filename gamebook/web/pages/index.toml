@@ -1,6 +1,9 @@
 [config]
-name = "Great Page"
+name = "IZYDOR V1.0"
 type = "Reset"
 [content]
+greatings = ""
+explanation_a = ""
 [choices]
-Choice_1 = ["Start", "true", "C_0_s_1"]
+start = ["Play", "true", "start"]
+Credit = ["Credits", "true", "credit"]

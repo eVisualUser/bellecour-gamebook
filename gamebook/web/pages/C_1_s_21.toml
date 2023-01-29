@@ -1,0 +1,9 @@
+[config]
+name = "C_1_s_21"
+type = "default"
+[content]
+1 = "The stranger makes a sad face and says ''Many died in the first weeks after the crisis, the others left, they fled to other cities through the train station or airport. Too many people left at the same time so it was impossible to leave for many people, it was a carnage.''"
+2 = ""
+3 = "---"
+[choices]
+1 = [" Next", "true", "C_1_s_25"]

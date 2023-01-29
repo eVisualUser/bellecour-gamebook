@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_9"
+type = "default"
+[content]
+1 = "Izydor take the control of the bus, they are still surrounded by monsters but manage to leave the city center."
+2 = "After few minutes they encounter monsters on the road..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Drink potato vodka", "c_vodka", "C_4_s_12"]
+2 = [" Hit monsters with the bus", "true", "C_4_s_10"]
+3 = [" Simulate an engine failure", "c_bad", "C_4_s_17"]

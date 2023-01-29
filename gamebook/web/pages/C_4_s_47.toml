@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_47"
+type = "default"
+[content]
+1 = "During the travel, Dagmara quietly turn into a monster and no one noticed it."
+2 = "She started to attack, in the panic Norbert looses the control of the bus and crash it."
+3 = ""
+4 = "Everybody died."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]

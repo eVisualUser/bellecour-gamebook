@@ -2,8 +2,11 @@
 name = "C_0_s_1"
 type = "default"
 [content]
-Line_1 = "On a bright and sunny day, Izydor can be found laboriously tending to his fields. At the ripe age of mid-60, his tall and stoic figure exudes strength and determination, honed by decades of tireless work on the farm.  "
-Line_2 = "The years have etched their mark on him, leaving dark stains of sun-kissed skin on his arms and legs as proof of a lifetime spent under the sun. As he methodically goes about his work, his mind is focused on the task at hand, pondering which tool would be most effective for clearing the weeds from the ground... "
+1 = "On a bright and sunny day, Izydor can be found laboriously tending to his fields. At the ripe age of mid-60, his tall and stoic figure exudes strength and determination, honed by decades of tireless work on the farm.  "
+2 = ""
+3 = "The years have etched their mark on him, leaving dark stains of sun-kissed skin on his arms and legs as proof of a lifetime spent under the sun. As he methodically goes about his work, his mind is focused on the task at hand, pondering which tool would be most effective for clearing the weeds from the ground... "
+4 = ""
+5 = "---"
 [choices]
-Choice_1 = ["Use the rake", "true", "C_0_s_2"]
-Choice_2 = ["Use the shovel", "true", "C_0_s_2"]
+1 = [" Use the rake", "true", "C_0_s_2"]
+2 = [" Use the shovel", "true", "C_0_s_2"]

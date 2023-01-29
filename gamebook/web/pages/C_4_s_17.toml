@@ -1,0 +1,11 @@
+[config]
+name = "C_4_s_17"
+type = "default"
+[content]
+1 = "After few minute, he decide to simulate an engine failure and stop the bus."
+2 = "He lead the group to the nearest abbandoned house to take a rest for the night and repair the bus tomorrow..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Pretend repair tomorrow and go", "c_bad", "C_4_s_19"]
+2 = [" Steal the bus during the night", "true", "C_4_s_18"]

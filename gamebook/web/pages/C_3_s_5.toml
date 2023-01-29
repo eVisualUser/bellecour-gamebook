@@ -1,0 +1,14 @@
+[config]
+name = "C_3_s_5"
+type = "default"
+[content]
+1 = "Izydor needs a break, he stops everybody and shares with them his special homemade potato vodka."
+2 = ""
+3 = "Bragging about the uniqueness of its recipe, he doesn't forget to brag the medicinal merites of it, assuming that it can cure anything in one shot"
+4 = ""
+5 = "The group is moving again letting you lead the way..."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Izydor chooses the left creepy path", "true", "C_3_s_4"]
+2 = [" Izydor chooses the right path", "true", "C_3_s_6"]

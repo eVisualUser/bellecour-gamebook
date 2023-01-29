@@ -1,0 +1,13 @@
+[config]
+name = "C_3_s_31"
+type = "default"
+[content]
+1 = "The Rosyjski troops don't seem friendly and keep aiming their guns at the group."
+2 = ""
+3 = "The group try to negotiate with the troops a free pass..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Give all the morphia shots", "c_morphia", "C_3_s_37_giveall"]
+2 = [" Give potato vodka bottle", "c_vodka", "C_3_s_32_vodka"]
+3 = [" Do nothing", "true", "C_3_s_32"]

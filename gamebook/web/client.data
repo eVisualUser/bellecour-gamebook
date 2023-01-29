@@ -1,67 +1,1966 @@
 [config]
-name = "projectName"
-author = "unknow"
-tags = ["edited"]
+name = "Izydor_V1.0"
+author = "BG4"
+tags = ["edited", "client-0.3.0"]
 [data]
+done_data_page = 0
+page_count = 0
+console_color_background = 47
+console_color_foreground = 30
+vodka = 0
+karma = 0
+norb = 1
+dagm = 1
+morphia = 0
+text_noise_level = 0
+c_karma = 0
+medkit = 0
+v_noise = 10
+recap_vodka = 0
+recap_morphia = 0
+recap_karma = 0
 [conditions]
 true = ["1 = 1"]
+c_morphia = ["morphia > 0"]
+c_vodka = ["vodka > 0"]
+c_good = ["karma > 0"]
+c_bad = ["karma < 0"]
 [actions]
-C_0_s_2 = ["$C_0_s_2.toml"]
-C_0_s_3 = ["$C_0_s_3.toml"]
-C_0_s_4 = ["$C_0_s_4.toml"]
-C_0_s_5 = ["$C_0_s_5.toml"]
 restart = ["$index.toml"]
+start = ["$tuto.toml"]
 C_0_s_1 = ["$C_0_s_1.toml"]
+C_0_s_2 = ["$C_0_s_2.toml"]
+goodstart = ["morphia + 3", "vodka + 1", "$C_0_s_3.toml"]
+badstart = ["morphia + 2", "vodka + 3", "$C_0_s_4.toml"]
+C_1_s_1 = ["$C_1_s_1.toml"]
+C_1_s_2 = ["$C_1_s_2.toml"]
+C_1_s_3 = ["$C_1_s_3.toml"]
+C_1_s_8 = ["$C_1_s_8.toml"]
+C_1_s_6 = ["$C_1_s_6.toml"]
+C_1_s_7 = ["$C_1_s_7.toml"]
+C_1_s_4 = ["$C_1_s_4.toml"]
+C_1_s_5 = ["$C_1_s_5.toml"]
+C_1_s_9 = ["$C_1_s_9.toml"]
+C_1_s_10 = ["$C_1_s_10.toml"]
+C_1_s_12 = ["$C_1_s_12.toml"]
+C_1_s_11 = ["$C_1_s_11.toml"]
+C_1_s_16 = ["$C_1_s_16.toml", "karma - 1"]
+C_1_s_13 = ["$C_1_s_13.toml"]
+C_1_s_14 = ["$C_1_s_14.toml"]
+C_1_s_15 = ["$C_1_s_15.toml", "karma - 1"]
+C_1_s_6_med = ["$C_1_s_6.toml", "medkit + 1"]
+C_1_s_7_vodka = ["$C_1_s_7.toml", "vodka + 1"]
+C_1_s_8_morphia = ["$C_1_s_8.toml", "morphia + 1"]
+C_1_s_24 = ["$C_1_s_24.toml", "karma - 1", "text_noise_level = 0"]
+C_1_s_20 = ["$C_1_s_20.toml", "text_noise_level = 0"]
+C_1_s_18 = ["$C_1_s_18.toml"]
+C_1_s_17 = ["$C_1_s_17.toml"]
+C_1_s_19 = ["$C_1_s_19.toml"]
+C_1_s_22 = ["$C_1_s_22.toml"]
+C_1_s_21 = ["$C_1_s_21.toml"]
+C_1_s_23 = ["$C_1_s_23.toml"]
+C_1_s_25 = ["$C_1_s_25.toml"]
+C_1_s_26 = ["$C_1_s_26.toml"]
+C_1_s_27 = ["$C_1_s_27.toml"]
+C_3_s_2 = ["$C_3_s_2.toml", "karma + 1"]
+C_3_s_3 = ["$C_3_s_3.toml"]
+C_3_s_5 = ["$C_3_s_5.toml", "vodka - 1", "karma + 1"]
+C_3_s_4 = ["$C_3_s_4.toml"]
+C_3_s_6 = ["$C_3_s_6.toml"]
+C_3_s_12_gcat = ["$C_3_s_12.toml", "karma + 1"]
+C_3_s_7 = ["$C_3_s_7.toml", "karma - 2"]
+C_3_s_8 = ["$C_3_s_8.toml"]
+C_3_s_9 = ["$C_3_s_9.toml"]
+C_3_s_10 = ["$C_3_s_10.toml", "karma + 1"]
+C_3_s_12_bcat = ["$C_3_s_12.toml", "karma - 1"]
+C_3_s_14 = ["$C_3_s_14.toml", "karma - 2"]
+C_3_s_11 = ["$C_3_s_11.toml", "karma + 1"]
+C_3_s_12_use = ["$C_3_s_12.toml", "text_noise_level = v_noise"]
+C_3_s_12_keep = ["$C_3_s_12.toml", "morphia + 1"]
+C_3_s_12_refuse = ["$C_3_s_12.toml"]
+C_3_s_12_bag = ["$C_3_s_12.toml", "morphia + 1", "karma + 1"]
+C_3_s_12_together = ["$C_3_s_12.toml", "karma + 1"]
+C_3_s_13 = ["$C_3_s_13.toml", "karma - 1"]
+C_3_s_12 = ["$C_3_s_12.toml"]
+C_3_s_31 = ["$C_3_s_31.toml"]
+C_3_s_16 = ["$C_3_s_16.toml", "karma + 1"]
+C_3_s_17 = ["$C_3_s_17.toml"]
+C_3_s_19 = ["$C_3_s_19.toml", "morphia + 1"]
+C_3_s_18 = ["$C_3_s_18.toml", "karma - 1"]
+C_3_s_20 = ["$C_3_s_20.toml", "karma + 1"]
+C_3_s_26 = ["$C_3_s_26.toml"]
+C_3_s_25 = ["$C_3_s_25.toml", "vodka - 1", "karma + 1"]
+C_3_s_24 = ["$C_3_s_24.toml", "vodka - 1", "karma - 1"]
+C_3_s_21 = ["$C_3_s_21.toml"]
+C_3_s_22 = ["$C_3_s_22.toml", "karma - 1"]
+C_3_s_23_vodka = ["$C_3_s_23.toml", "karma + 2", "vodka - 1"]
+C_3_s_23_morphia = ["$C_3_s_23.toml", "karma + 1", "morphia - 1"]
+C_3_s_30 = ["$C_3_s_30.toml", "karma + 1"]
+C_3_s_27 = ["$C_3_s_27.toml", "karma + 2"]
+C_3_s_28 = ["$C_3_s_28.toml"]
+C_3_s_37 = ["$C_3_s_37.toml", "dagm = 0"]
+C_3_s_39_morphia = ["$C_3_s_39.toml", "morphia - 1", "text_noise_level = v_noise"]
+C_3_s_29 = ["$C_3_s_29.toml", "karma - 1"]
+C_3_s_35 = ["$C_3_s_35.toml", "karma + 1"]
+C_3_s_34 = ["$C_3_s_34.toml"]
+C_3_s_29_vodka = ["$C_3_s_29.toml", "vodka - 1", "karma + 1"]
+C_3_s_39 = ["$C_3_s_39.toml"]
+C_3_s_37_giveall = ["$C_3_s_37.toml", "morphia = 0", "dagm = 0"]
+C_3_s_32_vodka = ["$C_3_s_32.toml", "vodka - 1"]
+C_3_s_32 = ["$C_3_s_32.toml"]
+C_3_s_33 = ["$C_3_s_33.toml"]
+C_3_s_36 = ["$C_3_s_36.toml", "karma + 1"]
+C_3_s_40 = ["$C_3_s_40.toml", "karma - 2", "norb = 0"]
+C_3_s_37_hold = ["$C_3_s_37.toml", "karma + 1", "dagm = 0"]
+C_3_s_39_giveall = ["$C_3_s_39.toml", "morphia = 0"]
+C_3_s_39_vodka = ["$C_3_s_39.toml", "vodka - 1"]
+C_3_s_38 = ["$C_3_s_38.toml"]
+C_3_s_37_morphia = ["$C_3_s_37.toml", "morphia - 1", "dagm = 0"]
+C_2_s_1 = ["$C_2_s_1.toml"]
+C_2_s_2 = ["$C_2_s_2.toml"]
+C_2_s_9 = ["$C_2_s_9.toml"]
+C_2_s_10 = ["$C_2_s_10.toml"]
+C_2_s_11 = ["$C_2_s_11.toml"]
+C_2_s_13 = ["$C_2_s_13.toml"]
+C_2_s_14 = ["$C_2_s_14.toml"]
+C_2_s_12 = ["$C_2_s_12.toml"]
+C_2_s_30 = ["$C_2_s_30.toml"]
+C_2_s_17 = ["$C_2_s_17.toml"]
+C_2_s_18 = ["$C_2_s_18.toml"]
+C_2_s_19 = ["$C_2_s_19.toml"]
+C_2_s_20 = ["$C_2_s_20.toml", "karma + 1"]
+C_2_s_21 = ["$C_2_s_21.toml", "karma - 1"]
+C_2_s_24 = ["$C_2_s_24.toml"]
+C_2_s_25 = ["$C_2_s_25.toml", "karma - 1"]
+C_2_s_26 = ["$C_2_s_26.toml", "text_noise_level = 0"]
+C_3_s_1 = ["$C_3_s_1.toml"]
+C_3_s_15 = ["$C_3_s_15.toml"]
+C_2_s_5 = ["$C_2_s_5.toml"]
+C_2_s_6 = ["$C_2_s_6.toml"]
+C_2_s_8 = ["$C_2_s_8.toml"]
+C_2_s_7 = ["$C_2_s_7.toml"]
+C_2_s_3 = ["$C_2_s_3.toml"]
+C_2_s_15 = ["$C_2_s_15.toml", "karma - 1", "text_noise_level = v_noise"]
+C_2_s_16 = ["$C_2_s_16.toml", "karma + 1"]
+C_2_s_4 = ["$C_2_s_4.toml"]
+C_2_s_29 = ["$C_2_s_29.toml"]
+C_2_s_22 = ["$C_2_s_22.toml", "karma - 1", "text_noise_level = 0"]
+C_2_s_23 = ["$C_2_s_23.toml", "text_noise_level = 0"]
+C_1_s_8_drug = ["$C_1_s_8.toml", "text_noise_level = v_noise"]
+C_4_s_3 = ["$C_4_s_3.toml"]
+C_4_s_2 = ["$C_4_s_2.toml"]
+C_4_s_8 = ["$C_4_s_8.toml"]
+C_4_s_4 = ["$C_4_s_4.toml"]
+C_4_s_5 = ["$C_4_s_5.toml"]
+C_4_s_6 = ["$C_4_s_6.toml"]
+C_4_s_7 = ["$C_4_s_7.toml"]
+C_4_s_12 = ["$C_4_s_12.toml", "vodka - 1"]
+C_4_s_10 = ["$C_4_s_10.toml"]
+C_4_s_17 = ["$C_4_s_17.toml", "karma - 1"]
+C_4_s_11 = ["$C_4_s_11.toml"]
+C_4_s_13 = ["$C_4_s_13.toml"]
+C_4_s_16 = ["$C_4_s_16.toml"]
+C_4_s_14 = ["$C_4_s_14.toml"]
+C_4_s_15 = ["$C_4_s_15.toml", "morphia - 1"]
+C_4_s_19 = ["$C_4_s_19.toml"]
+C_4_s_18 = ["$C_4_s_18.toml"]
+C_4_s_21 = ["$C_4_s_21.toml"]
+C_4_s_24 = ["$C_4_s_24.toml"]
+C_4_s_22 = ["$C_4_s_22.toml", "vodka -1"]
+C_4_s_25 = ["$C_4_s_25.toml"]
+C_4_s_23 = ["$C_4_s_23.toml"]
+C_4_s_34 = ["$C_4_s_34.toml"]
+C_4_s_26 = ["$C_4_s_26.toml"]
+C_4_s_27 = ["$C_4_s_27.toml"]
+C_4_s_28 = ["$C_4_s_28.toml"]
+C_4_s_29 = ["$C_4_s_29.toml"]
+C_4_s_31 = ["$C_4_s_31.toml"]
+C_4_s_30 = ["$C_4_s_30.toml"]
+C_4_s_33 = ["$C_4_s_33.toml"]
+C_4_s_32 = ["$C_4_s_32.toml"]
+C_4_s_36 = ["$C_4_s_36.toml"]
+C_4_s_47 = ["$C_4_s_47.toml"]
+C_4_s_38 = ["$C_4_s_38.toml"]
+C_4_s_37 = ["$C_4_s_37.toml"]
+C_4_s_39 = ["$C_4_s_39.toml"]
+C_4_s_40 = ["$C_4_s_40.toml"]
+C_4_s_42 = ["$C_4_s_42.toml"]
+C_4_s_44 = ["$C_4_s_44.toml", "morphia - 1", "text_noise_level = v_noise"]
+C_4_s_43 = ["$C_4_s_43.toml"]
+C_4_s_41 = ["$C_4_s_41.toml"]
+C_4_s_45 = ["$C_4_s_45.toml", "text_noise_level = 0"]
+C_4_s_46 = ["$C_4_s_46.toml", "text_noise_level = 0", "morphia - 1"]
+C_4_s_1 = ["$C_4_s_1.toml", "text_noise_level = 0"]
+C_4_s_20 = ["$C_4_s_20.toml"]
+C_4_s_35 = ["$C_4_s_35.toml", "text_noise_level = 0"]
+C_4_s_9 = ["$C_4_s_9.toml"]
+C_2_s_27 = ["$C_2_s_27.toml"]
+recap = ["$recap.toml"]
+recap2 = ["$recap2.toml", "recap_vodka = vodka", "recap_morphia = morphia", "recap_karma = karma"]
+credit = ["$credit.toml"]
 [client]
 page = "pages/index.toml"
-frameSize_x = 100
-frameSize_y = 15
+frameSize_x = 115
+frameSize_y = 25
 up = 72
 down = 80
 ok = 13
 zoom = 61
 unzoom = 45
 exit = 27
+frame_size_min_x = 25
+frame_size_min_y = 25
 [config]
 name = "C_0_s_1"
 type = "default"
 [content]
-Line_1 = "On a bright and sunny day, Izydor can be found laboriously tending to his fields. At the ripe age of mid-60, his tall and stoic figure exudes strength and determination, honed by decades of tireless work on the farm.  "
-Line_2 = "The years have etched their mark on him, leaving dark stains of sun-kissed skin on his arms and legs as proof of a lifetime spent under the sun. As he methodically goes about his work, his mind is focused on the task at hand, pondering which tool would be most effective for clearing the weeds from the ground... "
+1 = "On a bright and sunny day, Izydor can be found laboriously tending to his fields. At the ripe age of mid-60, his tall and stoic figure exudes strength and determination, honed by decades of tireless work on the farm.  "
+2 = ""
+3 = "The years have etched their mark on him, leaving dark stains of sun-kissed skin on his arms and legs as proof of a lifetime spent under the sun. As he methodically goes about his work, his mind is focused on the task at hand, pondering which tool would be most effective for clearing the weeds from the ground... "
+4 = ""
+5 = "---"
 [choices]
-Choice_1 = ["Use the rake", "true", "C_0_s_2"]
-Choice_2 = ["Use the shovel", "true", "C_0_s_2"]
+1 = [" Use the rake", "true", "C_0_s_2"]
+2 = [" Use the shovel", "true", "C_0_s_2"]
 [config]
 name = "C_0_s_2"
 type = "default"
 [content]
-Line_1 = "Suddenly, Izydor can sense a stange and oppressive feeling, as if someone or something were starring at him. Clouds start to hide the sun's light and surround the field with shadows."
-Line_2 = "Izydor turn around, trying to understand what's happening and see with an immense incomprehension his wife's angry face : ''You drank a part of the production again, druken old geezer !I'm sick of you !''"
-Line_3 = "Izydor calmly stand up, face his wife and..."
+1 = "Suddenly, Izydor can sense a stange and oppressive feeling, as if someone or something were starring at him. Clouds start to hide the sun's light and surround the field with shadows."
+2 = ""
+3 = "Izydor turn around, trying to understand what's happening and see with an immense incomprehension his wife's angry face :''You drank a part of the production again, druken old geezer !I'm sick of you !''"
+4 = ""
+5 = "Izydor calmly stand up, face his wife and..."
+6 = ""
+7 = "---"
 [choices]
-Choice_1 = ["Apologize", "true", "C_0_s_3"]
-Choice_2 = ["Beat her", "true", "C_0_s_4"]
+1 = ["Apologize", "true", "goodstart"]
+2 = ["Beat Het", "true", "badstart"]
 [config]
 name = "C_0_s_3"
 type = "default"
 [content]
-Line_1 = "''I'm sorry I shouldn't have done that I know how short on money we are but I have a problem with alcohol. I'll try to drink less from now on...''"
+1 = "I'm sorry I shouldn't have done that I know how short on money we are but I have a problem with alcohol. I'll try to drink less from now on..."
+2 = ""
+3 = "---"
 [choices]
-Choice_1 = ["Next", "true", "C_0_s_5"]
+1 = [" Next", "true", "C_1_s_1"]
 [config]
 name = "C_0_s_4"
 type = "default"
 [content]
-Line_1 = "''How dare you insult me like this, when all you do is fucking nothing except lay around at home, you better get out of here before I punch you in the face! I drink as much as I want, it's my alcohol I do what I want with it!''"
-Line_2 = "Izydor gets closer to his wife while being very menacing and hits his wife making her fall on the ground."
+1 = "''How dare you insult me like this, when all you do is fucking nothing except lay around at home, you better get out of here before I punch you in the face! I drink as much as I want, it's my alcohol I do what I want with it!''"
+2 = ""
+3 = "Izydor gets closer to his wife while being very menacing and hits his wife making her fall on the ground."
+4 = ""
+5 = "---"
 [choices]
-Choice_1 = ["Next", "true", "C_0_s_5"]
+1 = [" Next", "true", "C_1_s_1"]
 [config]
 name = "C_0_s_5"
 type = "default"
 [content]
 [choices]
 Choice_1 = ["Restart", "true", "restart"]
+[config]
+name = "C_1_s_1"
+type = "default"
+[content]
+1 = "Hoof sounds on metal wake Izydor up, he opens his eyes and see in front of him a building which seems damaged by the time and alone in the forest, a small lonely path however seems to go to the left."
+2 = ""
+3 = "When Izydor approached to attach his horse, he read a panel, on it is written 'Pila 2km' Izydor doesn't linger to long and walks toward the fence which closes the building, after climbing over it Izydor arrives in the yard, some cars are parked, they seem old and some started to be covered in dust."
+4 = ""
+5 = "Several choices are available to Izydor."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Enter in the building", "true", "C_1_s_2"]
+2 = [" Search in the area", "true", "C_1_s_3"]
+[config]
+name = "C_1_s_10"
+type = "default"
+[content]
+1 = "Izydor walks into the room, it's an office, a table is placed in the center of the table, some chairs are placed around it. Several closets are stored at the bottom of the room, he quickly searches them in the hopes of finding useful things."
+2 = ""
+3 = "Luckily Izydor finds a bag with all the necessary equipment for first aid."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Leave it and go back in the corridor", "true", "C_1_s_6"]
+2 = [" Keep it and go back in the corridor", "true", "C_1_s_6_med"]
+[config]
+name = "C_1_s_11"
+type = "default"
+[content]
+1 = "Izydor walks into the room. It's a utility closet for cleaning, brooms, cleaning products and buckets are stored there a little everywhere, behind them is a sanitizer bottle he grabs it to look closer."
+2 = ""
+3 = "While taking the bottle footstep sounds through the ceiling startles him, did Izydor finally find someone in this abandoned building?"
+4 = ""
+[choices]
+1 = [" Leave it and go see the second floor", "true", "C_1_s_7"]
+2 = [" Keep it and go see the second floor", "true", "C_1_s_7_vodka"]
+[config]
+name = "C_1_s_12"
+type = "default"
+[content]
+1 = "The room is a small storage badly arranged, searching it, Izydor finds all kinds of objects useful for the treatment of mental illness, but not for him."
+2 = ""
+3 = "After searching the shelves Izydor finds a small bag with a syringe inside, it is written on it 'Morphia'.  While reading that his hand starts to hurt him quite a bit. "
+4 = ""
+5 = "Catching the syringe the sound of footsteps through the ceiling startles him, did Izydor finally find someone in this abandoned building?"
+6 = ""
+7 = "---"
+[choices]
+1 = [" Use it and go see the second floor", "true", "C_1_s_8_drug"]
+2 = [" Keep it and go see the second floor", "true", "C_1_s_8_morphia"]
+[config]
+name = "C_1_s_13"
+type = "default"
+[content]
+1 = "Izydor knocked on the open door saying, “Hello, do you know where I can find a doctor?”"
+2 = "The 2 silhouettes quickly turn around taking instantly in their hand objects to defend themselves."
+3 = ""
+4 = "One of the two figures says, “Who are you fucker? What the hell are you doing here? stay where you are” threatening you."
+5 = ""
+6 = "---"
+[choices]
+1 = ["Wow calm down insult me again and you will regret it!", "true", "C_1_s_24"]
+2 = ["I'm Izydor fucker and I came for a check up", "true", "C_1_s_20"]
+[config]
+name = "C_1_s_14"
+type = "default"
+[content]
+1 = "Angry Izydor speaks to the person with an insulting voice."
+2 = ""
+3 = "The person in front of him takes his baseball bat in both hands pointing at Izydor with a cold look at him, “Are you insulting me idiot? If you keep going and you will be hit down to the floor crying for help” the person approaches Izydor slowly, keeping distance between them."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Punch him in the face", "true", "C_1_s_16"]
+2 = [" Apologize. Izydor is stressed", "true", "C_1_s_18"]
+[config]
+name = "C_1_s_15"
+type = "default"
+[content]
+1 = "The foreigner replied to Izydor ''You are far away from your farm here, I don't know if you live in a different world but there were big problems here recently, so avoid saying random stuff to anyone if you want to live''"
+2 = ""
+3 = "The foreigner will not be so harsh and asked Izydor a question, ''Do you know what happened here at least?''"
+4 = ""
+5 = "---"
+[choices]
+1 = [" What happened here?", "true", "C_1_s_17"]
+2 = [" Is there a doctor here?", "true", "C_1_s_19"]
+[config]
+name = "C_1_s_16"
+type = "default"
+[content]
+1 = "Izydor clenches his fists hard and advances towards the person, taking momentum he hits with all his might, knocking the person directly out. Proud of his feat he turned to look around and suddenly he saw...."
+2 = ""
+3 = "---"
+[choices]
+1 = [" Next", "true", "C_2_s_26"]
+[config]
+name = "C_1_s_17"
+type = "default"
+[content]
+1 = "The stranger lays his bat on the ground, taking a breath and responds “Many things but everyone thinks something different, for some it's war again,for others politics, some even talk about aliens but it is complicated to know who is right.''"
+2 = ""
+3 = "---"
+[choices]
+1 = ["When did this happen?", "true", "C_1_s_22"]
+2 = [" Where is everybody?", "true", "C_1_s_21"]
+[config]
+name = "C_1_s_18"
+type = "default"
+[content]
+1 = "Izydor calms himself down, the stranger tells him ''That's okay dude, you can be stressed if you just discovered the area for the first time, just make sure to not repeat that okay?''"
+2 = ""
+3 = "''Now you have questions I guess so ask away!''"
+4 = ""
+5 = "---"
+[choices]
+1 = ["What happened here?", "true", "C_1_s_17"]
+2 = [" Is there a doctor here?", "true", "C_1_s_19"]
+[config]
+name = "C_1_s_19"
+type = "default"
+[content]
+1 = "The stranger talks to Izydor ''I'm sorry for you but everyone here is dead or has left long ago, if you want to find one you will have to go into the city but it's dangerous there''"
+2 = ""
+3 = "Looking at Izydor the stranger says ''But you seem very strong so I think you will survive, don't worry''"
+4 = ""
+5 = "---"
+[choices]
+1 = ["When did this happened", "true", "C_1_s_22"]
+2 = ["Do you know someone who is a doctor?", "true", "C_1_s_23"]
+[config]
+name = "C_1_s_2"
+type = "default"
+[content]
+1 = "From a determined step Izydor advances towards the entrance of the building, it is a simple double wooden door with vines growing on the sides, above is inscribed ''Pila's Asylum''."
+2 = ""
+3 = "He open the doors, after having passed the threshold of the door Izydor finds the atmosphere very strange, the asylum seems empty, nobody in the horizon, Izydor looks behind the reception desk but everyone seems to have taken their break a while ago. "
+4 = ""
+5 = "After having a look around Izydor studies the options."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Go to the left wing", "true", "C_1_s_6"]
+2 = [" Go to the second floor", "true", "C_1_s_8"]
+3 = [" Go straight", "true", "C_1_s_7"]
+[config]
+name = "C_1_s_20"
+type = "default"
+[content]
+1 = "The strangers laughed and quickly talked to Izydor ''Wow man where do you come from, are you a foreigner? How is it possible to ignore what happened here? if it's true you live in the middle of nowhere dude!''"
+2 = ""
+3 = "---"
+[choices]
+1 = ["Where I'm from? My farm... It is far from here and everything", "true", "C_1_s_14"]
+2 = ["I'm just looking for a doctor. Idiot. Stop laughing at me!", "true", "C_1_s_15"]
+[config]
+name = "C_1_s_21"
+type = "default"
+[content]
+1 = "The stranger makes a sad face and says ''Many died in the first weeks after the crisis, the others left, they fled to other cities through the train station or airport. Too many people left at the same time so it was impossible to leave for many people, it was a carnage.''"
+2 = ""
+3 = "---"
+[choices]
+1 = [" Next", "true", "C_1_s_25"]
+[config]
+name = "C_1_s_22"
+type = "default"
+[content]
+1 = "Looking at Izydor he says ''It all started a Year ago in 1972 if you didn't know because you seem lost in time. In one week all the city was in chaos, dead bodies everywhere in the street. but now it's different...''"
+2 = ""
+3 = "---"
+[choices]
+1 = [" Next", "true", "C_1_s_25"]
+[config]
+name = "C_1_s_23"
+type = "default"
+[content]
+1 = "The stranger looks Izydor in the eye and says ''Maybe, but I don't know you so even if I know one I will not present you to her actually, I think you will understand you seem like a good and sweet guy!''"
+2 = ""
+3 = "---"
+[choices]
+1 = [" Next", "true", "C_1_s_25"]
+[config]
+name = "C_1_s_24"
+type = "default"
+[content]
+1 = "Angry the strangers look Izydor in the eye, showing their irritation ''you need to calm down man if you don't want to be hurt, you just appeared and insulted us, I suggest you to stay calm and apologies''"
+2 = ""
+3 = "---"
+[choices]
+1 = [" Apologize. Izydor is stressed", "true", "C_1_s_18"]
+2 = [" Is there a doctor here?", "true", "C_1_s_23"]
+[config]
+name = "C_1_s_25"
+type = "default"
+[content]
+1 = "When you talk with the stranger, you hear someone screaming ''Hey guys we need to move, we are losing time here we found nothing, go back in the entry we will move together!''"
+2 = ""
+3 = "He says ''you stay here or you move with us? staying here is a good way to die and I don't want to have your death on my mind, so come.''"
+4 = ""
+5 = "---"
+[choices]
+1 = [" Next", "true", "C_1_s_26"]
+[config]
+name = "C_1_s_26"
+type = "default"
+[content]
+1 = "Izydor move in the asylum and exit finding other strangers outside, the other looks Izydor and talked together ''who the fuck is this? you find a man in this building.''"
+2 = ""
+3 = "The other says ''yea he is lost and he doesn't even know what's going on here, I wasn't gonna leave him alone to die! We'll take him to HQ and see later.''"
+4 = ""
+5 = "---"
+[choices]
+1 = [" Next", "true", "C_1_s_27"]
+[config]
+name = "C_1_s_27"
+type = "default"
+[content]
+1 = "One of them says ''Okay fine, we are losing time, so what is your name?''"
+2 = ""
+3 = "Izydor looks them and talks ''I'm Izydor''"
+4 = ""
+5 = "The one who looks like the leader says ''Okay Izydor we are gonna go to find suppliers, you will go with one group you will choose, you have the shop group and the pharmacy group, with which one you want to go?''"
+6 = ""
+7 = "---"
+[choices]
+1 = [" Go with the shop group", "true", "C_2_s_1"]
+2 = [" Go with the pharmacy group", "true", "C_2_s_2"]
+[config]
+name = "C_1_s_3"
+type = "default"
+[content]
+1 = "Looking around him, Izydor find cars and trash cans, the cars are full of dust and moss, after some seconds of hesitation he search in the nauseating bins, but unfortunately their is nothing inside."
+2 = ""
+3 = "After another look Izydor find a door on the side of the building. This one seems to be the emergency exit, the door is metal but looks fragile, it must be rusty and nobody thought about fixing it. "
+4 = ""
+5 = "After a last look Izydor decide what the best option is."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Force the exit door", "true", "C_1_s_4"]
+2 = [" Enter inside the building", "true", "C_1_s_2"]
+[config]
+name = "C_1_s_4"
+type = "default"
+[content]
+1 = "Izydor touches the door in order to find the weak spots, after a minute of observation he moves back to build momentum and runs into the door with his shoulder, instantly the door breaks under his wheight. Izydor falls but quickly gets up afterwards."
+2 = ""
+3 = "It's dark inside Izydor can't see anything here."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Izydor turn-around and enter inside the building", "true", "C_1_s_2"]
+2 = [" Enter inside the building from the back door", "true", "C_1_s_5"]
+[config]
+name = "Great Page"
+type = "C_1_s_5"
+[content]
+1 = "Izydor decides to progress in the darkness beyond the exit door, entering the doors he finds himself in a tiny room with a metallic staircase in the back, by testing the staircase it seems that it is still in very good shape compared to the door but the stairs creak every time he takes a step, it's not very comforting."
+2 = ""
+3 = "Putting his doubts aside Izydor decides to..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Use the stairs", "true", "C_1_s_8"]
+[config]
+name = "C_1_s_6"
+type = "default"
+[content]
+1 = "Izydor walks down the hallway on the left, hospital beds are placed against the walls, blankets littered all over the floor on both sides of the hallway, everything seems so empty. Izydor tries to open the doors on each sides of the hallway but they're all blocked, Even if Izydor tries to force them, they don't move, so he keeps moving."
+2 = ""
+3 = "When Izydor arrives at the end of the corridor, he observes two half-open doors, above one is written 'toilet', approaching the other room and taking a brief look he sees a desk with storage.  "
+4 = ""
+5 = "---"
+[choices]
+1 = [" Go in the toilet", "true", "C_1_s_9"]
+2 = [" Go in the office", "true", "C_1_s_10"]
+[config]
+name = "C_1_s_7"
+type = "default"
+[content]
+1 = "Izydor walks in this small corridor, the walls are covered with a wallpaper of bad taste that seems to come off on each ends of the wall, on the ground Izydor can see puddles across the corridor."
+2 = ""
+3 = "Arriving in the middle of the corridor Izydor finds two identical doors on each side of the corridor..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Try the left door", "true", "C_1_s_12"]
+2 = [" Try the right door", "true", "C_1_s_11"]
+[config]
+name = "C_1_s_8"
+type = "default"
+[content]
+1 = "The air inside the second floor is oppressive, water drops reverberating on the decrepit walls and the sunlight lightening the floating dust particles. "
+2 = ""
+3 = "After a second of hesitation, Izydor explores the long corridor in front of Izydor, opening each door in the hopes of finding someone behind one of them. Suddenly he hears footsteps on the floor above him and decides to check what's going on. "
+4 = ""
+5 = "It seems Izydor wasn't alone here, inside the room where the sounds originated, he makes out two silhouettes: A massive one on the left and a feminine one on the right. "
+6 = ""
+7 = "---"
+[choices]
+1 = [" Attack the massive one to take him down", "true", "C_1_s_16"]
+2 = [" Knock on the door and greet them", "true", "C_1_s_13"]
+[config]
+name = "C_1_s_9"
+type = "default"
+[content]
+1 = "Izydor opens the bathroom door and sees someone in the back peeing, closing the door behind him, he walks towards the person."
+2 = ""
+3 = "The moment the door slams behind him, the person turns around and jumps when he sees Izydor, he quickly pulls up his pants and shouts at him, ''Who are you, where do you come from fucker ! Don't come near me if you don't want to get hurt.'' The person holds his hands on a baseball bat and holds it, ready to hit anyone in his way and threatens Izydor."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Where I'm from ? My farm... It's far from here", "true", "C_1_s_14"]
+2 = ["I'm looking for a doctor idiot. Stop insulting me", "true", "C_1_s_15"]
+[config]
+name = "C_2_s_1"
+type = "default"
+[content]
+1 = "After a 25 min walk, Izydor arrives in front of a supermarket, the city is exactly as the group had presented it."
+2 = ""
+3 = "The supermarket is located close to a subdivision which all seems more empty one than the other, cars are returned  over the place, the grass is tall in the gardens lying around Izydor, the nature seems to regain its rights."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Go in to find some supplies", "true", "C_2_s_9"]
+2 = [" Talk with Zenon", "true", "C_2_s_10"]
+3 = [" Talk with Stefan", "true", "C_2_s_11"]
+[config]
+name = "C_2_s_10."
+type = "default"
+[content]
+1 = "Zenon is a medium-sized man, bald and very athletic, he looks like a top athlete."
+2 = ""
+3 = "Izydor approaches Zenon and speaks to him, he replies with Kindness, that he would love to speak with Izydor but that time is running out, once at their camp they could talk without problems between them."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Try to know more about him", "true", "C_2_s_13"]
+2 = [" Go in to find some supplies", "true", "C_2_s_9"]
+3 = [" Talk with Stefan", "true", "C_2_s_11"]
+[config]
+name = "C_2_s_11"
+type = "default"
+[content]
+1 = "Stefan is a tall man, he is a bit old like Izydor, life has marked him too because his arms are strewn with cuts, a sign of a life of hard work."
+2 = ""
+3 = "Izydor approaches Stefan to talk to him ''it's nice to see someone of the same age, I hang out with young people here so it changes, you work in the land it shows immediately, we both have a similar work environment, I feel like we're going to get along.''"
+4 = ""
+5 = "---"
+[choices]
+1 = [" Try to know more about him", "true", "C_2_s_14"]
+2 = [" Go in to find some supplies", "true", "C_2_s_9"]
+3 = [" Talk with Zenon", "true", "C_2_s_10"]
+[config]
+name = "C_2_s_12"
+type = "default"
+[content]
+1 = "zydor pushes the door and finds behind it, a reserve of food there remain some large cans of Izydor takes them and asks for help to carry the rest."
+2 = ""
+3 = "The group congratulates him for his find, Zenon gives him a pat on the back as a symbol of thanks."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Leave the store", "true", "C_2_s_17"]
+[config]
+name = "C_2_s_13"
+type = "default"
+[content]
+1 = "Izydor decides to learn more about him, he asks him how his life was before the disaster."
+2 = ""
+3 = "Zenon replied ''my life before? I was a professional boxer in this city, I was going to be able to get to the national tournament, but unfortunately when the disaster happened, I saw all my colleagues die in front of me in my club, Since then I've been trying to protect the people in the band so it doesn't happen again.''"
+4 = ""
+5 = "---"
+[choices]
+1 = [" Go in to find some supplies", "true", "C_2_s_9"]
+2 = [" Talk with Stefan", "true", "C_2_s_11"]
+[config]
+name = "C_2_s_14"
+type = "default"
+[content]
+1 = "Izydor decides to learn more about him, he asks him how his life was before the disaster."
+2 = ""
+3 = "Stefan replied ''I used to live in the forest far enough away from here was throwing trapper I lived like you what, I hunted I farmed, but at some point my daughter got seriously ill so I went into town to stay with her and care for her, after you know the rest... the destruction of the city''"
+4 = ""
+5 = "---"
+[choices]
+1 = [" Go in to find some supplies", "true", "C_2_s_9"]
+2 = [" Talk with Zenon", "true", "C_2_s_10"]
+[config]
+name = "C_2_s_15"
+type = "default"
+[content]
+1 = "Izydor heard this, took out the syringe and used it on him. He felt his pain go away he observed his arm wound but it was still there, the wound infection continued, he had to find help quickly."
+2 = ""
+3 = "Once the syringe was used, Norbert entered the room and asked him if everything was okay, Izydor replied that yes, Norbert found something on the ground he stooped down to catch it, at which point Izydor saw in the bag what looked like syringes."
+4 = ""
+5 = "He asked himself..."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Steal the morphia", "true", "C_2_s_22"]
+2 = [" Leave the bag alone", "true", "C_2_s_23"]
+[config]
+name = "C_2_s_16"
+type = "default"
+[content]
+1 = "Izydor comes out of the small room and brings the syringe to the group, Norbert warmly thanks him, and Dagmara smiles at him for real, izydor is happy."
+2 = ""
+3 = "Norbert asked him if everything was okay, Izydor replied that yes, Norbert found something on the ground he stooped down to catch it, at which point Izydor saw in the bag what looked like syringes."
+4 = ""
+5 = "He asked himself..."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Steal the morphia", "true", "C_2_s_22"]
+2 = [" Leave the bag alone", "true", "C_2_s_23"]
+[config]
+name = "C_2_s_17"
+type = "default"
+[content]
+1 = "After having recovered the last resources Izydor joins the group that meets to make an inventory of the recovered things, Izydor watches them talk a little remembering his old life before joining them."
+2 = ""
+3 = "Norbert spoke ''Okay we had a good harvest and a good pair of extra arms'', he said looking at you, ''we will now go towards the base, so be careful we stay together and we do not go through the territory of the reds understood!''."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Follow them", "true", "C_2_s_18"]
+[config]
+name = "C_2_s_18"
+type = "default"
+[content]
+1 = "The group walks silently together, he takes a path that Izydor never took, for him it is a journey into uncharted territory."
+2 = ""
+3 = "Izydor contemplates the extent of the damage inflicted by the disaster in recent years, the houses are completely destroyed while others still seem inhabited by people."
+4 = ""
+5 = "Izydor thinks at home on his farm that he left and that he may never find again, thinking Izydor notices that the group slows down and approaches a building still in good condition."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Follow them", "true", "C_2_s_19"]
+[config]
+name = "C_2_s_19"
+type = "default"
+[content]
+1 = "Izydor enters the buildings, people he does not know are inside, he always follows the group that goes up the stairs and arrives in a large room where about ten people are placed, From the mattresses on the floor to the tents inside, this place looks more like a homeless camp than has a base for Izydor."
+2 = ""
+3 = "Once in the center of the room Norbert stops, he asks everyone to gather around him and speaks, 'We have come back from our expedition with good news, we have found food and medicines that can be used to treat our wounded, but not that, we have also brought someone we found who has helped us with it, I'll let him introduce himself to you '' Norbert waves to Izydor."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Izydor present himself politely", "true", "C_2_s_20"]
+2 = [" Izydor present himself rudely ", "true", "C_2_s_21"]
+[config]
+name = "C_2_s_2"
+type = "default"
+[content]
+1 = "After a 30 min walk, Izydor arrives in front of a drug store, the city is exactly as the group had presented it."
+2 = ""
+3 = "The drug store is located in a district with houses which all seems more empty one than the other, no cars at the horizon, the grass is dead near Izydor, the nature seems to die just like the city."
+4 = ""
+5 = "After contemplating you walk toward the entrance of the drug store, two people of the group are with you; Norbert and Dagmara."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Go in to find some supplies", "true", "C_2_s_3"]
+2 = [" Talk with Norbert", "true", "C_2_s_6"]
+3 = [" Talk with Dagmara", "true", "C_2_s_5"]
+[config]
+name = "C_2_s_20"
+type = "default"
+[content]
+1 = "Izydor presents himself nicely, explains that he comes from far away from a farm, that he knows how to cultivate a lot of thing and that he will be useful to the group in all circumstances."
+2 = ""
+3 = "The group applauded and Norbert came to shake his hand, ''Bravo to you Izydor you are now part of our group will help us as much as we can then you also help us, now come I will show you around."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Visite the camp with Norbert", "true", "C_2_s_24"]
+[config]
+name = "C_2_s_21"
+type = "default"
+[content]
+1 = "Hi I'm Izydor, I'm here just because there's food or I don't care I'll leave when I have nothing to do here with you, where I come from you didn't care and I don't care about you so stay in our corner and it should be okay."
+2 = ""
+3 = "All the people around Izydor look at him shocked by his remarks, some give him very cold looks."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Apologise because you are tired and stressed", "true", "C_2_s_24"]
+2 = [" You hit the guard and try to escape", "true", "C_2_s_25"]
+[config]
+name = "C_2_s_22"
+type = "default"
+[content]
+1 = "Izydor leaning gently towards Norbert's bag and grabbed the 2 syringes discreetly, he quickly put them in his pockets and looks innocent so as not to arouse suspicion, happy with his steal, Izydor smiles."
+2 = ""
+3 = "---"
+[choices]
+1 = [" Leave the store", "true", "C_2_s_17"]
+[config]
+name = "C_2_s_23"
+type = "default"
+[content]
+1 = "Izydor tells himself not to steal what can be used for other people, he leaves Norbert's bag alone and thinks about the people they can save with it."
+2 = ""
+3 = "---"
+[choices]
+1 = [" Leave the store", "true", "C_2_s_17"]
+[config]
+name = "C_2_s_24"
+type = "default"
+[content]
+1 = "Norbert shows Izydor the camp, he shows him that everyone has his own private space even izydor, he shows him the storage of food or two guards are posted in front to avoid any attempted theft."
+2 = ""
+3 = "He shows her or has clean clothes where to shower and finally Izydor's private space, he is small but Izydor is happy to be able to rest a little, the trip weary, Norbert leaves him and tells him that everyone gets up at 8 am to work."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Let Izydor rest", "true", "C_2_s_27"]
+[config]
+name = "C_2_s_25"
+type = "default"
+[content]
+1 = "The guards jump on Izydor several, the master before he manages to get out of here, once on the ground Izydor looks in front of him and sees a foot rushing towards his head, knocking him out...."
+2 = ""
+3 = "---"
+[choices]
+1 = [" Next", "true", "C_2_s_26"]
+[config]
+name = "C_2_s_26"
+type = "default"
+[content]
+1 = "Izydor wakes up in a seedy room a metal door and in front of him, behind him two men look at him."
+2 = ""
+3 = "One of them said, ''We understand that finding out the world is screwed up is hard, but hitting someone to get away is not going to work, know that you're going on an expedition, it will be your last chance, if you screw it up we kill you understand? One of the guards slaps him and laughs. "
+4 = ""
+5 = "You have the choice You go with a team in the sewers or you go through the territory of the Russians, in both cases you have to find a bus then you better find it or you're dead!''"
+6 = ""
+7 = "---"
+[choices]
+1 = [" Go with the sewer team", "true", "C_3_s_1"]
+2 = [" Go with the red team", "true", "C_3_s_15"]
+[config]
+name = "C_2_s_27"
+type = "default"
+[content]
+1 = "Izydor decides to sleep to rest because the night is approaching and so that the wound does not get worse than already, he lies down on his bed and falls asleep almost instantly, in the night he dreams of his farm and his wife."
+2 = ""
+3 = "He is awakened by Norbert, he tells him that he hesitated to awaken him because he seems really tired, but two expeditions are preparing and he would like Izydor opposite to leave."
+4 = ""
+5 = "''You have the choice, the goal is to get a bus to get us to the airport together, we have 2 teams one will go into the sewers to avoid being seen and the other in the territory of the reds, Russian fanatics to pass discreetly, I want to know who you want to go with''"
+6 = ""
+7 = "---"
+[choices]
+1 = [" Go with the sewer team", "true", "C_3_s_1"]
+2 = [" Go with the red team", "true", "C_3_s_15"]
+[config]
+name = "C_2_s_29"
+type = "default"
+[content]
+1 = "Izydor enters a small room where part of the ceiling is collapsed, Izydor observes the sky that asombri, the day passes quickly when we run, he said to himself."
+2 = ""
+3 = "After searching, he finds nothing interesting, he leaves the room."
+4 = ""
+5 = "---"
+[choices]
+1 = ["Go in the left room", "true", "C_2_s_4"]
+[config]
+name = "C_2_s_3"
+type = "default"
+[content]
+1 = "You advance in the store, inside the shelves are overturned, the windows of the store are broken and the counters are destroying, people have visibly ransacked this store."
+2 = ""
+3 = "Izydor searches each floor in the hope of finding useful things, his patience ends up paying, he finds hidden under a shelf a care kit, Izydor takes it and gives it to the group who thanks him."
+4 = ""
+5 = "Looking more in the store you find two doors in the back."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Go in the left one", "true", "C_2_s_4"]
+2 = [" Go in the right one", "true", "C_2_s_29"]
+[config]
+name = "C_2_s_30."
+type = "default"
+[content]
+1 = "Izydor comes into the room, a horrible smell takes his nose, he finds in the room a corpse, obviously he's been dead for a while, he has a knife planted in the throat, Izydor thinks that he probably put an end to his life not to see the horror of this world."
+2 = ""
+3 = "Izydor doesn't stay in the room long and leaves because the smell is horrible."
+4 = ""
+5 = "---"
+[choices]
+1 = ["Leave the store", "true", "C_2_s_17"]
+[config]
+name = "C_2_s_4"
+type = "default"
+[content]
+1 = "You push the door and enter the room"
+2 = ""
+3 = "Inside is a small pharmacy, many things are broken in, it obviously fell, but miraculously izydor finds morphine in it. "
+4 = ""
+5 = "Behind him he hears Zenon asking him if he finds interesting things."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Tell him nothing and use the morphia on Izydor", "true", "C_2_s_15"]
+2 = [" Share the morphine with the group", "true", "C_2_s_16"]
+[config]
+name = "C_2_s_5"
+type = "default"
+[content]
+1 = "Dagmara is a woman obviously in her forties, she is of medium height with long black hair, she does not talk much even with people in the group."
+2 = ""
+3 = "Izydor approaches Dagmara and begins to try to talk to her, but She is quite withdrawn, she wears a big smile and replies to Izydor that they should focus on collecting supplies rather than chatting."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Try to know more about her", "true", "C_2_s_7"]
+2 = [" Go in to find some supplies", "true", "C_2_s_3"]
+3 = [" Talk with Norbert", "true", "C_2_s_6"]
+[config]
+name = "C_2_s_6"
+type = "default"
+[content]
+1 = "Norbert is a fairly young man, tall and fit with salient muscles and hair running brown, walls and very charismatic, he makes his decisions with thought."
+2 = ""
+3 = "Izydor comes up to Norbert to talk to him, ''so you haven't lived apart in the last year? You're lucky you didn't see any of the horrors that happened here, I don't trust you, but if you prove to me that I should then we should get along well, let's not hang around too much''."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Try to know more about him", "true", "C_2_s_8"]
+2 = [" Go in to find some supplies", "true", "C_2_s_3"]
+3 = [" Talk with Dagmara", "true", "C_2_s_5"]
+[config]
+name = "C_2_s_7"
+type = "default"
+[content]
+1 = "Izydor decides to learn more about her, he asks her how her life was before the disaster."
+2 = ""
+3 = "Dagmara Answers ''my life before? She was beautiful, I had a family I work in a hospital treated people, now I don't treat much anymore because everyone is almost dead, now let me go search ''."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Go in to find some supplies", "true", "C_2_s_3"]
+2 = [" Talk with Norbert", "true", "C_2_s_3"]
+[config]
+name = "C_2_s_8"
+type = "default"
+[content]
+1 = "Izydor decides to learn more about him, he asks him how his life was before the disaster."
+2 = ""
+3 = "Norbert replied, ''My life before? I wasn't much before the disaster, small jobs is all I did. I just know that now I have to lead this expedition to find things useful for the survival of the group and you should do the same.''"
+4 = ""
+5 = "---"
+[choices]
+1 = [" Go in to find some supplies", "true", "C_2_s_3"]
+2 = [" Talk with Dagmara", "true", "C_2_s_5"]
+[config]
+name = "C_2_s_9"
+type = "default"
+[content]
+1 = "You advance in the store, inside the shelves are almost all empty, it seems that people are already going through here with the same idea as the group."
+2 = ""
+3 = "Some plant grows inside thanks to the weak light coming from the breaks of the fragile roof of the store."
+4 = ""
+5 = "Izydor searches for a while and ends up finding good-looking tins, he grabs them and puts them in his bag, by closing his bag Izydor find two doors."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Go in the left one", "true", "C_2_s_12"]
+2 = [" Go in the right one", "true", "C_2_s_30"]
+[config]
+name = "C_3_s_1"
+type = "default"
+[content]
+1 = "Early in the morning, the group of survivor decided to go through the sewer to avoid the Red Territory and go straight to the city center from the underground."
+2 = ""
+3 = "The team opened the manhole at the center of the road and entered inside a giant and wet stone circular tunel..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Walk in silence", "true", "C_3_s_3"]
+2 = [" Talk to the group", "true", "C_3_s_2"]
+[config]
+name = "C_3_s_10"
+type = "default"
+[content]
+1 = "Izydor and the group are eating the cat."
+2 = ""
+3 = "The group wants to thank Izydor with a morphia shot..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Accept and use", "true", "C_3_s_12_use"]
+2 = [" Accept and keep", "true", "C_3_s_12_keep"]
+3 = [" Refuse", "true", "C_3_s_12_refuse"]
+[config]
+name = "C_3_s_11"
+type = "default"
+[content]
+1 = "Izydor goes back help Dagmara."
+2 = "The group waits for the two near the sewer exit, hoping for their safety at the end of the dark tunnel."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Carry Dagmara's bag and run with her", "true", "C_3_s_12_bag"]
+2 = [" Talk her bad", "true", "C_3_s_13"]
+3 = [" Leave together", "true", "C_3_s_12_together"]
+[config]
+name = "C_3_s_12"
+type = "default"
+[content]
+1 = "The group is safe outside this creepy sewer and have now reached the city center."
+2 = ""
+3 = "This run was short but exhaustive !"
+4 = ""
+5 = "---"
+[choices]
+1 = [" Continue", "true", "C_4_s_1"]
+[config]
+name = "C_3_s_13"
+type = "default"
+[content]
+1 = "Izydor argues against Dagmara about her mistakes."
+2 = "We can feel the rage inside the grandpa growing and growing over time."
+3 = ""
+4 = "His mind is about to break..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Try to calm down and leave", "true", "C_3_s_12"]
+2 = [" Beat Dagmara and leave her behind", "true", "C_3_s_14"]
+[config]
+name = "C_3_s_14"
+type = "default"
+[content]
+1 = "Izydor exits the dark tunnel alone."
+2 = "He explain that Dagmara wanted to take a rest and will join them later."
+3 = ""
+4 = "The group are on the other side of the river and have to cross the bridge, but a troop of the Rosyjski show up..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Continue", "true", "C_3_s_31"]
+[config]
+name = "C_3_s_15"
+type = "default"
+[content]
+1 = "Early in the morning, the group of survivor decided to move near the river close to the Red Territory and go straight to the city center from this territory border, passing by a train station surrounded by residential houses."
+2 = ""
+3 = "The group walk in silence through the residential street, but while watching behind him Izydor notice that Dagmara is missing..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Look for Dagmara", "true", "C_3_s_16"]
+2 = [" Continue to walk in silence", "true", "C_3_s_17"]
+[config]
+name = "C_3_s_16"
+type = "default"
+[content]
+1 = "Izydor is looking for Dagmara near the abbandoned houses and hear some noises in the background gardens."
+2 = "Fearless he checks the areas and find her bag on the ground with bloodstains all over the areas..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Loot the bag", "true", "C_3_s_19"]
+2 = [" Run away", "true", "C_3_s_18"]
+3 = [" Look for Dagmara", "true", "C_3_s_20"]
+[config]
+name = "C_3_s_17"
+type = "default"
+[content]
+1 = "The group continues walking down the street until the river's coast."
+2 = "They are now following the river to the North, and an island will appear and mark the position of the city center."
+3 = ""
+4 = "They are now approaching the city's train station..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Continue to walk in silence", "true", "C_3_s_26"]
+2 = [" Walk and share vodka", "c_vodka", "C_3_s_25"]
+3 = [" Izydor drinks the vodka alone", "c_vodka", "C_3_s_24"]
+[config]
+name = "C_3_s_18"
+type = "default"
+[content]
+1 = "Izydor runs away the crime scene and head back to the group."
+2 = "They are asking him what happened..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Tell the truth", "true", "C_3_s_21"]
+2 = [" Lie about Dagmara", "c_bad", "C_3_s_22"]
+[config]
+name = "C_3_s_19"
+type = "default"
+[content]
+1 = "He approaches carefully the bag, expecting an imminent trap but nothing happens."
+2 = ""
+3 = "Izydor take a morphia shot out of the bag, and now head back to the group."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Tell the truth about Dagmara", "true", "C_3_s_21"]
+2 = [" Lie about Dagmara", "c_bad", "C_3_s_22"]
+[config]
+name = "C_3_s_2"
+type = "default"
+[content]
+1 = "Izydor and the group's cook were talking about the moist of the tunnel, the mushroom that are groing there are potentially edible... But who would taste them first ?"
+2 = ""
+3 = "The group continues their long travel inside this stone maze..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Offer homemade potato vodka", "true", "C_3_s_5"]
+2 = [" Continue to follow the group", "true", "C_3_s_4"]
+[config]
+name = "C_3_s_20"
+type = "default"
+[content]
+1 = "In the back of the garden, near the root of a tree Izidor distinguishes something that look like a hand..."
+2 = ""
+3 = "After coming closer and closer he recognize Dagmara's body, she is alive but wounded."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Help Dagmara and spead vodka on her wounds", "c_vodka", "C_3_s_23_vodka"]
+2 = [" Help Dagmara and give her a shot of morphia", "c_morphia", "C_3_s_23_morphia"]
+3 = [" Leave her there and lie to the group", "c_bad", "C_3_s_22"]
+[config]
+name = "C_3_s_21"
+type = "default"
+[content]
+1 = "Back to the group Izydor explain that he found Dagmara's bag on the ground surrounded by bloodstains and no trace of her."
+2 = ""
+3 = "They decided to continue the walk to the river."
+4 = "They are now walking along the river nearby the train station."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Share homemade vodka", "c_vodka", "C_3_s_25"]
+2 = [" Walk in silence", "true", "C_3_s_26"]
+3 = [" Izydor drinks the vodka alone", "c_vodka", "C_3_s_24"]
+[config]
+name = "C_3_s_22"
+type = "default"
+[content]
+1 = "Izydor tells to the group that Dagmara wasn't feeling well and went back to the camp."
+2 = ""
+3 = "They decided to continue the walk to the river."
+4 = "They are now walking along the river nearby the train station."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Share homemade vodka", "c_vodka", "C_3_s_25"]
+2 = [" Walk in silence", "true", "C_3_s_26"]
+3 = [" Izydor drink the vodka alone", "c_vodka", "C_3_s_24"]
+[config]
+name = "C_3_s_23"
+type = "default"
+[content]
+1 = "Dagmara's comes back with Izydor helping her to walk, she is wounded but continues the walk."
+2 = ""
+3 = "She explain that they have to move fast, troubles are in the way if they don't move faster."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Ask help to move Dagmara", "true", "C_3_s_30"]
+2 = [" Carry Dagmara alone", "true", "C_3_s_27"]
+[config]
+name = "Great Page"
+type = "default"
+[content]
+1 = "Izydor drinks down one of his bottles of potato vodka."
+2 = "He starts to talk about his years of being a farmer in his quiet farm far from everything."
+3 = "Then bragging about his unique alcohol recipe."
+4 = ""
+5 = "---"
+[choices]
+1 = [" A troop of the Rosyjski spotted you!", "true", "C_3_s_28"]
+[config]
+name = "C_3_s_25"
+type = "default"
+[content]
+1 = "Izydor decides to share his potato vodka with everybody."
+2 = "They take a little break at the north of the train station, chit-chatting about their lifes."
+3 = ""
+4 = "---"
+[choices]
+1 = [" A troop of the Rosyjski spotted you!", "true", "C_3_s_28"]
+[config]
+name = "C_3_s_26"
+type = "default"
+[content]
+1 = "The group continues to walk in silence."
+2 = "Passing by the train station, and the deserted residential area."
+3 = ""
+4 = "No body is talking about Dagmara's strange disappearence..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Reach the city center", "true", "C_3_s_37"]
+[config]
+name = "C_3_s_27"
+type = "default"
+[content]
+1 = "Izydor decide to carry alone Dagmara, he grab and hold her like a princess and mentions it to her in a humiliating tone."
+2 = ""
+3 = "---"
+[choices]
+1 = [" Use morphia", "c_morphia", "C_3_s_39_morphia"]
+2 = [" Suffer", "true", "C_3_s_29"]
+[config]
+name = "C_3_s_28"
+type = "default"
+[content]
+1 = "In few seconds the group gets surrounded by the Rosyjski troops aiming guns at you, yelling at you to freeze."
+2 = ""
+3 = "They have no choice to wait and cooperate."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Wait", "true", "C_3_s_31"]
+[config]
+name = "C_3_s_29"
+type = "default"
+[content]
+1 = "In few seconds the group gets surrounded by the Rosyjski troops aiming guns at you, yelling at you to freeze."
+2 = ""
+3 = "They have no choice to wait and cooperate."
+4 = "Dagmara doesn't seem to feel well."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Cover Dagmara", "true", "C_3_s_35"]
+2 = [" Do nothing", "true", "C_3_s_34"]
+[config]
+name = "C_3_s_3"
+type = "default"
+[content]
+1 = "Everybody is walking in silence, we can only hear the group's footsteps hitting the puddle on the ground, see the lightray of the morning sun through the manholes and some creepy resonant noises deep inside the tunnels."
+2 = ""
+3 = "The group continue their long travel inside this stone maze..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Offer homemade potato vodka", "true", "C_3_s_5"]
+2 = [" Continue to follow the group", "true", "C_3_s_6"]
+[config]
+name = "C_3_s_30"
+type = "default"
+[content]
+1 = "Back to the group, Izydor is asking for help to carry Dagmara."
+2 = ""
+3 = "They all continue walking, passing by the train station."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Continue and walk in silence", "true", "C_3_s_39"]
+2 = [" Share vodka during this cooperative walk", "c_vodka", "C_3_s_29_vodka"]
+3 = [" Ask more questions to Dagmara", "true", "C_3_s_29"]
+[config]
+name = "C_3_s_31"
+type = "default"
+[content]
+1 = "The Rosyjski troops don't seem friendly and keep aiming their guns at the group."
+2 = ""
+3 = "The group try to negotiate with the troops a free pass..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Give all the morphia shots", "c_morphia", "C_3_s_37_giveall"]
+2 = [" Give potato vodka bottle", "c_vodka", "C_3_s_32_vodka"]
+3 = [" Do nothing", "true", "C_3_s_32"]
+[config]
+name = "C_3_s_32"
+type = "default"
+[content]
+1 = "The Russians troop aren't satisfied and got irritated by the survivors."
+2 = "They are getting hostile."
+3 = ""
+4 = "The group start to run for their lives..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Run through the residential area", "true", "C_3_s_37"]
+2 = [" Run along the river side", "true", "C_3_s_33"]
+[config]
+name = "C_3_s_33"
+type = "default"
+[content]
+1 = "During the run toward the river Norbert gets shot and falls behind while the rest of the group is far ahead the train station."
+2 = "The screams and bullet rain stop after a while..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Go save Norbert", "true", "C_3_s_36"]
+2 = [" Leave him away", "true", "C_3_s_40"]
+[config]
+name = "C_3_s_34"
+type = "default"
+[content]
+1 = "While being threatened by the Rosyjski, they start to talk together and keep starring at Dagmara."
+2 = ""
+3 = "They scream at him, search her and after seeing their wound, the rest of the group suddenly hears a loud blast followed by a thud, they executed her without a warning..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Hold Norbert from doing a mistake", "true", "C_3_s_37_hold"]
+2 = [" Use Norbert as a diversion to run away", "true", "C_3_s_40"]
+[config]
+name = "C_3_s_35"
+type = "default"
+[content]
+1 = "The russians are looking at the group and Izydor push Dagmara back to cover her to hide her wound from them."
+2 = ""
+3 = "The group tries to negotiate with the troops a free pass..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Give all the morphia shot", "c_morphia", "C_3_s_39_giveall"]
+2 = [" Give potato vodka bottle", "c_vodka", "C_3_s_39_vodka"]
+3 = [" Do nothing", "true", "C_3_s_38"]
+[config]
+name = "C_3_s_36"
+type = "default"
+[content]
+1 = "Izydor turn back and run toward Norbert."
+2 = "He reach him/her and..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Give him a morphia shot and help", "c_morphia", "C_3_s_37_morphia"]
+2 = [" Decide to leave him", "true", "C_3_s_40"]
+[config]
+name = "C_3_s_37"
+type = "default"
+[content]
+1 = "The group is now safe and have reached the city center."
+2 = ""
+3 = "This run was short but exhaustive !"
+4 = "The group unfortunatly lost Dagmara."
+5 = ""
+6 = "A hord of creepy and lamenting people apear, they are covered by blood and some of their body parts are missing..."
+7 = ""
+8 = "---"
+[choices]
+1 = [" Continue", "true", "C_4_s_20"]
+[config]
+name = "C_3_s_38"
+type = "default"
+[content]
+1 = "The group waits infront of the hostile Russians that something unexpected happens but nothing happens."
+2 = ""
+3 = "Izydor decides to..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Make a bad joke", "true", "C_3_s_39"]
+2 = [" Ask help for Dagmara's wound", "true", "C_3_s_37"]
+[config]
+name = "C_3_s_39"
+type = "default"
+[content]
+1 = "The group managed to survive and reach the city center."
+2 = "Dagmara doesn't feel good but is still able to lead the group to the bus."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Continue", "true", "C_4_s_35"]
+[config]
+name = "C_3_s_4"
+type = "default"
+[content]
+1 = "The group chosen to go in the left incoming creepy path where the resonating noises scale up."
+2 = ""
+3 = "After few seconds you encounter an orange stray cat rubbing around the peoples legs, seeking for affection and probably spare food..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Feed the cat with left over food and continue your travel", "true", "C_3_s_12_gcat"]
+2 = [" Izydor is hungry too. Grill that cat", "true", "C_3_s_7"]
+[config]
+name = "C_3_s_40"
+type = "default"
+[content]
+1 = "The group had many losses but finally they reach the city center."
+2 = ""
+3 = "The gunshots attracted a hord of creepy and lamenting people, they are covered by blood and some of their body parts are missing..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Continue", "true", "C_4_s_9"]
+[config]
+name = "C_3_s_5"
+type = "default"
+[content]
+1 = "Izydor needs a break, he stops everybody and shares with them his special homemade potato vodka."
+2 = ""
+3 = "Bragging about the uniqueness of its recipe, he doesn't forget to brag the medicinal merites of it, assuming that it can cure anything in one shot"
+4 = ""
+5 = "The group is moving again letting you lead the way..."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Izydor chooses the left creepy path", "true", "C_3_s_4"]
+2 = [" Izydor chooses the right path", "true", "C_3_s_6"]
+[config]
+name = "C_3_s_6"
+type = "default"
+[content]
+1 = "During the walk a weird silhouette can be noticed in the shadows."
+2 = ""
+3 = "The more the group walks the better you distinguish the shape of this dark mass: There is the dead body of a soldier, judging the decomposition state and the surrounding terrible smell, he's been there since a year."
+4 = ""
+5 = "You can notice a sort of paper rising from his coat pocket..."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Take the paper and read it", "true", "C_3_s_8"]
+2 = [" Leave the dead body alone", "true", "C_3_s_9"]
+[config]
+name = "C_3_s_7"
+type = "default"
+[content]
+1 = "Izydor takes the stray cat in his hands, doing some gentle caresses."
+2 = "Then, he breaks it's neck like a dry branch infront the shocked eyes of the group."
+3 = ""
+4 = "After setting up a fast makeshift fire with some of his clothes, he grills the cat..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Izydor eats the whole cat alone", "true", "C_3_s_12_bcat"]
+2 = [" Izydor shares the cat with everybody", "true", "C_3_s_10"]
+[config]
+name = "C_3_s_8"
+type = "default"
+[content]
+1 = "Plunging his hands inside the moist dead body and moving away its coat, Izydor finds a letter."
+2 = ""
+3 = "This letter is about a scientific doing illegal researches to make super-soldiers, but something unexpected happened."
+4 = ""
+5 = "The letter is signed by Dagmara Doktor."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Continue the walk", "true", "C_3_s_9"]
+[config]
+name = "C_3_s_9"
+type = "default"
+[content]
+1 = "After few minutes in the tunnel, something is approaching the group fast, the sound of another group running in the puddles can be heard by Izydor's group."
+2 = ""
+3 = "It cannot be the rest of the survivor's camp, so the group decides to run as fast as possible."
+4 = ""
+5 = "But during the run Dagmara falls behind..."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Leave without her", "true", "C_3_s_14"]
+2 = [" Help her to get up", "true", "C_3_s_11"]
+[config]
+name = "C_4_s_1"
+type = "default"
+[content]
+1 = "Izydor and the group took the direction of the east with the bus from the city center. Dagmara is a good driver and ask to Izydor to read the map and lead the way to the airport."
+2 = ""
+3 = "At the next branch..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Turn left", "true", "C_4_s_3"]
+2 = [" Turn right", "true", "C_4_s_2"]
+[config]
+name = "C_4_s_10"
+type = "default"
+[content]
+1 = "After hitting several monsters, Izydor lost the control of the bus and crash it on a car wreck."
+2 = "Few seconds after, monsters start to surround the bus, making the exit not possible..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Craft a molotov with the vodka left", "c_vodka", "C_4_s_11"]
+2 = [" Stay inside the bus", "true", "C_4_s_13"]
+[config]
+name = "C_4_s_11"
+type = "default"
+[content]
+1 = "Izydor fail the throw of the molotov and burn alive everybody in the bus."
+2 = ""
+3 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_12"
+type = "default"
+[content]
+1 = "He is now drunk and still driving the bus."
+2 = "The next branch..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Turn left", "true", "C_4_s_16"]
+2 = [" Turn right", "true", "C_4_s_10"]
+[config]
+name = "C_4_s_13"
+type = "default"
+[content]
+1 = "The group decide to stay inside the bus, while the quantity of monster around it keep growing and growing..."
+2 = ""
+3 = "---"
+[choices]
+1 = [" Sacrifice someone of the group", "true", "C_4_s_14"]
+2 = [" Shot of morphia and go fight", "c_morphia", "C_4_s_15"]
+[config]
+name = "C_4_s_14"
+type = "default"
+[content]
+1 = "Izydor take the first person infront him and use it as a shield to protect himself outside the bus."
+2 = "Unfortunately this terrible idea fail and Izydor get killed aswell."
+3 = ""
+4 = "At the same time the monster entered inside the bus killing the last member of the group alive."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_15"
+type = "default"
+[content]
+1 = "Izydor take a shot of morphia and go outside fight the monsters to create a safe path for the group."
+2 = ""
+3 = "It was an heroic idea but it failed."
+4 = "The group starved to death inside the bus after few days."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_16"
+type = "default"
+[content]
+1 = "Surprisingly, Izydor keep the good control of the bus and manage to lead the group to the airport, ready to take the next departure."
+2 = ""
+3 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_17"
+type = "default"
+[content]
+1 = "After few minute, he decide to simulate an engine failure and stop the bus."
+2 = "He lead the group to the nearest abbandoned house to take a rest for the night and repair the bus tomorrow..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Pretend repair tomorrow and go", "c_bad", "C_4_s_19"]
+2 = [" Steal the bus during the night", "true", "C_4_s_18"]
+[config]
+name = "C_4_s_18"
+type = "default"
+[content]
+1 = "Tomorrow's morning Izydor pretended to repair the bus and the group took the road back."
+2 = "He lead them to the airport ready to wait the next departure."
+3 = ""
+4 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_19"
+type = "default"
+[content]
+1 = "During the night, he woke up and took all the bags of the group and bus for himself leaving the rooms door wide open."
+2 = "Izydor used the bus to go back with all the group resources at home."
+3 = ""
+4 = "This was pure evil, he couldn't stop laugthing while driving..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_2"
+type = "default"
+[content]
+1 = "The right road was clear, and the travel smooth."
+2 = "The group arrived to the airport that is surrounded by a massive hordes of monsters."
+3 = ""
+4 = "They manage to find a safe entrance to join the next departure."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_20"
+type = "default"
+[content]
+1 = "The horde of creepy people are heading toward the bus."
+2 = "The group is now inside the bus surrounded by these monsters..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Norbet drive", "true", "C_4_s_24"]
+2 = [" Izydor drive", "true", "C_4_s_21"]
+[config]
+name = "C_4_s_21"
+type = "default"
+[content]
+1 = "Izydor take the control of the bus, they are still surrounded by monsters but manage to leave the city center."
+2 = "After few minutes they encounter monsters on the road..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Drink potato vodka", "c_vodka", "C_4_s_22"]
+2 = [" Hit monsters with the bus", "true", "C_4_s_25"]
+3 = [" Simulate an engine failure", "c_bad", "C_4_s_17"]
+[config]
+name = "C_4_s_22"
+type = "default"
+[content]
+1 = "He is now drunk and still driving the bus, but start to struggle to keep himself awake."
+2 = ""
+3 = "---"
+[choices]
+1 = [" Fell asleep", "true", "C_4_s_23"]
+[config]
+name = "C_4_s_23"
+type = "default"
+[content]
+1 = "Norbert reacted quickly when Izydor felt asleep and managed to stop the bus without any accident."
+2 = "He is now driving the bus leading the group to the airport."
+3 = ""
+4 = "The group miss Dagmara but she will be remembered."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_24"
+type = "default"
+[content]
+1 = "Norbert take the control of the bus and ask to Izydor to carry the road map to lead them to the airport."
+2 = ""
+3 = "The road is full of car wreck but Norbert is a good driver but he has to dodge a lot of them."
+4 = "The next branch they..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Turn left", "true", "C_4_s_25"]
+2 = [" Turn right", "true", "C_4_s_34"]
+[config]
+name = "C_4_s_25"
+type = "default"
+[content]
+1 = "After few minutes on that crazy driving, he looses the control of the bus and crash it on a wreck."
+2 = ""
+3 = "The smell of gas start to spread in the bus."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Wait inside the bus", "true", "C_4_s_26"]
+2 = [" Run to the nearest house", "true", "C_4_s_27"]
+[config]
+name = "C_4_s_26"
+type = "default"
+[content]
+1 = "The bus explode killing everybody."
+2 = "There is no survivor left."
+3 = ""
+4 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_27"
+type = "default"
+[content]
+1 = "After exploding the bus attract a massive horde of monsters."
+2 = "The group managed to enter inside an abbandoned house but are now stuck inside."
+3 = ""
+4 = "Izydor is feeling heroic."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Last Stand", "true", "C_4_s_28"]
+[config]
+name = "C_4_s_28"
+type = "default"
+[content]
+1 = "He decide to sacrifice himself to let the group live, and full of rage he shower himself with his vodka and drink the left-overs dry ass, and all his remaining morphia shots."
+2 = ""
+3 = "He goes outside the house, screaming, ready to do a massacre..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" One slap the monsters one by one", "true", "C_4_s_29"]
+2 = [" Run at the middle of the monster horde", "true", "C_4_s_31"]
+[config]
+name = "C_4_s_29"
+type = "default"
+[content]
+1 = "He is so enraged and powerfull that he explode the heads of the monsters just with one slap."
+2 = ""
+3 = "But there is too much of them and they are outnumbering him..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Continue slapping", "true", "C_4_s_30"]
+[config]
+name = "C_4_s_3"
+type = "default"
+[content]
+1 = "The left road was jammed with wrecked cars... Dagmara hit one of them and start to loose the control of the bus that crash into a wreck."
+2 = ""
+3 = "The group decide to spend the night inside the nearest abbandoned house."
+4 = "The morning, the area is full of monsters..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Izydor sacrifice himself to allow the group to repair the bus", "c_good", "C_4_s_8"]
+2 = [" Izydor start to fist fight the monsters", "true", "C_4_s_4"]
+[config]
+name = "C_4_s_30"
+type = "default"
+[content]
+1 = "The horde manage to defeat this strong and anraged beast."
+2 = "The group still hiding inside the house won't make it out."
+3 = ""
+4 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_31"
+type = "default"
+[content]
+1 = "Izydor run at the middle of the horde, and continue to scream."
+2 = "After getting surrounded he..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Set himself on fire", "true", "C_4_s_33"]
+2 = [" Punch the monsters", "true", "C_4_s_32"]
+[config]
+name = "C_4_s_32"
+type = "default"
+[content]
+1 = "He is so enraged and powerfull that he explode the heads of the monsters just with one punch."
+2 = ""
+3 = "But there is too much of them and they are outnumbering him..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Continue the punch rain", "true", "C_4_s_30"]
+[config]
+name = "C_4_s_33"
+type = "default"
+[content]
+1 = "He immolate himself and hope that the monsters get burnt with him."
+2 = "This gave enough distraction to let the survivor group to escape."
+3 = ""
+4 = "They ran away toward the airport."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_34"
+type = "default"
+[content]
+1 = "Norbert is a good driver, the road was clear, and the travel smooth."
+2 = "The group arrived to the airport that is surrounded by a massive hordes of monsters."
+3 = ""
+4 = "They manage to find a safe entrance to join the next departure."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_35"
+type = "default"
+[content]
+1 = "Dagmara is too weak to drive the bus so Norbert take control of the bus and ask to Izydor to keep eyes on the road map."
+2 = ""
+3 = "At the next branch they..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Turn left", "true", "C_4_s_36"]
+2 = [" Turn right", "true", "C_4_s_47"]
+[config]
+name = "C_4_s_36"
+type = "default"
+[content]
+1 = "The left road was jammed with wrecked cars... Norbert hit one of them and start to loose the control of the bus that crash into a wreck."
+2 = ""
+3 = "The group decide to spend the night inside the nearest abbandoned house..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Izydor sleep inside the bus alone", "true", "C_4_s_38"]
+2 = [" Izydor sleep with the group inside the house", "true", "C_4_s_37"]
+[config]
+name = "C_4_s_37"
+type = "default"
+[content]
+1 = "During the night Dagmara died and turned into a monster."
+2 = "Everybody were still asleep and got killed by Dagmara."
+3 = ""
+4 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_38"
+type = "default"
+[content]
+1 = "Izydor decide to sleep inside the bus alone, pretending to keep an eye on the bus."
+2 = "Everybody agreed that nobody would try to steal a bus from him."
+3 = ""
+4 = "But he was feeling uncomfortable with Dagmara since he found her wounded."
+5 = ""
+6 = "The next day morning..."
+7 = ""
+8 = "---"
+[choices]
+1 = [" He repair the bus and leave alone", "true", "C_4_s_39"]
+2 = [" He repair and goes to wake up the group", "true", "C_4_s_40"]
+3 = [" He goes to meet the group inside the house", "true", "C_4_s_42"]
+[config]
+name = "C_4_s_39"
+type = "default"
+[content]
+1 = "Izydor repair the bus and leave."
+2 = "He don't care about the group he prefered to go back to its farm."
+3 = ""
+4 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_4"
+type = "default"
+[content]
+1 = "The group repaired the bus, but Izydor is still fighting the monsters."
+2 = "He is wounded but still fighting them..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Ask for help", "c_good", "C_4_s_5"]
+2 = [" Don't ask for help", "c_bad", "C_4_s_6"]
+3 = [" Ask them to wait you", "true", "C_4_s_7"]
+[config]
+name = "C_4_s_40"
+type = "default"
+[content]
+1 = "Izydor repair the bus, then go to the abbandoned house to wake up his mates."
+2 = "When he open the door he notice that everybody turned into monsters and they are now running toward him..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Use a shot of morphia and punch them", "c_morphia", "C_4_s_44"]
+2 = [" Punch them", "true", "C_4_s_43"]
+3 = [" Run back to the bus and leave", "true", "C_4_s_41"]
+[config]
+name = "C_4_s_41"
+type = "default"
+[content]
+1 = "He ran back to the bus and leave the area."
+2 = "The moving dead bodies of it's mates were dissapearing at the horizon."
+3 = ""
+4 = "He decided to go back to it's farm."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_42"
+type = "default"
+[content]
+1 = "Izydor wake up inside the bus, it's a beautiful and sunny morning."
+2 = "He comes infront the door and heard weird snoring."
+3 = ""
+4 = "When he open the door his mates turned into monster and start running toward him..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Punch them", "true", "C_4_s_43"]
+2 = [" Use a shot of morphia and punch them", "c_morphia", "C_4_s_44"]
+[config]
+name = "C_4_s_43"
+type = "default"
+[content]
+1 = "He try to fist fight the monsters, but they outpower him and kill him."
+2 = ""
+3 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_44"
+type = "default"
+[content]
+1 = "He is now powered up and destroy the monsters with a single punch."
+2 = ""
+3 = "---"
+[choices]
+1 = [" Continue punching", "true", "C_4_s_45"]
+2 = [" Use more morphia", "c_morphia", "C_4_s_46"]
+[config]
+name = "C_4_s_45"
+type = "default"
+[content]
+1 = "Izydor destroyed the monsters with his migthy punches."
+2 = "Blood and guts fill the room."
+3 = ""
+4 = "He take the group's ressources, repair the bus and goes back to its farm."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_46"
+type = "default"
+[content]
+1 = "Izydor made a morphia overdose by taking too much shot during the fight."
+2 = ""
+3 = "Everybody died."
+4 = ""
+5 = "---"
+[choices]
+1 = ["The End", "true", "recap"]
+[config]
+name = "C_4_s_47"
+type = "default"
+[content]
+1 = "During the travel, Dagmara quietly turn into a monster and no one noticed it."
+2 = "She started to attack, in the panic Norbert looses the control of the bus and crash it."
+3 = ""
+4 = "Everybody died."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_5"
+type = "default"
+[content]
+1 = "Izydor is screaming for help and with no hesitation Norbert join the fight and save him."
+2 = "The two managed to push away the monsters and get back inside the bus."
+3 = ""
+4 = "They are now heading to the airport."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_6"
+type = "default"
+[content]
+1 = "The pridefull Izydor don't ask for help and let the group of survivor leaving without him, thinking he could care of the monster by himself."
+2 = "He died alone and will be remembered as a drunk peasant addicted to the morphia."
+3 = ""
+4 = "The group of survivor are now heading to the airport."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The end", "true", "recap"]
+[config]
+name = "C_4_s_7"
+type = "default"
+[content]
+1 = "Asking them to wait him, Izydor still struggle to push away the monsters."
+2 = "During that fight, one of them sneaked into the bus creating the chaos and made the group of survivor crash the bus again."
+3 = ""
+4 = "Everybody died."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]
+[config]
+name = "C_4_s_8"
+type = "default"
+[content]
+1 = "Izydor sacrifice himself to let the survivor group to repair and leave with the bus, by using his own body as a giant bait for the monsters."
+2 = ""
+3 = "He will be remembered as a hero that saved many lives this day."
+4 = ""
+5 = "---"
+[choices]
+1 = [" The end", "true", "recap"]
+[config]
+name = "C_4_s_9"
+type = "default"
+[content]
+1 = "Izydor take the control of the bus, they are still surrounded by monsters but manage to leave the city center."
+2 = "After few minutes they encounter monsters on the road..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Drink potato vodka", "c_vodka", "C_4_s_12"]
+2 = [" Hit monsters with the bus", "true", "C_4_s_10"]
+3 = [" Simulate an engine failure", "c_bad", "C_4_s_17"]
 [config]
 name = "Condition Example"
 type = "default"
@@ -71,6 +1970,20 @@ explanation_a = "In this page 3 choice are available but only one can work due t
 choice_a = ["Choice A", "false", "start"]
 choice_b = ["Choice B", "have_done_data_page", "final"]
 choice_c = ["Choice C", "true", "data"]
+[config]
+name = "CREDIT"
+type = "default"
+[content]
+1 = "This game was made by :"
+2 = "BIDARD Colin, TOSONI Sylvain, FRANCO Alexi, DERDERIAN Niels."
+3 = ""
+4 = "Student of Bellecour Ecole, France."
+5 = ""
+6 = "Izydor V1.0"
+7 = "27th January 2023"
+[choices]
+"" = []
+Play = ["Main Menu", "true", "restart"]
 [config]
 name = "The DATA"
 type = "default"
@@ -86,8 +1999,38 @@ line_a = "You have done the example, goodbye !"
 [choices]
 final = ["Restart", "true", "restart"]
 [config]
-name = "Great Page"
+name = "IZYDOR V1.0"
 type = "Reset"
 [content]
+greatings = ""
+explanation_a = ""
 [choices]
-Choice_1 = ["Start", "true", "C_0_s_1"]
+start = ["Play", "true", "start"]
+Credit = ["Credits", "true", "credit"]
+[config]
+name = "THE END"
+type = "default"
+[content]
+1 = "Thank you for playing !"
+[choices]
+"" = []
+Recap = [" See the recap", "true", "recap2"]
+Play = [" Main Menu", "true", "restart"]
+[config]
+name = "RECAP PAGE"
+type = "Recap"
+[content]
+1 = "Statistics of the remaining item / karma :"
+[choices]
+Play = ["Main Menu", "true", "restart"]
+Credit = ["Credits", "true", "credit"]
+[config]
+name = "TUTORIAL"
+type = "default"
+[content]
+1 = "In this game your choice matter, there is 23 possible endings, good luck."
+2 = ""
+3 = "That being said, you must know about the ''karma'' feature : a choice will be good or bad, which grow or reduce your karma score, that will give you new possible choices that are good or bad."
+[choices]
+"" = []
+Play = ["Travel to Poland in 1973", "true", "C_0_s_1"]

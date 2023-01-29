@@ -1,0 +1,10 @@
+[config]
+name = "C_1_s_17"
+type = "default"
+[content]
+1 = "The stranger lays his bat on the ground, taking a breath and responds “Many things but everyone thinks something different, for some it's war again,for others politics, some even talk about aliens but it is complicated to know who is right.''"
+2 = ""
+3 = "---"
+[choices]
+1 = ["When did this happen?", "true", "C_1_s_22"]
+2 = [" Where is everybody?", "true", "C_1_s_21"]

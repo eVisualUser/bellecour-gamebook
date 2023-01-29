@@ -1,0 +1,10 @@
+[config]
+name = "C_4_s_44"
+type = "default"
+[content]
+1 = "He is now powered up and destroy the monsters with a single punch."
+2 = ""
+3 = "---"
+[choices]
+1 = [" Continue punching", "true", "C_4_s_45"]
+2 = [" Use more morphia", "c_morphia", "C_4_s_46"]

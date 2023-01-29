@@ -1,0 +1,13 @@
+[config]
+name = "C_2_s_6"
+type = "default"
+[content]
+1 = "Norbert is a fairly young man, tall and fit with salient muscles and hair running brown, walls and very charismatic, he makes his decisions with thought."
+2 = ""
+3 = "Izydor comes up to Norbert to talk to him, ''so you haven't lived apart in the last year? You're lucky you didn't see any of the horrors that happened here, I don't trust you, but if you prove to me that I should then we should get along well, let's not hang around too much''."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Try to know more about him", "true", "C_2_s_8"]
+2 = [" Go in to find some supplies", "true", "C_2_s_3"]
+3 = [" Talk with Dagmara", "true", "C_2_s_5"]

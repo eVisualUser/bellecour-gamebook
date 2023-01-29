@@ -1,0 +1,14 @@
+[config]
+name = "C_1_s_12"
+type = "default"
+[content]
+1 = "The room is a small storage badly arranged, searching it, Izydor finds all kinds of objects useful for the treatment of mental illness, but not for him."
+2 = ""
+3 = "After searching the shelves Izydor finds a small bag with a syringe inside, it is written on it 'Morphia'.  While reading that his hand starts to hurt him quite a bit. "
+4 = ""
+5 = "Catching the syringe the sound of footsteps through the ceiling startles him, did Izydor finally find someone in this abandoned building?"
+6 = ""
+7 = "---"
+[choices]
+1 = [" Use it and go see the second floor", "true", "C_1_s_8_drug"]
+2 = [" Keep it and go see the second floor", "true", "C_1_s_8_morphia"]

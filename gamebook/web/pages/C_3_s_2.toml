@@ -1,0 +1,12 @@
+[config]
+name = "C_3_s_2"
+type = "default"
+[content]
+1 = "Izydor and the group's cook were talking about the moist of the tunnel, the mushroom that are groing there are potentially edible... But who would taste them first ?"
+2 = ""
+3 = "The group continues their long travel inside this stone maze..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Offer homemade potato vodka", "true", "C_3_s_5"]
+2 = [" Continue to follow the group", "true", "C_3_s_4"]

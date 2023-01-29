@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_40"
+type = "default"
+[content]
+1 = "Izydor repair the bus, then go to the abbandoned house to wake up his mates."
+2 = "When he open the door he notice that everybody turned into monsters and they are now running toward him..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Use a shot of morphia and punch them", "c_morphia", "C_4_s_44"]
+2 = [" Punch them", "true", "C_4_s_43"]
+3 = [" Run back to the bus and leave", "true", "C_4_s_41"]

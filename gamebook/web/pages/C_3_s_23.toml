@@ -1,0 +1,12 @@
+[config]
+name = "C_3_s_23"
+type = "default"
+[content]
+1 = "Dagmara's comes back with Izydor helping her to walk, she is wounded but continues the walk."
+2 = ""
+3 = "She explain that they have to move fast, troubles are in the way if they don't move faster."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Ask help to move Dagmara", "true", "C_3_s_30"]
+2 = [" Carry Dagmara alone", "true", "C_3_s_27"]

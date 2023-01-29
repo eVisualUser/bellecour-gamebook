@@ -1,0 +1,12 @@
+[config]
+name = "C_1_s_10"
+type = "default"
+[content]
+1 = "Izydor walks into the room, it's an office, a table is placed in the center of the table, some chairs are placed around it. Several closets are stored at the bottom of the room, he quickly searches them in the hopes of finding useful things."
+2 = ""
+3 = "Luckily Izydor finds a bag with all the necessary equipment for first aid."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Leave it and go back in the corridor", "true", "C_1_s_6"]
+2 = [" Keep it and go back in the corridor", "true", "C_1_s_6_med"]

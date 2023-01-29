@@ -1,0 +1,14 @@
+[config]
+name = "C_3_s_9"
+type = "default"
+[content]
+1 = "After few minutes in the tunnel, something is approaching the group fast, the sound of another group running in the puddles can be heard by Izydor's group."
+2 = ""
+3 = "It cannot be the rest of the survivor's camp, so the group decides to run as fast as possible."
+4 = ""
+5 = "But during the run Dagmara falls behind..."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Leave without her", "true", "C_3_s_14"]
+2 = [" Help her to get up", "true", "C_3_s_11"]

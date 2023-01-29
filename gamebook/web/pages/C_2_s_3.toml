@@ -1,0 +1,14 @@
+[config]
+name = "C_2_s_3"
+type = "default"
+[content]
+1 = "You advance in the store, inside the shelves are overturned, the windows of the store are broken and the counters are destroying, people have visibly ransacked this store."
+2 = ""
+3 = "Izydor searches each floor in the hope of finding useful things, his patience ends up paying, he finds hidden under a shelf a care kit, Izydor takes it and gives it to the group who thanks him."
+4 = ""
+5 = "Looking more in the store you find two doors in the back."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Go in the left one", "true", "C_2_s_4"]
+2 = [" Go in the right one", "true", "C_2_s_29"]

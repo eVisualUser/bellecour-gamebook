@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_23"
+type = "default"
+[content]
+1 = "Norbert reacted quickly when Izydor felt asleep and managed to stop the bus without any accident."
+2 = "He is now driving the bus leading the group to the airport."
+3 = ""
+4 = "The group miss Dagmara but she will be remembered."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]

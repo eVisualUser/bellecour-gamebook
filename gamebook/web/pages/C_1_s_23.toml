@@ -1,0 +1,9 @@
+[config]
+name = "C_1_s_23"
+type = "default"
+[content]
+1 = "The stranger looks Izydor in the eye and says ''Maybe, but I don't know you so even if I know one I will not present you to her actually, I think you will understand you seem like a good and sweet guy!''"
+2 = ""
+3 = "---"
+[choices]
+1 = [" Next", "true", "C_1_s_25"]

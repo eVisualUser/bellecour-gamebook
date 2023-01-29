@@ -1,0 +1,12 @@
+[config]
+name = "C_1_s_4"
+type = "default"
+[content]
+1 = "Izydor touches the door in order to find the weak spots, after a minute of observation he moves back to build momentum and runs into the door with his shoulder, instantly the door breaks under his wheight. Izydor falls but quickly gets up afterwards."
+2 = ""
+3 = "It's dark inside Izydor can't see anything here."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Izydor turn-around and enter inside the building", "true", "C_1_s_2"]
+2 = [" Enter inside the building from the back door", "true", "C_1_s_5"]

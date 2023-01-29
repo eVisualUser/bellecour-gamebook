@@ -1,0 +1,11 @@
+[config]
+name = "C_4_s_8"
+type = "default"
+[content]
+1 = "Izydor sacrifice himself to let the survivor group to repair and leave with the bus, by using his own body as a giant bait for the monsters."
+2 = ""
+3 = "He will be remembered as a hero that saved many lives this day."
+4 = ""
+5 = "---"
+[choices]
+1 = [" The end", "true", "recap"]

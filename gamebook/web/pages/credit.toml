@@ -1,0 +1,14 @@
+[config]
+name = "CREDIT"
+type = "default"
+[content]
+1 = "This game was made by :"
+2 = "BIDARD Colin, TOSONI Sylvain, FRANCO Alexi, DERDERIAN Niels."
+3 = ""
+4 = "Student of Bellecour Ecole, France."
+5 = ""
+6 = "Izydor V1.0"
+7 = "27th January 2023"
+[choices]
+"" = []
+Play = ["Main Menu", "true", "restart"]

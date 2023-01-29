@@ -1,0 +1,14 @@
+[config]
+name = "C_3_s_17"
+type = "default"
+[content]
+1 = "The group continues walking down the street until the river's coast."
+2 = "They are now following the river to the North, and an island will appear and mark the position of the city center."
+3 = ""
+4 = "They are now approaching the city's train station..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Continue to walk in silence", "true", "C_3_s_26"]
+2 = [" Walk and share vodka", "c_vodka", "C_3_s_25"]
+3 = [" Izydor drinks the vodka alone", "c_vodka", "C_3_s_24"]

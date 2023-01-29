@@ -1,0 +1,12 @@
+[config]
+name = "C_1_s_18"
+type = "default"
+[content]
+1 = "Izydor calms himself down, the stranger tells him ''That's okay dude, you can be stressed if you just discovered the area for the first time, just make sure to not repeat that okay?''"
+2 = ""
+3 = "''Now you have questions I guess so ask away!''"
+4 = ""
+5 = "---"
+[choices]
+1 = ["What happened here?", "true", "C_1_s_17"]
+2 = [" Is there a doctor here?", "true", "C_1_s_19"]

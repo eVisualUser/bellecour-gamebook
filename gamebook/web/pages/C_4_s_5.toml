@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_5"
+type = "default"
+[content]
+1 = "Izydor is screaming for help and with no hesitation Norbert join the fight and save him."
+2 = "The two managed to push away the monsters and get back inside the bus."
+3 = ""
+4 = "They are now heading to the airport."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]

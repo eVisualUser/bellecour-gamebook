@@ -1,0 +1,13 @@
+[config]
+name = "C_3_s_7"
+type = "default"
+[content]
+1 = "Izydor takes the stray cat in his hands, doing some gentle caresses."
+2 = "Then, he breaks it's neck like a dry branch infront the shocked eyes of the group."
+3 = ""
+4 = "After setting up a fast makeshift fire with some of his clothes, he grills the cat..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Izydor eats the whole cat alone", "true", "C_3_s_12_bcat"]
+2 = [" Izydor shares the cat with everybody", "true", "C_3_s_10"]

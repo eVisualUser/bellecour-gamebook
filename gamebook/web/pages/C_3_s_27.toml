@@ -1,0 +1,10 @@
+[config]
+name = "C_3_s_27"
+type = "default"
+[content]
+1 = "Izydor decide to carry alone Dagmara, he grab and hold her like a princess and mentions it to her in a humiliating tone."
+2 = ""
+3 = "---"
+[choices]
+1 = [" Use morphia", "c_morphia", "C_3_s_39_morphia"]
+2 = [" Suffer", "true", "C_3_s_29"]

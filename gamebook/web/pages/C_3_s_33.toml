@@ -1,0 +1,11 @@
+[config]
+name = "C_3_s_33"
+type = "default"
+[content]
+1 = "During the run toward the river Norbert gets shot and falls behind while the rest of the group is far ahead the train station."
+2 = "The screams and bullet rain stop after a while..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Go save Norbert", "true", "C_3_s_36"]
+2 = [" Leave him away", "true", "C_3_s_40"]

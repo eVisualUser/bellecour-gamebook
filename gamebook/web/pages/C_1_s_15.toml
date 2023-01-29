@@ -1,0 +1,12 @@
+[config]
+name = "C_1_s_15"
+type = "default"
+[content]
+1 = "The foreigner replied to Izydor ''You are far away from your farm here, I don't know if you live in a different world but there were big problems here recently, so avoid saying random stuff to anyone if you want to live''"
+2 = ""
+3 = "The foreigner will not be so harsh and asked Izydor a question, ''Do you know what happened here at least?''"
+4 = ""
+5 = "---"
+[choices]
+1 = [" What happened here?", "true", "C_1_s_17"]
+2 = [" Is there a doctor here?", "true", "C_1_s_19"]

@@ -1,0 +1,12 @@
+[config]
+name = "C_2_s_19"
+type = "default"
+[content]
+1 = "Izydor enters the buildings, people he does not know are inside, he always follows the group that goes up the stairs and arrives in a large room where about ten people are placed, From the mattresses on the floor to the tents inside, this place looks more like a homeless camp than has a base for Izydor."
+2 = ""
+3 = "Once in the center of the room Norbert stops, he asks everyone to gather around him and speaks, 'We have come back from our expedition with good news, we have found food and medicines that can be used to treat our wounded, but not that, we have also brought someone we found who has helped us with it, I'll let him introduce himself to you '' Norbert waves to Izydor."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Izydor present himself politely", "true", "C_2_s_20"]
+2 = [" Izydor present himself rudely ", "true", "C_2_s_21"]

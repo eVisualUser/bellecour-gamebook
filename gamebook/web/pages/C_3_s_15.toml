@@ -1,0 +1,12 @@
+[config]
+name = "C_3_s_15"
+type = "default"
+[content]
+1 = "Early in the morning, the group of survivor decided to move near the river close to the Red Territory and go straight to the city center from this territory border, passing by a train station surrounded by residential houses."
+2 = ""
+3 = "The group walk in silence through the residential street, but while watching behind him Izydor notice that Dagmara is missing..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Look for Dagmara", "true", "C_3_s_16"]
+2 = [" Continue to walk in silence", "true", "C_3_s_17"]

@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_36"
+type = "default"
+[content]
+1 = "The left road was jammed with wrecked cars... Norbert hit one of them and start to loose the control of the bus that crash into a wreck."
+2 = ""
+3 = "The group decide to spend the night inside the nearest abbandoned house..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Izydor sleep inside the bus alone", "true", "C_4_s_38"]
+2 = [" Izydor sleep with the group inside the house", "true", "C_4_s_37"]

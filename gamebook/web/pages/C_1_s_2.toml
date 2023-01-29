@@ -1,0 +1,15 @@
+[config]
+name = "C_1_s_2"
+type = "default"
+[content]
+1 = "From a determined step Izydor advances towards the entrance of the building, it is a simple double wooden door with vines growing on the sides, above is inscribed ''Pila's Asylum''."
+2 = ""
+3 = "He open the doors, after having passed the threshold of the door Izydor finds the atmosphere very strange, the asylum seems empty, nobody in the horizon, Izydor looks behind the reception desk but everyone seems to have taken their break a while ago. "
+4 = ""
+5 = "After having a look around Izydor studies the options."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Go to the left wing", "true", "C_1_s_6"]
+2 = [" Go to the second floor", "true", "C_1_s_8"]
+3 = [" Go straight", "true", "C_1_s_7"]

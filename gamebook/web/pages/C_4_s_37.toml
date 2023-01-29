@@ -1,0 +1,10 @@
+[config]
+name = "C_4_s_37"
+type = "default"
+[content]
+1 = "During the night Dagmara died and turned into a monster."
+2 = "Everybody were still asleep and got killed by Dagmara."
+3 = ""
+4 = "---"
+[choices]
+1 = [" The End", "true", "recap"]

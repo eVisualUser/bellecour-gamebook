@@ -1,0 +1,11 @@
+[config]
+name = "Great Page"
+type = "C_1_s_5"
+[content]
+1 = "Izydor decides to progress in the darkness beyond the exit door, entering the doors he finds himself in a tiny room with a metallic staircase in the back, by testing the staircase it seems that it is still in very good shape compared to the door but the stairs creak every time he takes a step, it's not very comforting."
+2 = ""
+3 = "Putting his doubts aside Izydor decides to..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Use the stairs", "true", "C_1_s_8"]

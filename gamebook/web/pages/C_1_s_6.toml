@@ -1,0 +1,12 @@
+[config]
+name = "C_1_s_6"
+type = "default"
+[content]
+1 = "Izydor walks down the hallway on the left, hospital beds are placed against the walls, blankets littered all over the floor on both sides of the hallway, everything seems so empty. Izydor tries to open the doors on each sides of the hallway but they're all blocked, Even if Izydor tries to force them, they don't move, so he keeps moving."
+2 = ""
+3 = "When Izydor arrives at the end of the corridor, he observes two half-open doors, above one is written 'toilet', approaching the other room and taking a brief look he sees a desk with storage.  "
+4 = ""
+5 = "---"
+[choices]
+1 = [" Go in the toilet", "true", "C_1_s_9"]
+2 = [" Go in the office", "true", "C_1_s_10"]

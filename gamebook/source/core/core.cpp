@@ -143,6 +143,27 @@ void Core::Draw() {
   }
 
   if (this->_page.type == "Recap") {
+    if (this->_page.fileName != this->_lastPage) {
+      string fileNameClearedbuffer;
+      bool beforeSlash = true;
+      bool afterDot = false;
+      for (auto & i: this->_lastPage) {
+          if (i == '/')
+            beforeSlash = false;
+          else if (i == '.')
+            afterDot = true;
+          else if (!beforeSlash && !afterDot) {
+            fileNameClearedbuffer.push_back(i);
+          }
+      }
+
+      stringstream lastPage;
+      lastPage << "Last Page: " << fileNameClearedbuffer;
+      this->_ui.DrawText(Point(0, (this->_ui.size.y / 4) + ++lineYOffset),
+                             lastPage.str(), &this->_variableManager,
+                             &this->_executor);
+  }
+
     for (auto &var : this->_variableManager.GetAllVariables()) {
       if (var.name.contains("recap_bool_")) {
         string buffer;
@@ -269,7 +290,10 @@ void Core::UpdateInputs() {
     stringstream lastFileMessage;
     lastFileMessage << "Last page: " << this->_lastPage;
     Logger::Log(lastFileMessage.str());
-    this->_lastPage = this->_page.fileName;
+
+    if (!this->_page.fileName.contains("recap"))
+      this->_lastPage = this->_page.fileName;
+
     this->_page = Page();
 
     stringstream stream;
@@ -322,7 +346,7 @@ void Core::LoadConfig() {
 void Core::Initialize() {
   this->_console = Console();
 #ifdef __EMSCRIPTEN__
-  this->_ui = UI(Point(80, 25));
+  this->_ui = UI(Point(75, 25));
 #else
   this->_ui = UI(this->_frameSize);
 #endif

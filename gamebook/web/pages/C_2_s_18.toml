@@ -1,0 +1,13 @@
+[config]
+name = "C_2_s_18"
+type = "default"
+[content]
+1 = "The group walks silently together, he takes a path that Izydor never took, for him it is a journey into uncharted territory."
+2 = ""
+3 = "Izydor contemplates the extent of the damage inflicted by the disaster in recent years, the houses are completely destroyed while others still seem inhabited by people."
+4 = ""
+5 = "Izydor thinks at home on his farm that he left and that he may never find again, thinking Izydor notices that the group slows down and approaches a building still in good condition."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Follow them", "true", "C_2_s_19"]

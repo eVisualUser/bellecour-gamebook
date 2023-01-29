@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_28"
+type = "default"
+[content]
+1 = "He decide to sacrifice himself to let the group live, and full of rage he shower himself with his vodka and drink the left-overs dry ass, and all his remaining morphia shots."
+2 = ""
+3 = "He goes outside the house, screaming, ready to do a massacre..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" One slap the monsters one by one", "true", "C_4_s_29"]
+2 = [" Run at the middle of the monster horde", "true", "C_4_s_31"]

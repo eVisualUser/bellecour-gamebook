@@ -1,0 +1,11 @@
+[config]
+name = "C_3_s_12"
+type = "default"
+[content]
+1 = "The group is safe outside this creepy sewer and have now reached the city center."
+2 = ""
+3 = "This run was short but exhaustive !"
+4 = ""
+5 = "---"
+[choices]
+1 = [" Continue", "true", "C_4_s_1"]

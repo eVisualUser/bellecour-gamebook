@@ -1,0 +1,11 @@
+[config]
+name = "C_1_s_11"
+type = "default"
+[content]
+1 = "Izydor walks into the room. It's a utility closet for cleaning, brooms, cleaning products and buckets are stored there a little everywhere, behind them is a sanitizer bottle he grabs it to look closer."
+2 = ""
+3 = "While taking the bottle footstep sounds through the ceiling startles him, did Izydor finally find someone in this abandoned building?"
+4 = ""
+[choices]
+1 = [" Leave it and go see the second floor", "true", "C_1_s_7"]
+2 = [" Keep it and go see the second floor", "true", "C_1_s_7_vodka"]

@@ -1,0 +1,14 @@
+[config]
+name = "C_2_s_4"
+type = "default"
+[content]
+1 = "You push the door and enter the room"
+2 = ""
+3 = "Inside is a small pharmacy, many things are broken in, it obviously fell, but miraculously izydor finds morphine in it. "
+4 = ""
+5 = "Behind him he hears Zenon asking him if he finds interesting things."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Tell him nothing and use the morphia on Izydor", "true", "C_2_s_15"]
+2 = [" Share the morphine with the group", "true", "C_2_s_16"]

@@ -1,0 +1,14 @@
+[config]
+name = "C_1_s_1"
+type = "default"
+[content]
+1 = "Hoof sounds on metal wake Izydor up, he opens his eyes and see in front of him a building which seems damaged by the time and alone in the forest, a small lonely path however seems to go to the left."
+2 = ""
+3 = "When Izydor approached to attach his horse, he read a panel, on it is written 'Pila 2km' Izydor doesn't linger to long and walks toward the fence which closes the building, after climbing over it Izydor arrives in the yard, some cars are parked, they seem old and some started to be covered in dust."
+4 = ""
+5 = "Several choices are available to Izydor."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Enter in the building", "true", "C_1_s_2"]
+2 = [" Search in the area", "true", "C_1_s_3"]

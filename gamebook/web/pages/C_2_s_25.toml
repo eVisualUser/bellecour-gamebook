@@ -1,0 +1,9 @@
+[config]
+name = "C_2_s_25"
+type = "default"
+[content]
+1 = "The guards jump on Izydor several, the master before he manages to get out of here, once on the ground Izydor looks in front of him and sees a foot rushing towards his head, knocking him out...."
+2 = ""
+3 = "---"
+[choices]
+1 = [" Next", "true", "C_2_s_26"]

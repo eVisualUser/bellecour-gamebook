@@ -1,0 +1,13 @@
+[config]
+name = "C_1_s_13"
+type = "default"
+[content]
+1 = "Izydor knocked on the open door saying, “Hello, do you know where I can find a doctor?”"
+2 = "The 2 silhouettes quickly turn around taking instantly in their hand objects to defend themselves."
+3 = ""
+4 = "One of the two figures says, “Who are you fucker? What the hell are you doing here? stay where you are” threatening you."
+5 = ""
+6 = "---"
+[choices]
+1 = ["Wow calm down insult me again and you will regret it!", "true", "C_1_s_24"]
+2 = ["I'm Izydor fucker and I came for a check up", "true", "C_1_s_20"]

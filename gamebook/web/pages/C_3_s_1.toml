@@ -1,0 +1,12 @@
+[config]
+name = "C_3_s_1"
+type = "default"
+[content]
+1 = "Early in the morning, the group of survivor decided to go through the sewer to avoid the Red Territory and go straight to the city center from the underground."
+2 = ""
+3 = "The team opened the manhole at the center of the road and entered inside a giant and wet stone circular tunel..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Walk in silence", "true", "C_3_s_3"]
+2 = [" Talk to the group", "true", "C_3_s_2"]

@@ -1,0 +1,10 @@
+[config]
+name = "C_4_s_30"
+type = "default"
+[content]
+1 = "The horde manage to defeat this strong and anraged beast."
+2 = "The group still hiding inside the house won't make it out."
+3 = ""
+4 = "---"
+[choices]
+1 = [" The End", "true", "recap"]

@@ -1,0 +1,9 @@
+[config]
+name = "THE END"
+type = "default"
+[content]
+1 = "Thank you for playing !"
+[choices]
+"" = []
+Recap = [" See the recap", "true", "recap2"]
+Play = [" Main Menu", "true", "restart"]

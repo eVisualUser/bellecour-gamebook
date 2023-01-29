@@ -1,0 +1,12 @@
+[config]
+name = "C_3_s_3"
+type = "default"
+[content]
+1 = "Everybody is walking in silence, we can only hear the group's footsteps hitting the puddle on the ground, see the lightray of the morning sun through the manholes and some creepy resonant noises deep inside the tunnels."
+2 = ""
+3 = "The group continue their long travel inside this stone maze..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Offer homemade potato vodka", "true", "C_3_s_5"]
+2 = [" Continue to follow the group", "true", "C_3_s_6"]

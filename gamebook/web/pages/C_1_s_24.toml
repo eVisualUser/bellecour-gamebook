@@ -1,0 +1,10 @@
+[config]
+name = "C_1_s_24"
+type = "default"
+[content]
+1 = "Angry the strangers look Izydor in the eye, showing their irritation ''you need to calm down man if you don't want to be hurt, you just appeared and insulted us, I suggest you to stay calm and apologies''"
+2 = ""
+3 = "---"
+[choices]
+1 = [" Apologize. Izydor is stressed", "true", "C_1_s_18"]
+2 = [" Is there a doctor here?", "true", "C_1_s_23"]

@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_4"
+type = "default"
+[content]
+1 = "The group repaired the bus, but Izydor is still fighting the monsters."
+2 = "He is wounded but still fighting them..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Ask for help", "c_good", "C_4_s_5"]
+2 = [" Don't ask for help", "c_bad", "C_4_s_6"]
+3 = [" Ask them to wait you", "true", "C_4_s_7"]

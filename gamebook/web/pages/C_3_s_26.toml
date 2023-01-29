@@ -1,0 +1,12 @@
+[config]
+name = "C_3_s_26"
+type = "default"
+[content]
+1 = "The group continues to walk in silence."
+2 = "Passing by the train station, and the deserted residential area."
+3 = ""
+4 = "No body is talking about Dagmara's strange disappearence..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Reach the city center", "true", "C_3_s_37"]

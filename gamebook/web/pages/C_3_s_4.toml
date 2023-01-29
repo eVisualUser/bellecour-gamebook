@@ -1,0 +1,12 @@
+[config]
+name = "C_3_s_4"
+type = "default"
+[content]
+1 = "The group chosen to go in the left incoming creepy path where the resonating noises scale up."
+2 = ""
+3 = "After few seconds you encounter an orange stray cat rubbing around the peoples legs, seeking for affection and probably spare food..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Feed the cat with left over food and continue your travel", "true", "C_3_s_12_gcat"]
+2 = [" Izydor is hungry too. Grill that cat", "true", "C_3_s_7"]

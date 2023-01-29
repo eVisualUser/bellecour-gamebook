@@ -1,0 +1,12 @@
+[config]
+name = "C_1_s_14"
+type = "default"
+[content]
+1 = "Angry Izydor speaks to the person with an insulting voice."
+2 = ""
+3 = "The person in front of him takes his baseball bat in both hands pointing at Izydor with a cold look at him, “Are you insulting me idiot? If you keep going and you will be hit down to the floor crying for help” the person approaches Izydor slowly, keeping distance between them."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Punch him in the face", "true", "C_1_s_16"]
+2 = [" Apologize. Izydor is stressed", "true", "C_1_s_18"]

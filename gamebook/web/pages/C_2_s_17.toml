@@ -1,0 +1,11 @@
+[config]
+name = "C_2_s_17"
+type = "default"
+[content]
+1 = "After having recovered the last resources Izydor joins the group that meets to make an inventory of the recovered things, Izydor watches them talk a little remembering his old life before joining them."
+2 = ""
+3 = "Norbert spoke ''Okay we had a good harvest and a good pair of extra arms'', he said looking at you, ''we will now go towards the base, so be careful we stay together and we do not go through the territory of the reds understood!''."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Follow them", "true", "C_2_s_18"]
