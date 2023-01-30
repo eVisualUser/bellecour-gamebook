@@ -93,10 +93,13 @@ void UI::DrawButtons(Point position, InputManager *inputManager,
     if (i != inputManager->GetIndex()) {
       stringstream text;
 
-      if (variableManager->IsExist("console_color_button_background"))
+      if (variableManager->IsExist("console_color_button_background")) {
+        auto value = variableManager->GetVariableValue("console_color_button_background");
         text << "\033[" << variableManager->GetVariableValue("console_color_button_background") << "m";
-      if (variableManager->IsExist("console_color_button_foreground"))
+      }
+      if (variableManager->IsExist("console_color_button_foreground")) {
         text << "\033[" << variableManager->GetVariableValue("console_color_button_foreground") << "m";
+      }
 
       text << buttons[i];
 
@@ -116,8 +119,9 @@ void UI::DrawButtons(Point position, InputManager *inputManager,
 
       stringstream text;
 
-      if (selectedChar == '>' && variableManager->IsExist("console_color_selected_button_foreground"))
+      if (selectedChar == '>' && variableManager->IsExist("console_color_selected_button_foreground")) {
         ss << "\033[" << variableManager->GetVariableValue("console_color_selected_button_foreground") << "m";
+      }
       else if (selectedChar == 'X' && variableManager->IsExist("console_color_selected_button_locked_foreground"))
         ss << "\033[" << variableManager->GetVariableValue("console_color_selected_button_locked_foreground") << "m";
 

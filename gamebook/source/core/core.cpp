@@ -202,6 +202,7 @@ void Core::Draw() {
 }
 
 void Core::UpdateSpecialVariables() {
+
   if (this->_variableManager.IsExist("console_color_foreground")) {
     this->_console.SetConsoleColor(
         this->_variableManager.GetVariableValue("console_color_foreground"));
@@ -346,7 +347,9 @@ void Core::LoadConfig() {
 void Core::Initialize() {
   this->_console = Console();
 #ifdef __EMSCRIPTEN__
-  this->_ui = UI(Point(75, 25));
+  int x = emscripten_run_script_int("frame_size_x;");
+  int y = emscripten_run_script_int("frame_size_y;");
+  this->_ui = UI(Point(x, y));
 #else
   this->_ui = UI(this->_frameSize);
 #endif
