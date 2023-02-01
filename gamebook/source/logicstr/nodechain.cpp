@@ -2,11 +2,13 @@
 
 #include "../debug/logger.h"
 #include "../render/console.h"
+#include "../filesystem/ini.h"
 
 #include <iostream>
 #include <sstream>
 
 void NodeChain::ParseString(string input) {
+  trimmed(input);
   string buffer;
   for (auto &i : input) {
     if (i != ' ')

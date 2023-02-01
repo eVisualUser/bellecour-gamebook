@@ -113,6 +113,7 @@ vector<string> Ini::GetAllTables() {
         else if (i != INI_FMT_OPEN_TABLE)
           buffer.push_back(i);
       }
+      trimmed(buffer);
       result.push_back(buffer);
     }
   }

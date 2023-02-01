@@ -27,3 +27,5 @@ private:
   bool IsEmptyLine(string line); // Consider comment line as empty
   vector<string> buffer;
 };
+
+void trimmed(std::string &str);

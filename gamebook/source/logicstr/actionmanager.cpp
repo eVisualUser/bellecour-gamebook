@@ -10,7 +10,6 @@
 #include <sstream>
 #include <stdexcept>
 
-
 void ActionManager::Load(string path) {
   auto reader = Reader();
   try {
