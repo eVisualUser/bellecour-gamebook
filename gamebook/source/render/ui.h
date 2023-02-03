@@ -34,5 +34,7 @@ public:
   Point size;
 
 private:
+  void UnsafeDrawTextAt(Point start, string text);
+private:
   vector<string> buffer;
 };

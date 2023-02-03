@@ -50,6 +50,36 @@ void UI::InitializeBuffer() {
   }
 }
 
+/*
+fn text_return_line(source: String, lenght: i32) -> String {
+
+    let mut result = String::new();
+
+    let mut word = String::new();
+
+    let mut count = 0_i32;
+
+    for i in source.chars() {
+        word.push(i);
+        if i == ' ' {
+            if (count + word.len() as i32) < lenght {
+                result.push_str(&word);
+                word = String::new();
+            } else {
+                count = 0;
+                result.push('\n');
+                result.push_str(&word);
+                word = String::new();
+            }
+        }
+        count += 1;
+    }
+    result.push_str(&word);
+
+    result
+}
+*/
+/*
 int UI::DrawText(Point start, string text, VariableManager *variableManager,
                  Executor *executor) {
   int textBack = 1;
@@ -75,6 +105,55 @@ int UI::DrawText(Point start, string text, VariableManager *variableManager,
         }
       }
     }
+  }
+
+  return textBack;
+}
+*/
+
+void UI::UnsafeDrawTextAt(Point start, string text) {
+  for (int i = 0; i <= text.length(); i++) {
+    this->buffer[start.y][start.x + i] = text[i];
+  }
+}
+
+int UI::DrawText(Point const start, string text, VariableManager *variableManager,
+                 Executor *executor) {
+  int textBack = 1;
+  if (text == "---") {
+    this->DrawLine(start, this->size.x, '-');
+  } else {
+    text = ReplaceVariables(text, variableManager, executor);
+
+    int count = 1;
+    string word;
+
+    for (int i = 0; i < text.length(); i++) {
+        word.push_back(text[i]);
+        if (text[i] == ' ') {
+          if (count + word.length() < this->size.x) {
+            Point textPos = start;
+            textPos.x -= word.length() - count;
+            textPos.y += textBack;
+            UnsafeDrawTextAt(textPos, word);
+            word = "";
+          } else {
+            count = 0;
+            textBack++;
+            Point textPos = start;
+            textPos.y += textBack;
+            count += word.length();
+            Logger::Log(word);
+            UnsafeDrawTextAt(textPos, word);
+            word = "";
+          }
+        }
+        count++;
+    }
+    Point textPos = start;
+    textPos.x -= word.length() - count;
+    textPos.y += textBack;
+    UnsafeDrawTextAt(textPos, word);
   }
 
   return textBack;

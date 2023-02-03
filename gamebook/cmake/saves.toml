@@ -70,3 +70,27 @@ console_color_background = 47
 recap_Number_Of_People_Killed = 10
 recap_Player_LIfe = -55
 included_variable = -10
+[2023-02-03 15:33:07]
+SAVE_PAGE = "pages/index.toml"
+done_data_page = 0
+page_count = 0
+recap_Number_Of_People_Killed = 10
+recap_Player_LIfe = -55
+included_variable = -10
+console_color_selected_button_locked_background = 41
+console_color_selected_button_locked_foreground = 37
+console_color_selected_button_background = 47
+console_color_selected_button_foreground = 30
+console_color_button_foreground = 37
+[2023-02-03 15:33:08]
+SAVE_PAGE = "pages/index.toml"
+done_data_page = 0
+page_count = 0
+recap_Number_Of_People_Killed = 10
+recap_Player_LIfe = -55
+included_variable = -10
+console_color_selected_button_locked_background = 41
+console_color_selected_button_locked_foreground = 37
+console_color_selected_button_background = 47
+console_color_selected_button_foreground = 30
+console_color_button_foreground = 37
