@@ -1,0 +1,9 @@
+[config]
+name = "C_2_s_23"
+type = "default"
+[content]
+1 = "Izydor tells himself not to steal what can be used for other people, he leaves Norbert's bag alone and thinks about the people they can save with it."
+2 = ""
+3 = "---"
+[choices]
+1 = [" Leave the store", "true", "C_2_s_17"]

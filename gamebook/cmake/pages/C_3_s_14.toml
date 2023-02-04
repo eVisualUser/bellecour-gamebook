@@ -1,0 +1,12 @@
+[config]
+name = "C_3_s_14"
+type = "default"
+[content]
+1 = "Izydor exits the dark tunnel alone."
+2 = "He explain that Dagmara wanted to take a rest and will join them later."
+3 = ""
+4 = "The group are on the other side of the river and have to cross the bridge, but a troop of the Rosyjski show up..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Continue", "true", "C_3_s_31"]

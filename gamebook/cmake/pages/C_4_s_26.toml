@@ -1,0 +1,10 @@
+[config]
+name = "C_4_s_26"
+type = "default"
+[content]
+1 = "The bus explode killing everybody."
+2 = "There is no survivor left."
+3 = ""
+4 = "---"
+[choices]
+1 = [" The End", "true", "recap"]

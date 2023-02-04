@@ -1,0 +1,9 @@
+[config]
+name = "C_4_s_22"
+type = "default"
+[content]
+1 = "He is now drunk and still driving the bus, but start to struggle to keep himself awake."
+2 = ""
+3 = "---"
+[choices]
+1 = [" Fell asleep", "true", "C_4_s_23"]

@@ -1,0 +1,13 @@
+[config]
+name = "C_3_s_8"
+type = "default"
+[content]
+1 = "Plunging his hands inside the moist dead body and moving away its coat, Izydor finds a letter."
+2 = ""
+3 = "This letter is about a scientific doing illegal researches to make super-soldiers, but something unexpected happened."
+4 = ""
+5 = "The letter is signed by Dagmara Doktor."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Continue the walk", "true", "C_3_s_9"]

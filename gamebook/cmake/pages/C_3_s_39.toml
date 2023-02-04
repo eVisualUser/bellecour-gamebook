@@ -1,0 +1,10 @@
+[config]
+name = "C_3_s_39"
+type = "default"
+[content]
+1 = "The group managed to survive and reach the city center."
+2 = "Dagmara doesn't feel good but is still able to lead the group to the bus."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Continue", "true", "C_4_s_35"]

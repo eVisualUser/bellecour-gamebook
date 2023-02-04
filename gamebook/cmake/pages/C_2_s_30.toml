@@ -1,0 +1,11 @@
+[config]
+name = "C_2_s_30."
+type = "default"
+[content]
+1 = "Izydor comes into the room, a horrible smell takes his nose, he finds in the room a corpse, obviously he's been dead for a while, he has a knife planted in the throat, Izydor thinks that he probably put an end to his life not to see the horror of this world."
+2 = ""
+3 = "Izydor doesn't stay in the room long and leaves because the smell is horrible."
+4 = ""
+5 = "---"
+[choices]
+1 = ["Leave the store", "true", "C_2_s_17"]

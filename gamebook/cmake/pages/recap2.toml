@@ -1,0 +1,8 @@
+[config]
+name = "RECAP PAGE"
+type = "Recap"
+[content]
+1 = "Statistics of the remaining item / karma :"
+[choices]
+Play = ["Main Menu", "true", "restart"]
+Credit = ["Credits", "true", "credit"]

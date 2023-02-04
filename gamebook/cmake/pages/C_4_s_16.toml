@@ -1,0 +1,9 @@
+[config]
+name = "C_4_s_16"
+type = "default"
+[content]
+1 = "Surprisingly, Izydor keep the good control of the bus and manage to lead the group to the airport, ready to take the next departure."
+2 = ""
+3 = "---"
+[choices]
+1 = [" The End", "true", "recap"]

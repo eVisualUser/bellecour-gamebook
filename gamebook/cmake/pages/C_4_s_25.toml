@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_25"
+type = "default"
+[content]
+1 = "After few minutes on that crazy driving, he looses the control of the bus and crash it on a wreck."
+2 = ""
+3 = "The smell of gas start to spread in the bus."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Wait inside the bus", "true", "C_4_s_26"]
+2 = [" Run to the nearest house", "true", "C_4_s_27"]

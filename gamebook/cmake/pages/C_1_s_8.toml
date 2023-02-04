@@ -1,0 +1,14 @@
+[config]
+name = "C_1_s_8"
+type = "default"
+[content]
+1 = "The air inside the second floor is oppressive, water drops reverberating on the decrepit walls and the sunlight lightening the floating dust particles. "
+2 = ""
+3 = "After a second of hesitation, Izydor explores the long corridor in front of Izydor, opening each door in the hopes of finding someone behind one of them. Suddenly he hears footsteps on the floor above him and decides to check what's going on. "
+4 = ""
+5 = "It seems Izydor wasn't alone here, inside the room where the sounds originated, he makes out two silhouettes: A massive one on the left and a feminine one on the right. "
+6 = ""
+7 = "---"
+[choices]
+1 = [" Attack the massive one to take him down", "true", "C_1_s_16"]
+2 = [" Knock on the door and greet them", "true", "C_1_s_13"]

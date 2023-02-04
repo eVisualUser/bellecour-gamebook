@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_15"
+type = "default"
+[content]
+1 = "Izydor take a shot of morphia and go outside fight the monsters to create a safe path for the group."
+2 = ""
+3 = "It was an heroic idea but it failed."
+4 = "The group starved to death inside the bus after few days."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]

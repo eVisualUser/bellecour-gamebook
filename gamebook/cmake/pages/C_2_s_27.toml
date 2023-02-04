@@ -1,0 +1,14 @@
+[config]
+name = "C_2_s_27"
+type = "default"
+[content]
+1 = "Izydor decides to sleep to rest because the night is approaching and so that the wound does not get worse than already, he lies down on his bed and falls asleep almost instantly, in the night he dreams of his farm and his wife."
+2 = ""
+3 = "He is awakened by Norbert, he tells him that he hesitated to awaken him because he seems really tired, but two expeditions are preparing and he would like Izydor opposite to leave."
+4 = ""
+5 = "''You have the choice, the goal is to get a bus to get us to the airport together, we have 2 teams one will go into the sewers to avoid being seen and the other in the territory of the reds, Russian fanatics to pass discreetly, I want to know who you want to go with''"
+6 = ""
+7 = "---"
+[choices]
+1 = [" Go with the sewer team", "true", "C_3_s_1"]
+2 = [" Go with the red team", "true", "C_3_s_15"]

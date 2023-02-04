@@ -1,0 +1,12 @@
+[config]
+name = "C_1_s_7"
+type = "default"
+[content]
+1 = "Izydor walks in this small corridor, the walls are covered with a wallpaper of bad taste that seems to come off on each ends of the wall, on the ground Izydor can see puddles across the corridor."
+2 = ""
+3 = "Arriving in the middle of the corridor Izydor finds two identical doors on each side of the corridor..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Try the left door", "true", "C_1_s_12"]
+2 = [" Try the right door", "true", "C_1_s_11"]

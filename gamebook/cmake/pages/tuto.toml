@@ -1,0 +1,10 @@
+[config]
+name = "TUTORIAL"
+type = "default"
+[content]
+1 = "In this game your choice matter, there is 23 possible endings, good luck."
+2 = ""
+3 = "That being said, you must know about the ''karma'' feature : a choice will be good or bad, which grow or reduce your karma score, that will give you new possible choices that are good or bad."
+[choices]
+"" = []
+Play = ["Travel to Poland in 1973", "true", "C_0_s_1"]

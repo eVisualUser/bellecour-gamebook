@@ -1,0 +1,11 @@
+[config]
+name = "C_4_s_46"
+type = "default"
+[content]
+1 = "Izydor made a morphia overdose by taking too much shot during the fight."
+2 = ""
+3 = "Everybody died."
+4 = ""
+5 = "---"
+[choices]
+1 = ["The End", "true", "recap"]

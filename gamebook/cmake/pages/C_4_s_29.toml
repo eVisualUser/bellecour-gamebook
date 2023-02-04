@@ -1,0 +1,11 @@
+[config]
+name = "C_4_s_29"
+type = "default"
+[content]
+1 = "He is so enraged and powerfull that he explode the heads of the monsters just with one slap."
+2 = ""
+3 = "But there is too much of them and they are outnumbering him..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Continue slapping", "true", "C_4_s_30"]

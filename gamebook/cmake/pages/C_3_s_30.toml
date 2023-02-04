@@ -1,0 +1,13 @@
+[config]
+name = "C_3_s_30"
+type = "default"
+[content]
+1 = "Back to the group, Izydor is asking for help to carry Dagmara."
+2 = ""
+3 = "They all continue walking, passing by the train station."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Continue and walk in silence", "true", "C_3_s_39"]
+2 = [" Share vodka during this cooperative walk", "c_vodka", "C_3_s_29_vodka"]
+3 = [" Ask more questions to Dagmara", "true", "C_3_s_29"]

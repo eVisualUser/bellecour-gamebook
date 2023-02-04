@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_1"
+type = "default"
+[content]
+1 = "Izydor and the group took the direction of the east with the bus from the city center. Dagmara is a good driver and ask to Izydor to read the map and lead the way to the airport."
+2 = ""
+3 = "At the next branch..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Turn left", "true", "C_4_s_3"]
+2 = [" Turn right", "true", "C_4_s_2"]

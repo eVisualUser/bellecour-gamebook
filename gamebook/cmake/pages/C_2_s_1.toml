@@ -1,0 +1,13 @@
+[config]
+name = "C_2_s_1"
+type = "default"
+[content]
+1 = "After a 25 min walk, Izydor arrives in front of a supermarket, the city is exactly as the group had presented it."
+2 = ""
+3 = "The supermarket is located close to a subdivision which all seems more empty one than the other, cars are returned  over the place, the grass is tall in the gardens lying around Izydor, the nature seems to regain its rights."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Go in to find some supplies", "true", "C_2_s_9"]
+2 = [" Talk with Zenon", "true", "C_2_s_10"]
+3 = [" Talk with Stefan", "true", "C_2_s_11"]

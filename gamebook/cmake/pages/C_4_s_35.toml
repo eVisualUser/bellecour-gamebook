@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_35"
+type = "default"
+[content]
+1 = "Dagmara is too weak to drive the bus so Norbert take control of the bus and ask to Izydor to keep eyes on the road map."
+2 = ""
+3 = "At the next branch they..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Turn left", "true", "C_4_s_36"]
+2 = [" Turn right", "true", "C_4_s_47"]

@@ -1,0 +1,11 @@
+[config]
+name = "C_3_s_28"
+type = "default"
+[content]
+1 = "In few seconds the group gets surrounded by the Rosyjski troops aiming guns at you, yelling at you to freeze."
+2 = ""
+3 = "They have no choice to wait and cooperate."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Wait", "true", "C_3_s_31"]

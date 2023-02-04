@@ -1,0 +1,13 @@
+[config]
+name = "C_3_s_32"
+type = "default"
+[content]
+1 = "The Russians troop aren't satisfied and got irritated by the survivors."
+2 = "They are getting hostile."
+3 = ""
+4 = "The group start to run for their lives..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Run through the residential area", "true", "C_3_s_37"]
+2 = [" Run along the river side", "true", "C_3_s_33"]

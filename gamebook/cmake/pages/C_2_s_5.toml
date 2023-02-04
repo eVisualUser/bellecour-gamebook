@@ -1,0 +1,13 @@
+[config]
+name = "C_2_s_5"
+type = "default"
+[content]
+1 = "Dagmara is a woman obviously in her forties, she is of medium height with long black hair, she does not talk much even with people in the group."
+2 = ""
+3 = "Izydor approaches Dagmara and begins to try to talk to her, but She is quite withdrawn, she wears a big smile and replies to Izydor that they should focus on collecting supplies rather than chatting."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Try to know more about her", "true", "C_2_s_7"]
+2 = [" Go in to find some supplies", "true", "C_2_s_3"]
+3 = [" Talk with Norbert", "true", "C_2_s_6"]

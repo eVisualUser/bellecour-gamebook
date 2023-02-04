@@ -1,0 +1,12 @@
+[config]
+name = "C_3_s_11"
+type = "default"
+[content]
+1 = "Izydor goes back help Dagmara."
+2 = "The group waits for the two near the sewer exit, hoping for their safety at the end of the dark tunnel."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Carry Dagmara's bag and run with her", "true", "C_3_s_12_bag"]
+2 = [" Talk her bad", "true", "C_3_s_13"]
+3 = [" Leave together", "true", "C_3_s_12_together"]

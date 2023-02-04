@@ -1,0 +1,12 @@
+[config]
+name = "C_2_s_21"
+type = "default"
+[content]
+1 = "Hi I'm Izydor, I'm here just because there's food or I don't care I'll leave when I have nothing to do here with you, where I come from you didn't care and I don't care about you so stay in our corner and it should be okay."
+2 = ""
+3 = "All the people around Izydor look at him shocked by his remarks, some give him very cold looks."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Apologise because you are tired and stressed", "true", "C_2_s_24"]
+2 = [" You hit the guard and try to escape", "true", "C_2_s_25"]

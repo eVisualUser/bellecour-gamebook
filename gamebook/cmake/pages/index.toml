@@ -1,9 +1,9 @@
 [config]
-name = "Milestone 3 Build"
-type = "Save"
+name = "IZYDOR V1.0"
+type = "Reset"
 [content]
-greatings = "Happy to see you !"
-explanation_a = "AAAAAAA BBBBBBBBBBBBB CCCCCCCCCCCCCCC DDDDDDDDDDDDDDDDD AAAAAAA BBBBBBBBBBBBB CCCCCCCCCCCCCCC DDDDDDDDDDDDDDDDD AAAAAAA BBBBBBBBBBBBB CCCCCCCCCCCCCCC DDDDDDDDDDDDDDDDD AAAAAAA BBBBBBBBBBBBB CCCCCCCCCCCCCCC DDDDDDDDDDDDDDDDD"
-great_line = "---"
+greatings = ""
+explanation_a = ""
 [choices]
-start = ["Start", "true", "start"]
+start = ["Play", "true", "start"]
+Credit = ["Credits", "true", "credit"]

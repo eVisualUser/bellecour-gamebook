@@ -1,0 +1,14 @@
+[config]
+name = "C_3_s_37"
+type = "default"
+[content]
+1 = "The group is now safe and have reached the city center."
+2 = ""
+3 = "This run was short but exhaustive !"
+4 = "The group unfortunatly lost Dagmara."
+5 = ""
+6 = "A hord of creepy and lamenting people apear, they are covered by blood and some of their body parts are missing..."
+7 = ""
+8 = "---"
+[choices]
+1 = [" Continue", "true", "C_4_s_20"]

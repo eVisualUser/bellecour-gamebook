@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_6"
+type = "default"
+[content]
+1 = "The pridefull Izydor don't ask for help and let the group of survivor leaving without him, thinking he could care of the monster by himself."
+2 = "He died alone and will be remembered as a drunk peasant addicted to the morphia."
+3 = ""
+4 = "The group of survivor are now heading to the airport."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The end", "true", "recap"]

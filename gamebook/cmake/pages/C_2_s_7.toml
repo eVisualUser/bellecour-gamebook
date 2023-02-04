@@ -1,0 +1,12 @@
+[config]
+name = "C_2_s_7"
+type = "default"
+[content]
+1 = "Izydor decides to learn more about her, he asks her how her life was before the disaster."
+2 = ""
+3 = "Dagmara Answers ''my life before? She was beautiful, I had a family I work in a hospital treated people, now I don't treat much anymore because everyone is almost dead, now let me go search ''."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Go in to find some supplies", "true", "C_2_s_3"]
+2 = [" Talk with Norbert", "true", "C_2_s_3"]

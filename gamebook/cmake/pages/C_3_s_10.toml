@@ -1,0 +1,13 @@
+[config]
+name = "C_3_s_10"
+type = "default"
+[content]
+1 = "Izydor and the group are eating the cat."
+2 = ""
+3 = "The group wants to thank Izydor with a morphia shot..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Accept and use", "true", "C_3_s_12_use"]
+2 = [" Accept and keep", "true", "C_3_s_12_keep"]
+3 = [" Refuse", "true", "C_3_s_12_refuse"]

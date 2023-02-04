@@ -1,0 +1,11 @@
+[config]
+name = "C_4_s_20"
+type = "default"
+[content]
+1 = "The horde of creepy people are heading toward the bus."
+2 = "The group is now inside the bus surrounded by these monsters..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Norbet drive", "true", "C_4_s_24"]
+2 = [" Izydor drive", "true", "C_4_s_21"]

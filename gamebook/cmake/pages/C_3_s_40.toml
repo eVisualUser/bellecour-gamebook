@@ -1,0 +1,11 @@
+[config]
+name = "C_3_s_40"
+type = "default"
+[content]
+1 = "The group had many losses but finally they reach the city center."
+2 = ""
+3 = "The gunshots attracted a hord of creepy and lamenting people, they are covered by blood and some of their body parts are missing..."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Continue", "true", "C_4_s_9"]

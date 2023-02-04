@@ -1,0 +1,13 @@
+[config]
+name = "C_4_s_42"
+type = "default"
+[content]
+1 = "Izydor wake up inside the bus, it's a beautiful and sunny morning."
+2 = "He comes infront the door and heard weird snoring."
+3 = ""
+4 = "When he open the door his mates turned into monster and start running toward him..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Punch them", "true", "C_4_s_43"]
+2 = [" Use a shot of morphia and punch them", "c_morphia", "C_4_s_44"]

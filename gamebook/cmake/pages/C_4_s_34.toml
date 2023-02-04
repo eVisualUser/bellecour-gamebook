@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_34"
+type = "default"
+[content]
+1 = "Norbert is a good driver, the road was clear, and the travel smooth."
+2 = "The group arrived to the airport that is surrounded by a massive hordes of monsters."
+3 = ""
+4 = "They manage to find a safe entrance to join the next departure."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]

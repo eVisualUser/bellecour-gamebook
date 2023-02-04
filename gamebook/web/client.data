@@ -128,7 +128,7 @@ C_2_s_30 = ["$C_2_s_30.toml"]
 C_2_s_17 = ["$C_2_s_17.toml"]
 C_2_s_18 = ["$C_2_s_18.toml"]
 C_2_s_19 = ["$C_2_s_19.toml"]
-C_2_s_20 = ["$C_2_s_20.toml", "karma + 1"]
+C_2_s_20 = ["$C_2_s_20.toml", "karma + 1 "]
 C_2_s_21 = ["$C_2_s_21.toml", "karma - 1"]
 C_2_s_24 = ["$C_2_s_24.toml"]
 C_2_s_25 = ["$C_2_s_25.toml", "karma - 1"]
@@ -201,7 +201,7 @@ credit = ["$credit.toml"]
 [client]
 page = "pages/index.toml"
 frameSize_x = 115
-frameSize_y = 25
+frameSize_y = 30
 up = 72
 down = 80
 ok = 13
@@ -266,21 +266,19 @@ Choice_1 = ["Restart", "true", "restart"]
 name = "C_1_s_1"
 type = "default"
 [content]
-1 = "Hoof sounds on metal wake Izydor up, he opens his eyes and see in front of him a building which seems damaged by the time and alone in the forest, a small lonely path however seems to go to the left."
+1 = "Hoof sounds on a metal hood of a car wake Izydor up. he opens his eyes and sees in front of him a building which seems damaged by the time and alone in the forest. a small lonely path however seems to go to the left."
 2 = ""
-3 = "When Izydor approached to attach his horse, he read a panel, on it is written 'Pila 2km' Izydor doesn't linger to long and walks toward the fence which closes the building, after climbing over it Izydor arrives in the yard, some cars are parked, they seem old and some started to be covered in dust."
+3 = "When Izydor approaches to attach his horse, he reads a sign. On it is written 'Pila 2km' Izydor doesn't linger to long and walks toward the fence which closes the building, after climbing over it Izydor arrives in the yard, some cars are parked, they seem old and some started to be covered in dust."
 4 = ""
-5 = "Several choices are available to Izydor."
-6 = ""
-7 = "---"
+5 = "---"
 [choices]
 1 = [" Enter in the building", "true", "C_1_s_2"]
-2 = [" Search in the area", "true", "C_1_s_3"]
+2 = [" Search the area", "true", "C_1_s_3"]
 [config]
 name = "C_1_s_10"
 type = "default"
 [content]
-1 = "Izydor walks into the room, it's an office, a table is placed in the center of the table, some chairs are placed around it. Several closets are stored at the bottom of the room, he quickly searches them in the hopes of finding useful things."
+1 = "Izydor walks into the room, it's an office, a table is placed in the center of the room, some chairs are placed around it. Several closets are stored at the bottom of the room, he quickly searches them in the hopes of finding useful things."
 2 = ""
 3 = "Luckily Izydor finds a bag with all the necessary equipment for first aid."
 4 = ""
@@ -292,9 +290,9 @@ type = "default"
 name = "C_1_s_11"
 type = "default"
 [content]
-1 = "Izydor walks into the room. It's a utility closet for cleaning, brooms, cleaning products and buckets are stored there a little everywhere, behind them is a sanitizer bottle he grabs it to look closer."
+1 = "Izydor walks into the room. It's a utility closet for cleaning, brooms, cleaning products and buckets are stored all over the room, behind them is a sanitizer bottle he grabs it to look closer at it."
 2 = ""
-3 = "While taking the bottle footstep sounds through the ceiling startles him, did Izydor finally find someone in this abandoned building?"
+3 = "While taking the bottle he hears footsteps through the ceiling and it startles him, did Izydor finally find someone in this abandoned building?"
 4 = ""
 [choices]
 1 = [" Leave it and go see the second floor", "true", "C_1_s_7"]
@@ -307,7 +305,7 @@ type = "default"
 2 = ""
 3 = "After searching the shelves Izydor finds a small bag with a syringe inside, it is written on it 'Morphia'.  While reading that his hand starts to hurt him quite a bit. "
 4 = ""
-5 = "Catching the syringe the sound of footsteps through the ceiling startles him, did Izydor finally find someone in this abandoned building?"
+5 = "While taking the syringe the sound of footsteps through the ceiling startles him, did Izydor finally find someone in this abandoned building?"
 6 = ""
 7 = "---"
 [choices]
@@ -317,12 +315,13 @@ type = "default"
 name = "C_1_s_13"
 type = "default"
 [content]
-1 = "Izydor knocked on the open door saying, “Hello, do you know where I can find a doctor?”"
-2 = "The 2 silhouettes quickly turn around taking instantly in their hand objects to defend themselves."
-3 = ""
-4 = "One of the two figures says, “Who are you fucker? What the hell are you doing here? stay where you are” threatening you."
-5 = ""
-6 = "---"
+1 = "Izydor knocks on the open door asking, ''Hello, do you know where I can find a doctor?''"
+2 = ""
+3 = "The 2 silhouettes quickly turn around taking instantly in their hands objects to defend themselves."
+4 = ""
+5 = "One of the two figures says, ''Who are you fucker? What the hell are you doing here? stay where you are'' threatening Izydor."
+6 = ""
+7 = "---"
 [choices]
 1 = ["Wow calm down insult me again and you will regret it!", "true", "C_1_s_24"]
 2 = ["I'm Izydor fucker and I came for a check up", "true", "C_1_s_20"]
@@ -332,9 +331,11 @@ type = "default"
 [content]
 1 = "Angry Izydor speaks to the person with an insulting voice."
 2 = ""
-3 = "The person in front of him takes his baseball bat in both hands pointing at Izydor with a cold look at him, “Are you insulting me idiot? If you keep going and you will be hit down to the floor crying for help” the person approaches Izydor slowly, keeping distance between them."
+3 = "The person in front of him takes his baseball bat in both hands pointing at Izydor with a cold look at him, ''Are you insulting me idiot? If you keep going and you will be hit down to the floor, crying for help''. "
 4 = ""
-5 = "---"
+5 = "The person approaches Izydor slowly, keeping enough distance between them to strike just in case."
+6 = ""
+7 = "---"
 [choices]
 1 = [" Punch him in the face", "true", "C_1_s_16"]
 2 = [" Apologize. Izydor is stressed", "true", "C_1_s_18"]
@@ -342,9 +343,9 @@ type = "default"
 name = "C_1_s_15"
 type = "default"
 [content]
-1 = "The foreigner replied to Izydor ''You are far away from your farm here, I don't know if you live in a different world but there were big problems here recently, so avoid saying random stuff to anyone if you want to live''"
+1 = "The foreigner replied to Izydor '' You are far away from your farm here, I don't know if you live in a different world but there were big problems here recently, so avoid saying random stuff to anyone if you want to live'' "
 2 = ""
-3 = "The foreigner will not be so harsh and asked Izydor a question, ''Do you know what happened here at least?''"
+3 = "The guy calms himself and asks Izydor a question, ''Do you know what happened here at the very least?''"
 4 = ""
 5 = "---"
 [choices]
@@ -354,7 +355,7 @@ type = "default"
 name = "C_1_s_16"
 type = "default"
 [content]
-1 = "Izydor clenches his fists hard and advances towards the person, taking momentum he hits with all his might, knocking the person directly out. Proud of his feat he turned to look around and suddenly he saw...."
+1 = "Izydor clenches his fists hard and advances towards the person, taking momentum he hits with all his might, knocking the person directly out. Proud of his feat he turned around and suddenly he saw...."
 2 = ""
 3 = "---"
 [choices]
@@ -363,9 +364,11 @@ type = "default"
 name = "C_1_s_17"
 type = "default"
 [content]
-1 = "The stranger lays his bat on the ground, taking a breath and responds “Many things but everyone thinks something different, for some it's war again,for others politics, some even talk about aliens but it is complicated to know who is right.''"
+1 = "The stranger lays his bat on the wall near him, taking a breath and responds."
 2 = ""
-3 = "---"
+3 = "''Many things but everyone thinks something different, for some it's war again,for others politics, some even are talking about aliens but it's complicated to know who is right.''"
+4 = ""
+5 = "---"
 [choices]
 1 = ["When did this happen?", "true", "C_1_s_22"]
 2 = [" Where is everybody?", "true", "C_1_s_21"]
@@ -373,9 +376,9 @@ type = "default"
 name = "C_1_s_18"
 type = "default"
 [content]
-1 = "Izydor calms himself down, the stranger tells him ''That's okay dude, you can be stressed if you just discovered the area for the first time, just make sure to not repeat that okay?''"
+1 = "Izydor calms himself down, the stranger tells him ''That's okay dude, you can be stressed if you just discovered the area for the first time, just make sure to not do that again okay?"
 2 = ""
-3 = "''Now you have questions I guess so ask away!''"
+3 = "Now, I'm guessing you have questions so ask away!''"
 4 = ""
 5 = "---"
 [choices]
@@ -385,7 +388,7 @@ type = "default"
 name = "C_1_s_19"
 type = "default"
 [content]
-1 = "The stranger talks to Izydor ''I'm sorry for you but everyone here is dead or has left long ago, if you want to find one you will have to go into the city but it's dangerous there''"
+1 = "The stranger talks to Izydor ''I'm sorry for you but everyone here is either dead or has left long ago, if you want to find one you will have to go into the city but it's dangerous there''"
 2 = ""
 3 = "Looking at Izydor the stranger says ''But you seem very strong so I think you will survive, don't worry''"
 4 = ""
@@ -399,11 +402,9 @@ type = "default"
 [content]
 1 = "From a determined step Izydor advances towards the entrance of the building, it is a simple double wooden door with vines growing on the sides, above is inscribed ''Pila's Asylum''."
 2 = ""
-3 = "He open the doors, after having passed the threshold of the door Izydor finds the atmosphere very strange, the asylum seems empty, nobody in the horizon, Izydor looks behind the reception desk but everyone seems to have taken their break a while ago. "
+3 = "He opens the doors, after having passed the threshold of the door Izydor finds the atmosphere very strange, the asylum seems empty, nobody in sight, Izydor looks behind the reception desk but everyone seems to have taken their break a while ago. "
 4 = ""
-5 = "After having a look around Izydor studies the options."
-6 = ""
-7 = "---"
+5 = "---"
 [choices]
 1 = [" Go to the left wing", "true", "C_1_s_6"]
 2 = [" Go to the second floor", "true", "C_1_s_8"]
@@ -412,17 +413,17 @@ type = "default"
 name = "C_1_s_20"
 type = "default"
 [content]
-1 = "The strangers laughed and quickly talked to Izydor ''Wow man where do you come from, are you a foreigner? How is it possible to ignore what happened here? if it's true you live in the middle of nowhere dude!''"
+1 = "The strangers laughed and quickly talked to Izydor ''Wow man where do you come from, are you a foreigner? How is it possible to ignore what happened here? If it's true you must live in the middle of nowhere dude!''"
 2 = ""
 3 = "---"
 [choices]
-1 = ["Where I'm from? My farm... It is far from here and everything", "true", "C_1_s_14"]
-2 = ["I'm just looking for a doctor. Idiot. Stop laughing at me!", "true", "C_1_s_15"]
+1 = ["Where I'm from ? My farm... it's far from here and everything", "true", "C_1_s_14"]
+2 = ["> I'm just looking for a doctor idiot stop laughing at me!", "true", "C_1_s_15"]
 [config]
 name = "C_1_s_21"
 type = "default"
 [content]
-1 = "The stranger makes a sad face and says ''Many died in the first weeks after the crisis, the others left, they fled to other cities through the train station or airport. Too many people left at the same time so it was impossible to leave for many people, it was a carnage.''"
+1 = "The stranger's face saddens and says ''Many died in the first weeks after the crisis, the others left, they fled to other cities through the train station or airport. Too many people left at the same time so it was impossible to leave for the people that didn't get to leave first, it was a carnage.''"
 2 = ""
 3 = "---"
 [choices]
@@ -431,7 +432,7 @@ type = "default"
 name = "C_1_s_22"
 type = "default"
 [content]
-1 = "Looking at Izydor he says ''It all started a Year ago in 1972 if you didn't know because you seem lost in time. In one week all the city was in chaos, dead bodies everywhere in the street. but now it's different...''"
+1 = "Looking at Izydor he says ''It all started a year ago in 1972, I guess you didn't know because you seem lost in time. In only a week all the city was in chaos, dead bodies everywhere in the street. But now it's different...''"
 2 = ""
 3 = "---"
 [choices]
@@ -440,7 +441,7 @@ type = "default"
 name = "C_1_s_23"
 type = "default"
 [content]
-1 = "The stranger looks Izydor in the eye and says ''Maybe, but I don't know you so even if I know one I will not present you to her actually, I think you will understand you seem like a good and sweet guy!''"
+1 = "The stranger looks Izydor in the eye and says ''Maybe, but I don't know you so even if I knew one I will not take you to her actually, I think you will understand you seem like a good guy!''"
 2 = ""
 3 = "---"
 [choices]
@@ -449,7 +450,7 @@ type = "default"
 name = "C_1_s_24"
 type = "default"
 [content]
-1 = "Angry the strangers look Izydor in the eye, showing their irritation ''you need to calm down man if you don't want to be hurt, you just appeared and insulted us, I suggest you to stay calm and apologies''"
+1 = "Angry the strangers look Izydor in the eye, showing their irritation ''you need to calm down man if you don't want to be hurt, you just appeared and insulted us, I suggest you to stay calm and apologise''"
 2 = ""
 3 = "---"
 [choices]
@@ -459,9 +460,9 @@ type = "default"
 name = "C_1_s_25"
 type = "default"
 [content]
-1 = "When you talk with the stranger, you hear someone screaming ''Hey guys we need to move, we are losing time here we found nothing, go back in the entry we will move together!''"
+1 = "When you talk with the stranger, you hear someone screaming ''Hey guys we need to move, we are losing time here we found nothing, go back to the entryway we will move together!'' "
 2 = ""
-3 = "He says ''you stay here or you move with us? staying here is a good way to die and I don't want to have your death on my mind, so come.''"
+3 = "He says ''you stay here or do you come with us? Staying here is a good way to die and I don't want to have your death on my consciousness, so follow us.''"
 4 = ""
 5 = "---"
 [choices]
@@ -470,9 +471,9 @@ type = "default"
 name = "C_1_s_26"
 type = "default"
 [content]
-1 = "Izydor move in the asylum and exit finding other strangers outside, the other looks Izydor and talked together ''who the fuck is this? you find a man in this building.''"
+1 = "Izydor moves in the asylum and exit the building finding other strangers outside, the others look Izydor and argues with the rest of the group '' Who the fuck is this? You found a man in this building, why did you bring him with you?''."
 2 = ""
-3 = "The other says ''yea he is lost and he doesn't even know what's going on here, I wasn't gonna leave him alone to die! We'll take him to HQ and see later.''"
+3 = "The others say ''Yeah, he is lost and he doesn't even know what's going on here, I wasn't gonna leave him alone to die! We'll take him to HQ and see later.''"
 4 = ""
 5 = "---"
 [choices]
@@ -483,9 +484,9 @@ type = "default"
 [content]
 1 = "One of them says ''Okay fine, we are losing time, so what is your name?''"
 2 = ""
-3 = "Izydor looks them and talks ''I'm Izydor''"
+3 = "Izydor looks them and says '' I'm Izydor''"
 4 = ""
-5 = "The one who looks like the leader says ''Okay Izydor we are gonna go to find suppliers, you will go with one group you will choose, you have the shop group and the pharmacy group, with which one you want to go?''"
+5 = "The one who looks like the leader says ''Okay Izydor we are gonna go to find supplier, you will go with the group that you will choose, you have the choice between going to the shop or the pharmacy, with which one do you want to go?''"
 6 = ""
 7 = "---"
 [choices]
@@ -495,13 +496,11 @@ type = "default"
 name = "C_1_s_3"
 type = "default"
 [content]
-1 = "Looking around him, Izydor find cars and trash cans, the cars are full of dust and moss, after some seconds of hesitation he search in the nauseating bins, but unfortunately their is nothing inside."
+1 = "Looking around him, Izydor finds cars and trash cans, the cars are full of dust and moss, after some seconds of hesitation he searches in the nauseating bins, but unfortunately their is nothing inside."
 2 = ""
 3 = "After another look Izydor find a door on the side of the building. This one seems to be the emergency exit, the door is metal but looks fragile, it must be rusty and nobody thought about fixing it. "
 4 = ""
-5 = "After a last look Izydor decide what the best option is."
-6 = ""
-7 = "---"
+5 = "---"
 [choices]
 1 = [" Force the exit door", "true", "C_1_s_4"]
 2 = [" Enter inside the building", "true", "C_1_s_2"]
@@ -515,7 +514,7 @@ type = "default"
 4 = ""
 5 = "---"
 [choices]
-1 = [" Izydor turn-around and enter inside the building", "true", "C_1_s_2"]
+1 = ["Izydor turns around and enters in the front of the building", "true", "C_1_s_2"]
 2 = [" Enter inside the building from the back door", "true", "C_1_s_5"]
 [config]
 name = "Great Page"
@@ -523,22 +522,22 @@ type = "C_1_s_5"
 [content]
 1 = "Izydor decides to progress in the darkness beyond the exit door, entering the doors he finds himself in a tiny room with a metallic staircase in the back, by testing the staircase it seems that it is still in very good shape compared to the door but the stairs creak every time he takes a step, it's not very comforting."
 2 = ""
-3 = "Putting his doubts aside Izydor decides to..."
-4 = ""
-5 = "---"
+3 = "---"
 [choices]
 1 = [" Use the stairs", "true", "C_1_s_8"]
 [config]
 name = "C_1_s_6"
 type = "default"
 [content]
-1 = "Izydor walks down the hallway on the left, hospital beds are placed against the walls, blankets littered all over the floor on both sides of the hallway, everything seems so empty. Izydor tries to open the doors on each sides of the hallway but they're all blocked, Even if Izydor tries to force them, they don't move, so he keeps moving."
+1 = "Izydor walks down the hallway on the left, hospital beds are placed against the walls, blankets littered all over the floor on both sides of the hallway. "
 2 = ""
-3 = "When Izydor arrives at the end of the corridor, he observes two half-open doors, above one is written 'toilet', approaching the other room and taking a brief look he sees a desk with storage.  "
+3 = "Everything seems so empty, Izydor tries to open the doors on each sides of the hallway but they're all blocked, Even if Izydor tries to force them. they don't move, so he keeps moving."
 4 = ""
-5 = "---"
+5 = "When Izydor arrives at the end of the corridor, he observes two half-open doors, above one is written 'restrooms', approaching the other room and taking a brief look he sees a desk with storage.  "
+6 = ""
+7 = "---"
 [choices]
-1 = [" Go in the toilet", "true", "C_1_s_9"]
+1 = [" Go in the restroom", "true", "C_1_s_9"]
 2 = [" Go in the office", "true", "C_1_s_10"]
 [config]
 name = "C_1_s_7"
@@ -572,12 +571,15 @@ type = "default"
 [content]
 1 = "Izydor opens the bathroom door and sees someone in the back peeing, closing the door behind him, he walks towards the person."
 2 = ""
-3 = "The moment the door slams behind him, the person turns around and jumps when he sees Izydor, he quickly pulls up his pants and shouts at him, ''Who are you, where do you come from fucker ! Don't come near me if you don't want to get hurt.'' The person holds his hands on a baseball bat and holds it, ready to hit anyone in his way and threatens Izydor."
+3 = "The moment the door slams behind him, the person turns around and jumps when he sees Izydor, he quickly pulls up his pants and shouts at him, ''Who are you, where do you come from fucker ! Don't come near me if you don't want to get hurt.'' "
 4 = ""
-5 = "---"
+5 = "The person holds his hands on a baseball bat and holds it, ready to hit anyone in his way and threatens Izydor."
+6 = ""
+7 = "---"
+8 = ""
 [choices]
-1 = [" Where I'm from ? My farm... It's far from here", "true", "C_1_s_14"]
-2 = ["I'm looking for a doctor idiot. Stop insulting me", "true", "C_1_s_15"]
+1 = ["Where I'm from ? My farm... It's far from here", "true", "C_1_s_14"]
+2 = ["im looking for a doctor idiot", "true", "C_1_s_15"]
 [config]
 name = "C_2_s_1"
 type = "default"

@@ -128,7 +128,7 @@ C_2_s_30 = ["$C_2_s_30.toml"]
 C_2_s_17 = ["$C_2_s_17.toml"]
 C_2_s_18 = ["$C_2_s_18.toml"]
 C_2_s_19 = ["$C_2_s_19.toml"]
-C_2_s_20 = ["$C_2_s_20.toml", "karma + 1"]
+C_2_s_20 = ["$C_2_s_20.toml", "karma + 1 "]
 C_2_s_21 = ["$C_2_s_21.toml", "karma - 1"]
 C_2_s_24 = ["$C_2_s_24.toml"]
 C_2_s_25 = ["$C_2_s_25.toml", "karma - 1"]
@@ -201,7 +201,7 @@ credit = ["$credit.toml"]
 [client]
 page = "pages/index.toml"
 frameSize_x = 115
-frameSize_y = 25
+frameSize_y = 30
 up = 72
 down = 80
 ok = 13

@@ -1,0 +1,14 @@
+[config]
+name = "C_3_s_6"
+type = "default"
+[content]
+1 = "During the walk a weird silhouette can be noticed in the shadows."
+2 = ""
+3 = "The more the group walks the better you distinguish the shape of this dark mass: There is the dead body of a soldier, judging the decomposition state and the surrounding terrible smell, he's been there since a year."
+4 = ""
+5 = "You can notice a sort of paper rising from his coat pocket..."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Take the paper and read it", "true", "C_3_s_8"]
+2 = [" Leave the dead body alone", "true", "C_3_s_9"]

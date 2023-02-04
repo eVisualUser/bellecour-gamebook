@@ -128,7 +128,7 @@ void Core::Draw() {
     }
   }
 
-  this->_ui.DrawButtons(Point(this->_ui.size.x / 2, this->_ui.size.y),
+  this->_ui.DrawButtons(Point(this->_ui.size.x / 4, this->_ui.size.y),
                         &this->_inputManager, selectChar,
                         &this->_variableManager, &this->_executor);
 #endif

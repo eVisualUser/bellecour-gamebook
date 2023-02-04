@@ -1,0 +1,11 @@
+[config]
+name = "C_4_s_12"
+type = "default"
+[content]
+1 = "He is now drunk and still driving the bus."
+2 = "The next branch..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Turn left", "true", "C_4_s_16"]
+2 = [" Turn right", "true", "C_4_s_10"]

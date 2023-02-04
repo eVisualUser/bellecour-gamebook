@@ -1,0 +1,13 @@
+[config]
+name = "C_3_s_20"
+type = "default"
+[content]
+1 = "In the back of the garden, near the root of a tree Izidor distinguishes something that look like a hand..."
+2 = ""
+3 = "After coming closer and closer he recognize Dagmara's body, she is alive but wounded."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Help Dagmara and spead vodka on her wounds", "c_vodka", "C_3_s_23_vodka"]
+2 = [" Help Dagmara and give her a shot of morphia", "c_morphia", "C_3_s_23_morphia"]
+3 = [" Leave her there and lie to the group", "c_bad", "C_3_s_22"]

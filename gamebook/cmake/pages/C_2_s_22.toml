@@ -1,0 +1,9 @@
+[config]
+name = "C_2_s_22"
+type = "default"
+[content]
+1 = "Izydor leaning gently towards Norbert's bag and grabbed the 2 syringes discreetly, he quickly put them in his pockets and looks innocent so as not to arouse suspicion, happy with his steal, Izydor smiles."
+2 = ""
+3 = "---"
+[choices]
+1 = [" Leave the store", "true", "C_2_s_17"]

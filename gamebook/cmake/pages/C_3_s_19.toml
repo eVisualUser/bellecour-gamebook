@@ -1,0 +1,12 @@
+[config]
+name = "C_3_s_19"
+type = "default"
+[content]
+1 = "He approaches carefully the bag, expecting an imminent trap but nothing happens."
+2 = ""
+3 = "Izydor take a morphia shot out of the bag, and now head back to the group."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Tell the truth about Dagmara", "true", "C_3_s_21"]
+2 = [" Lie about Dagmara", "c_bad", "C_3_s_22"]

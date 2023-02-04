@@ -1,0 +1,11 @@
+[config]
+name = "C_3_s_18"
+type = "default"
+[content]
+1 = "Izydor runs away the crime scene and head back to the group."
+2 = "They are asking him what happened..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Tell the truth", "true", "C_3_s_21"]
+2 = [" Lie about Dagmara", "c_bad", "C_3_s_22"]

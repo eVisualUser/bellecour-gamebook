@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_45"
+type = "default"
+[content]
+1 = "Izydor destroyed the monsters with his migthy punches."
+2 = "Blood and guts fill the room."
+3 = ""
+4 = "He take the group's ressources, repair the bus and goes back to its farm."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]

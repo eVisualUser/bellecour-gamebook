@@ -1,0 +1,12 @@
+[config]
+name = "C_3_s_16"
+type = "default"
+[content]
+1 = "Izydor is looking for Dagmara near the abbandoned houses and hear some noises in the background gardens."
+2 = "Fearless he checks the areas and find her bag on the ground with bloodstains all over the areas..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Loot the bag", "true", "C_3_s_19"]
+2 = [" Run away", "true", "C_3_s_18"]
+3 = [" Look for Dagmara", "true", "C_3_s_20"]

@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_33"
+type = "default"
+[content]
+1 = "He immolate himself and hope that the monsters get burnt with him."
+2 = "This gave enough distraction to let the survivor group to escape."
+3 = ""
+4 = "They ran away toward the airport."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]

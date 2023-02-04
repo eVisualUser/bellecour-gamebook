@@ -1,0 +1,14 @@
+[config]
+name = "C_2_s_16"
+type = "default"
+[content]
+1 = "Izydor comes out of the small room and brings the syringe to the group, Norbert warmly thanks him, and Dagmara smiles at him for real, izydor is happy."
+2 = ""
+3 = "Norbert asked him if everything was okay, Izydor replied that yes, Norbert found something on the ground he stooped down to catch it, at which point Izydor saw in the bag what looked like syringes."
+4 = ""
+5 = "He asked himself..."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Steal the morphia", "true", "C_2_s_22"]
+2 = [" Leave the bag alone", "true", "C_2_s_23"]

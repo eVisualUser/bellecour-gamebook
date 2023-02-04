@@ -1,0 +1,14 @@
+[config]
+name = "C_2_s_15"
+type = "default"
+[content]
+1 = "Izydor heard this, took out the syringe and used it on him. He felt his pain go away he observed his arm wound but it was still there, the wound infection continued, he had to find help quickly."
+2 = ""
+3 = "Once the syringe was used, Norbert entered the room and asked him if everything was okay, Izydor replied that yes, Norbert found something on the ground he stooped down to catch it, at which point Izydor saw in the bag what looked like syringes."
+4 = ""
+5 = "He asked himself..."
+6 = ""
+7 = "---"
+[choices]
+1 = [" Steal the morphia", "true", "C_2_s_22"]
+2 = [" Leave the bag alone", "true", "C_2_s_23"]

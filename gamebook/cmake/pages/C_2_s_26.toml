@@ -1,0 +1,14 @@
+[config]
+name = "C_2_s_26"
+type = "default"
+[content]
+1 = "Izydor wakes up in a seedy room a metal door and in front of him, behind him two men look at him."
+2 = ""
+3 = "One of them said, ''We understand that finding out the world is screwed up is hard, but hitting someone to get away is not going to work, know that you're going on an expedition, it will be your last chance, if you screw it up we kill you understand? One of the guards slaps him and laughs. "
+4 = ""
+5 = "You have the choice You go with a team in the sewers or you go through the territory of the Russians, in both cases you have to find a bus then you better find it or you're dead!''"
+6 = ""
+7 = "---"
+[choices]
+1 = [" Go with the sewer team", "true", "C_3_s_1"]
+2 = [" Go with the red team", "true", "C_3_s_15"]

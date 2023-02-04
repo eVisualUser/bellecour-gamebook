@@ -1,0 +1,9 @@
+[config]
+name = "C_4_s_11"
+type = "default"
+[content]
+1 = "Izydor fail the throw of the molotov and burn alive everybody in the bus."
+2 = ""
+3 = "---"
+[choices]
+1 = [" The End", "true", "recap"]

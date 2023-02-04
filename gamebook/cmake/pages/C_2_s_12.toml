@@ -1,0 +1,11 @@
+[config]
+name = "C_2_s_12"
+type = "default"
+[content]
+1 = "zydor pushes the door and finds behind it, a reserve of food there remain some large cans of Izydor takes them and asks for help to carry the rest."
+2 = ""
+3 = "The group congratulates him for his find, Zenon gives him a pat on the back as a symbol of thanks."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Leave the store", "true", "C_2_s_17"]

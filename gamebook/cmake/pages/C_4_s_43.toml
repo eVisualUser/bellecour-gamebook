@@ -1,0 +1,9 @@
+[config]
+name = "C_4_s_43"
+type = "default"
+[content]
+1 = "He try to fist fight the monsters, but they outpower him and kill him."
+2 = ""
+3 = "---"
+[choices]
+1 = [" The End", "true", "recap"]

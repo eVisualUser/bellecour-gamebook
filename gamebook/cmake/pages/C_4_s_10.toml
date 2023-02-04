@@ -1,0 +1,11 @@
+[config]
+name = "C_4_s_10"
+type = "default"
+[content]
+1 = "After hitting several monsters, Izydor lost the control of the bus and crash it on a car wreck."
+2 = "Few seconds after, monsters start to surround the bus, making the exit not possible..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Craft a molotov with the vodka left", "c_vodka", "C_4_s_11"]
+2 = [" Stay inside the bus", "true", "C_4_s_13"]

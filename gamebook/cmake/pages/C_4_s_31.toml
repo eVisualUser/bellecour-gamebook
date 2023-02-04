@@ -1,0 +1,11 @@
+[config]
+name = "C_4_s_31"
+type = "default"
+[content]
+1 = "Izydor run at the middle of the horde, and continue to scream."
+2 = "After getting surrounded he..."
+3 = ""
+4 = "---"
+[choices]
+1 = [" Set himself on fire", "true", "C_4_s_33"]
+2 = [" Punch the monsters", "true", "C_4_s_32"]

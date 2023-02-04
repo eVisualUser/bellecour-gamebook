@@ -50,70 +50,10 @@ void UI::InitializeBuffer() {
   }
 }
 
-/*
-fn text_return_line(source: String, lenght: i32) -> String {
-
-    let mut result = String::new();
-
-    let mut word = String::new();
-
-    let mut count = 0_i32;
-
-    for i in source.chars() {
-        word.push(i);
-        if i == ' ' {
-            if (count + word.len() as i32) < lenght {
-                result.push_str(&word);
-                word = String::new();
-            } else {
-                count = 0;
-                result.push('\n');
-                result.push_str(&word);
-                word = String::new();
-            }
-        }
-        count += 1;
-    }
-    result.push_str(&word);
-
-    result
-}
-*/
-/*
-int UI::DrawText(Point start, string text, VariableManager *variableManager,
-                 Executor *executor) {
-  int textBack = 1;
-  if (text == "---") {
-    this->DrawLine(start, this->size.x, '-');
-  } else {
-    text = ReplaceVariables(text, variableManager, executor);
-    while (this->size.x < start.x + std::strlen(text.c_str()) && start.x > 0) {
-      start.x--;
-    }
-    if (start.x < this->size.x && start.y < this->size.y && start.x >= 0 &&
-        start.y >= 0) {
-      int lenght = std::strlen(text.c_str());
-      for (int x = 0; x < lenght; x++) {
-        if ((start.x + x) < this->size.x) {
-          this->buffer[start.y][start.x + x] = text[x];
-
-        } else if (start.y + 1 < this->size.y) {
-          int restLen = lenght - x;
-          x -= 1;
-          start.y += 1;
-          start.x -= this->size.x;
-        }
-      }
-    }
-  }
-
-  return textBack;
-}
-*/
-
 void UI::UnsafeDrawTextAt(Point start, string text) {
   for (int i = 0; i <= text.length(); i++) {
-    this->buffer[start.y][start.x + i] = text[i];
+    if (start.x + i < this->size.x)
+      this->buffer[start.y][start.x + i] = text[i];
   }
 }
 
@@ -129,9 +69,10 @@ int UI::DrawText(Point const start, string text, VariableManager *variableManage
     string word;
 
     for (int i = 0; i < text.length(); i++) {
+      if (start.y + textBack < this->size.y) {
         word.push_back(text[i]);
         if (text[i] == ' ') {
-          if (count + word.length() < this->size.x) {
+          if (start.y + textBack < this->size.y && count + word.length() < this->size.x) {
             Point textPos = start;
             textPos.x -= word.length() - count;
             textPos.y += textBack;
@@ -141,19 +82,23 @@ int UI::DrawText(Point const start, string text, VariableManager *variableManage
             count = 0;
             textBack++;
             Point textPos = start;
-            textPos.y += textBack;
-            count += word.length();
-            Logger::Log(word);
-            UnsafeDrawTextAt(textPos, word);
+            if (start.y + textBack < this->size.y && count + word.length() < this->size.x) {
+              textPos.y += textBack;
+              count += word.length();
+              UnsafeDrawTextAt(textPos, word);
+            }
             word = "";
           }
         }
         count++;
+      }
     }
-    Point textPos = start;
-    textPos.x -= word.length() - count;
-    textPos.y += textBack;
-    UnsafeDrawTextAt(textPos, word);
+    if (start.y + textBack < this->size.y && count + word.length() < this->size.x) {
+      Point textPos = start;
+      textPos.x -= word.length() - count;
+      textPos.y += textBack;
+      UnsafeDrawTextAt(textPos, word);
+    }
   }
 
   return textBack;

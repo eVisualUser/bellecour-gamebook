@@ -1,0 +1,13 @@
+[config]
+name = "C_3_s_13"
+type = "default"
+[content]
+1 = "Izydor argues against Dagmara about her mistakes."
+2 = "We can feel the rage inside the grandpa growing and growing over time."
+3 = ""
+4 = "His mind is about to break..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Try to calm down and leave", "true", "C_3_s_12"]
+2 = [" Beat Dagmara and leave her behind", "true", "C_3_s_14"]

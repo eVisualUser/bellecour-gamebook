@@ -1,0 +1,13 @@
+[config]
+name = "C_4_s_3"
+type = "default"
+[content]
+1 = "The left road was jammed with wrecked cars... Dagmara hit one of them and start to loose the control of the bus that crash into a wreck."
+2 = ""
+3 = "The group decide to spend the night inside the nearest abbandoned house."
+4 = "The morning, the area is full of monsters..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Izydor sacrifice himself to allow the group to repair the bus", "c_good", "C_4_s_8"]
+2 = [" Izydor start to fist fight the monsters", "true", "C_4_s_4"]

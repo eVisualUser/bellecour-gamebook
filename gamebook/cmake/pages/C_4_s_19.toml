@@ -1,0 +1,12 @@
+[config]
+name = "C_4_s_19"
+type = "default"
+[content]
+1 = "During the night, he woke up and took all the bags of the group and bus for himself leaving the rooms door wide open."
+2 = "Izydor used the bus to go back with all the group resources at home."
+3 = ""
+4 = "This was pure evil, he couldn't stop laugthing while driving..."
+5 = ""
+6 = "---"
+[choices]
+1 = [" The End", "true", "recap"]

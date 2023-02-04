@@ -1,0 +1,10 @@
+[config]
+name = "C_4_s_39"
+type = "default"
+[content]
+1 = "Izydor repair the bus and leave."
+2 = "He don't care about the group he prefered to go back to its farm."
+3 = ""
+4 = "---"
+[choices]
+1 = [" The End", "true", "recap"]

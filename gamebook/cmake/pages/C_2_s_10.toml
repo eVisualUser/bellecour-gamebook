@@ -1,0 +1,13 @@
+[config]
+name = "C_2_s_10."
+type = "default"
+[content]
+1 = "Zenon is a medium-sized man, bald and very athletic, he looks like a top athlete."
+2 = ""
+3 = "Izydor approaches Zenon and speaks to him, he replies with Kindness, that he would love to speak with Izydor but that time is running out, once at their camp they could talk without problems between them."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Try to know more about him", "true", "C_2_s_13"]
+2 = [" Go in to find some supplies", "true", "C_2_s_9"]
+3 = [" Talk with Stefan", "true", "C_2_s_11"]

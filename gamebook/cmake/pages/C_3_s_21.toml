@@ -1,0 +1,14 @@
+[config]
+name = "C_3_s_21"
+type = "default"
+[content]
+1 = "Back to the group Izydor explain that he found Dagmara's bag on the ground surrounded by bloodstains and no trace of her."
+2 = ""
+3 = "They decided to continue the walk to the river."
+4 = "They are now walking along the river nearby the train station."
+5 = ""
+6 = "---"
+[choices]
+1 = [" Share homemade vodka", "c_vodka", "C_3_s_25"]
+2 = [" Walk in silence", "true", "C_3_s_26"]
+3 = [" Izydor drinks the vodka alone", "c_vodka", "C_3_s_24"]

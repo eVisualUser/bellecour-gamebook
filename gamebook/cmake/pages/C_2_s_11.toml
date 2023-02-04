@@ -1,0 +1,13 @@
+[config]
+name = "C_2_s_11"
+type = "default"
+[content]
+1 = "Stefan is a tall man, he is a bit old like Izydor, life has marked him too because his arms are strewn with cuts, a sign of a life of hard work."
+2 = ""
+3 = "Izydor approaches Stefan to talk to him ''it's nice to see someone of the same age, I hang out with young people here so it changes, you work in the land it shows immediately, we both have a similar work environment, I feel like we're going to get along.''"
+4 = ""
+5 = "---"
+[choices]
+1 = [" Try to know more about him", "true", "C_2_s_14"]
+2 = [" Go in to find some supplies", "true", "C_2_s_9"]
+3 = [" Talk with Zenon", "true", "C_2_s_10"]

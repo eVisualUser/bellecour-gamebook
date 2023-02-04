@@ -1,0 +1,10 @@
+[config]
+name = "C_4_s_18"
+type = "default"
+[content]
+1 = "Tomorrow's morning Izydor pretended to repair the bus and the group took the road back."
+2 = "He lead them to the airport ready to wait the next departure."
+3 = ""
+4 = "---"
+[choices]
+1 = [" The End", "true", "recap"]

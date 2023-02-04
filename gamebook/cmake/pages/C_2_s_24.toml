@@ -1,0 +1,11 @@
+[config]
+name = "C_2_s_24"
+type = "default"
+[content]
+1 = "Norbert shows Izydor the camp, he shows him that everyone has his own private space even izydor, he shows him the storage of food or two guards are posted in front to avoid any attempted theft."
+2 = ""
+3 = "He shows her or has clean clothes where to shower and finally Izydor's private space, he is small but Izydor is happy to be able to rest a little, the trip weary, Norbert leaves him and tells him that everyone gets up at 8 am to work."
+4 = ""
+5 = "---"
+[choices]
+1 = [" Let Izydor rest", "true", "C_2_s_27"]
