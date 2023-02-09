@@ -128,18 +128,51 @@ void Core::Draw() {
     }
   }
 
-  this->_ui.DrawButtons(Point(this->_ui.size.x / 4, this->_ui.size.y),
+  int buttonXDivPosition = 4;
+  if (this->_variableManager.IsExist("button_position_div_x")) {
+	  buttonXDivPosition = _variableManager.GetVariableValue("button_position_div_x");
+  }
+
+  int buttonYDivPosition = 1;
+  if (this->_variableManager.IsExist("button_position_div_y")) {
+	  buttonYDivPosition = _variableManager.GetVariableValue("button_position_div_y");
+  }
+
+  this->_ui.DrawButtons(Point(this->_ui.size.x / buttonXDivPosition, this->_ui.size.y / buttonYDivPosition),
                         &this->_inputManager, selectChar,
                         &this->_variableManager, &this->_executor);
 #endif
   this->_ui.DrawText(Point(this->_ui.size.x / 2, 0), this->_page.name,
                      &this->_variableManager, &this->_executor);
 
+  int textXPosition = 1;
+  if (this->_variableManager.IsExist("text_position_x")) {
+	textXPosition = _variableManager.GetVariableValue("text_position_x");
+  }
+
+  int textYDivPositionValue = 4;
+  if (this->_variableManager.IsExist("text_position_div_y")) {
+	  textYDivPositionValue = _variableManager.GetVariableValue("text_position_div_y");
+  }
+
+  bool useTextYFixedPosition = false;
+  int textYPositionValue = 20;
+  if (this->_variableManager.IsExist("text_position_y")) {
+	  textYPositionValue = _variableManager.GetVariableValue("text_position_y");
+	  useTextYFixedPosition = true;
+  }
+
   int lineYOffset = 0;
   for (auto &line : this->_page.textContent) {
-    lineYOffset +=
-        1 + this->_ui.DrawText(Point(0, (this->_ui.size.y / 4) + lineYOffset),
-                               line, &this->_variableManager, &this->_executor);
+	  if (!useTextYFixedPosition) {
+		  lineYOffset +=
+			  1 + this->_ui.DrawText(Point(textXPosition, (this->_ui.size.y / textYDivPositionValue) + lineYOffset),
+			                         line, &this->_variableManager, &this->_executor);
+	  } else {
+		  lineYOffset +=
+			  1 + this->_ui.DrawText(Point(textXPosition, (textYDivPositionValue) + lineYOffset),
+			                         line, &this->_variableManager, &this->_executor);
+	  }
   }
 
   if (this->_page.type == "Recap") {

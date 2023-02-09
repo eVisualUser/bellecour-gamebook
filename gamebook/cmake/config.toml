@@ -3,6 +3,9 @@ name = "Izydor_V1.0"
 author = "BG4"
 tags = ["edited", "client-0.3.0"]
 [data]
+text_position_x = 0
+text_position_y = 10
+
 done_data_page = 0
 page_count = 0
 console_color_background = 47
